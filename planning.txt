@@ -1,0 +1,121 @@
+# Class structure
+
+Customer class: 
+Attributes:
+- Name
+- Age
+- ankroll
+- Loyalty level (e.g., bronze, silver, gold)
+
+Methods:
+- Bet(amount)
+- Win(amount)
+- Lose(amount)
+- IsBankrupt()
+- GetLoyaltyLevel()
+- GoBathroom()
+
+HighSpender class:
+Inherits from Customer class
+Attributes:
+- Minimum bet amount
+- Maximum bet amount
+Methods:
+- Bet(amount) - Overrides the Customer class's Bet() method to be higher.
+- EnterVIP()
+
+MediumSpender class:
+Inherits from Customer class
+Attributes:
+- Minimum bet amount
+- Maximum bet amount
+Methods:
+- Bet(amount) - Overrides the Customer class's Bet() method.
+- EnterVIP()
+
+LowSpender class:
+Inherits from Customer class
+Attributes:
+- Minimum bet amount
+- Maximum bet amount
+Methods:
+- Bet(amount) - Overrides the Customer class's Bet() method to be lower.
+- EnterVIP()
+
+Dealer class:
+Attributes:
+- Name
+- Age
+Methods:
+- DealCards()
+- TakeBets()
+- PayWinners()
+- CollectLosses()
+
+Table class: 
+Attributes:
+- Game type (blackjack, poker, roulette)
+- Minimum bet amount
+- Maximum bet amount
+- List of players
+Methods:
+- AddPlayer(player)
+- RemovePlayer(player)
+- StartGame()
+- EndGame()
+
+BlackJackTable class: 
+Inherits from Table class
+Methods
+- StartGame()
+- isGameOver() / EndGame()
+
+PokerTable class: (CASTRO & ANA)
+Inherits from Table class
+Methods
+StartGame()
+GetWinner() / EndGame()
+
+RouletteTable class:
+Inherits from Table class
+Methods
+StartGame()
+GetOutcome() / EndGame()
+
+Bar class:
+Attributes:
+- List of drinks
+- Price of each drink
+Methods:
+- ServeDrink(drink, customer)
+- GetDrinkPrice(drink)
+
+Bartender class: → ALMUDENA
+Attributes:
+- Name
+- Age
+Methods:
+- TakeOrder(customer)
+- MakeDrink(drink)
+- ServeDrink(drink, customer)
+
+Bouncer class:
+Attributes:
+- Name
+- Age
+Methods:
+- CheckID(customer) - Checks the customer's ID to make sure they are of legal age to enter the casino.
+- AdmitCustomer(customer)
+- DenyCustomerEntry(customer).
+- KickOutCustomer()
+
+Casino class:
+Attributes:
+- OpeningTime
+- ClosingTime
+- ListOfEmployees
+- ListOfTables
+Methods:
+- Open()
+- Close()
+
