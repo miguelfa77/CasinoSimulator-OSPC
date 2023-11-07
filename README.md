@@ -1,1 +1,1 @@
-Casino Simulation for Operating Systems & Parallel Computing
+# Casino Simulation for Operating Systems & Parallel Computing
