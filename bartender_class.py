@@ -1,6 +1,5 @@
 import random
 import names
-import threading
 import concurrent.futures
 
 class Bartender:
