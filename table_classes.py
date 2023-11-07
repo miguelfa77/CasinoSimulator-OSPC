@@ -4,9 +4,14 @@ import time
 import names
 import random
 
-class Table:
-    def __init__(self):
+class Dealer(Deck):
+    def __init__(self) -> None:
         self.Name = names.get_first_name()
         self.Age = random.randrange(18, 60)
 
-    def deal_cards():
+
+
+
+
+
+        
