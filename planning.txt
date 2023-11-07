@@ -42,7 +42,7 @@ Methods:
 - bet(amount) - Overrides the Customer class's Bet() method to be lower.
 - enter_vip()
 
-Dealer class:
+Dealer class -> Miguel:
 Attributes:
 - Name
 - Age
