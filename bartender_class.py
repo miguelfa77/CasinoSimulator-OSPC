@@ -1,7 +1,5 @@
 import random
 import names
-import threading
-import time
 
 class Bartender:
     def __init__(self):
