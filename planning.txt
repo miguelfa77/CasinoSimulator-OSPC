@@ -1,0 +1,10 @@
+PROJECT PLANNING
+
+Casino
+- Has tables
+- Has customers
+
+Tables(coordinates)
+- Has queue
+- Has staff
+- Has 
