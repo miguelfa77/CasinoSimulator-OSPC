@@ -1,5 +1,7 @@
 import random
 import names
+import threading
+import time
 
 class Bartender:
     def __init__(self):
@@ -26,14 +28,20 @@ class Bartender:
             print(f"{self.name} needs an order from a customer first.")
 
 class Customer:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, bartender):
+        self.name = names.get_first_name()
+        self.bartender = bartender
 
-if __name__ == "__main__":
-    bartender = Bartender("John")
-    customer = Customer("Alice")
+    def run(self):
+        self.bartender.take_order(self)
+        drink = self.bartender.make_drink()
+        self.bartender.serve_drink(self, drink)
+        print(f"{self.name} enjoys the {drink}.")
 
-    bartender.take_order(customer)
-    bartender.make_drink()
-    bartender.serve_drink(customer)
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.submit(bartender.take_order, customers[0])
+        for customer in customers:
+            executor.submit(customer.run)
+ 
 
