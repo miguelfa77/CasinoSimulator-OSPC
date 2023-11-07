@@ -1,5 +1,7 @@
 import random
 import names
+import threading
+import concurrent.futures
 
 class Bartender:
     def __init__(self):
@@ -33,13 +35,15 @@ class Customer:
     def run(self):
         self.bartender.take_order(self)
         drink = self.bartender.make_drink()
-        self.bartender.serve_drink(self, drink)
+        self.bartender.serve_drink(self)
         print(f"{self.name} enjoys the {drink}.")
 
+bartender = Bartender()
+customers = [Customer(bartender) for _ in range(15)]
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.submit(bartender.take_order, customers[0])
-        for customer in customers:
-            executor.submit(customer.run)
- 
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    for customer in customers:
+        executor.submit(customer.run)
+
+
 
