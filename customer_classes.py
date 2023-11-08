@@ -2,12 +2,13 @@
 import threading
 import time
 import random
+import names
 
 class Customer:
-    def __init__(self, name, age, bankroll):
-        self.name = name
-        self.age = age
-        self.bankroll = bankroll
+    def __init__(self):
+        self.name = names.get_first_name()
+        self.age = ranodm.randint(18,80)
+        self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
 
     def bet(self, amount):    
