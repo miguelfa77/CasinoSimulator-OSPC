@@ -7,7 +7,7 @@ import names
 class Customer:
     def __init__(self):
         self.name = names.get_first_name()
-        self.age = ranodm.randint(18,80)
+        self.age = random.randint(18,80)
         self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
 
@@ -74,10 +74,4 @@ class LowSpender(Customer):
                     amount *= 2
                 print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
             self.bankroll -= amount
-
-
-
-
-        
-
 
