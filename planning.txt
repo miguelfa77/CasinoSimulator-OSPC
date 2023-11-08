@@ -8,12 +8,12 @@ Attributes:
 - Loyalty level (e.g., bronze, silver, gold)
 
 Methods:
-- Bet(amount)
-- Win(amount)
-- Lose(amount)
-- IsBankrupt()
-- GetLoyaltyLevel()
-- GoBathroom()
+- bet(amount)
+- win(amount)
+- lose(amount)
+- is_bankrupt()
+- get_loyalty_level()
+- go_bathroom()
 
 HighSpender class:
 Inherits from Customer class
@@ -21,8 +21,8 @@ Attributes:
 - Minimum bet amount
 - Maximum bet amount
 Methods:
-- Bet(amount) - Overrides the Customer class's Bet() method to be higher.
-- EnterVIP()
+- bet(amount) - Overrides the Customer class's Bet() method to be higher.
+- enter_vip()
 
 MediumSpender class:
 Inherits from Customer class
@@ -30,8 +30,8 @@ Attributes:
 - Minimum bet amount
 - Maximum bet amount
 Methods:
-- Bet(amount) - Overrides the Customer class's Bet() method.
-- EnterVIP()
+- bet(amount) - Overrides the Customer class's Bet() method.
+- enter_vip()
 
 LowSpender class:
 Inherits from Customer class
@@ -39,18 +39,18 @@ Attributes:
 - Minimum bet amount
 - Maximum bet amount
 Methods:
-- Bet(amount) - Overrides the Customer class's Bet() method to be lower.
-- EnterVIP()
+- bet(amount) - Overrides the Customer class's Bet() method to be lower.
+- enter_vip()
 
-Dealer class:
+Dealer class -> Miguel:
 Attributes:
 - Name
 - Age
 Methods:
-- DealCards()
-- TakeBets()
-- PayWinners()
-- CollectLosses()
+- deal_cards()
+- take_bets()
+- pay_winners()
+- collect_losses()
 
 Table class: 
 Attributes:
@@ -59,55 +59,55 @@ Attributes:
 - Maximum bet amount
 - List of players
 Methods:
-- AddPlayer(player)
-- RemovePlayer(player)
-- StartGame()
-- EndGame()
+- add_player(player)
+- remove_player(player)
+- start_game()
+- end_game()
 
 BlackJackTable class: 
 Inherits from Table class
 Methods
-- StartGame()
-- isGameOver() / EndGame()
+- start_game()
+- is_game_over() / end_game()
 
 PokerTable class: (CASTRO & ANA)
 Inherits from Table class
 Methods
-StartGame()
-GetWinner() / EndGame()
+start_game()
+get_winner() / end_game()
 
 RouletteTable class:
 Inherits from Table class
 Methods
-StartGame()
-GetOutcome() / EndGame()
+start_game()
+get_outcome() / end_game()
 
 Bar class:
 Attributes:
 - List of drinks
 - Price of each drink
 Methods:
-- ServeDrink(drink, customer)
-- GetDrinkPrice(drink)
+- serve_drink(drink, customer)
+- get_drink_price(drink)
 
 Bartender class: → ALMUDENA
 Attributes:
 - Name
 - Age
 Methods:
-- TakeOrder(customer)
-- MakeDrink(drink)
-- ServeDrink(drink, customer)
+- take_order(customer)
+- make_drink(drink)
+- serve_drink(drink, customer)
 
 Bouncer class:
 Attributes:
 - Name
 - Age
 Methods:
-- CheckID(customer) - Checks the customer's ID to make sure they are of legal age to enter the casino.
-- AdmitCustomer(customer)
-- DenyCustomerEntry(customer).
-- KickOutCustomer()
+- check_id(customer) - Checks the customer's ID to make sure they are of legal age to enter the casino.
+- admit_customer(customer)
+- deny_customer_entry(customer).
+- kick_out_customer()
 
 Casino class:
 Attributes:
@@ -116,6 +116,6 @@ Attributes:
 - ListOfEmployees
 - ListOfTables
 Methods:
-- Open()
-- Close()
+- open()
+- close()
 
