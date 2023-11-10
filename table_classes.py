@@ -13,7 +13,7 @@ class Tables(threading.Thread):
                 tables.lock = threading.Lock()
                 
         
-        def roulette(player_id):
+        def roulette(self, player_id):
             with tables.lock:
                 num_bets = random.randint(1, 12)  # Let's allow the player to place 1 to 5 bets.
                 total_winnings = 0
