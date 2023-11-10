@@ -11,6 +11,8 @@ class Casino:
         self.tables = []
         self.customers = []
         self.employees = []
+        self.bathrooms = {"Mens": [],
+                          "Womens": []}
         self.opening_time = 0
         self.closing_time = 1000
         self.lock = threading.Lock()
