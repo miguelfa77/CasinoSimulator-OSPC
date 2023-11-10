@@ -21,4 +21,10 @@ class Casino:
         with self.lock:
             del self.customers[customer.name]
 
+    def run(self):
+         print(f"The Casino is now open.")
+         time.sleep(self.closing_time)
+         print(f"casino is now closed.")
+
+
     
