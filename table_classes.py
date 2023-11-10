@@ -15,11 +15,11 @@ class Tables(threading.Thread):
         
         def roulette(self, player_id, balance):
             with self.lock:
-                num_bets = random.randint(1, 12)  # Let's allow the player to place 1 to 5 bets.
+                num_bets = random.randint(1, 12)  
                 total_winnings = 0
         
                 for _ in range(num_bets):
-                    bet_amount = random.randrange(10, 1000)  # Bet a random amount within the available balance.
+                    bet_amount = random.randrange(10, 1000) 
                     number_bet = random.randrange(0, 36)
                     outcome = random.randrange(0, 36)
         
