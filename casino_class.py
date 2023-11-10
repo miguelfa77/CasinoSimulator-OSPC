@@ -5,7 +5,9 @@ import time
 import random
 
 class Casino:
-    def __init__(self) -> None:
+
+    def __init__(self, starting_balance) -> None:
+        self.balance = starting_balance
         self.tables = []
         self.customers = []
         self.employees = []
@@ -13,6 +15,12 @@ class Casino:
         self.closing_time = 1000
         self.lock = threading.Lock()
 
+    def get_balance(self):
+         return self.balance
+    
+    def update_balance(self, amount):
+         self.balance += amount
+    
     def add_customer(self, customer):
             with self.lock:
                 self.customers[customer.name] = customer

@@ -78,7 +78,10 @@ class Blackjack(Table):
 
             print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
 
-
+class Poker(Table):
+    def __init__(self, balance):
+        super().__init__()
+        
 
 
 
