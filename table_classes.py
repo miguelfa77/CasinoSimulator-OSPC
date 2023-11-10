@@ -10,17 +10,11 @@ class Tables(threading.Thread):
                 super().__init__()
                 self.balance = balance 
                 print(f"The balance of the Casino is", balance)
-                tables_lock = threading.Lock()
+                tables.lock = threading.Lock()
                 
         
         def roulette(player_id):
-            global casino_balance
-        
-            with tables_lock:
-                if casino_balance <= 0:
-                    print(f"Player {player_id} can't bet. Insufficient balance. Balance of the casino: ${casino_balance}")
-                    return
-        
+            with tables.lock:
                 num_bets = random.randint(1, 12)  # Let's allow the player to place 1 to 5 bets.
                 total_winnings = 0
         
@@ -40,6 +34,7 @@ class Tables(threading.Thread):
                         print(f"Player {player_id} loses ${bet_amount} on number {number_bet}!")
         
                 print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${casino_balance}")
+
 
 player_threads = []
 for i in range(num_players):
