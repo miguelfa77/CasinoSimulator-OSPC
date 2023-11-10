@@ -11,15 +11,12 @@ class Tables(threading.Thread):
                 self.balance = balance 
                 print(f"The balance of the Casino is", balance)
                 tables_lock = threading.Lock()
-        def run(self):
-                self.lock.acquire()
-                time.sleep(3)
-                self.lock.release()
+                
         
         def roulette(player_id):
             global casino_balance
         
-            with casino_lock:
+            with tables_lock:
                 if casino_balance <= 0:
                     print(f"Player {player_id} can't bet. Insufficient balance. Balance of the casino: ${casino_balance}")
                     return
