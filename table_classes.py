@@ -10,11 +10,11 @@ class Tables(threading.Thread):
                 super().__init__()
                 self.balance = balance 
                 print(f"The balance of the Casino is", balance)
-                tables.lock = threading.Lock()
+                self.lock = threading.Lock()
                 
         
-        def roulette(self, player_id):
-            with tables.lock:
+        def roulette(self, player_id, balance):
+            with self.lock:
                 num_bets = random.randint(1, 12)  # Let's allow the player to place 1 to 5 bets.
                 total_winnings = 0
         
@@ -34,18 +34,6 @@ class Tables(threading.Thread):
                         print(f"Player {player_id} loses ${bet_amount} on number {number_bet}!")
         
                 print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${casino_balance}")
-
-
-player_threads = []
-for i in range(num_players):
-    player_thread = threading.Thread(target=roulette, args=(i,))
-    player_threads.append(player_thread)
-
-for thread in player_threads:
-    thread.start()
-
-for thread in player_threads:
-    thread.join()
 
 print(f"Final Casino Balance: ${casino_balance}")
 
