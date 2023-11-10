@@ -15,20 +15,22 @@ class Casino:
                           "Womens": []}
         self.opening_time = 0
         self.closing_time = 1000
-        self.lock = threading.Lock()
+        self.lock = {'customer_lock': threading.Lock(),
+                      'balance_lock': threading.Lock()}
 
     def get_balance(self):
          return self.balance
     
     def update_balance(self, amount):
-         self.balance += amount
+         with self.lock['balance_lock']:
+            self.balance += amount
     
     def add_customer(self, customer):
-            with self.lock:
+            with self.lock['customer_lock']:
                 self.customers[customer.name] = customer
 
     def remove_customer(self, customer):
-        with self.lock:
+        with self.lock['customer_lock']:
             del self.customers[customer.name]
 
     def run(self):
