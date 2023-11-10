@@ -3,6 +3,7 @@ import threading
 import time
 import random
 import names
+from casino_class import Casino
 
 class Customer:
     def __init__(self):
@@ -20,6 +21,9 @@ class Customer:
     
     def goBathroom(self):
         time.sleep(random.randrange(1, 20))
+
+    def run(self, casino):
+        casino.customers.append(self)
 
 
 class HighSpender(Customer):
