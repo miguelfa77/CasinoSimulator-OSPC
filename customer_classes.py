@@ -7,7 +7,8 @@ from casino_class import Casino
 
 class Customer:
     def __init__(self):
-        self.name = names.get_first_name()
+        self.gender = random.choice("male", "female")
+        self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
         self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
