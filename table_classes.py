@@ -4,7 +4,7 @@ import threading
 num_players = random.randrange(1, 5)
 casino_balance = 100000
 
-Class Tables(threading.Thread):
+class Tables(threading.Thread):
 
         def __init__(self,balance):
                 super().__init__()
