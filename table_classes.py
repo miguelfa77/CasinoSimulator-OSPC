@@ -4,17 +4,17 @@ import threading
 num_players = random.randrange(1, 5)
 casino_balance = 100000
 
-class Tables(threading.Thread):
-
+class Table(threading.Thread):
         def __init__(self,balance):
                 super().__init__()
                 self.balance = balance 
                 print(f"The balance of the Casino is", balance)
-                tables.lock = threading.Lock()
+                self.lock = threading.Lock()
+                self.pot = 0
                 
         
         def roulette(self, player_id):
-            with tables.lock:
+            with self.lock:
                 num_bets = random.randint(1, 12)  # Let's allow the player to place 1 to 5 bets.
                 total_winnings = 0
         

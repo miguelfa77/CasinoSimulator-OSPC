@@ -27,7 +27,7 @@ class HighSpender(Customer):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
 
-    def bet(self, amount):
+    def bet(self, amount, table): # ADD TABLE CONNECTION 
         with self.lock:
             print(f"Bet placed: {amount}")
             while amount < self.min_bet_amount:
@@ -65,7 +65,7 @@ class LowSpender(Customer):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
 
-    def bet(self, amount):
+    def bet(self, amount): 
         with self.lock:
             while amount < self.min_bet_amount:
                 print(f"Bet placed: {amount}")
