@@ -1,7 +1,6 @@
 import threading
 import random
 import time
-import names
 import random
 
 class Deck():
@@ -15,3 +14,7 @@ class Deck():
     
     def draw_card(self):
         return self.deck.pop()
+    
+class BlackJackDeck(Deck):
+    def __init__(self) -> None:
+        self.deck = [2,3,4,5,6,7,8,9,10,10,10,10,11] * 4

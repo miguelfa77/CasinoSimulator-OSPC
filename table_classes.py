@@ -1,17 +1,28 @@
 import random
 import threading 
+from casino_class import Casino
+from dealer_class import Dealer
 
 num_players = random.randrange(1, 5)
 casino_balance = 100000
 
-class Table:
-    def _init_(self, balance):
-        self.balance = balance
-        self.lock = threading.Lock()
+class Table(Casino, Dealer):
+    def _init_(self):
+        super().__init__()
+        self.current_bets = {'bet_amount':dict()}   # dict holding total table bet amounts. specifies per player id.
+        
+        self.current_dealer = None
+        self.current_players = []
+        self.dealer = {'lock': threading.Lock(), 'queue': []}
+        self.customer = {'lock': threading.Lock(), 'queue': []}
+
+    def select_dealer(self):
+        self.current_dealer = self.dealer['queue'].pop()
 
 class Roulette(Table):
     def _init_(self, balance):
         super()._init_(balance)
+        # self.max_players = 10
         self.num_bets = random.randint(1, 12)
 
     def play(self, player_id, balance):
@@ -35,9 +46,10 @@ class Roulette(Table):
 
             print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
 
-class Blackjack(Table):
+class Blackjack(Table, BlackJackDeck):
     def _init_(self, balance):
         super()._init_(balance)
+        # self.max_players = 3
         self.num_decks = random.randint(1, 8)
 
     def play(self, player_id, balance):
@@ -81,6 +93,7 @@ class Blackjack(Table):
 class Poker(Table):
     def __init__(self, balance):
         super().__init__()
+        # self.max_players = 6
         
 
 
