@@ -3,10 +3,10 @@ import random
 import time
 import names
 import random
-from deck_class import Deck, BlackJackDeck
+from deck_class import NormalDeck, BlackJackDeck
 from table_classes import Table
 
-class Dealer(Deck or BlackJackDeck):
+class Dealer(NormalDeck, BlackJackDeck):
     def __init__(self, id) -> None:
         super().__init__()
         self.dealer_id = id
