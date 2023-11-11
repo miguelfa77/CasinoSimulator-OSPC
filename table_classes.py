@@ -10,7 +10,6 @@ class Table(Casino, Dealer):
     def _init_(self):
         super().__init__()
         self.current_bets = {'bet_amount':dict()}   # dict holding total table bet amounts. specifies per player id.
-        
         self.current_dealer = None
         self.current_players = []
         self.dealer = {'lock': threading.Lock(), 'queue': []}
