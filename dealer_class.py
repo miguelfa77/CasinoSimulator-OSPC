@@ -21,11 +21,11 @@ class Dealer(NormalDeck, BlackJackDeck):
     def take_bets(self, customer_id, quantity):
         [customer_id] =  quantity
 
-    def pay_winners(self, quantity, table : Table) -> int:
+    def pay_winners(self, quantity, table : Table):
         table.balance -= quantity
         return table.balance
         
 
-    def collect_losers(self, quantity, table : Table) -> int:
+    def collect_losers(self, quantity, table : Table):
         table.balance += quantity
         return table.balance
