@@ -8,7 +8,8 @@ casino_balance = 100000
 
 class Table(Casino, Dealer):
     def _init_(self):
-        super().__init__()
+        Casino.__init__()
+        Dealer.__init__()
         self.current_bets = {'bet_amount':dict()}   # dict holding total table bet amounts. specifies per player id.
         self.current_dealer = None
         self.current_players = []
@@ -45,7 +46,7 @@ class Roulette(Table):
 
             print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
 
-class Blackjack(Table, BlackJackDeck):
+class Blackjack(Table):
     def _init_(self, balance):
         super()._init_(balance)
         # self.max_players = 3
