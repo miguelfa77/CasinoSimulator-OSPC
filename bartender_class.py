@@ -1,5 +1,6 @@
 import random
 import names
+import threading
 import concurrent.futures
 
 class Bartender:
@@ -8,6 +9,7 @@ class Bartender:
         self.age = random.randint(18, 60)
         self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
         self.current_drink = None
+        self.lock = threading.Lock()
 
     def take_order(self, customer):
         self.current_drink = random.choice(self.drinks)

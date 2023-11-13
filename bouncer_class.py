@@ -12,34 +12,34 @@ class Bouncer:
         self.lock = threading.Lock()
 
     def check_id(self, customer):
-        if customer.age < 18:
+        if customer.entry_atts_["age"] < 18:
             self.kick_out(customer, reason="underage")
             return False
         return True
 
     def check_drunkenness(self, customer):
-        if customer.drunkenness > 5:
+        if customer.entry_atts_["drunkness"] > 5:
             self.kick_out(customer, reason="too drunk")
             return False
         return True
 
     def check_rage(self, customer):
-        if customer.rage > 5:
+        if customer.entry_atts_['rage'] > 5:
             self.kick_out(customer, reason="raging")
             return False
         return True
 
     def check_weapons(self, customer):
-        if customer.has_weapon:
+        if customer.entry_atts_['has_weapon']:
             self.kick_out(customer, reason="carrying a weapon")
             return False
         return True
 
     def check_vip(self, customer):
-        need_to_check = random.choices([True, False], weights=(10,90), k=1)
+        need_to_check = random.choices([True, False], weights=(10,90), k=1)[0]
         if not need_to_check:
             return True
-        if customer.is_vip:
+        if customer.entry_atts_["is_vip"]:
             print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
             return True
         return False

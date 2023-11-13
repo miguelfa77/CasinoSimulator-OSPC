@@ -3,19 +3,18 @@ import threading
 import time
 import random
 import names
-from casino_class import Casino
 
 class Customer:
     def __init__(self):
-        self.gender = random.choice("male", "female")
+        self.gender = random.choice(["male", "female"])
         self.name = names.get_full_name(gender=self.gender)
-        self.age = random.randint(17,80)
+        self.age = random.randint(16,80)
         self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
         self.entry_atts_ = {"drunkness":random.randint(4,10),
                             "rage":random.randint(4,10),
-                            "is_vip": random.choice([True,False], weights=(10,90), k=1),
-                            "has_weapon": random.choice([True,False], weights=(10,90), k=1)}
+                            "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
+                            "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
 
     def bet(self, amount):    
         self.bankroll -= amount
