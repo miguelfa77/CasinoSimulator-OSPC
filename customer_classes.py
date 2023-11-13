@@ -6,8 +6,7 @@ import names
 from casino_class import Casino
 
 class Customer:
-    def __init__(self, customer_id=None):
-        self.id = customer_id
+    def __init__(self):
         self.gender = random.choice("male", "female")
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
@@ -38,8 +37,6 @@ class HighSpender(Customer):
             print(f"Bet placed: {amount}")
             while amount < self.min_bet_amount:
                 if amount < self.min_bet_amount:
-                    print(f"Bet to be placed: {amount}")
-                    print(f"That's not how we ride, increase that figure.")
                     amount *= 2
             print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
             self.bankroll -= amount
@@ -57,7 +54,7 @@ class MediumSpender(Customer):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
 
-    def bet(self, amount):
+    def bet(self, amount, table):
         with self.lock:
             while amount < self.min_bet_amount:
                 print(f"Bet placed: {amount}")
@@ -66,13 +63,14 @@ class MediumSpender(Customer):
                     amount *= 2
                 print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
             self.bankroll -= amount
+            table.pot += amount
 
 class LowSpender(Customer):
     def __init__(self, name, age, bankroll, min_bet_amount):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
 
-    def bet(self, amount): 
+    def bet(self, amount, table): 
         with self.lock:
             while amount < self.min_bet_amount:
                 print(f"Bet placed: {amount}")
@@ -81,4 +79,5 @@ class LowSpender(Customer):
                     amount *= 2
                 print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
             self.bankroll -= amount
+            table.pot += amount
 
