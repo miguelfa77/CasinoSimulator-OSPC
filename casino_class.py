@@ -36,7 +36,7 @@ class Casino:
     def run(self):
          print(f"The Casino is now open.")
          time.sleep(self.closing_time)
-         print(f"casino is now closed.")
+         print(f"Casino is now closed.")
 
 
     

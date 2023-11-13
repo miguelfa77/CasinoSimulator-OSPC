@@ -37,11 +37,12 @@ class HighSpender(Customer):
             print(f"Bet placed: {amount}")
             while amount < self.min_bet_amount:
                 if amount < self.min_bet_amount:
-                    print(f"Bet placed: {amount}")
+                    print(f"Bet to be placed: {amount}")
                     print(f"That's not how we ride, increase that figure.")
                     amount *= 2
             print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
             self.bankroll -= amount
+            table.pot += amount
 
     def enterVIP(self, time):
         print(f"Customer {self.name} has entered the VIP.")
