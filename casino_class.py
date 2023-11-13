@@ -6,28 +6,31 @@ import random
 
 class Casino:
 
-    def __init__(self, starting_balance) -> None:
+    def __init__(self, starting_balance, customers, tables, dealers, bartenders, bouncers) -> None:
         self.balance = starting_balance
-        self.tables = []
-        self.customers = []
-        self.employees = []
+        self.customers = customers
+        self.tables = tables
+        self.dealers = dealers
+        self.bartenders = bartenders
+        self.bouncers = bouncers
         self.bathrooms = {"Mens": [],
                           "Womens": []}
         self.opening_time = 0
         self.closing_time = 1000
         self.lock = {'customer_lock': threading.Lock(),
                       'balance_lock': threading.Lock()}
+        self.is_open = True
 
     def get_balance(self):
-         return self.balance
+        return self.balance
     
     def update_balance(self, amount):
-         with self.lock['balance_lock']:
+        with self.lock['balance_lock']:
             self.balance += amount
     
     def add_customer(self, customer):
-            with self.lock['customer_lock']:
-                self.customers[customer.name] = customer
+        with self.lock['customer_lock']:
+            self.customers[customer.name] = customer
 
     def remove_customer(self, customer):
         with self.lock['customer_lock']:
@@ -37,6 +40,7 @@ class Casino:
          print(f"The Casino is now open.")
          time.sleep(self.closing_time)
          print(f"casino is now closed.")
+         self.is_open = False
 
 
     
