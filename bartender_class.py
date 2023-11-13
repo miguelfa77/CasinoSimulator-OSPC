@@ -1,12 +1,15 @@
 import random
 import names
 import concurrent.futures
+from casino_class import Casino
 
-class Bartender:
+class Bartender(Casino):
     def __init__(self):
+        super().__init__(self)
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
         self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
+        self.orders = {}
         self.current_drink = None
 
     def take_order(self, customer):

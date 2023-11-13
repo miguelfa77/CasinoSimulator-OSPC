@@ -5,9 +5,10 @@ import random
 import names
 from casino_class import Casino
 
-class Customer:
-    def __init__(self, customer_id=None):
-        self.id = customer_id
+class Customer(Casino):
+    def __init__(self, id):
+        super().__init__(self)
+        self.customer_id = id
         self.gender = random.choice("male", "female")
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)

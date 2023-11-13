@@ -18,22 +18,25 @@ class Table(Casino):
         self.current_players: Optional[Customer] = []
         self.dealer = {'lock': threading.Lock(), 'queue': []}
         self.customer = {'lock': threading.Lock(), 'queue': []}
+        self.max_players = None
+
+    def dealer_waiting(self):
+        if self.dealer['queue']:
+            return True
+        return False
 
     def select_dealer(self):
-        if self.dealer['queue']:
-            with self.dealer['lock']:
-                self.current_dealer = self.dealer['queue'].pop()
-                return True
-        else:
-            return False
+        with self.dealer['lock']:
+            self.current_dealer = self.dealer['queue'].pop()
+    
+    def customer_waiting(self):
+        if self.customer['queue']:
+            return True
+        return False
     
     def select_customer(self):
-        if self.customer['queue']:
-            with self.customer['lock']:
-                self.current_players.append(self.customer['queue'].pop())
-                return True
-        else:
-            return False
+        with self.customer['lock']:
+            self.current_players.append(self.customer['queue'].pop())
 
 class Roulette(Table):
     def __init__(self, balance, id):
@@ -124,7 +127,7 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     
     def get_bets(self):
         for player_id in self.current_players:
-            self.current_bets[player_id] = random.randint(1,10)
+            self.current_bets[player_id] = player_id.bet()      # bet method should return an int/float
         time.sleep(2)
 
     def play(self):  
@@ -151,29 +154,23 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         self.current_bets = {key: None for key in self.current_bets}   # EMPTY POT
         time.sleep(2)
         
+
     def run(self):
         while self.is_open:
-            while not self.current_dealer:
-                self.select_dealer()
-
-            while len(self.current_players) < self.max_players and self.customer['queue']:
-                self.select_customer()
-
-            while self.is_open:  # Run indefinitely until the gameplay loop succeeds
-                try:
-                    if not (self.current_dealer and self.current_players):
-                        # Attempt to select dealer or customer again
-                        while not self.current_dealer:
-                            self.select_dealer()
-
-                        while len(self.current_players) < self.max_players and self.customer['queue']:
-                            self.select_customer()
+            try:
+                while not self.current_dealer or len(self.current_players) < 1:
+                    if not self.current_dealer and self.dealer_waiting():
+                        self.select_dealer()
+                    elif len(self.current_players) < 1 and self.customer_waiting():
+                        self.select_customer()
                     else:
-                        with self.customer['lock']:
-                            with self.dealer['lock']:
-                                self.get_bets()
-                                self.play()
-                                self.payoff_bets()
-                except Exception as e:
-                    print(f'Error-{e} in {self.table_id}: Selecting dealer and players again!')
-                    time.sleep(5)
+                        time.sleep(5)
+
+                with self.customer['lock'], self.dealer['lock']:
+                    self.get_bets()
+                    self.play()
+                    self.payoff_bets()
+            
+            except Exception as e:
+                print(f'Error-{e} in {self.table_id}: Selecting dealer and players again!')
+                time.sleep(5)

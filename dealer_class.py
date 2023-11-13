@@ -11,12 +11,11 @@ class Dealer(Casino,NormalDeck, BlackJackDeck):
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
-    def __init__(self, id, tables : list[Table]) -> None:
+    def __init__(self, id) -> None:
         Casino.__init__(self)
         NormalDeck.__init__(self)
         BlackJackDeck.__init__(self)
         self.dealer_id = id   
-        self.tables = tables    # table ID's list
         self.current_table = None
         self.Name = names.get_first_name()
         self.Age = random.randint(18, 60)
@@ -56,8 +55,7 @@ class Dealer(Casino,NormalDeck, BlackJackDeck):
                     return table
         except:
             return None
-
-    
+   
     def run(self):
         while self.is_open:
             try:
