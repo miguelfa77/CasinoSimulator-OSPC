@@ -7,7 +7,8 @@ class Customer:
         self.is_vip = is_vip
         self.has_weapon = has_weapon
 class Bouncer:
-    def __init__(self):
+    def __init__(self, id):
+        self.bouncer_id = id
         self.kicked_out_customers = []
         self.vip_list = set()  # A set of VIP customer names
 
