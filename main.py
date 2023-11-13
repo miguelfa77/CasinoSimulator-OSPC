@@ -6,7 +6,7 @@ import concurrent.futures
 from casino_class import Casino
 from dealer_class import Dealer
 from table_classes import Blackjack, Roulette, Poker
-from customer_classes import Customer
+from customer_classes import Customer, HighSpender, MediumSpender, LowSpender
 from bartender_class import Bartender
 from bouncer_class import Bouncer
 from deck_class import NormalDeck, BlackJackDeck
@@ -26,12 +26,12 @@ if __name__ == "__main__":
     bouncers = [Bouncer(id) for id in range(num_of_bouncers)]
     casino = Casino(starting_balance, customers, tables, bartenders, bouncers)
 
-    with concurrent.futures.ThreadPoolExecutor(num_workers=range(num_of_tables)) as exe:
+    with concurrent.futures.ThreadPoolExecutor(num_workers=len(range(num_of_tables))) as exe:
         for table in tables:
             exe.submit(table.run)
-        with concurrent.futures.ThreadPoolExecutor(num_workers=range(num_of_customers)) as exe1:
+        with concurrent.futures.ThreadPoolExecutor(num_workers=len(range(num_of_customers))) as exe1:
             for customer in customers:
-                exe.submit(customer.run)
+                exe.submit(customer.run, casino)
         
 
 

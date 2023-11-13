@@ -1,16 +1,15 @@
-class Customer:
-    def __init__(self, name, age, drunkenness, rage, is_vip=False, has_weapon=False):
-        self.name = name
-        self.age = age
-        self.drunkenness = drunkenness
-        self.rage = rage
-        self.is_vip = is_vip
-        self.has_weapon = has_weapon
+# Bouncer class
+
+import time
+import threading
+import random
+
 class Bouncer:
     def __init__(self, id):
         self.bouncer_id = id
         self.kicked_out_customers = []
         self.vip_list = set()  # A set of VIP customer names
+        self.lock = threading.Lock()
 
     def check_id(self, customer):
         if customer.age < 18:
@@ -37,6 +36,9 @@ class Bouncer:
         return True
 
     def check_vip(self, customer):
+        need_to_check = random.choices([True, False], weights=(10,90), k=1)
+        if not need_to_check:
+            return True
         if customer.is_vip:
             print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
             return True

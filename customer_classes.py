@@ -9,9 +9,13 @@ class Customer:
     def __init__(self):
         self.gender = random.choice("male", "female")
         self.name = names.get_full_name(gender=self.gender)
-        self.age = random.randint(18,80)
+        self.age = random.randint(17,80)
         self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
+        self.entry_atts_ = {"drunkness":random.randint(4,10),
+                            "rage":random.randint(4,10),
+                            "is_vip": random.choice([True,False], weights=(10,90), k=1),
+                            "has_weapon": random.choice([True,False], weights=(10,90), k=1)}
 
     def bet(self, amount):    
         self.bankroll -= amount
@@ -23,8 +27,26 @@ class Customer:
     def goBathroom(self):
         time.sleep(random.randrange(1, 20))
 
+    def leave(self, casino):
+        with self.lock:
+            print(f"Customer {self.name} has left the casino.")
+            casino.customers.remove(self)
+
     def run(self, casino):
-        casino.customers.append(self)
+        for bouncer in casino.bouncers:
+            if bouncer.lock.locked():
+                time.sleep(1)
+            entry = bouncer.allow_entry(self)
+        if not entry:
+            print(f"Customer {self.name} has been denied entry.")
+            self.leave()
+        print(f"Customer {self.name} has entered the casino.") 
+        while self.bankroll > 0:
+            # SELECT A TABLE TO GO PLAY AT
+            # PLAY AT TABLE
+            # CHECK IF WINNING
+            # CHANGE TABLE OR LEAVE
+            pass           
 
 
 class HighSpender(Customer):
