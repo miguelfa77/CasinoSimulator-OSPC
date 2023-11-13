@@ -4,6 +4,10 @@ import time
 import random
 
 class Deck():
+    """
+    :subclasses: NormalDeck, BlackjackDeck
+    :methods: shuffle_deck, draw_card
+    """
     def __init__(self):
         self.deck = []
 

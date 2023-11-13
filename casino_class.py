@@ -39,8 +39,8 @@ class Casino:
     def run(self):
          print(f"The Casino is now open.")
          time.sleep(self.closing_time)
-         print(f"casino is now closed.")
          self.is_open = False
+         print(f"casino is now closed.")
 
 
     
