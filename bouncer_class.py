@@ -44,7 +44,7 @@ class Bouncer:
 
     def kick_out(self, customer, reason):
         print(f"Customer {customer.name} has been kicked out for {reason}.")
-        self.kicked_out_customers.append(customer.name)
+        self.kicked_out_customers.append(self.customer)
 
     def allow_entry(self, customer):
         if self.check_vip(customer):

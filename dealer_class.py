@@ -17,8 +17,8 @@ class Dealer(Casino,NormalDeck, BlackJackDeck):
         BlackJackDeck.__init__(self)
         self.dealer_id = id   
         self.current_table = None
-        self.Name = names.get_first_name()
-        self.Age = random.randint(18, 60)
+        self.name = names.get_first_name()
+        self.age = random.randint(18, 60)
     
     def leave_table(self):
         try:
