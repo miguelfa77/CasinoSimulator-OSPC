@@ -12,7 +12,7 @@ class Bouncer:
         self.lock = threading.Lock()
 
     def check_id(self, customer):
-        if customer.entry_atts_["age"] < 18:
+        if customer.age < 18:
             self.kick_out(customer, reason="underage")
             return False
         return True
@@ -49,16 +49,9 @@ class Bouncer:
         self.kicked_out_customers.append(customer.name)
 
     def allow_entry(self, customer):
-        if self.check_vip(customer):
+        if self.check_vip(customer) and self.check_id(customer) and self.check_drunkenness(customer) and self.check_rage(customer) and self.check_weapons(customer):
+            print(f"Customer {customer.name} is allowed to enter. Enjoy your visit!")
             return True
-        if not self.check_id(customer):
+        else:
             return False
-        if not self.check_drunkenness(customer):
-            return False
-        if not self.check_rage(customer):
-            return False
-        if not self.check_weapons(customer):
-            return False
-        print(f"Customer {customer.name} is allowed to enter. Enjoy your visit!")
-        return True
-
+        

@@ -14,7 +14,9 @@ class Casino:
         self.bartenders = bartenders
         self.bouncers = bouncers
         self.bathrooms = {"Mens": [],
-                          "Womens": []}
+                          "Womens": [],
+                          "mens_wc_lock": threading.Lock(),
+                          "womens_wc_lock": threading.Lock()}
         self.opening_time = 0
         self.closing_time = 1000
         self.lock = {'customer_lock': threading.Lock(),

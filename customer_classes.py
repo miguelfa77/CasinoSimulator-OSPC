@@ -7,12 +7,12 @@ import names
 class Customer:
     def __init__(self):
         self.gender = random.choice(["male", "female"])
-        self.name = names.get_full_name(gender=self.gender)
+        self.name = names.get_first_name(gender=self.gender)
         self.age = random.randint(16,80)
-        self.bankroll = random.randint(100000,9999999)
+        self.bankroll = random.randint(0,9999999)
         self.lock = threading.Lock()
-        self.entry_atts_ = {"drunkness":random.randint(4,10),
-                            "rage":random.randint(4,10),
+        self.entry_atts_ = {"drunkness":random.randint(1,8),
+                            "rage":random.randint(1,8),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
                             "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
 
@@ -23,8 +23,23 @@ class Customer:
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
     
-    def goBathroom(self):
-        time.sleep(random.randrange(1, 20))
+    def goBathroom(self, casino):
+        if self.gender == "male":
+            if len(casino.bathrooms["Mens"]) < 5:
+                with casino.bathrooms["mens_wc_lock"]:
+                    casino.bathrooms["Mens"].append(self)
+                    time.sleep(random.randrange(1, 20))
+                    casino.bathrooms["Mens"].remove(self)
+            else:
+                print("Bathrooms are full, returning later.")
+        if self.gender == "female":
+            if len(casino.bathrooms["Womens"]) < 10:
+                with casino.bathrooms["womens_wc_lock"]:
+                    casino.bathrooms["Womens"].append(self)
+                    time.sleep(random.randrange(5, 20))
+                    casino.bathrooms["Womens"].remove(self)
+            else:
+                print("Bathrooms are full, returning later.")
 
     def leave(self, casino):
         with self.lock:
@@ -34,12 +49,14 @@ class Customer:
     def run(self, casino):
         for bouncer in casino.bouncers:
             if bouncer.lock.locked():
-                time.sleep(1)
+                time.sleep(2)
             entry = bouncer.allow_entry(self)
         if not entry:
-            print(f"Customer {self.name} has been denied entry.")
-            self.leave()
+            return f"Customer {self.name} has been denied entry."
         print(f"Customer {self.name} has entered the casino.") 
+        # APPEND TO CASINO CUSTOMER LIST 
+
+        # EXIT CASINO CONDITION
         while self.bankroll > 0:
             # SELECT A TABLE TO GO PLAY AT
             # PLAY AT TABLE
