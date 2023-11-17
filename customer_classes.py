@@ -3,9 +3,10 @@ import threading
 import time
 import random
 import names
+from casino_class import Casino
 
 class Customer:
-    def __init__(self, casino):
+    def __init__(self):
         self.gender = random.choice(["male", "female"])
         self.name = names.get_first_name(gender=self.gender)
         self.age = random.randint(16,80)
@@ -15,7 +16,7 @@ class Customer:
                             "rage":random.randint(1,8),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
                             "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
-        self.casino = casino
+        self.casino = Casino()
 
     def bet(self, amount):    
         self.bankroll -= amount
@@ -58,12 +59,13 @@ class Customer:
         # APPEND TO CASINO CUSTOMER LIST 
 
         # EXIT CASINO CONDITION
-        while self.bankroll > 0:
-            # SELECT A TABLE TO GO PLAY AT
-            # PLAY AT TABLE
-            # CHECK IF WINNING
-            # CHANGE TABLE OR LEAVE
-            pass           
+        while True:
+            if self.bankroll > 0:
+                # SELECT A TABLE TO GO PLAY AT
+                # PLAY AT TABLE
+                # CHECK IF WINNING
+                # CHANGE TABLE OR LEAVE
+                pass           
 
 
 class HighSpender(Customer):

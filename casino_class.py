@@ -3,8 +3,15 @@
 import threading
 import time
 import random
+from .dealer_class import Dealer
 
 class Casino:
+    _instance = None
+
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super(Casino, cls).__new__(cls)
+        return cls._instance
 
     def __init__(self, starting_balance, customers, tables, dealers, bartenders, bouncers) -> None:
         self.balance = starting_balance
@@ -41,11 +48,20 @@ class Casino:
         with self.lock['customer_lock']:
             del self.customers[customer.name]
 
+    def add_dealers(self, n):
+        to_add = [Dealer(id) for _ in range(n)]
+        for dealer in to_add:
+            self.dealers.append(dealer)
+
     def run(self):
          print(f"The Casino is now open.")
          time.sleep(self.closing_time)
          self.is_open = False
          print(f"casino is now closed.")
+
+         num_tables = random.randint(3,5)
+
+         self.add_dealers(num_tables)
 
 
     
