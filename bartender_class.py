@@ -4,7 +4,8 @@ import threading
 import concurrent.futures
 
 class Bartender:
-    def __init__(self):
+    def __init__(self, id):
+        self.bartender_id = id
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
         self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
