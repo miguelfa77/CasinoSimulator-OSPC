@@ -8,7 +8,7 @@ class Bouncer:
     def __init__(self, id):
         self.bouncer_id = id
         self.kicked_out_customers = []
-        self.vip_list = set()  # A set of VIP customer names
+        self.vip_list = set()  # List of VIP customer names
         self.lock = threading.Lock()
 
     def check_id(self, customer):
