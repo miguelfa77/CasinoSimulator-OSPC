@@ -57,7 +57,7 @@ class Bouncer:
     def allow_entry(self, customer):
         with self.lock:
             if self.check_vip(customer) and self.check_id(customer) and self.check_drunkenness(customer) and self.check_rage(customer) and self.check_weapons(customer):
-                print(f"Customer {customer.name} is allowed to enter. Enjoy your visit!")
+                print(f"Customer {customer.name} is allowed to enter.")
                 return True
             else:
                 return False
