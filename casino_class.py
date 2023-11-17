@@ -19,7 +19,10 @@ class Casino:
                           "womens_wc_lock": threading.Lock()}
         self.opening_time = 0
         self.closing_time = 1000
-        self.lock = {'customer_lock': threading.Lock(),
+        self.locks = {'customer_lock': threading.Lock(),
+                      'dealers_lock': threading.Lock(),
+                      'tables_lock': threading.Lock(),
+                      'bartneders_lock': threading.Lock(),
                       'balance_lock': threading.Lock()}
         self.is_open = True
 

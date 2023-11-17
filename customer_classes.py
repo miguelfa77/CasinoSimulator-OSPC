@@ -5,7 +5,7 @@ import random
 import names
 
 class Customer:
-    def __init__(self):
+    def __init__(self, casino):
         self.gender = random.choice(["male", "female"])
         self.name = names.get_first_name(gender=self.gender)
         self.age = random.randint(16,80)
@@ -15,6 +15,7 @@ class Customer:
                             "rage":random.randint(1,8),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
                             "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
+        self.casino = casino
 
     def bet(self, amount):    
         self.bankroll -= amount
@@ -23,31 +24,31 @@ class Customer:
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
     
-    def goBathroom(self, casino):
+    def goBathroom(self):
         if self.gender == "male":
-            if len(casino.bathrooms["Mens"]) < 5:
-                with casino.bathrooms["mens_wc_lock"]:
-                    casino.bathrooms["Mens"].append(self)
+            if len(self.casino.bathrooms["Mens"]) < 5:
+                with self.casino.bathrooms["mens_wc_lock"]:
+                    self.casino.bathrooms["Mens"].append(self)
                     time.sleep(random.randrange(1, 20))
-                    casino.bathrooms["Mens"].remove(self)
+                    self.casino.bathrooms["Mens"].remove(self)
             else:
                 print("Bathrooms are full, returning later.")
         if self.gender == "female":
-            if len(casino.bathrooms["Womens"]) < 10:
-                with casino.bathrooms["womens_wc_lock"]:
-                    casino.bathrooms["Womens"].append(self)
+            if len(self.casino.bathrooms["Womens"]) < 10:
+                with self.casino.bathrooms["womens_wc_lock"]:
+                    self.casino.bathrooms["Womens"].append(self)
                     time.sleep(random.randrange(5, 20))
-                    casino.bathrooms["Womens"].remove(self)
+                    self.casino.bathrooms["Womens"].remove(self)
             else:
                 print("Bathrooms are full, returning later.")
 
-    def leave(self, casino):
+    def leave(self):
         with self.lock:
             print(f"Customer {self.name} has left the casino.")
-            casino.customers.remove(self)
+            self.casino.customers.remove(self)
 
-    def run(self, casino):
-        for bouncer in casino.bouncers:
+    def run(self):
+        for bouncer in self.casino.bouncers:
             if bouncer.lock.locked():
                 time.sleep(2)
             entry = bouncer.allow_entry(self)
