@@ -2,6 +2,7 @@ import random
 import names
 import threading
 import concurrent.futures
+from casino_class import Casino
 
 class Bartender (Casino):
     def __init__(self, id):
