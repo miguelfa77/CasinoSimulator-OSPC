@@ -12,6 +12,7 @@ class Customer:
         self.age = random.randint(16,80)
         self.bankroll = random.randint(0,9999999)
         self.lock = threading.Lock()
+        self.customer_type = "normal"
         self.entry_atts_ = {"drunkness":random.randint(1,8),
                             "rage":random.randint(1,8),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
@@ -44,7 +45,7 @@ class Customer:
                 print("Bathrooms are full, returning later.")
 
     def leave(self):
-        with self.lock:
+        with self.casino.locks["customers_lock"]:
             print(f"Customer {self.name} has left the casino.")
             self.casino.customers.remove(self)
 
@@ -56,7 +57,7 @@ class Customer:
         if not entry:
             return f"Customer {self.name} has been denied entry."
         print(f"Customer {self.name} has entered the casino.") 
-        # APPEND TO CASINO CUSTOMER LIST 
+        self.casino.customers.append(self) # Add self to casino list of customers
 
         # EXIT CASINO CONDITION
         while True:
@@ -72,6 +73,7 @@ class HighSpender(Customer):
     def __init__(self, name, age, bankroll, min_bet_amount):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
+        self.customer_type = "high_spender"
 
     def bet(self, amount, table): # ADD TABLE CONNECTION 
         with self.lock:
@@ -94,6 +96,7 @@ class MediumSpender(Customer):
     def __init__(self, name, age, bankroll, min_bet_amount):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
+        self.customer_type = "medium_spender"
 
     def bet(self, amount, table):
         with self.lock:
@@ -110,6 +113,7 @@ class LowSpender(Customer):
     def __init__(self, name, age, bankroll, min_bet_amount):
         super().__init__(name, age, bankroll)
         self.min_bet_amount = min_bet_amount
+        self.customer_type = "low_spender"
 
     def bet(self, amount, table): 
         with self.lock:

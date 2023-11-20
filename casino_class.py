@@ -3,7 +3,6 @@
 import threading
 import time
 import random
-from .dealer_class import Dealer
 
 class Casino:
     _instance = None
@@ -26,7 +25,7 @@ class Casino:
                           "womens_wc_lock": threading.Lock()}
         self.opening_time = 0
         self.closing_time = 1000
-        self.locks = {'customer_lock': threading.Lock(),
+        self.locks = {'customers_lock': threading.Lock(),
                       'dealers_lock': threading.Lock(),
                       'tables_lock': threading.Lock(),
                       'bartneders_lock': threading.Lock(),
@@ -48,11 +47,6 @@ class Casino:
         with self.lock['customer_lock']:
             del self.customers[customer.name]
 
-    def add_dealers(self, n):
-        to_add = [Dealer(id) for _ in range(n)]
-        for dealer in to_add:
-            self.dealers.append(dealer)
-
     def run(self):
          print(f"The Casino is now open.")
          time.sleep(self.closing_time)
@@ -60,8 +54,6 @@ class Casino:
          print(f"casino is now closed.")
 
          num_tables = random.randint(3,5)
-
-         self.add_dealers(num_tables)
 
 
     
