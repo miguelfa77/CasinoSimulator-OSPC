@@ -12,19 +12,14 @@ from bouncer_class import Bouncer
 from deck_class import NormalDeck, BlackJackDeck
 
 if __name__ == "__main__":
-    starting_balance = 1000000
-    num_of_tables = 10
-    num_of_customers = 100
-    num_of_dealers = 10
-    num_of_bartenders = 5
-    num_of_bouncers = 2
+    starting_balance = 10000000
+    NUM_OF_TABLES = 10
+    NUM_OF_CUSTOMERS = 100
+    NUM_OF_DEALERS = 10
+    NUM_OF_BARTENDERS = 5
+    NUM_OF_BOUNCERS = 2
 
-    tables = [(Blackjack(id, BlackJackDeck), Roulette(id+1), Poker(id+2, NormalDeck)) for id in range(0, num_of_tables, 2)]
-    dealers = [Dealer(id, tables) for id in range(num_of_dealers)]
-    bartenders = [Bartender(id) for id in range(num_of_bartenders)]
-    bouncers = [Bouncer(id) for id in range(num_of_bouncers)]
-    customers = [Customer(id) for id in range(num_of_customers)]
-    casino = Casino(starting_balance, customers, tables, bartenders, bouncers)
+    casino = Casino(starting_balance)
 
     with concurrent.futures.ThreadPoolExecutor(num_workers=1) as exe:
         exe.submit(casino.run)

@@ -1,21 +1,36 @@
 import random
 import names
+import threading
 import concurrent.futures
 from casino_class import Casino
 
-class Bartender(Casino):
-    def __init__(self):
-        super().__init__(self)
+class Bartender():
+    def __init__(self, id):
+        super().__init__()
+        self.bartender_id = id
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
         self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
-        self.orders = {}
+        self.current_customer = None
         self.current_drink = None
+        self.customer = {'lock': threading.Lock(), 'queue': []}
+        self.casino = Casino()
 
-    def take_order(self, customer):
-        self.current_drink = random.choice(self.drinks)
-        print(f"{self.name} takes an order from {customer.name} for a {self.current_drink}.")
+    def customer_waiting(self):
+        with self.customer['lock']:
+            if self.customer['queue']:
+                return True
+            return False
+    
+    def select_customer(self):
+        with self.customer['lock']:
+            self.current_customer = self.customer['queue'].pop()
+            return self.current_customer
 
+    def take_order(self):
+        self.current_drink = self.current_customer.order_drink(self.drinks)    # MUST APPLY TO CUSTOMER CLASS
+        return self.current_drink       
+    
     def make_drink(self):
         if self.current_drink:
             print(f"{self.name} makes a {self.current_drink}.")
@@ -29,23 +44,8 @@ class Bartender(Casino):
         else:
             print(f"{self.name} needs an order from a customer first.")
 
-class Customer:
-    def __init__(self, bartender):
-        self.name = names.get_first_name()
-        self.bartender = bartender
-
     def run(self):
-        self.bartender.take_order(self)
-        drink = self.bartender.make_drink()
-        self.bartender.serve_drink(self)
-        print(f"{self.name} enjoys the {drink}.")
-
-bartender = Bartender()
-customers = [Customer(bartender) for _ in range(15)]
-
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    for customer in customers:
-        executor.submit(customer.run)
-
+        while self.casino.is_open:
+            if self.orders:
 
 

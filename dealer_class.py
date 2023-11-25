@@ -4,27 +4,25 @@ import time
 import names
 from deck_class import *
 from casino_class import Casino
-from table_classes import Table
+from typing import Optional
 
-class Dealer(Casino,NormalDeck, BlackJackDeck):
+class Dealer():
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
     def __init__(self, id) -> None:
-        Casino.__init__(self)
-        NormalDeck.__init__(self)
-        BlackJackDeck.__init__(self)
-        self.dealer_id = id   
-        self.current_table = None
+        self.dealer_id = id 
         self.name = names.get_first_name()
-        self.age = random.randint(18, 60)
+        self.age = random.randint(18, 60)  
+        self.current_table = None
+        self.casino = Casino()
     
     def leave_table(self):
         try:
             if self.dealer_id in self.current_table.dealer['queue']:
                 with self.current_table.dealer['lock']:
-                    self.current_table['queue'].remove(self.dealer_id)
+                    self.current_table['queue'].remove(self)
             elif self.dealer_id == self.current_table.current_dealer:
                 with self.current_table.dealer['lock']:
                     self.current_table.current_dealer = None
@@ -40,24 +38,25 @@ class Dealer(Casino,NormalDeck, BlackJackDeck):
 
     def enter_table_queue(self):
         """
+        Accesses via casino instance
         :returns: table_id (where dealer is) or None
         """
         try:
-            for table in self.tables:           # append if table queue is empty
+            for table in self.casino.tables:           # append if table queue is empty
                 if not table['queue']:
                     with table.dealer['lock']:
-                        table.dealer['queue'].append(self.dealer_id)
-                    return table  
+                        table.dealer['queue'].append(self)
+                        return table  
             else:                               # append to random table if not empty
-                table = random.choice(self.tables)
+                table = random.choice(self.casino.tables)
                 with table.dealer['lock']:                        
-                    table.dealer['queue'].append(self.dealer_id)
+                    table.dealer['queue'].append(self)
                     return table
         except:
             return None
    
     def run(self):
-        while self.is_open:
+        while self.casino.is_open:
             try:
                 time.sleep(random.randrange(0,5))
 

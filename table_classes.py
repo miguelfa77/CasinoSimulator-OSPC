@@ -4,39 +4,43 @@ import time
 from casino_class import Casino
 from dealer_class import Dealer
 from customer_classes import Customer
-from deck_class import NormalDeck, BlackJackDeck
+from deck_class import *
 from typing import Optional
 
 num_players = random.randrange(1, 5)
 casino_balance = 100000
 
-class Table(Casino):
+class Table():
     def __init__(self):
-        super().__init__(self) # attr: balance, dealer_id
         self.current_bets = dict()   # dict holding total table bet amounts. specifies per player id.
         self.current_dealer: Optional[Dealer] = None
-        self.current_players: Optional[Customer] = []
-        self.dealer = {'lock': threading.Lock(), 'queue': []}
-        self.customer = {'lock': threading.Lock(), 'queue': []}
+        self.current_players: list[Customer] = []
+        self.dealer = {'lock': threading.Lock(), 'queue': list[Dealer]}
+        self.customer = {'lock': threading.Lock(), 'queue': list[Customer]}
         self.max_players = None
+        self.casino = Casino()
 
     def dealer_waiting(self):
-        if self.dealer['queue']:
-            return True
-        return False
+        with self.dealer['lock']:
+            if self.dealer['queue']:
+                return True
+            return False
 
     def select_dealer(self):
         with self.dealer['lock']:
             self.current_dealer = self.dealer['queue'].pop()
+            return self.current_dealer
     
     def customer_waiting(self):
-        if self.customer['queue']:
-            return True
-        return False
+        with self.customer['lock']:
+            if self.customer['queue']:
+                return True
+            return False
     
     def select_customer(self):
         with self.customer['lock']:
             self.current_players.append(self.customer['queue'].pop())
+            return self.current_players
 
 class Roulette(Table):
     def __init__(self, balance, id):
@@ -64,7 +68,7 @@ class Roulette(Table):
                     total_winnings -= bet_amount
                     print(f"Player {player_id} loses ${bet_amount} on number {number_bet}!")
 
-            print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
+            print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.casino.balance}")
 
 
 class Blackjack(Table):
@@ -72,7 +76,7 @@ class Blackjack(Table):
         super().__init__(balance)
         self.table_id = id
         self.num_decks = random.randint(1, 8)
-        # self.max_players = 3
+        self.max_players = 3
 
     def play(self, player_id, balance):
         with self.lock:
@@ -86,7 +90,7 @@ class Blackjack(Table):
 
                 if sum(player_hand) == 21:
                     winnings = balance * 1.5
-                    self.balance -= winnings
+                    self.casino.balance -= winnings
                     total_winnings += winnings
                     print(f"Player {player_id} wins ${winnings} with a Blackjack!")
                 else:
@@ -95,12 +99,12 @@ class Blackjack(Table):
 
                     if sum(dealer_hand) > 21:
                         winnings = balance
-                        self.balance -= winnings
+                        self.casino.balance -= winnings
                         total_winnings += winnings
                         print(f"Player {player_id} wins ${winnings}! Dealer busts with {dealer_hand}")
                     elif sum(dealer_hand) < sum(player_hand):
                         winnings = balance
-                        self.balance -= winnings
+                        self.casino.balance -= winnings
                         total_winnings += winnings
                         print(f"Player {player_id} wins ${winnings}! Player has {player_hand}, dealer has {dealer_hand}")
                     elif sum(dealer_hand) > sum(player_hand):
@@ -119,22 +123,21 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     :params: id, deck : NormalDeck
 
     """
-    def __init__(self, id, deck : NormalDeck):
-        super().__init__(self)
+    def __init__(self, id):
+        super().__init__()
         self.table_id = id
-        self.deck = deck
+        self.deck = deck_type('Normal')
         self.max_players = 6
     
     def get_bets(self):
-        for player_id in self.current_players:
-            self.current_bets[player_id] = player_id.bet()      # bet method should return an int/float
+        for player in self.current_players:
+            self.current_bets[player.customer_id] = player.bet()      # bet method should return an int/float
         time.sleep(2)
 
     def play(self):  
         self.current_dealer.shuffle_deck()
-        
-        for player_id in self.current_players:
-            hand = [self.current_dealer.draw_card(), self.current_dealer.draw_card()]
+
+        hands = {player.customer_id:[self.current_dealer.draw_card(), self.current_dealer.draw_card()] for player in self.current_players}
 
         board = []
         time.sleep(2)
@@ -149,14 +152,14 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         payoff = pot * 0.98
         winner = random.choice(self.current_players)
 
-        self.update_balance(amount=(pot - payoff))                      # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=(pot - payoff))               # RAKE aka what the casino keeps
 
-        self.current_bets = {key: None for key in self.current_bets}   # EMPTY POT
+        self.current_bets = {}                                          # EMPTY POT
         time.sleep(2)
         
 
     def run(self):
-        while self.is_open:
+        while self.casino.is_open:
             try:
                 while not self.current_dealer or len(self.current_players) < 1:
                     if not self.current_dealer and self.dealer_waiting():
@@ -172,5 +175,5 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
                     self.payoff_bets()
             
             except Exception as e:
-                print(f'Error-{e} in {self.table_id}: Selecting dealer and players again!')
+                print(f'Error-{e} in table {self.table_id}: Selecting dealer and players again!')
                 time.sleep(5)
