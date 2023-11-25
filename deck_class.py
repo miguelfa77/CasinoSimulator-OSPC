@@ -27,6 +27,7 @@ class BlackJackDeck(Deck):
 
 def deck_type(deck_type = None):
     """
+    Factory Method
     :params: 'Normal','Blackjack'
     :returns: instance of a class
     """

@@ -38,6 +38,10 @@ class Casino:
         self.is_open = True   
 
     def __new__(cls):
+        """
+        :returns: the same intance if already instantiated.
+        :extra: initialize_internal() -> instantiates all internal and appends to class attribute lists.
+        """
         if not cls._instance:
             cls._instance = super(Casino, cls).__new__(cls)
             cls._instance.initialize_internal()
@@ -62,16 +66,24 @@ class Casino:
 
     def initialize_external(self):
         """
-        Initialize but not append to global/shared variables. Put into bouncer queue.
+        Initialize but not append to global/shared variables of the casino.
         """
         customers = [Customer(customer_id) for customer_id in range(self._NUM_OF_CUSTOMERS)]
         return customers
 
 
     def get_balance(self):
+        """
+        :returns: casino balance in case it wants to be printed or smth
+        """
         return self._balance
     
     def update_balance(self, amount):
+        """
+        :params: amount: int (positive or negative)
+        Performs the balance update.
+        Note: Other classes (e.g. table) can update balance without directly accessing the 'private' _balance var.
+        """
         with self.lock['balance']:
             self._balance += amount
 

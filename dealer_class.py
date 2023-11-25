@@ -6,7 +6,7 @@ from deck_class import *
 from casino_class import Casino
 from typing import Optional
 
-class Dealer():
+class Dealer(Deck):
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances

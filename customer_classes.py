@@ -8,10 +8,10 @@ from casino_class import Casino
 class Customer():
     def __init__(self, id):
         self.customer_id = id
+        self.bankroll = random.randint(100000,1000000)
         self.gender = random.choice("male", "female")
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
-        self.bankroll = random.randint(100000,9999999)
         self.lock = threading.Lock()
         self.casino = Casino()
 
@@ -29,12 +29,31 @@ class Customer():
                     return bouncer
         except:
             return None
-            
-
-    def bet(self, amount):    
-        self.bankroll -= amount
-        return amount
+             
     
+    def player_info(self, func):                # Could be changed to a log_file editor
+        def print_id(amount, customer_id):
+            if customer_id:
+                print(f'Player [{customer_id}] updating bankroll by: [{amount}] ...')
+                return func()
+            else:
+                print(f'Updating bankroll by: [{amount}]')
+                return func()
+        return print_id
+        
+    
+    @player_info  
+    def update_bankroll(self, amount, customer_id=None) :        
+        """
+        Decorator prints depending on customer_id
+        Updates a customers balance/bankroll
+        """
+        self.bankroll += amount
+        return self.bankroll
+    
+    def get_bankroll(self):
+        return self.bankroll
+
     def order_drink(self, options:list):
         drink = random.choice(options)
         return drink

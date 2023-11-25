@@ -12,8 +12,12 @@ from bouncer_class import Bouncer
 from deck_class import NormalDeck, BlackJackDeck
 
 if __name__ == "__main__":
-    
-    starting_balance = 10000000
+    """
+    Subject to change if we want to use inputs instead of predefined constants. 
+    Keep like this for now.
+    """
+
+    starting_balance = 100000000
     NUM_OF_TABLES = 10
     NUM_OF_CUSTOMERS = 100
     NUM_OF_DEALERS = 10

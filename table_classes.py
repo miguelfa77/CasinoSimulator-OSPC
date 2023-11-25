@@ -13,7 +13,7 @@ casino_balance = 100000
 class Table():
     def __init__(self):
         self.current_bets = dict()   # dict holding total table bet amounts. specifies per player id.
-        self.current_dealer: Optional[Dealer] = None
+        self.current_dealer: Dealer = None
         self.current_players: list[Customer] = []
         self.dealer = {'lock': threading.Lock(), 'queue': list[Dealer]}
         self.customer = {'lock': threading.Lock(), 'queue': list[Customer]}
@@ -120,7 +120,7 @@ class Blackjack(Table):
 class Poker(Table): # IMPLEMENTATION NOT FINAL
     """
     :methods: get_bets, play, payoff_bets, run
-    :params: id, deck : NormalDeck
+    :params: id
 
     """
     def __init__(self, id):
@@ -132,7 +132,7 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     def get_bets(self):
         for player in self.current_players:
             self.current_bets[player.customer_id] = player.bet()      # bet method should return an int/float
-        time.sleep(2)
+        time.sleep(1)
 
     def play(self):  
         self.current_dealer.shuffle_deck()
@@ -140,22 +140,23 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         hands = {player.customer_id:[self.current_dealer.draw_card(), self.current_dealer.draw_card()] for player in self.current_players}
 
         board = []
-        time.sleep(2)
-        board.append(self.current_dealer.draw_card() for _ in range(3)) # FLOP
-        time.sleep(2)
+        time.sleep(1)
+        board.extend(self.current_dealer.draw_card() for _ in range(3)) # FLOP
+        time.sleep(1)
         board.append(self.current_dealer.draw_card())                   # TURN
-        time.sleep(2)
+        time.sleep(1)
         board.append(self.current_dealer.draw_card())                   # RIVER
     
     def payoff_bets(self):
         pot = sum(self.current_bets.values())
         payoff = pot * 0.98
+        rake = pot - payoff
         winner = random.choice(self.current_players)
 
-        self.casino.update_balance(amount=(pot - payoff))               # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=rake)                         # RAKE aka what the casino keeps
 
         self.current_bets = {}                                          # EMPTY POT
-        time.sleep(2)
+        time.sleep(1)
         
 
     def run(self):
