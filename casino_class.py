@@ -13,6 +13,10 @@ class Casino:
     _instance = None
 
     def __init__(self,STARTING_BALANCE,NUM_OF_TABLES,NUM_OF_CUSTOMERS,NUM_OF_DEALERS,NUM_OF_BARTENDERS,NUM_OF_BOUNCERS) -> None:
+        """
+        :Params: starting balance, number of tables, customers, dealers, bartenders, bouncers
+        Note: Numbers can be made so the user inputs them more alike an actual simulation. 
+        """
         self._balance = STARTING_BALANCE
         self._NUM_OF_TABLES = NUM_OF_TABLES
         self._NUM_OF_CUSTOMERS = NUM_OF_CUSTOMERS     # accessed by bouncer class
@@ -70,7 +74,7 @@ class Casino:
     def update_balance(self, amount):
         with self.lock['balance']:
             self._balance += amount
-            
+
 
     def run(self):
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES)) as exe:
