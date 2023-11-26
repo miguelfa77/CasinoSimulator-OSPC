@@ -3,7 +3,6 @@ import threading
 import time
 import random
 import names
-from casino_class import Casino
 
 class Customer:
     def __init__(self, id, casino):
@@ -57,10 +56,10 @@ class Customer:
         
 
     def run(self):
-        print(f"{self.name} is waiting in line")
+        print(f"{self.name} is waiting in line to enter the Casino")
         for bouncer in self.casino.bouncers:
             while bouncer.lock.locked():
-                print(f"Customer waiting for bouncer")
+                print(f"{self.name} is waiting for a bouncer")
                 time.sleep(2)
             print(f"{self.name} found bouncer")
             entry = bouncer.allow_entry(self)
@@ -71,14 +70,14 @@ class Customer:
 
 
         # EXIT CASINO CONDITION
-        # while True:
-        #     if self.bankroll <= 0:
-        #         break
+        while True:
+            if self.bankroll <= 0:
+                break
             # SELECT A TABLE TO GO PLAY AT
             # PLAY AT TABLE
             # CHECK IF WINNING
             # CHANGE TABLE OR LEAVE
-            # pass           
+            pass           
 
 
 class HighSpender(Customer):

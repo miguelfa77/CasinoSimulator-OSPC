@@ -12,8 +12,8 @@ class Casino:
             cls._instance = super(Casino, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self) -> None:
-        # self.balance = starting_balance
+    def __init__(self, starting_balance) -> None:
+        self.balance = starting_balance
         self.customers = []
         self.tables = []
         self.dealers = []
