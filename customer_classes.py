@@ -18,10 +18,18 @@ class Customer:
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
                             "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
         self.casino = casino
+        self.min_bet_amount = 1
 
-    def bet(self, amount):    
-        self.bankroll -= amount
-        return amount
+    def bet(self, amount, table): 
+        with self.lock:
+            while amount < self.min_bet_amount:
+                print(f"Bet placed: {amount}")
+                if amount < self.min_bet_amount:
+                    print(f"Bet does not meet required minimum amount, increasing bet...")
+                    amount *= 2
+                print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
+            self.bankroll -= amount
+            table.pot += amount
     
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
@@ -81,20 +89,10 @@ class Customer:
 
 
 class HighSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
+    def __init__(self, id, casino):
+        super().__init__(id, casino)
+        self.min_bet_amount = 100000
         self.customer_type = "high_spender"
-
-    def bet(self, amount, table): # ADD TABLE CONNECTION 
-        with self.lock:
-            print(f"Bet placed: {amount}")
-            while amount < self.min_bet_amount:
-                if amount < self.min_bet_amount:
-                    amount *= 2
-            print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
-            table.pot += amount
 
     def enterVIP(self, time):
         print(f"Customer {self.name} has entered the VIP.")
@@ -102,38 +100,18 @@ class HighSpender(Customer):
         print(f"Customer {self.name} has left the VIP.")
 
 
-
 class MediumSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
+    def __init__(self, id, casino):
+        super().__init__(id, casino)
+        self.min_bet_amount = 10000
         self.customer_type = "medium_spender"
 
-    def bet(self, amount, table):
-        with self.lock:
-            while amount < self.min_bet_amount:
-                print(f"Bet placed: {amount}")
-                if amount < self.min_bet_amount:
-                    print(f"Bet does not meet required minimum amount, increasing bet...")
-                    amount *= 2
-                print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
-            table.pot += amount
 
 class LowSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
+    def __init__(self, id, casino):
+        super().__init__(id, casino)
+        self.min_bet_amount = 1000
         self.customer_type = "low_spender"
 
-    def bet(self, amount, table): 
-        with self.lock:
-            while amount < self.min_bet_amount:
-                print(f"Bet placed: {amount}")
-                if amount < self.min_bet_amount:
-                    print(f"Bet does not meet required minimum amount, increasing bet...")
-                    amount *= 2
-                print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
-            table.pot += amount
+    
 
