@@ -1,15 +1,4 @@
-import threading
-import time
-import random
-import numpy as np
-import concurrent.futures
 from casino_class import Casino
-from dealer_class import Dealer
-from table_classes import Blackjack, Roulette, Poker
-from customer_classes import Customer
-from bartender_class import Bartender
-from bouncer_class import Bouncer
-from deck_class import NormalDeck, BlackJackDeck
 
 if __name__ == "__main__":
     """
@@ -24,14 +13,18 @@ if __name__ == "__main__":
     NUM_OF_BARTENDERS = 5
     NUM_OF_BOUNCERS = 2
 
-    casino = Casino(STARTING_BALANCE=starting_balance,
+
+    casino = Casino.__new__(cls=Casino)
+    casino.__init__(STARTING_BALANCE=starting_balance,
                     NUM_OF_TABLES=NUM_OF_TABLES,
                     NUM_OF_CUSTOMERS=NUM_OF_CUSTOMERS,
                     NUM_OF_DEALERS=NUM_OF_DEALERS,
                     NUM_OF_BARTENDERS=NUM_OF_BARTENDERS,
                     NUM_OF_BOUNCERS=NUM_OF_BOUNCERS)
 
-    casino.run()
+    print(casino)
+    
+    print(casino.customers)
 
 
 

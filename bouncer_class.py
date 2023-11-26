@@ -1,4 +1,3 @@
-from casino_class import Casino
 from customer_classes import Customer
 import time
 import threading
@@ -10,13 +9,14 @@ import random
 """
 
 class Bouncer:
-    def __init__(self, id):
+    def __init__(self, id, casino: object):
         self.bouncer_id = id
+        # self.log_file = 'bouncers_log.txt'
         self.bouncer= {'queue':[], 'lock': threading.Lock()}
-        self.current_customer: Customer = None
+        self.current_customer = None
         self.kicked_out_customers = []
         self.vip_list = set()  # List of VIP customer names
-        self.casino = Casino()
+        self.casino: object = casino
     
     def check_id(self, customer:Customer):
         if customer.age < 18:

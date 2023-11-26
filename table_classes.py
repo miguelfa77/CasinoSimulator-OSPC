@@ -1,24 +1,21 @@
 import random
 import threading
 import time 
-from casino_class import Casino
-from dealer_class import Dealer
-from customer_classes import Customer
-from deck_class import *
-from typing import Optional
+from deck_class import deck_type
 
 num_players = random.randrange(1, 5)
 casino_balance = 100000
 
 class Table():
-    def __init__(self):
+    def __init__(self, casino:object):
+        # self.log_file = 'tables_log.txt'
         self.current_bets = dict()   # dict holding total table bet amounts. specifies per player id.
-        self.current_dealer: Dealer = None
-        self.current_players: list[Customer] = []
-        self.dealer = {'lock': threading.Lock(), 'queue': list[Dealer]}
-        self.customer = {'lock': threading.Lock(), 'queue': list[Customer]}
+        self.current_dealer = None
+        self.current_players = []
+        self.dealer = {'lock': threading.Lock(), 'queue': []}
+        self.customer = {'lock': threading.Lock(), 'queue': []}
         self.max_players = None
-        self.casino = Casino()
+        self.casino: object = casino
 
     def dealer_waiting(self):
         with self.dealer['lock']:
@@ -43,11 +40,12 @@ class Table():
             return self.current_players
 
 class Roulette(Table):
-    def __init__(self, balance, id):
-        super().__init__(balance)
+    def __init__(self, id, casino):
+        super().__init__(self)
         self.table_id = id
         self.num_bets = random.randint(1, 12)
         # self.max_players = 10
+        self.casino = casino
 
     def play(self, player_id, balance):
         with self.lock:
@@ -72,11 +70,12 @@ class Roulette(Table):
 
 
 class Blackjack(Table):
-    def __init__(self, balance, id):
-        super().__init__(balance)
+    def __init__(self, id, casino):
+        super().__init__(self)
         self.table_id = id
         self.num_decks = random.randint(1, 8)
         self.max_players = 3
+        self.casino = casino
 
     def play(self, player_id, balance):
         with self.lock:
@@ -123,15 +122,16 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     :params: id
 
     """
-    def __init__(self, id):
-        super().__init__()
+    def __init__(self, id, casino):
+        super().__init__(self)
         self.table_id = id
-        self.deck = deck_type('Normal')
+        self.deck = deck_type('normal')
         self.max_players = 6
+        self.casino = casino
     
     def get_bets(self):
         for player in self.current_players:
-            self.current_bets[player.customer_id] = player.bet()      # bet method should return an int/float
+            self.current_bets[player.customer_id] = player.update_bankroll() 
         time.sleep(1)
 
     def play(self):  

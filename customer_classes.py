@@ -3,17 +3,17 @@ import threading
 import time
 import random
 import names
-from casino_class import Casino
 
 class Customer():
-    def __init__(self, id):
+    def __init__(self, id, casino: object):
         self.customer_id = id
-        self.bankroll = random.randint(100000,1000000)
+        # self.log_file = 'customers_log.txt'
+        self.bankroll = None
         self.gender = random.choice("male", "female")
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
         self.lock = threading.Lock()
-        self.casino = Casino()
+        self.casino: object = casino
 
     def enter_bouncer_queue(self):
         try:
@@ -30,20 +30,15 @@ class Customer():
         except:
             return None
              
-    
-    def player_info(self, func):                # Could be changed to a log_file editor
-        def print_id(amount, customer_id):
-            if customer_id:
-                print(f'Player [{customer_id}] updating bankroll by: [{amount}] ...')
-                return func()
-            else:
-                print(f'Updating bankroll by: [{amount}]')
-                return func()
+    @staticmethod
+    def player_info(func):                # Will be changed to log into 'customers_log.txt'
+        def print_id(self, amount):
+            print(f'Player [{self.customer_id}] updated bankroll by: [{amount}]')
+            return func(self, amount)
         return print_id
-        
     
-    @player_info  
-    def update_bankroll(self, amount, customer_id=None) :        
+    @player_info 
+    def update_bankroll(self, amount) -> float:        
         """
         Decorator prints depending on customer_id
         Updates a customers balance/bankroll
@@ -64,62 +59,42 @@ class Customer():
     def goBathroom(self):
         time.sleep(random.randrange(1, 20))
 
-    def run(self):
+    def run(self):   # NEEDS FINISHING
         while self.casino.is_open:
             current_bouncer = self.enter_bouncer_queue()
-            current_bouncer.
+            #current_bouncer.
             self.casino.customers.append(self)
 
 
-class HighSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
-
-    def bet(self, amount, table): # ADD TABLE CONNECTION 
-        with self.lock:
-            print(f"Bet placed: {amount}")
-            while amount < self.min_bet_amount:
-                if amount < self.min_bet_amount:
-                    print(f"Bet placed: {amount}")
-                    print(f"That's not how we ride, increase that figure.")
-                    amount *= 2
-            print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
-
-    def enterVIP(self, time):
-        print(f"Customer {self.name} has entered the VIP.")
-        time.sleep(time)
-        print(f"Customer {self.name} has left the VIP.")
+class HighRoller(Customer):
+    def __init__(self, id):
+        super().__init__(self)
+        self.customer_id = id
+        self.bankroll = random.randint(10000, 100000)
 
 
-class MediumSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
+class MediumRoller(Customer):
+    def __init__(self, id):
+        super().__init__(self)
+        self.customer_id = id
+        self.bankroll = random.randint(1000, 10000)
 
-    def bet(self, amount):
-        with self.lock:
-            while amount < self.min_bet_amount:
-                print(f"Bet placed: {amount}")
-                if amount < self.min_bet_amount:
-                    print(f"Bet does not meet required minimum amount, increasing bet...")
-                    amount *= 2
-                print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
 
-class LowSpender(Customer):
-    def __init__(self, name, age, bankroll, min_bet_amount):
-        super().__init__(name, age, bankroll)
-        self.min_bet_amount = min_bet_amount
+class LowRoller(Customer):
+    def __init__(self, id):
+        super().__init__(self)
+        self.customer_id = id
+        self.bankroll = random.randint(100, 1000)
 
-    def bet(self, amount): 
-        with self.lock:
-            while amount < self.min_bet_amount:
-                print(f"Bet placed: {amount}")
-                if amount < self.min_bet_amount:
-                    print(f"Bet does not meet required minimum amount, increasing bet...")
-                    amount *= 2
-                print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-            self.bankroll -= amount
 
+def customer_type(id, customer_type=None) -> HighRoller or MediumRoller or LowRoller:
+    """
+    Factory Method
+    :params: high, medium, low
+    """
+
+    customer = {'high': HighRoller(id),
+                'medium': MediumRoller(id),
+                'low': LowRoller(id)}
+    
+    return customer[customer_type](id)

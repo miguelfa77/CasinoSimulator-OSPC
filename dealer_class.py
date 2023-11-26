@@ -1,24 +1,23 @@
-import threading
 import random
 import time
 import names
-from deck_class import *
-from casino_class import Casino
-from typing import Optional
+from deck_class import Deck
 
 class Dealer(Deck):
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
-    def __init__(self, id) -> None:
+    def __init__(self, id, casino: object) -> None:
         self.dealer_id = id 
+        # self.log_file = 'dealers_log.txt'
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)  
         self.current_table = None
-        self.casino = Casino()
-    
-    def leave_table(self):
+        self.casino: object = casino
+
+
+    def leave_table(self) -> None:
         try:
             if self.dealer_id in self.current_table.dealer['queue']:
                 with self.current_table.dealer['lock']:
@@ -29,7 +28,7 @@ class Dealer(Deck):
         except:
             print('Cant find dealer at current table')
          
-    def take_break(self):
+    def take_break(self) -> None:
         if self.current_table:
             self.leave_table()
             time.sleep(random.randrange(2,5))

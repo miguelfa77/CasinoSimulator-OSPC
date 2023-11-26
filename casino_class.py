@@ -1,12 +1,7 @@
 import threading
 import concurrent.futures
-import time
 import random
-from table_classes import *
-from bartender_class import Bartender
-from bouncer_class import Bouncer
-from customer_classes import *
-from dealer_class import Dealer
+from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type
 
 class Casino:
 
@@ -31,11 +26,14 @@ class Casino:
         self.bouncers = []
         self.bathrooms = {"male": [],
                           "female": []}
+        
+        #self.log_file = 'casino_log.txt'
         self.opening_time = 0
         self.closing_time = 1000
         self.lock = {'customer': threading.Lock(),
                       'balance': threading.Lock()}
-        self.is_open = True   
+        self.is_open = True
+        self.initialize_internal()   
 
     def __new__(cls):
         """
@@ -44,7 +42,6 @@ class Casino:
         """
         if not cls._instance:
             cls._instance = super(Casino, cls).__new__(cls)
-            cls._instance.initialize_internal()
         return cls._instance
 
     
@@ -52,33 +49,41 @@ class Casino:
         """
         Initialize and append to shared class variables: tables, dealer, bartenders, bounces
         """
-        tables = [(Roulette(table_id), Blackjack(table_id+1), Poker(table_id+2)) for table_id in range(self._NUM_OF_TABLES)]
+        tables = [(Roulette(table_id, self), Blackjack(table_id+1, self), Poker(table_id+2, self)) for table_id in range(self._NUM_OF_TABLES)]
         self.tables.extend(tables)
 
-        dealers = [Dealer(dealer_id) for dealer_id in range(self._NUM_OF_DEALERS)]
+        dealers = [Dealer(dealer_id, self) for dealer_id in range(self._NUM_OF_DEALERS)]
         self.dealers.extend(dealers)
 
-        bartenders = [Bartender(bartender_id) for bartender_id in range(self._NUM_OF_BARTENDERS)]
+        bartenders = [Bartender(bartender_id, self) for bartender_id in range(self._NUM_OF_BARTENDERS)]
         self.bartenders.extend(bartenders)
         
-        bouncers = [Bouncer(bouncer_id) for bouncer_id in range(self._NUM_OF_BOUNCERS)]
+        bouncers = [Bouncer(bouncer_id, self) for bouncer_id in range(self._NUM_OF_BOUNCERS)]
         self.bouncers.extend(bouncers)
 
     def initialize_external(self):
         """
         Initialize but not append to global/shared variables of the casino.
         """
-        customers = [Customer(customer_id) for customer_id in range(self._NUM_OF_CUSTOMERS)]
+        customer_choices = random.choices(['high','medium','low'], weights=[0.2, 0.5, 0.3], k=self._NUM_OF_CUSTOMERS)
+
+        customers = [customer_type(index, choice) for index, choice in enumerate(customer_choices)]
         return customers
-
-
-    def get_balance(self):
-        """
-        :returns: casino balance in case it wants to be printed or smth
-        """
-        return self._balance
     
-    def update_balance(self, amount):
+    
+    @staticmethod
+    def casino_info(func):
+        def print_balance(self, amount, executor:object):
+            if executor:
+                print(f'[{executor.__class__.__name__}] updated casino balance by: [{amount}]')
+                return func(self, amount)
+            else:
+                print(f'[Unknown] updated casino balance by: [{amount}]')
+        return print_balance
+
+ 
+    @casino_info
+    def update_balance(self, amount, executor:object=None):
         """
         :params: amount: int (positive or negative)
         Performs the balance update.
@@ -86,6 +91,12 @@ class Casino:
         """
         with self.lock['balance']:
             self._balance += amount
+
+    def get_balance(self):
+        """
+        :returns: casino balance in case it wants to be printed or smth
+        """
+        return self._balance
 
 
     def run(self):

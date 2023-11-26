@@ -1,20 +1,18 @@
 import random
 import names
 import threading
-import concurrent.futures
-from casino_class import Casino
 
 class Bartender():
-    def __init__(self, id):
-        super().__init__()
+    def __init__(self, id, casino: object):
         self.bartender_id = id
+        # self.log_file = 'bartenders_log.txt'
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
         self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
         self.current_customer = None
         self.current_drink = None
         self.customer = {'lock': threading.Lock(), 'queue': []}
-        self.casino = Casino()
+        self.casino: object = casino
 
     def customer_waiting(self):
         with self.customer['lock']:
@@ -44,8 +42,11 @@ class Bartender():
         else:
             print(f"{self.name} needs an order from a customer first.")
 
+    """
     def run(self):
         while self.casino.is_open:
             if self.orders:
+    
+    """
 
 
