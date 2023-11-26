@@ -7,10 +7,19 @@ class Casino:
 
     _instance = None
 
+    def __new__(cls):
+        """
+        :returns: the same intance if already instantiated.
+        """
+        if not cls._instance:
+            cls._instance = super(Casino, cls).__new__(cls)
+        return cls._instance
+
     def __init__(self,STARTING_BALANCE,NUM_OF_TABLES,NUM_OF_CUSTOMERS,NUM_OF_DEALERS,NUM_OF_BARTENDERS,NUM_OF_BOUNCERS) -> None:
         """
-        :Params: starting balance, number of tables, customers, dealers, bartenders, bouncers
-        Note: Numbers can be made so the user inputs them more alike an actual simulation. 
+        :params: starting balance, number of: tables, customers, dealers, bartenders, bouncers
+        Note: Numbers can be made so the user inputs them more alike an actual simulation.
+        :extra: initialize_internal() -> instantiates all internal and appends to instance attribute lists. 
         """
         self._balance = STARTING_BALANCE
         self._NUM_OF_TABLES = NUM_OF_TABLES
@@ -36,15 +45,6 @@ class Casino:
         self.is_open = True
         self.initialize_internal()   
 
-    def __new__(cls):
-        """
-        :returns: the same intance if already instantiated.
-        :extra: initialize_internal() -> instantiates all internal and appends to class attribute lists.
-        """
-        if not cls._instance:
-            cls._instance = super(Casino, cls).__new__(cls)
-        return cls._instance
-
     
     def initialize_internal(self):
         """
@@ -53,7 +53,6 @@ class Casino:
         tables = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Blackjack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
-
         self.tables.extend(tables)
 
         dealers = [Dealer(dealer_id, self) for dealer_id in range(self._NUM_OF_DEALERS)]
