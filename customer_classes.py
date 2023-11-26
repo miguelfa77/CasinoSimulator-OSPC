@@ -125,8 +125,8 @@ class Customer:
                             unattended = False
                     print(f"{self.name} is being attended by bartender {brt.name}")
                     brt.take_order(self)
-                    drink = self.bartender.make_drink()
-                    self.bartender.serve_drink(self)
+                    drink = brt.make_drink()
+                    brt.serve_drink(self)
                     print(f"{self.name} enjoys the {drink}.")
                     time.sleep(5)
                     at_the_bar = False
