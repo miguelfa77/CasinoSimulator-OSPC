@@ -4,7 +4,7 @@ import threading
 import concurrent.futures
 from casino_class import Casino
 
-class Bartender (Casino):
+class Bartender(Casino):
     def __init__(self, id):
         self.bartender_id = id
         self.name = names.get_first_name()
