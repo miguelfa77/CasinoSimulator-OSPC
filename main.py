@@ -21,9 +21,9 @@ if __name__ == "__main__":
 
     casino = Casino(starting_balance)
 
-    high_spenders = [HighSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.05))]
-    medium_spenders = [MediumSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.75))]
-    low_spenders = [LowSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.2))]
+    high_spenders = [HighSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.05))]     # 5% high spenders
+    medium_spenders = [MediumSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.75))] # 75% medium spenders
+    low_spenders = [LowSpender(i, casino) for i in range(num_of_customers*(num_of_customers*0.2))]        # 20% low spenders
     customers = high_spenders + medium_spenders + low_spenders
 
     tables = [(Blackjack(id, BlackJackDeck), Roulette(id+1), Poker(id+2, NormalDeck)) for id in range(0, num_of_tables, 2)]
