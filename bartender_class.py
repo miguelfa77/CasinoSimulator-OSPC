@@ -3,12 +3,14 @@ import names
 import threading
 
 class Bartender():
+
+    drinks = ['Mojito', 'Martini', 'Cosmopolitan', 'Beer', 'Wine', 'Whiskey', 'Tequila Sunrise', 'Gintonic']
+    
     def __init__(self, id, casino: object):
         self.bartender_id = id
         # self.log_file = 'bartenders_log.txt'
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
-        self.drinks = ["Mojito", "Martini", "Cosmopolitan", "Beer", "Wine", "Whiskey", "Tequila Sunrise", "Gintonic"]
         self.current_customer = None
         self.current_drink = None
         self.customer = {'lock': threading.Lock(), 'queue': []}
@@ -26,7 +28,7 @@ class Bartender():
             return self.current_customer
 
     def take_order(self):
-        self.current_drink = self.current_customer.order_drink(self.drinks)    # MUST APPLY TO CUSTOMER CLASS
+        self.current_drink = self.current_customer.order_drink(self.drinks)
         return self.current_drink       
     
     def make_drink(self):
@@ -42,11 +44,11 @@ class Bartender():
         else:
             print(f"{self.name} needs an order from a customer first.")
 
-    """
+    
     def run(self):
         while self.casino.is_open:
-            if self.orders:
+            pass
+
     
-    """
 
 

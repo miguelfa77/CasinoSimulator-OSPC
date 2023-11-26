@@ -7,7 +7,7 @@ if __name__ == "__main__":
     """
 
     starting_balance = 100000000
-    NUM_OF_TABLES = 10
+    NUM_OF_TABLES = 6      # MUST BE MULTIPLE OF 3
     NUM_OF_CUSTOMERS = 100
     NUM_OF_DEALERS = 10
     NUM_OF_BARTENDERS = 5
@@ -21,10 +21,8 @@ if __name__ == "__main__":
                     NUM_OF_DEALERS=NUM_OF_DEALERS,
                     NUM_OF_BARTENDERS=NUM_OF_BARTENDERS,
                     NUM_OF_BOUNCERS=NUM_OF_BOUNCERS)
-
-    print(casino)
     
-    print(casino.customers)
+    print(vars(casino.bartenders[0]), vars(casino.tables[3]))
 
 
 

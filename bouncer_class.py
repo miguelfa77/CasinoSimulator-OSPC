@@ -4,15 +4,18 @@ import threading
 import random
 
 """
+- Bouncers share the same queue
 - Add customer attr. to the customer class
 - Possibility: Initilize only the Bouncer instances with customers as constructors and append to 
 """
 
 class Bouncer:
+
+    bouncer = {'queue':[], 'lock': threading.Lock()}
+
     def __init__(self, id, casino: object):
         self.bouncer_id = id
         # self.log_file = 'bouncers_log.txt'
-        self.bouncer= {'queue':[], 'lock': threading.Lock()}
         self.current_customer = None
         self.kicked_out_customers = []
         self.vip_list = set()  # List of VIP customer names
@@ -20,25 +23,25 @@ class Bouncer:
     
     def check_id(self, customer:Customer):
         if customer.age < 18:
-            self.kick_out(customer, reason="underage")
+            self.kick_out(customer, reason='underage')
             return False
         return True
 
     def check_drunkenness(self, customer:Customer):
-        if customer.entry_atts_["drunkness"] > 5:
-            self.kick_out(customer, reason="too drunk")
+        if customer.entry_atts_['drunkness'] > 5:
+            self.kick_out(customer, reason='too drunk')
             return False
         return True
 
     def check_rage(self, customer:Customer):
         if customer.entry_atts_['rage'] > 5:
-            self.kick_out(customer, reason="raging")
+            self.kick_out(customer, reason='raging')
             return False
         return True
 
     def check_weapons(self, customer:Customer):
         if customer.entry_atts_['has_weapon']:
-            self.kick_out(customer, reason="carrying a weapon")
+            self.kick_out(customer, reason='carrying a weapon')
             return False
         return True
 
@@ -46,7 +49,7 @@ class Bouncer:
         need_to_check = random.choices([True, False], weights=(10,90), k=1)[0]
         if not need_to_check:
             return True
-        if customer.entry_atts_["is_vip"]:
+        if customer.entry_atts_['is_vip']:
             print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
             return True
         return False

@@ -24,8 +24,9 @@ class Casino:
         self.dealers = []
         self.bartenders = []
         self.bouncers = []
-        self.bathrooms = {"male": [],
-                          "female": []}
+        self.bathrooms = {'male': [],
+                         'female': [],
+                         }
         
         #self.log_file = 'casino_log.txt'
         self.opening_time = 0
@@ -49,7 +50,10 @@ class Casino:
         """
         Initialize and append to shared class variables: tables, dealer, bartenders, bounces
         """
-        tables = [(Roulette(table_id, self), Blackjack(table_id+1, self), Poker(table_id+2, self)) for table_id in range(self._NUM_OF_TABLES)]
+        tables = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
+                [Blackjack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
+                [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
+
         self.tables.extend(tables)
 
         dealers = [Dealer(dealer_id, self) for dealer_id in range(self._NUM_OF_DEALERS)]
