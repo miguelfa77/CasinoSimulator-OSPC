@@ -12,47 +12,37 @@ class Bouncer:
         self.lock = threading.Lock()
 
     def check_id(self, customer):
-        with self.lock:
-            if customer.age < 18:
-                self.kick_out(customer, reason="underage")
-                return False
-            return True
+        if customer.age < 18:
+            print(f"Customer {customer.name} has been kicked out for being underage.")
+            return False
+        return True
 
     def check_drunkenness(self, customer):
-        with self.lock:
-            if customer.entry_atts_["drunkness"] > 5:
-                self.kick_out(customer, reason="too drunk")
-                return False
-            return True
+        if customer.entry_atts_["drunkness"] > 5:
+            print(f"Customer {customer.name} has been kicked out for too drunk.")
+            return False
+        return True
 
     def check_rage(self, customer):
-        with self.lock:
-            if customer.entry_atts_['rage'] > 5:
-                self.kick_out(customer, reason="raging")
-                return False
-            return True
+        if customer.entry_atts_['rage'] > 5:
+            print(f"Customer {customer.name} has been kicked out for raging.")
+            return False
+        return True
 
     def check_weapons(self, customer):
-        with self.lock:
-            if customer.entry_atts_['has_weapon']:
-                self.kick_out(customer, reason="carrying a weapon")
-                return False
-            return True
+        if customer.entry_atts_['has_weapon']:
+            print(f"Customer {customer.name} has been kicked out for carrying a weapon.")
+            return False
+        return True
 
     def check_vip(self, customer):
-        with self.lock:
-            need_to_check = random.choices([True, False], weights=(10,90), k=1)[0]
-            if not need_to_check:
-                return True
-            if customer.entry_atts_["is_vip"]:
-                print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
-                return True
-            return False
-
-    def kick_out(self, customer, reason):
-        with self.lock:
-            print(f"Customer {customer.name} has been kicked out for {reason}.")
-            self.kicked_out_customers.append(customer.name)
+        need_to_check = random.choices([True, False], weights=(10,90), k=1)[0]
+        if not need_to_check:
+            return True
+        if customer.entry_atts_["is_vip"]:
+            print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
+            return True
+        return False
 
     def allow_entry(self, customer):
         with self.lock:

@@ -12,13 +12,13 @@ class Casino:
             cls._instance = super(Casino, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self, starting_balance, customers, tables, dealers, bartenders, bouncers) -> None:
-        self.balance = starting_balance
-        self.customers = customers
-        self.tables = tables
-        self.dealers = dealers
-        self.bartenders = bartenders
-        self.bouncers = bouncers
+    def __init__(self) -> None:
+        # self.balance = starting_balance
+        self.customers = []
+        self.tables = []
+        self.dealers = []
+        self.bartenders = []
+        self.bouncers = []
         self.bathrooms = {"Mens": [],
                           "Womens": [],
                           "mens_wc_lock": threading.Lock(),
