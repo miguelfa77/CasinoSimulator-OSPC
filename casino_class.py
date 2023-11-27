@@ -1,6 +1,7 @@
 import threading
 import concurrent.futures
 import random
+import sys
 from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type
 
 class Casino:
@@ -29,6 +30,7 @@ class Casino:
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
 
         self.customers = []
+        self.customers_denied_entry = []
         self.tables = []
         self.dealers = []
         self.bartenders = []
@@ -37,11 +39,18 @@ class Casino:
                          'female': [],
                          }
         
-        #self.log_file = 'casino_log.txt'
+        self.queues = {'table':{'dealer':[], 'customer': []}, 
+                       'bartender': [],
+                       'bouncer': []
+                       }
+        self.locks = {'balance': threading.Lock(),
+                      'table':{'dealer': threading.Lock(), 'customer': threading.Lock()}, 
+                       'bartender': threading.Lock(),
+                       'bouncer': threading.Lock(),
+                       'customer': threading.Lock()
+                       }
         self.opening_time = 0
         self.closing_time = 1000
-        self.lock = {'customer': threading.Lock(),
-                      'balance': threading.Lock()}
         self.is_open = True
         self.initialize_internal()   
 
@@ -50,10 +59,14 @@ class Casino:
         """
         Initialize and append to shared class variables: tables, dealer, bartenders, bounces
         """
+        """
         tables = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Blackjack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
+        """
+        tables = [Poker(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
         self.tables.extend(tables)
+
 
         dealers = [Dealer(dealer_id, self) for dealer_id in range(self._NUM_OF_DEALERS)]
         self.dealers.extend(dealers)
@@ -92,7 +105,7 @@ class Casino:
         Performs the balance update.
         Note: Other classes (e.g. table) can update balance without directly accessing the 'private' _balance var.
         """
-        with self.lock['balance']:
+        with self.locks['balance']:
             self._balance += amount
 
     def get_balance(self):
@@ -103,13 +116,15 @@ class Casino:
 
 
     def run(self):
+        print('Starting thread')
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]
             dealer_threads = [exe.submit(dealer.run) for dealer in self.dealers]
             bartender_threads = [exe.submit(bartender.run) for bartender in self.bartenders]
-            bouncer_theads = [exe.submit(bouncer.run) for bouncer in self.bouncers]
+            bouncer_threads = [exe.submit(bouncer.run) for bouncer in self.bouncers]
 
         print(f"The Casino is now open.")
+        sys.stdout.flush()
         customers = self.initialize_external()
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._NUM_OF_CUSTOMERS) as exe2:
             customer_threads = [exe2.submit(customer.run) for customer in customers]
@@ -120,7 +135,7 @@ class Casino:
         
         self.is_open = False
         # CHECK ALL THREADS ARE DEAD WITH is_alive()
-        print(f"casino is now closed.")
+        print(f"The Casino is now closed.")
 
 
     

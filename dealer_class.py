@@ -10,23 +10,39 @@ class Dealer(Deck):
     """
     def __init__(self, id, casino: object) -> None:
         self.dealer_id = id 
-        # self.log_file = 'dealers_log.txt'
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)  
         self.current_table = None
         self.casino: object = casino
 
 
+    def enter_table_queue(self):
+        """
+        Accesses via casino instance
+        :returns: table_id (where dealer is) or None
+        """
+        with self.casino.locks['table']['dealer']:
+            self.casino.queues['table']['dealer'].append(self)
+
+    def check_table(self):
+        for table in self.casino.tables:
+            if self is table.current_dealer:
+                self.current_table = table
+                return True
+        else:
+            return None
+    
     def leave_table(self) -> None:
-        try:
-            if self.dealer_id in self.current_table.dealer['queue']:
-                with self.current_table.dealer['lock']:
-                    self.current_table['queue'].remove(self)
-            elif self.dealer_id == self.current_table.current_dealer:
-                with self.current_table.dealer['lock']:
-                    self.current_table.current_dealer = None
-        except:
-            print('Cant find dealer at current table')
+        for table in self.casino.tables:
+            if self is table.current_dealer:
+                table.current_dealer = None
+                return True
+        if self in self.casino.queues['table']['dealer']:
+            with self.casino.locks['table']['dealer']:
+                self.casino.queues['table']['dealer'].remove(self)
+                return True
+        else:
+            return False
          
     def take_break(self) -> None:
         if self.current_table:
@@ -34,34 +50,15 @@ class Dealer(Deck):
             time.sleep(random.randrange(2,5))
         else:
             time.sleep(random.randrange(2,5))
-
-    def enter_table_queue(self):
-        """
-        Accesses via casino instance
-        :returns: table_id (where dealer is) or None
-        """
-        try:
-            for table in self.casino.tables:           # append if table queue is empty
-                if not table['queue']:
-                    with table.dealer['lock']:
-                        table.dealer['queue'].append(self)
-                        return table  
-            else:                               # append to random table if not empty
-                table = random.choice(self.casino.tables)
-                with table.dealer['lock']:                        
-                    table.dealer['queue'].append(self)
-                    return table
-        except:
-            return None
    
     def run(self):
         while self.casino.is_open:
             try:
                 time.sleep(random.randrange(0,5))
 
-                self.current_table = self.enter_table_queue()
+                self.enter_table_queue()
 
-                if self.current_table:
+                if self.check_table:
                     time.sleep(20)
                     random_choice = random.choice(self.take_break(), None)
                     if random_choice is not None and callable(random_choice):

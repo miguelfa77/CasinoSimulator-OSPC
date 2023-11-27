@@ -1,7 +1,6 @@
 from customer_classes import Customer
-import time
-import threading
 import random
+import names
 
 """
 - Bouncers share the same queue
@@ -11,13 +10,11 @@ import random
 
 class Bouncer:
 
-    bouncer = {'queue':[], 'lock': threading.Lock()}
-
     def __init__(self, id, casino: object):
         self.bouncer_id = id
-        # self.log_file = 'bouncers_log.txt'
+        self.name = names.get_first_name()
+        self.age = random.randint(18, 60)
         self.current_customer = None
-        self.kicked_out_customers = []
         self.vip_list = set()  # List of VIP customer names
         self.casino: object = casino
     
@@ -67,14 +64,14 @@ class Bouncer:
             
     def run(self):
         while self.casino.is_open:
-            if self.bouncer['queue']:
-                with self.bouncer['lock']:
-                    current_customer = self.bouncer['queue'].pop()
-                    if self.allow_entry(current_customer):
-                        with self.casino.lock['customer']:
-                            self.casino.customers.append(current_customer)
+            if self.casino.queues['bouncer']:
+                with self.locks['bouncer']:
+                    self.current_customer = self.casino.queues['bouncer'].pop()
+                    if self.allow_entry(self.current_customer):
+                        with self.casino.locks['customer']:
+                            self.casino.customers.append(self.current_customer)
                     else:
-                        self.kicked_out_customers.append(current_customer)
+                        self.kicked_out_customers.append(self.current_customer)
             
             else:
                 pass

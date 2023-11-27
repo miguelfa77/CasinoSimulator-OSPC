@@ -7,31 +7,33 @@ import names
 class Customer():
     def __init__(self, id, casino: object):
         self.customer_id = id
-        # self.log_file = 'customers_log.txt'
+        self.in_casino = False
         self.bankroll = None
-        self.gender = random.choice("male", "female")
+        self.gender = random.choice('male', 'female')
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
-        self.lock = threading.Lock()
         self.casino: object = casino
 
     def enter_bouncer_queue(self):
         try:
-            for bouncer in self.casino.bouncers:
-                if not bouncer['queue']:
-                    with bouncer.bouncer['lock']:
-                        bouncer.bouncer['queue'].append(self)
-                        return bouncer
-            else:
-                bouncer = random.choice(self.casino.bouncers)
-                with bouncer.bouncer['lock']:
-                    bouncer.bouncer['queue'].append(self)
-                    return bouncer
+            with self.casino.lock['bouncer']:
+                self.casino.queues['bouncer']
+            return True
         except:
-            return None
+            return False
+        
+    def check_status(self):
+        if self in self.casino.customers:
+            self.in_casino = True
+            return True
+        elif self in self.casino.customers_denied_entry:
+            return False
+        else:
+            return False
+
              
     @staticmethod
-    def player_info(func):                # Will be changed to log into 'customers_log.txt'
+    def player_info(func):                # Will be changed to logged into SQL
         def print_id(self, amount):
             print(f'Player [{self.customer_id}] updated bankroll by: [{amount}]')
             return func(self, amount)
@@ -59,13 +61,24 @@ class Customer():
     def goBathroom(self):
         time.sleep(random.randrange(1, 20))
 
+
     def run(self):   # NEEDS FINISHING
-        while self.casino.is_open:
-            current_bouncer = self.enter_bouncer_queue()
-            #current_bouncer.
-            self.casino.customers.append(self)
+        self.enter_bouncer_queue()
+        if self.check_status(self) is True:
+            while self.casino.is_open:
+                activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)
 
+                if activity.lower() == 'play':
+                    self.casino.queues['table']['customer'].append(self)
+                elif activity.lower() == 'drink':
+                    self.casino.queues['bartender'].append(self)
+                elif activity.lower() == 'bathroom':
+                    self.casino.bathrooms[self.gender].append(self)
+                    self.goBathroom()
+                else:
+                    time.sleep(random.randrange(5,10))
 
+                         
 class HighRoller(Customer):
     def __init__(self, id):
         super().__init__(self)
