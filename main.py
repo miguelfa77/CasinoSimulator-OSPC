@@ -22,7 +22,10 @@ if __name__ == "__main__":
                     NUM_OF_BARTENDERS=NUM_OF_BARTENDERS,
                     NUM_OF_BOUNCERS=NUM_OF_BOUNCERS)
     
-    print(vars(casino.bartenders[0]), vars(casino.tables[3]))
+    
+    print(vars(casino.bartenders[0])['casino'].__dict__)
+    print()
+    print(vars(casino.tables[3])['casino'].__dict__)
 
 
 
