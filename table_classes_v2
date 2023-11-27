@@ -1,0 +1,238 @@
+import random
+import threading
+import time 
+from casino_class import Casino
+from dealer_class import Dealer
+from customer_classes import Customer
+from deck_class import NormalDeck, BlackJackDeck
+from typing import Optional
+
+
+# OBJECTIVE: Simulation of a casino with different games: Roulette, Blackjack, Poker.
+# 1) Table class that all game classes inherit from.
+    # (*) Subclass of Casino class.
+    # (*) Attributes: identifier of the table, type of game, maximum number of players, dealer, minimum bet.
+
+# 2) Create classes for each game.
+
+class Table(Casino):
+    def __init__(self, table_id, game_type, capacity, number_dealer, minimum_bet, bet_amount):
+        super().__init__(self) # (Si la clase Casino tiene algún constructor que deba ejecutarse).
+        # self.num_bets = num_bets (?????)
+        self.table_id = table_id  # Identificador único de la mesa.
+        self.game_type = game_type  # Tipo de juego (póker, blackjack, ruleta, etc.).
+        self.capacity = capacity  # Capacidad máxima de jugadores en la mesa.
+        self.number_dealer = number_dealer  # Croupier asociado a la mesa.
+        self.minimum_bet = minimum_bet  # Apuesta mínima permitida en la mesa.
+        
+        # CONTROL OVER THE CUSTOMERS AND THE DEALERS, PARA SABER CUAL ES EL ESTADO ACTUAL DEL JUEGO:
+        self.current_dealer: Optional[Dealer] = None # Intended to hold an instance of the Dealer class.
+                                 # Optional[Dealer]: indicates that this attribute can either hold an instance of Dealer or None. 
+                                 # The comment indicates there is 'None'.
+        self.current_players[game_type]: Optional[Customer] = [] # Initialized as an empty list and is intended to hold instances of the Customer class.
+                                  # Optional[Customer]: indicates that this attribute can either hold an instance of Customer, a list of Customer instances, or None. 
+                                  # The comment next to this line indicates that there are no current players.
+        
+        # THREADING LOCKS AND QUEUES, REPRESENTA LA LISTA DE ESPERA:
+        self.dealer = {'lock': threading.Lock(), 'queue': []} # (?)NO DEBERÍAN ESTAR EN LA CLASE DEALER?
+        self.customer = {'lock': threading.Lock(), 'queue': []} # (?) NO DEBERÍAN ESTAR EN LA CLASE CUSTOMER?
+
+        self.current_players = {"Roulette": {"queue":list(), "lock":threading.Lock()},
+                                "Poker":{"queue":list(), "lock":threading.Lock()},
+                                "Blackjack":{"queue":list(), "lock":threading.Lock()}
+                                }
+        self.current_dealer = {"queue":list(), "lock":threading.Lock()}
+
+    # Nos permite seleccionar a los jugadores y al croupier de la lista de espera:
+    # (!!!!!!!) Dealer and customers are dictionaries belonging to the father class Casino.
+    # (!!!!!!!) SHOULD PROBABLY ADD SLEEPS TO THE METHODS BELOW.
+    def select_dealer(self, dealer, current_dealer):
+        if dealer['queue']:
+            with dealer['lock']:
+                current_dealer.append (dealer['queue'].pop())
+                return True
+        else:
+            return False
+    
+    def add_dealer_to_table(self, dealer, number_dealer, current_dealer):
+        with current_dealer['lock']:
+            if len(current_dealer['queue']) < number_dealer:
+                current_dealer['queue'].append(dealer)
+                return True
+            else:
+                print("There is already a dealer at the table.")
+                return False
+        
+    def select_customer(self, game_type, current_players, customers):
+        if customers['queue']:
+            with customers['lock']:
+                current_players[game_type].append(customers['queue'].pop())
+                return True
+        else:
+            return False
+    
+    def add_customer_to_table(self, customer, capacity, game_type, current_players):
+        with current_players[game_type]['lock']: 
+            if len(current_players[game_type]['queue']) < capacity: 
+                current_players[game_type]['queue'].append(customer)
+                return True
+            else:
+                print("Table is already full.")
+                return False
+    
+class Roulette(Table):
+    def __init__(self, table_id, game_type, capacity, number_dealer, minimum_bet):
+        super().__init__(table_id, game_type, capacity, number_dealer, minimum_bet)
+        # num_bets = random.randint(1, 12) (?????)
+        table_id = 1
+        game_type = "Roulette"
+        capacity = 10
+        minimum_bet = 100
+        number_dealer = 1
+
+    def play(self, player_id, balance):
+        with self.lock:
+            total_winnings = 0
+
+            for _ in range(self.num_bets):
+                bet_amount = random.randrange(10, 1000)
+                number_bet = random.randrange(0, 36)
+                outcome = random.randrange(0, 36)
+
+                if outcome == number_bet:
+                    winnings = bet_amount * 36
+                    self.balance -= winnings
+                    total_winnings += winnings
+                    print(f"Player {player_id} wins ${winnings} on number {number_bet}!")
+                else:
+                    self.balance += bet_amount
+                    total_winnings -= bet_amount
+                    print(f"Player {player_id} loses ${bet_amount} on number {number_bet}!")
+
+            print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
+
+
+class Blackjack(Table):
+    def __init__(self, table_id, game_type, capacity, number_dealer, minimum_bet):
+        super().__init__(table_id, game_type, capacity, number_dealer, minimum_bet)
+        self.table_id = 2
+        self.game_type = "Blackjack"
+        self.capacity = 10
+        self.minimum_bet = 50
+        self.number_dealer = 1
+        self.deck = BlackJackDeck()
+
+    def play(self): 
+        with self.lock:
+            for player in self.current_players: # Simulates a game of bj for each player in the self.current_players list.
+                player_id = player.player_id
+                balance = player.balance
+
+                for _ in range(self.num_decks):
+                    self.deck.shuffle()
+                    player_hand = [self.deck.draw_card(), self.deck.draw_card()]
+                    dealer_hand = [self.deck.draw_card(), self.deck.draw_card()]
+
+                    if sum(player_hand) == 21:
+                        winnings = balance * 1.5
+                        player.balance -= winnings
+                        total_winnings += winnings
+                        print(f"Player {player_id} wins ${winnings} with a Blackjack!")
+                    else:
+                        while sum(dealer_hand) < 17:
+                            dealer_hand.append(self.deck.draw_card())
+
+                        if sum(dealer_hand) > 21:
+                            winnings = balance
+                            player.balance -= winnings
+                            total_winnings += winnings
+                            print(f"Player {player_id} wins ${winnings}! Dealer busts with {dealer_hand}")
+                        elif sum(dealer_hand) < sum(player_hand):
+                            winnings = balance
+                            player.balance -= winnings
+                            total_winnings += winnings
+                            print(f"Player {player_id} wins ${winnings}! Player has {player_hand}, dealer has {dealer_hand}")
+                        elif sum(dealer_hand) > sum(player_hand):
+                            player.balance += balance
+                            total_winnings -= balance
+                            print(f"Player {player_id} loses ${balance}! Player has {player_hand}, dealer has {dealer_hand}")
+                        else:
+                            print(f"Player {player_id} pushes! Player has {player_hand}, dealer has {dealer_hand}")
+
+                print(f"Player {player_id} results: Net worth: ${total_winnings}, Balance of the casino: ${self.balance}")
+
+
+class Poker(Table): # IMPLEMENTATION NOT FINAL
+    """
+    :methods: get_bets, play, payoff_bets, run
+    :params: id, deck : NormalDeck
+
+    """
+    def __init__(self, id, deck : NormalDeck):
+        super().__init__(self)
+        self.table_id = id
+        self.deck = deck
+        self.max_players = 6
+    
+    def get_bets(self):
+        for player_id in self.current_players:
+            self.current_bets[player_id] = random.randint(1,10)
+        time.sleep(2)
+
+    def play(self):  
+        self.current_dealer.shuffle_deck()
+        
+        for player_id in self.current_players:
+            hand = [self.current_dealer.draw_card(), self.current_dealer.draw_card()]
+
+        board = []
+        time.sleep(2)
+        board.append(self.current_dealer.draw_card() for _ in range(3)) # FLOP
+        time.sleep(2)
+        board.append(self.current_dealer.draw_card())                   # TURN
+        time.sleep(2)
+        board.append(self.current_dealer.draw_card())                   # RIVER
+    
+    def payoff_bets(self):
+        pot = sum(self.current_bets.values())
+        payoff = pot * 0.98
+        winner = random.choice(self.current_players)
+
+        self.update_balance(amount=(pot - payoff))                      # RAKE aka what the casino keeps
+
+        self.current_bets = {key: None for key in self.current_bets}   # EMPTY POT
+        time.sleep(2)
+        
+    def run(self):
+        while self.is_open:
+            while not self.current_dealer:
+                self.select_dealer()
+
+            while len(self.current_players) < self.max_players and self.customer['queue']:
+                self.select_customer()
+
+            while self.is_open:  # Run indefinitely until the gameplay loop succeeds
+                try:
+                    if not (self.current_dealer and self.current_players):
+                        # Attempt to select dealer or customer again
+                        while not self.current_dealer:
+                            self.select_dealer()
+
+                        while len(self.current_players) < self.max_players and self.customer['queue']:
+                            self.select_customer()
+                    else:
+                        with self.customer['lock']:
+                            with self.dealer['lock']:
+                                self.get_bets()
+                                self.play()
+                                self.payoff_bets()
+                except Exception as e:
+                    print(f'Error-{e} in {self.table_id}: Selecting dealer and players again!')
+                    time.sleep(5)
+                
+
+
+
+
+
+
