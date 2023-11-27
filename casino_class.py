@@ -17,7 +17,7 @@ class Casino:
 
     def __init__(self,STARTING_BALANCE,NUM_OF_TABLES,NUM_OF_CUSTOMERS,NUM_OF_DEALERS,NUM_OF_BARTENDERS,NUM_OF_BOUNCERS) -> None:
         """
-        :params: starting balance, number of: tables, customers, dealers, bartenders, bouncers
+        :params: starting balance, number of: tables, customers, dealers, bartenders, bouncers.
         Note: Numbers can be made so the user inputs them more alike an actual simulation.
         :extra: initialize_internal() -> instantiates all internal and appends to instance attribute lists. 
         """
