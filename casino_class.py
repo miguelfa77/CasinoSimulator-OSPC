@@ -101,7 +101,7 @@ class Casino:
 
  
     @casino_info
-    def update_balance(self, amount, executor:object=None):
+    def update_balance(self, amount, executor:object=None, id):
         """
         :params: amount: int (positive or negative)
         Performs the balance update.
