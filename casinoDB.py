@@ -12,6 +12,18 @@ class DB:
                        'host':'localhost',
                        'port':'3306'}
         self.conn = None
+
+    def drop_db(self, db=None):
+        try:
+            with self.auth():
+                self.db = db
+                cursor = self.conn.cursor()
+                query = f"""DROP DATABASE IF EXISTS {self.db};"""
+                cursor.execute(query)
+                self.conn.commit()
+
+        finally:
+            self.kill_conn()
     
     def logger(self):
         """
@@ -25,19 +37,14 @@ class DB:
         :return: mySQL connection object
         """
         try:
-            if self.db:
-                self.conn = mysql.connector.connect(database=self.db, **self.config)
-                print('Worked db')
-            else:
-                self.conn = mysql.connector.connect(**self.config)
-                print('Worked no db')
+            self.conn = mysql.connector.connect(database=self.db, **self.config)
+            print('Worked db')
+            return self.conn
 
-            
-            return True
-
-        except (mysql.connector.Error, IOError) as err:
-            print(f"Something went wrong: {err}")
-            return None
+        except:
+            self.conn = mysql.connector.connect(**self.config)
+            print('Worked no db')
+            return self.conn
     
     def kill_conn(self):
         if self.conn.is_connected():
@@ -48,15 +55,23 @@ class DB:
             print("Connection failed to kill")
             return False
         
+    def __enter__(self):
+        return self.auth()
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.kill_conn() 
+        
     def create_db(self, db=None):
         try:
-            if self.auth():
+            with self.auth():
                 self.db = db
-                self.conn.cursor().execute(
-                    "CREATE DATABASE IF NOT EXISTS {} DEFAULT CHARACTER SET 'utf8'".format(self.db)
-                )
+                cursor = self.conn.cursor()
+                query =  f"""CREATE DATABASE IF NOT EXISTS {self.db} DEFAULT CHARACTER SET 'utf8'"""
+                cursor.execute(query)
+                self.conn.commit()
                 self.kill_conn()
                 print(f"Successfully created database {self.db}")
+
         except mysql.connector.Error as err:
             print(f"Failed creating database: {err}")
             exit(1)
@@ -65,44 +80,67 @@ class DB:
         """
         :params: table ['transactions' or 'customers']
         """
-        self.auth()
         query = {
             'transactions': """CREATE TABLE IF NOT EXISTS transactions(
                             transaction_id INT PRIMARY KEY AUTO_INCREMENT,
                             executor VARCHAR (255) NOT NULL,
                             amount INT NOT NULL,
                             timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL);
-                            """,   
-            'customers': """CREATE TABLE customers(
+                            """,  
+            'customers': """CREATE TABLE IF NOT EXISTS customers(
                             customer_id INT PRIMARY KEY,
-                            name VARCHAR(255) NOT NULL,
+                            name VARCHAR(255) NOT NULL, 
                             age VARCHAR(255) NOT NULL,
                             gender VARCHAR(255));
-                            """    
-        }
-        
+                            """
+        }   
         if table.lower() in ['transactions', 'customers']:
             try:
-                cursor = self.conn.cursor()
-                cursor.execute(query[table])
-                self.conn.commit()
-                return True
+                with self.auth():
+                    cursor = self.conn.cursor()
+                    cursor.execute(query[table])
+                    self.conn.commit()
+                print(f"Successfully created table {table}")
 
             except (mysql.connector.Error, IOError) as err:
-                self.conn.rollback()
                 print(f"Something went wrong: {err}")
+                self.conn.rollback()
                 return None      
         else:
             raise ValueError("Invalid table name. Please use 'transactions'")
+        
+    def insert_table(self, table, values:tuple):
+        """
+        :params: 
+        - table: 'transactions' or 'customers'
+        - values: 2 (executor, amount) or 4 (customer_id, name, age, gender)
+        """
+        query = {
+            'transactions': """INSERT INTO transactions(executor, amount) VALUES (%s, %s);""" ,  
+            'customers': """INSERT INTO customers(customer_id, name, age, gender) VALUES (%s, %s, %s, %s);"""
+        }
+        try:
+            with self.auth():
+                cursor = self.conn.cursor()
+                cursor.execute(query[table], values)
+                self.conn.commit()
+                print(f"Successfully inserted into table {table}")
+
+        except mysql.connector.Error as err:
+            print(f"Something went wrong: {err}")
 
 
 
         
 
-pool = DB()
-pool.create_db('casino')
-pool.create_table('transactions')
-pool.kill_conn()
+db = DB()
+
+db.drop_db('casino')
+db.create_db('casino')
+db.create_table('customers')
+db.create_table('transactions')
+db.insert_table('transactions',('Table', 10))
+db.insert_table('customers', (5, 'juan', 10, 'male'))
 
         
     
