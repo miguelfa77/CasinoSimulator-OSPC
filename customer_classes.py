@@ -3,7 +3,7 @@ import random
 import names
 
 class Customer():
-    def __init__(self, id, casino: object):
+    def __init__(self, id=None, casino=None):
         self.customer_id = id
         self.in_casino = False
         self.bankroll = None
@@ -65,52 +65,58 @@ class Customer():
 
 
     def run(self):   # NEEDS FINISHING
-        self.enter_bouncer_queue()
-        if self.check_status(self) is True:
-            self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))
-            while self.casino.is_open:
-                activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)
+        try:
+            self.enter_bouncer_queue()
+            if self.check_status(self) is True:
+                self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))
+                while self.casino.is_open:
+                    activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)[0]
 
-                if activity.lower() == 'play':
-                    self.casino.queues['table']['customer'].append(self)
-                elif activity.lower() == 'drink':
-                    self.casino.queues['bartender'].append(self)
-                elif activity.lower() == 'bathroom':
-                    self.casino.bathrooms[self.gender].append(self)
-                    self.goBathroom()
-                else:
-                    time.sleep(random.randrange(5,10))
+                    if activity.lower() == 'play':
+                        self.casino.queues['table']['customer'].append(self)
+                    elif activity.lower() == 'drink':
+                        self.casino.queues['bartender'].append(self)
+                    elif activity.lower() == 'bathroom':
+                        self.casino.bathrooms[self.gender].append(self)
+                        self.goBathroom()
+                    else:
+                        time.sleep(random.randrange(5,10))
+        except:
+            print("Error in customer")
 
                          
 class HighRoller(Customer):
-    def __init__(self, id):
+    def __init__(self, id, casino:object):
         super().__init__(self)
         self.customer_id = id
         self.bankroll = random.randint(10000, 100000)
+        self.casino:object = casino
 
 
 class MediumRoller(Customer):
-    def __init__(self, id):
+    def __init__(self, id, casino:object):
         super().__init__(self)
         self.customer_id = id
         self.bankroll = random.randint(1000, 10000)
+        self.casino:object = casino
 
 
 class LowRoller(Customer):
-    def __init__(self, id):
+    def __init__(self, id, casino:object):
         super().__init__(self)
         self.customer_id = id
         self.bankroll = random.randint(100, 1000)
+        self.casino:object = casino
 
 
-def customer_type(id, customer_type=None) -> HighRoller or MediumRoller or LowRoller:
+def customer_type(id, casino:object, type=None):
     """
     Factory Method
     :params: high, medium, low
     """
 
-    customer = {'high': HighRoller(id),
-                'medium': MediumRoller(id),
-                'low': LowRoller(id)}
+    customer = {'high': HighRoller(id, casino),
+                'medium': MediumRoller(id, casino),
+                'low': LowRoller(id, casino)}
     
-    return customer[customer_type](id)
+    return customer[type]()

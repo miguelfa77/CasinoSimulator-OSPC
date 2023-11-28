@@ -60,7 +60,7 @@ class Dealer(Deck):
 
                 if self.check_table:
                     time.sleep(20)
-                    random_choice = random.choice(self.take_break(), None)
+                    random_choice = random.choice([self.take_break(), None])
                     if random_choice is not None and callable(random_choice):
                         random_choice()
                 else:

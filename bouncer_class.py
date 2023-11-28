@@ -63,18 +63,21 @@ class Bouncer:
             return False
             
     def run(self):
-        while self.casino.is_open:
-            if self.casino.queues['bouncer']:
-                with self.locks['bouncer']:
-                    self.current_customer = self.casino.queues['bouncer'].pop()
-                    if self.allow_entry(self.current_customer):
-                        with self.casino.locks['customer']:
-                            self.casino.customers.append(self.current_customer)
-                    else:
-                        self.kicked_out_customers.append(self.current_customer)
-            
-            else:
-                pass
+        try:
+            while self.casino.is_open:
+                if self.casino.queues['bouncer']:
+                    with self.locks['bouncer']:
+                        self.current_customer = self.casino.queues['bouncer'].pop()
+                        if self.allow_entry(self.current_customer):
+                            with self.casino.locks['customer']:
+                                self.casino.customers.append(self.current_customer)
+                        else:
+                            self.kicked_out_customers.append(self.current_customer)
+                
+                else:
+                    pass
+        except:
+            print("Error in Bouncer")
 
                 
 

@@ -2,6 +2,7 @@ import threading
 import concurrent.futures
 import random
 import sys
+import time
 from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB
 
 class Casino:
@@ -85,7 +86,7 @@ class Casino:
         """
         customer_choices = random.choices(['high','medium','low'], weights=[0.2, 0.5, 0.3], k=self._NUM_OF_CUSTOMERS)
 
-        customers = [customer_type(index, choice) for index, choice in enumerate(customer_choices)]
+        customers = [customer_type(id=index, type=choice, casino=self) for index, choice in enumerate(customer_choices)]
         return customers
     
     
@@ -117,25 +118,26 @@ class Casino:
 
     def run(self):
         print('Starting thread')
+        sys.stdout.flush()
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]
             dealer_threads = [exe.submit(dealer.run) for dealer in self.dealers]
             bartender_threads = [exe.submit(bartender.run) for bartender in self.bartenders]
             bouncer_threads = [exe.submit(bouncer.run) for bouncer in self.bouncers]
+            with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_CUSTOMERS)) as exe2:
+                customers = self.initialize_external()
+                customer_threads = [exe2.submit(customer.run) for customer in customers]
 
-        print(f"The Casino is now open.")
-        sys.stdout.flush()
-        customers = self.initialize_external()
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self._NUM_OF_CUSTOMERS) as exe2:
-            customer_threads = [exe2.submit(customer.run) for customer in customers]
+                print(f"The Casino is now open.")
 
+                while self.is_open:
+                    pass
 
-        while self.is_open:
-            pass
+                time.sleep(30)
         
-        self.is_open = False
-        # CHECK ALL THREADS ARE DEAD WITH is_alive()
-        print(f"The Casino is now closed.")
+                self.is_open = False
+                # CHECK ALL THREADS ARE DEAD WITH is_alive()
+                print(f"The Casino is now closed.")
 
 
     

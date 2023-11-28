@@ -41,17 +41,20 @@ class Bartender():
 
     
     def run(self):
-        while self.casino.is_open:
-            self.current_customer = self.select_customer()
-            if self.current_customer:
-                self.current_drink = self.take_order(self.drinks)
-                self.make_drink(self.current_drink)
-                self.casino.update_balance(5, executor=Bartender)
+        try:
+            while self.casino.is_open:
+                self.current_customer = self.select_customer()
+                if self.current_customer:
+                    self.current_drink = self.take_order(self.drinks)
+                    self.make_drink(self.current_drink)
+                    self.casino.update_balance(5, executor=Bartender)
 
-                self.current_customer = None
-                self.current_drink = None
-            else:
-                continue
+                    self.current_customer = None
+                    self.current_drink = None
+                else:
+                    continue
+        except:
+            print("Error in bartender")
 
     
 
