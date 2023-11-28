@@ -3,7 +3,7 @@ import mysql.connector
 import logging
 from typing import Literal
 
-class DB:
+class casinoDB():
     def __init__(self):
         self.db = None
         self.tables = []
@@ -12,7 +12,19 @@ class DB:
                        'host':'localhost',
                        'port':'3306'}
         self.conn = None
+        self.initialize_db()
 
+    def initialize_db(self):
+        """
+        Drop and recreate DB in case program has already ran.
+        Create both tables
+        """
+        self.drop_db('casino')
+        self.create_db('casino')
+
+        self.create_table('customers')
+        self.create_table('transactions')
+    
     def drop_db(self, db=None):
         try:
             with self.auth():
@@ -132,15 +144,13 @@ class DB:
 
 
         
-
+"""
 db = DB()
 
-db.drop_db('casino')
-db.create_db('casino')
-db.create_table('customers')
-db.create_table('transactions')
 db.insert_table('transactions',('Table', 10))
 db.insert_table('customers', (5, 'juan', 10, 'male'))
+
+"""
 
         
     

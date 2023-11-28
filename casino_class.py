@@ -2,7 +2,7 @@ import threading
 import concurrent.futures
 import random
 import sys
-from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type, DB
+from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB
 
 class Casino:
 
@@ -29,7 +29,7 @@ class Casino:
         self._NUM_OF_BARTENDERS = NUM_OF_BARTENDERS
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
 
-        self.db = DB()
+        self.database = casinoDB()
         self.customers = []
         self.customers_denied_entry = []
         self.tables = []
@@ -90,18 +90,16 @@ class Casino:
     
     
     @staticmethod
-    def casino_info(func):
-        def print_balance(self, amount, executor:object):
-            if executor:
-                print(f'[{executor.__class__.__name__}] updated casino balance by: [{amount}]')
-                return func(self, amount)
-            else:
-                print(f'[Unknown] updated casino balance by: [{amount}]')
-        return print_balance
+    def update_transactions(func):
+        def transactions_append(self, amount, executor:object, table='transactions'):
+            with self.locks['db']:
+                self.database.insert_table(table=table, values=tuple(executor, amount))
+            return func(self, amount, executor, table)
+        return transactions_append
 
  
-    @casino_info
-    def update_balance(self, amount, executor:object=None, id):
+    @update_transactions
+    def update_balance(self, amount, executor:object, table='transactions'):
         """
         :params: amount: int (positive or negative)
         Performs the balance update.

@@ -3,11 +3,7 @@ import threading
 import time 
 from deck_class import deck_type
 
-num_players = random.randrange(1, 5)
-casino_balance = 100000
-
 class Table():
-
     def __init__(self, casino:object):
         self.current_bets = dict()   # dict holding total table bet amounts. specifies per player id.
         self.current_dealer = None
@@ -141,12 +137,11 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         rake = pot - payoff
         winner = random.choice(self.current_customers)
 
-        self.casino.update_balance(amount=rake)                         # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=rake, executor=Table)                         # RAKE aka what the casino keeps
 
         self.current_bets = {}                                          # EMPTY POT
         time.sleep(1)
         
-
     def run(self):
         while self.casino.is_open:
             try:

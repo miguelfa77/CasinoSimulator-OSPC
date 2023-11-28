@@ -46,7 +46,7 @@ class Bartender():
             if self.current_customer:
                 self.current_drink = self.take_order(self.drinks)
                 self.make_drink(self.current_drink)
-                self.casino.update_balance(5, Bartender)
+                self.casino.update_balance(5, executor=Bartender)
 
                 self.current_customer = None
                 self.current_drink = None

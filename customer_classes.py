@@ -1,5 +1,3 @@
-# Define customer classes
-import threading
 import time
 import random
 import names
@@ -9,7 +7,7 @@ class Customer():
         self.customer_id = id
         self.in_casino = False
         self.bankroll = None
-        self.gender = random.choice('male', 'female')
+        self.gender = random.choice(['male', 'female'])
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
         self.casino: object = casino
@@ -61,10 +59,15 @@ class Customer():
     def goBathroom(self):
         time.sleep(random.randrange(1, 20))
 
+    def update_customers(self, values:tuple, table='customers'):
+        with self.casino.locks['db']:
+            self.casino.database.insert_table(table, values)
+
 
     def run(self):   # NEEDS FINISHING
         self.enter_bouncer_queue()
         if self.check_status(self) is True:
+            self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))
             while self.casino.is_open:
                 activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)
 
