@@ -46,7 +46,7 @@ class DB:
             print("Connection failed to kill")
             return False
         
-    def query()
+    def query():
         
 
 pool = DB()

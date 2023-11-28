@@ -31,6 +31,10 @@ class Customer:
             print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
         with self.lock:
             self.bankroll -= amount
+
+    def win(self, amount):
+        with self.lock:
+            self.bankroll += amount
     
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
