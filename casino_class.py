@@ -2,7 +2,7 @@ import threading
 import concurrent.futures
 import random
 import sys
-from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type
+from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type, DB
 
 class Casino:
 
@@ -29,6 +29,7 @@ class Casino:
         self._NUM_OF_BARTENDERS = NUM_OF_BARTENDERS
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
 
+        self.db = DB()
         self.customers = []
         self.customers_denied_entry = []
         self.tables = []
@@ -44,6 +45,7 @@ class Casino:
                        'bouncer': []
                        }
         self.locks = {'balance': threading.Lock(),
+                      'db': threading.Lock(),
                       'table':{'dealer': threading.Lock(), 'customer': threading.Lock()}, 
                        'bartender': threading.Lock(),
                        'bouncer': threading.Lock(),
