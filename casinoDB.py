@@ -66,7 +66,7 @@ class casinoDB():
         else:
             print("Connection failed to kill")
             return False
-        
+          
     def __enter__(self):
         return self.auth()
 
@@ -140,9 +140,6 @@ class casinoDB():
 
         except mysql.connector.Error as err:
             print(f"Something went wrong: {err}")
-
-
-
         
 """
 db = DB()
