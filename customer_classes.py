@@ -1,17 +1,17 @@
-# Define customer classes
-import threading
 import time
 import random
 import names
+import threading
 
-class Customer:
-    def __init__(self, id, casino):
+class Customer():
+    def __init__(self, id=None, casino=None):
         self.id = id
-        self.gender = random.choice(["male", "female"])
-        self.name = names.get_first_name(gender=self.gender)
-        self.age = random.randint(16,80)
-        self.bankroll = random.randint(0,9999999)
+        self.in_casino = False
+        self.bankroll = None
         self.start_bankroll = self.bankroll
+        self.gender = random.choice(['male', 'female'])
+        self.name = names.get_full_name(gender=self.gender)
+        self.age = random.randint(18,80)
         self.games_played = 0
         self.lock = threading.Lock()
         self.customer_type = "normal"
@@ -19,8 +19,45 @@ class Customer:
                             "rage":random.randint(3,10),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
                             "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
-        self.casino = casino
         self.min_bet_amount = 1
+        self.casino: object = casino
+
+    def enter_bouncer_queue(self):
+        try:
+            with self.casino.lock['bouncer']:
+                self.casino.queues['bouncer']
+            return True
+        except:
+            return False
+        
+    def check_status(self):
+        if self in self.casino.customers:
+            self.in_casino = True
+            return True
+        elif self in self.casino.customers_denied_entry:
+            return False
+        else:
+            return False
+
+             
+    @staticmethod
+    def player_info(func):                # Will be changed to logged into SQL
+        def print_id(self, amount):
+            print(f'Player [{self.customer_id}] updated bankroll by: [{amount}]')
+            return func(self, amount)
+        return print_id
+    
+    @player_info 
+    def update_bankroll(self, amount) -> float:        
+        """
+        Decorator prints depending on customer_id
+        Updates a customers balance/bankroll
+        """
+        self.bankroll += amount
+        return self.bankroll
+    
+    def get_bankroll(self):
+        return self.bankroll
 
     def bet(self, amount): 
         while amount < self.min_bet_amount:
@@ -66,9 +103,34 @@ class Customer:
             with self.casino.locks["customers_lock"]:
                 print(f"Customer {self.name} has left the casino.")
                 self.casino.customers.remove(self)
-        
+                
+    def update_customers(self, values:tuple, table='customers'):
+        with self.casino.locks['db']:
+            self.casino.database.insert_table(table, values)
+            
 
     def run(self):
+      # FIX 
+      try:
+            self.enter_bouncer_queue()
+            if self.check_status(self) is True:
+                self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))
+                while self.casino.is_open:
+                    activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)[0]
+
+                    if activity.lower() == 'play':
+                        self.casino.queues['table']['customer'].append(self)
+                    elif activity.lower() == 'drink':
+                        self.casino.queues['bartender'].append(self)
+                    elif activity.lower() == 'bathroom':
+                        self.casino.bathrooms[self.gender].append(self)
+                        self.goBathroom()
+                    else:
+                        time.sleep(random.randrange(5,10))
+        except:
+            print("Error in customer")
+           
+        # FIX
         at_the_door = True
         bouncer_found = False
         while at_the_door:
@@ -144,6 +206,7 @@ class Customer:
 class HighRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
+        self.bankroll = random.randint(5000000, 9999999)
         self.min_bet_amount = 100000
         self.customer_type = "high_roller"
 
@@ -156,6 +219,7 @@ class HighRoller(Customer):
 class MediumRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
+        self.bankroll = random.randint(100000,999999)
         self.min_bet_amount = 10000
         self.customer_type = "medium_roller"
 
@@ -163,8 +227,19 @@ class MediumRoller(Customer):
 class LowRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
+        self.bankroll = random.randint(10000,99999)
         self.min_bet_amount = 1000
         self.customer_type = "low_roller"
 
+def customer_type(id, casino:object, type=None):
+    """
+    Factory Method
+    :params: high, medium, low
+    """
+
+    customer = {'high': HighRoller(id, casino),
+                'medium': MediumRoller(id, casino),
+                'low': LowRoller(id, casino)}
     
+    return customer[type]()
 
