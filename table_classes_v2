@@ -9,9 +9,8 @@ from typing import Optional
 
 
 
-class Table(Casino):
+class Table():
     def __init__(self, casino, table_id, game_type, capacity, number_dealer, minimum_bet):
-        super().__init__(self) 
         self.table_id = table_id  
         self.casino = casino
         self.game_type = game_type  
