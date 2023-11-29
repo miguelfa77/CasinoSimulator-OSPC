@@ -111,7 +111,7 @@ class Customer():
 
     def run(self):
       # FIX 
-      try:
+        try:
             self.enter_bouncer_queue()
             if self.check_status(self) is True:
                 self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))

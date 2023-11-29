@@ -3,7 +3,7 @@ import concurrent.futures
 import random
 import sys
 import time
-from classes_file import Roulette, Blackjack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB
+from classes_file import Roulette, BlackJack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB
 
 class Casino:
 

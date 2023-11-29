@@ -22,13 +22,15 @@ class BlackJackDeck(Deck):
     def __init__(self):
         self.deck = [1,2,3,4,5,6,7,8,9,10,10,10,10] * 4
 
-    def deck_type(deck_type = 'blackjack') -> NormalDeck or BlackJackDeck:
-        """
-        Factory Method
-        :params: 'normal','blackjack'
-        :returns: instance of a class
-        """
-        deck = {'normal': NormalDeck,
-                'blackjack': BlackJackDeck}
-        
-        return deck[deck_type]()
+
+
+def deck_type(deck_type = 'blackjack') -> NormalDeck or BlackJackDeck:
+    """
+    Factory Method
+    :params: 'normal','blackjack'
+    :returns: instance of a class
+    """
+    deck = {'normal': NormalDeck,
+            'blackjack': BlackJackDeck}
+    
+    return deck[deck_type]()
