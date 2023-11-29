@@ -47,6 +47,7 @@ class DB:
             return False
         
     def query():
+        pass
         
 
 pool = DB()

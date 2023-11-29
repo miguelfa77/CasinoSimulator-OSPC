@@ -20,12 +20,12 @@ class NormalDeck(Deck):
     
 class BlackJackDeck(Deck):
     def __init__(self):
-        self.deck = [1,2,3,4,5,6,7,8,9,10,10,10,10,11,12,13] * 4
+        self.deck = [1,2,3,4,5,6,7,8,9,10,10,10,10] * 4
 
-    def deck_type(deck_type = None) -> NormalDeck or BlackJackDeck:
+    def deck_type(deck_type = 'blackjack') -> NormalDeck or BlackJackDeck:
         """
         Factory Method
-        :params: 'Normal','Blackjack'
+        :params: 'normal','blackjack'
         :returns: instance of a class
         """
         deck = {'normal': NormalDeck,

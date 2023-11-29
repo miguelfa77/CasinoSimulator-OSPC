@@ -55,23 +55,10 @@ class Roulette(Table):
             self.nums_chosen[customer] = random.randrange(0, 36)
         self.current_bets[self] = random.randrange(10,100)
 
-    def payoff_bets(self):
-        for player in self.current_customers:
-            if sum(self._hands[player]) == 21:
-                print(f"Player {player.name} has won.")
-                player.win(sum(self.current_bets.values()))
-            elif (self._hands[player] - 21) > (self._hands[self] - 21):
-                print(f"Player {player.name} has won")
-                player.win(sum(self.current_bets.values()))
-            else:
-                with self.casino.locks["balance"]:
-                    self.casino.balance += sum(self.current_bets.values()) 
-
     def clear_hands(self):
-        self._hands.clear()
         self.current_bets.clear()
 
-        
+
     def play(self):
         outcome = random.randrange(0, 36)
         for customer in self.current_customers:
@@ -79,11 +66,10 @@ class Roulette(Table):
             if self.nums_chosen[customer] == outcome:
                 customer.win(outcome * 36)
                 with self.casino.locks["balance"]:
-                    self.casino.balance -= outcome * 36
+                    self.casino._balance -= outcome * 36
             else:
                 with self.casino.locks["balance"]:
-                    self.casino.balance += bet_amount
-        self.payoff_bets()
+                    self.casino._balance += bet_amount
         self.clear_hands()
 
     def run(self):
@@ -99,13 +85,12 @@ class Roulette(Table):
 
                 self.get_bets()
                 self.play()
-                self.payoff_bets()
             except Exception as e:
                 print(f'Error-{e} in table {self.table_id}: Selecting dealer and players again!')
                 time.sleep(5)
 
 
-class Blackjack(Table):
+class BlackJack(Table):
     """
     :methods: clear_hands, get_bets, play, payoff_bets, run
     :params: table_id, deck, max_players, casino, _hands
@@ -124,7 +109,7 @@ class Blackjack(Table):
     
     def get_bets(self):
         for customer in self.current_customers:
-            bet = random.randrange(10,100)
+            bet = random.randint(100,1000)
             self.current_bets[customer] = bet
             customer.bet(bet) 
             time.sleep(0.5)
@@ -135,22 +120,24 @@ class Blackjack(Table):
             if sum(self._hands[player]) == 21:
                 print(f"Player {player.name} has won.")
                 player.win(sum(self.current_bets.values()))
-            elif (self._hands[player] - 21) > (self._hands[self] - 21):
+            elif (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21):
                 print(f"Player {player.name} has won")
                 player.win(sum(self.current_bets.values()))
+            elif sum(self._hands[player]) > 21:
+                print(f"Player went over, lost")
             else:
                 with self.casino.locks["balance"]:
-                    self.casino.balance += sum(self.current_bets.values())
+                    self.casino._balance += sum(self.current_bets.values())
 
     def play(self):
-        self.deck = random.shuffle(self.deck)
+        self.deck.shuffle_deck()
         for _ in range(2):
             for player in self.current_customers:
-                self._hands[player] = (self.deck.pop(random.randint(1,len(self.deck))),
-                                       self.deck.pop(random.randint(1,len(self.deck)))
+                self._hands[player] = (self.deck.deck.pop(),
+                                       self.deck.deck.pop()
                                        ) 
-            self._hands[self] = (self.deck.pop(random.randint(1,len(self.deck))),
-                                       self.deck.pop(random.randint(1,len(self.deck)))
+            self._hands[self] = (self.deck.deck.pop(),
+                                       self.deck.deck.pop()
                                        ) 
         self.payoff_bets()
         self.clear_hands()
