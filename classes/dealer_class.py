@@ -1,7 +1,7 @@
 import random
 import time
 import names
-from deck_class import Deck
+from classes.deck_class import Deck
 
 class Dealer(Deck):
     """

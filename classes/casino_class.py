@@ -3,7 +3,7 @@ import concurrent.futures
 import random
 import sys
 import time
-from classes_file import Roulette, BlackJack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB
+from classes.classes_file import Roulette, BlackJack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB, myLogger
 
 class Casino:
 
@@ -30,6 +30,7 @@ class Casino:
         self._NUM_OF_BARTENDERS = NUM_OF_BARTENDERS
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
 
+        self.LOG = myLogger()
         self.database = casinoDB()
         self.customers = []
         self.customers_denied_entry = []
@@ -118,6 +119,7 @@ class Casino:
 
     def run(self):
         print('Starting thread')
+        self.LOG.info('Starting Thread')
         sys.stdout.flush()
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]

@@ -1,6 +1,5 @@
 import os
 import mysql.connector
-import logging
 from typing import Literal
 import traceback
 
@@ -37,11 +36,6 @@ class casinoDB():
 
         finally:
             self.kill_conn()
-    
-    def logger(self):
-        """
-        Print into terminal to monitor
-        """
  
     def auth(self):
         """

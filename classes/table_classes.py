@@ -1,7 +1,7 @@
 import random
 import threading
 import time 
-from deck_class import deck_type
+from classes.deck_class import deck_type
 
 class Table():
     def __init__(self, casino:object):

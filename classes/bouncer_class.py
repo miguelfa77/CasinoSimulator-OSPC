@@ -1,4 +1,4 @@
-from customer_classes import Customer
+from classes.customer_classes import Customer
 import random
 import names
 
@@ -76,8 +76,8 @@ class Bouncer:
                 
                 else:
                     pass
-        except:
-            print("Error in Bouncer")
+        except Exception as e:
+            self.LOG.error(f"Error: {e}", exc_info=True)
 
                 
 

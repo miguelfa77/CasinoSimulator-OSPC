@@ -53,8 +53,8 @@ class Bartender():
                     self.current_drink = None
                 else:
                     continue
-        except:
-            print("Error in bartender")
+        except Exception as e:
+            self.LOG.error(f"Error: {e}", exc_info=True)
 
     
 
