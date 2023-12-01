@@ -107,7 +107,6 @@ class Customer():
     def update_customers(self, values:tuple, table='customers'):
         with self.casino.locks['db']:
             self.casino.database.insert_table(table, values)
-            
 
     def run(self):
       # FIX 

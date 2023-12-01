@@ -1,7 +1,7 @@
 import random
 import threading
 import time 
-from deck_class import deck_type
+import deck_class as dck
 
 class Table():
     def __init__(self, casino:object):
@@ -94,7 +94,7 @@ class BlackJack(Table):
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
-        self.deck = deck_type('blackjack')
+        self.deck = dck.deck_type('blackjack')
         self.max_players = 3
         self.casino = casino
         self._hands = {}
@@ -166,7 +166,7 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
-        self.deck = deck_type('normal')
+        self.deck = dck.deck_type('normal')
         self.max_players = 6
         self.casino = casino
     
