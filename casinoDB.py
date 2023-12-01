@@ -2,6 +2,7 @@ import os
 import mysql.connector
 import logging
 from typing import Literal
+import traceback
 
 class casinoDB():
     def __init__(self):
@@ -66,7 +67,7 @@ class casinoDB():
         else:
             print("Connection failed to kill")
             return False
-          
+        
     def __enter__(self):
         return self.auth()
 
@@ -138,11 +139,14 @@ class casinoDB():
                 self.conn.commit()
                 print(f"Successfully inserted into table {table}")
 
-        except mysql.connector.Error as err:
-            print(f"Something went wrong: {err}")
-        
+        except Exception as e:
+            with open('log.txt', 'a') as f:
+                f.write(str(e))
+                f.write(traceback.format_exc())
+            traceback.print_exc()
+
 """
-db = DB()
+db = casinoDB()
 
 db.insert_table('transactions',('Table', 10))
 db.insert_table('customers', (5, 'juan', 10, 'male'))
