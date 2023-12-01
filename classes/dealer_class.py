@@ -53,6 +53,7 @@ class Dealer(Deck):
    
     def run(self):
         while self.casino.is_open:
+            self.casino.LOG.info(f"Created bartender {self.dealer_id} thread")
             try:
                 time.sleep(random.randrange(0,5))
 

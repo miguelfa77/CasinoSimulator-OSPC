@@ -23,6 +23,7 @@ class Casino:
         Note: Numbers can be made so the user inputs them more alike an actual simulation.
         :extra: initialize_internal() -> instantiates all internal and appends to instance attribute lists. 
         """
+        self._SIM_DURATION = 1000
         self._balance = STARTING_BALANCE
         self._NUM_OF_TABLES = NUM_OF_TABLES
         self._NUM_OF_CUSTOMERS = NUM_OF_CUSTOMERS     # accessed by bouncer class
@@ -38,20 +39,21 @@ class Casino:
         self.dealers = []
         self.bartenders = []
         self.bouncers = []
-        self.bathrooms = {'male': [],
-                         'female': [],
-                         }
-        
         self.queues = {'table':{'dealer':[], 'customer': []}, 
                        'bartender': [],
-                       'bouncer': []
+                       'bouncer': [],
+                       'bathrooms':{'male': [],
+                                    'female': []}
                        }
         self.locks = {'balance': threading.Lock(),
                       'db': threading.Lock(),
                       'table':{'dealer': threading.Lock(), 'customer': threading.Lock()}, 
                        'bartender': threading.Lock(),
                        'bouncer': threading.Lock(),
-                       'customer': threading.Lock()
+                       'customer': threading.Lock(),
+                       'bathrooms':{'male': threading.Lock(),
+                                    'female': threading.Lock()}
+
                        }
         self.opening_time = 0
         self.closing_time = 1000
@@ -63,12 +65,10 @@ class Casino:
         """
         Initialize and append to shared class variables: tables, dealer, bartenders, bounces
         """
-        """
+        
         tables = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
-                [Blackjack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
+                [BlackJack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
-        """
-        tables = [Poker(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
         self.tables.extend(tables)
 
 
@@ -120,25 +120,25 @@ class Casino:
     def run(self):
         print('Starting thread')
         self.LOG.info('Starting Thread')
-        sys.stdout.flush()
+        
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]
             dealer_threads = [exe.submit(dealer.run) for dealer in self.dealers]
             bartender_threads = [exe.submit(bartender.run) for bartender in self.bartenders]
             bouncer_threads = [exe.submit(bouncer.run) for bouncer in self.bouncers]
+            start_time = time.time()
+            elapsed_time = 0
             with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_CUSTOMERS)) as exe2:
                 customers = self.initialize_external()
                 customer_threads = [exe2.submit(customer.run) for customer in customers]
 
                 print(f"The Casino is now open.")
 
-                while self.is_open:
-                    pass
-
-                time.sleep(30)
+                while elapsed_time <= self._SIM_DURATION:
+                    elapsed_time = time.time() - start_time
         
                 self.is_open = False
-                # CHECK ALL THREADS ARE DEAD WITH is_alive()
+                
                 print(f"The Casino is now closed.")
 
 

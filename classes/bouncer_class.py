@@ -64,18 +64,17 @@ class Bouncer:
             
     def run(self):
         try:
+            self.casino.LOG.info(f"Created bouncer {self.bouncer_id} thread")
             while self.casino.is_open:
                 if self.casino.queues['bouncer']:
                     with self.casino.locks['bouncer']:
                         self.current_customer = self.casino.queues['bouncer'].pop()
+                        self.casino.LOG.info(f"Bouncer selected customer {self.current_customer}")
                         if self.allow_entry(self.current_customer):
                             with self.casino.locks['customer']:
                                 self.casino.customers.append(self.current_customer)
                         else:
-                            self.kicked_out_customers.append(self.current_customer)
-                
-                else:
-                    pass
+                            self.kicked_out_customers.append(self.current_customer)  
         except Exception as e:
             self.casino.LOG.error(f"Error: {e}", exc_info=True)
 

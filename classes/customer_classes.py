@@ -12,8 +12,7 @@ class Customer():
         self.gender = random.choice(['male', 'female'])
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
-        self.games_played = 0
-        self.lock = threading.Lock()
+        self.current_table = None
         self.customer_type = "normal"
         self.entry_atts_ = {"drunkness":random.randint(3,10),
                             "rage":random.randint(3,10),
@@ -26,18 +25,22 @@ class Customer():
         try:
             with self.casino.locks['bouncer']:
                 self.casino.queues['bouncer']
-            return True
+                self.casino.LOG.info(f"{self.id} entered bouncer queue")
+                return True
         except Exception as e:
-            self.LOG.error(f"Error: {e}", exc_info=True)
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)
             return False
         
     def check_status(self):
         if self in self.casino.customers:
             self.in_casino = True
+            self.casino.LOG.info(f"{self.id} in casino")
             return True
         elif self in self.casino.customers_denied_entry:
+            self.casino.LOG.info(f"{self.id} denied entry to casino")
             return False
         else:
+            self.casino.LOG.info(f"{self.id} denied entryto casino")
             return False
 
              
@@ -54,6 +57,7 @@ class Customer():
         Decorator prints depending on customer_id
         Updates a customers balance/bankroll
         """
+        self.casino.LOG.info(f"{self.id} updating bankroll")
         self.bankroll += amount
         return self.bankroll
     
@@ -67,34 +71,32 @@ class Customer():
                 print(f"Bet not enough for customer type , increasing bet by 300%...")
                 amount *= 3
             print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
-        with self.lock:
-            self.bankroll -= amount
+        self.bankroll -= amount
 
     def win(self, amount):
-        with self.lock:
-            self.bankroll += amount
+        self.bankroll += amount
     
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
     
     def goBathroom(self):
         if self.gender == "male":
-            if len(self.casino.bathrooms["Mens"]) < 5:
-                with self.casino.bathrooms["mens_wc_lock"]:
-                    self.casino.bathrooms["Mens"].append(self)
+            if len(self.casino.queues["bathrooms"]["male"]) < 5:
+                with self.casino.locks['bathrooms']['male']:
+                    self.casino.queues["bathrooms"]["male"].append(self)
                     print(f"{self.name} is using the bathroom...")
                     time.sleep(random.randrange(1, 20))
-                    self.casino.bathrooms["Mens"].remove(self)
+                    self.casino.queues["bathrooms"]["male"].remove(self)
                     print(f"{self.name} left the bathroom")
             else:
                 print("Bathrooms are full, returning later.")
         if self.gender == "female":
-            if len(self.casino.bathrooms["Womens"]) < 10:
-                with self.casino.bathrooms["womens_wc_lock"]:
-                    self.casino.bathrooms["Womens"].append(self)
+            if len(self.casino.queues["bathrooms"]["female"]) < 10:
+                with self.casino.locks['bathrooms']['female']:
+                    self.casino.queues["bathrooms"]["female"].append(self)
                     print(f"{self.name} is using the bathroom...")
                     time.sleep(random.randrange(5, 20))
-                    self.casino.bathrooms["Womens"].remove(self)
+                    self.casino.queues["bathrooms"]["female"].remove(self)
                     print(f"{self.name} left the bathroom")
             else:
                 print("Bathrooms are full, returning later.")
@@ -108,19 +110,31 @@ class Customer():
     def update_customers(self, values:tuple, table='customers'):
         with self.casino.locks['db']:
             self.casino.database.insert_table(table, values)
+    
+    def enter_table_queue(self):
+        with self.casino.locks['table']['customer']:
+            self.casino.queues['table']['customer'].append(self)
+
+    def leave_table(self):
+        if self.current_table:
+            self.current_table.current_customers.remove(self)
             
 
     def run(self):
       # FIX 
         try:
+            self.casino.LOG.info(f"Just created customer {self.id} thread")
             self.enter_bouncer_queue()
-            if self.check_status(self) is True:
+            if self.check_status() is True:
                 self.update_customers(self, values=tuple(self.customer_id, name=self.name, age=self.age, gender=self.gender))
                 while self.casino.is_open:
                     activity = random.choice(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)[0]
 
                     if activity.lower() == 'play':
-                        self.casino.queues['table']['customer'].append(self)
+                        self.enter_bouncer_queue()
+                        time.sleep(30)
+                        self.leave_table()
+
                     elif activity.lower() == 'drink':
                         self.casino.queues['bartender'].append(self)
                     elif activity.lower() == 'bathroom':
@@ -131,12 +145,12 @@ class Customer():
         except Exception as e:
             self.casino.LOG.error(f"Error: {e}", exc_info=True)
            
-        # FIX
+        """
         at_the_door = True
         bouncer_found = False
         while at_the_door:
-            print(f"{self.name} is waiting in line to enter the Casino")
-            print(f"{self.name} is waiting for a bouncer")
+            self.casino.LOG.info(f"{self.id} is waiting in line to enter the Casino")
+            self.casino.LOG.info(f"{self.id} is waiting for a bouncer")
             while not bouncer_found:
                 for bouncer in self.casino.bouncers:
                     if bouncer.locks.locked():
@@ -151,6 +165,7 @@ class Customer():
             print(f"{self.name} has entered the casino.") 
             self.casino.customers.append(self) # Add self to casino list of customers
             at_the_door = False
+        """
 
 
         while True:
@@ -238,9 +253,9 @@ def customer_type(id, casino:object, type=None):
     :params: high, medium, low
     """
 
-    customer = {'high': HighRoller(id, casino),
-                'medium': MediumRoller(id, casino),
-                'low': LowRoller(id, casino)}
+    customer = {'high': HighRoller,
+                'medium': MediumRoller,
+                'low': LowRoller}
     
-    return customer[type]()
+    return customer[type](id, casino)
 

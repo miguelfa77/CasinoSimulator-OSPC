@@ -1,3 +1,21 @@
-2023-12-01 18:14:24,108 - 8393022976 - INFO - Starting Thread
-2023-12-01 18:26:18,097 - 8393022976 - INFO - Starting Thread
-2023-12-01 18:32:22,911 - 8393022976 - INFO - Starting Thread
+2023-12-01 19:38:23,637 - 8393022976 - INFO - Starting Thread
+2023-12-01 19:38:32,763 - 10939314176 - INFO - Just created customer 0 thread
+2023-12-01 19:38:32,769 - 10956140544 - INFO - Just created customer 1 thread
+2023-12-01 19:44:00,811 - 8393022976 - INFO - Starting Thread
+2023-12-01 19:44:00,814 - 6187134976 - INFO - Created Table 0 thread
+2023-12-01 19:44:00,815 - 6203961344 - INFO - Created Table 3 thread
+2023-12-01 19:44:00,815 - 6220787712 - INFO - Created table 1 thread
+2023-12-01 19:44:00,816 - 6237614080 - INFO - Created table 4 thread
+2023-12-01 19:44:00,817 - 6254440448 - INFO - Created bartender 2 thread
+2023-12-01 19:44:00,817 - 6288093184 - INFO - Created bartender 5 thread
+2023-12-01 19:44:00,818 - 6271266816 - INFO - Created bartender 0 thread
+2023-12-01 19:44:00,818 - 6304919552 - INFO - Created bartender 1 thread
+2023-12-01 19:44:00,819 - 6321745920 - INFO - Created bartender 2 thread
+2023-12-01 19:44:00,819 - 6355398656 - INFO - Created bartender 3 thread
+2023-12-01 19:44:00,819 - 6338572288 - INFO - Created bartender 4 thread
+2023-12-01 19:44:00,820 - 6372225024 - INFO - Created bartender 5 thread
+2023-12-01 19:44:00,820 - 6389051392 - INFO - Created bartender 6 thread
+2023-12-01 19:44:00,821 - 6405877760 - INFO - Created bartender 7 thread
+2023-12-01 19:44:00,821 - 6422704128 - INFO - Created bartender 8 thread
+2023-12-01 19:44:00,821 - 6439530496 - INFO - Created bartender 9 thread
+2023-12-01 19:44:00,822 - 10754224128 - INFO - Created bartender 0 thread

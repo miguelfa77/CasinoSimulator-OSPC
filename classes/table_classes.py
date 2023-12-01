@@ -1,5 +1,4 @@
 import random
-import threading
 import time 
 from classes.deck_class import deck_type
 
@@ -30,7 +29,9 @@ class Table():
     
     def select_customer(self):
         with self.casino.locks['table']['customer']:
-            self.current_customers.append(self.casino.queues['table']['customer'].pop())
+            customer = self.casino.queues['table']['customer'].pop()
+            self.current_customers.append(customer)
+            customer.current_table = self
             return self.current_customers
 
 class Roulette(Table):
@@ -71,6 +72,7 @@ class Roulette(Table):
     def run(self):
         while self.casino.is_open:
             try:
+                self.casino.LOG.info(f"Created Table {self.table_id} thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
@@ -142,6 +144,7 @@ class BlackJack(Table):
     def run(self):
         while self.casino.is_open:
             try:
+                self.casino.LOG.info(f"Created table {self.table_id} thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
@@ -204,6 +207,7 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     def run(self):
         while self.casino.is_open:
             try:
+                self.casino.LOG.info(f"Created bartender {self.table_id} thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
