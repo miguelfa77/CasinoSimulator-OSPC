@@ -110,6 +110,7 @@ class Customer():
     def update_customers(self, values:tuple, table='customers'):
         with self.casino.locks['db']:
             self.casino.database.insert_table(table, values)
+<<<<<<< HEAD
     
     def enter_table_queue(self):
         with self.casino.locks['table']['customer']:
@@ -119,6 +120,8 @@ class Customer():
         if self.current_table:
             self.current_table.current_customers.remove(self)
             
+=======
+>>>>>>> 20da578d6c13acbd6a68e33664ef35a8b614f958
 
     def run(self):
       # FIX 
