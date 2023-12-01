@@ -1,7 +1,7 @@
 import random
 import time
 import names
-from deck_class import Deck
+from classes.deck_class import Deck
 
 class Dealer(Deck):
     """
@@ -67,7 +67,7 @@ class Dealer(Deck):
                     continue
                      
             except Exception as e:
-                print(e)
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
 
 
 

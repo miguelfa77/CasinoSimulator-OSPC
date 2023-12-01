@@ -28,16 +28,15 @@ class Bartender():
     
     def make_drink(self, drink):
         if self.current_drink:
-            print(f"{self.name} makes a {drink}.")
             return drink
         else:
-            print(f"{self.name} needs an order from a customer first.")
+            pass
 
     def serve_drink(self, customer):
         if self.current_drink:
-            print(f"{self.name} serves a {self.current_drink} to {customer.name}.")
+            pass
         else:
-            print(f"{self.name} needs an order from a customer first.")
+            pass
 
     
     def run(self):
@@ -53,8 +52,8 @@ class Bartender():
                     self.current_drink = None
                 else:
                     continue
-        except:
-            print("Error in bartender")
+        except Exception as e:
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)
 
     
 

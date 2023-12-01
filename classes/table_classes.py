@@ -82,7 +82,7 @@ class Roulette(Table):
                 self.get_bets()
                 self.play()
             except Exception as e:
-                print(f'Error-{e} in table {self.table_id}: Selecting dealer and players again!')
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
                 time.sleep(5)
 
 
@@ -153,7 +153,7 @@ class BlackJack(Table):
                 self.play()
                 self.payoff_bets()
             except Exception as e:
-                print(f'Error-{e} in table {self.table_id}: Selecting dealer and players again!')
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
                 time.sleep(5)
             
 
@@ -218,6 +218,6 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
                     self.payoff_bets()
             
             except Exception as e:
-                print(f'Error-{e} in table {self.table_id}: Selecting dealer and players again!')
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
                 time.sleep(5)
 

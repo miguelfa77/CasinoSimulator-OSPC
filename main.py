@@ -1,4 +1,4 @@
-from casino_class import Casino
+from classes.casino_class import Casino
 
 if __name__ == "__main__":
     """

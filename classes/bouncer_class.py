@@ -1,4 +1,4 @@
-from customer_classes import Customer
+from classes.customer_classes import Customer
 import random
 import names
 
@@ -52,12 +52,12 @@ class Bouncer:
         return False
 
     def kick_out(self, customer:Customer, reason):
-        print(f"Customer {customer.name} has been kicked out for {reason}.")
+        self.casino.LOG.info(f'Customer [{customer}] kicked out')
         self.kicked_out_customers.append(customer)
 
     def allow_entry(self, customer:Customer):
         if self.check_vip(customer) and self.check_id(customer) and self.check_drunkenness(customer) and self.check_rage(customer) and self.check_weapons(customer):
-            print(f"Customer {customer.name} is allowed to enter.")
+            print(f"Customer [{customer}] is allowed to enter.")
             return True
         else:
             return False
@@ -66,7 +66,7 @@ class Bouncer:
         try:
             while self.casino.is_open:
                 if self.casino.queues['bouncer']:
-                    with self.locks['bouncer']:
+                    with self.casino.locks['bouncer']:
                         self.current_customer = self.casino.queues['bouncer'].pop()
                         if self.allow_entry(self.current_customer):
                             with self.casino.locks['customer']:
@@ -76,8 +76,8 @@ class Bouncer:
                 
                 else:
                     pass
-        except:
-            print("Error in Bouncer")
+        except Exception as e:
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)
 
                 
 

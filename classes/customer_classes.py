@@ -24,10 +24,11 @@ class Customer():
 
     def enter_bouncer_queue(self):
         try:
-            with self.casino.lock['bouncer']:
+            with self.casino.locks['bouncer']:
                 self.casino.queues['bouncer']
             return True
-        except:
+        except Exception as e:
+            self.LOG.error(f"Error: {e}", exc_info=True)
             return False
         
     def check_status(self):
@@ -100,7 +101,7 @@ class Customer():
 
     def leave(self):
         if self in self.casino.customers:
-            with self.casino.locks["customers_lock"]:
+            with self.casino.locks["customers"]:
                 print(f"Customer {self.name} has left the casino.")
                 self.casino.customers.remove(self)
                 
@@ -126,8 +127,8 @@ class Customer():
                         self.goBathroom()
                     else:
                         time.sleep(random.randrange(5,10))
-        except:
-            print("Error in customer")
+        except Exception as e:
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)
            
         # FIX
         at_the_door = True
@@ -137,7 +138,7 @@ class Customer():
             print(f"{self.name} is waiting for a bouncer")
             while not bouncer_found:
                 for bouncer in self.casino.bouncers:
-                    if bouncer.lock.locked():
+                    if bouncer.locks.locked():
                         time.sleep(2)
                         continue
                     bncr = bouncer
