@@ -67,7 +67,7 @@ class Dealer(Deck):
                     continue
                      
             except Exception as e:
-                print(e)
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
 
 
 

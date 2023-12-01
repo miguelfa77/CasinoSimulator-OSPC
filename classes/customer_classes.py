@@ -27,7 +27,8 @@ class Customer():
             with self.casino.locks['bouncer']:
                 self.casino.queues['bouncer']
             return True
-        except:
+        except Exception as e:
+            self.LOG.error(f"Error: {e}", exc_info=True)
             return False
         
     def check_status(self):
@@ -128,7 +129,7 @@ class Customer():
                     else:
                         time.sleep(random.randrange(5,10))
         except Exception as e:
-            self.LOG.error(f"Error: {e}", exc_info=True)
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)
            
         # FIX
         at_the_door = True
