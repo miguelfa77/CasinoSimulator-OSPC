@@ -65,10 +65,10 @@ class Roulette(Table):
             if self.nums_chosen[customer] == outcome:
                 customer.update_bankroll(outcome * 36)
                 with self.casino.locks["balance"]:
-                    self.casino._balance -= outcome * 36
+                    self.casino.update_balance(amount=-(outcome * 36), table=Table.__name__) 
             else:
                 with self.casino.locks["balance"]:
-                    self.casino._balance += bet_amount
+                    self.casino.update_balance(amount=bet_amount, executor=Table.__name__)
         self.clear_hands()
 
     def run(self):
@@ -125,7 +125,8 @@ class BlackJack(Table):
                 player.update_bankroll(sum(self.current_bets.values()))
             else:
                 with self.casino.locks["balance"]:
-                    self.casino._balance += sum(self.current_bets.values())
+                    self.casino.update_balance(amount=sum(self.current_bets.values()), executor=Table.__name__)
+
 
     def play(self):
         self.deck.shuffle_deck()
