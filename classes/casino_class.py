@@ -39,6 +39,8 @@ class Casino:
         self.dealers = []
         self.bartenders = []
         self.bouncers = []
+        self.vip = {"queue": [],
+                    "lock": threading.Lock()}
         self.queues = {'table':{'dealer':[], 'customer': []}, 
                        'bartender': [],
                        'bouncer': [],
