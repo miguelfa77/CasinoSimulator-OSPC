@@ -112,7 +112,7 @@ class BlackJack(Table):
             bet = random.randint(100,1000)
             self.current_bets[customer] = bet
             customer.bet(bet) 
-            time.sleep(0.5)
+            time.sleep(1)
         self.current_bets[self] = random.randrange(10,100)
 
     def payoff_bets(self):
@@ -153,16 +153,16 @@ class BlackJack(Table):
                     elif len(self.current_customers) < 1 and self.customer_waiting():
                         self.select_customer()
                     else:
-                        time.sleep(5)
+                        time.sleep(1)
                 self.get_bets()
                 self.play()
                 self.payoff_bets()
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
-                time.sleep(5)
+                time.sleep(1)
             
 
-class Poker(Table): # IMPLEMENTATION NOT FINAL
+class Poker(Table):
     """
     :methods: get_bets, play, payoff_bets, run
     :params: id
@@ -189,11 +189,11 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         hands = {customer:[self.deck.draw_card(), self.deck.draw_card()] for customer in self.current_customers}
 
         board = []
-        time.sleep(1)
+        time.sleep()
         board.extend(self.deck.draw_card() for _ in range(3)) # FLOP
-        time.sleep(1)
+        time.sleep()
         board.append(self.deck.draw_card())                   # TURN
-        time.sleep(1)
+        time.sleep()
         board.append(self.deck.draw_card())                   # RIVER
     
     def payoff_bets(self):
@@ -215,11 +215,11 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
-                    elif len(self.current_customers) < 1 and self.customer_waiting():
+                    if len(self.current_customers) < 1 and self.customer_waiting():
                         self.select_customer()
                         self.casino.LOG.info(f"Customers in Table [{self.table_id}]: [{self.current_customers}]")
                     else:
-                        time.sleep(5)
+                        time.sleep(1)
 
                 with self.casino.locks['table']['customer'], self.casino.locks['table']['dealer']:
                     if self.current_customers and self.current_dealer:
