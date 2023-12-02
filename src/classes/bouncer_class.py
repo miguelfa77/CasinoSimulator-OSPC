@@ -64,12 +64,10 @@ class Bouncer:
             time.sleep(2)
             try:
                 if self.casino.queues['bouncer']:
-                    self.casino.LOG.debug(f"Bouncer {self.bouncer_id} queue full")
                     with self.casino.locks['bouncer']:
                         self.current_customer = self.casino.queues['bouncer'].pop()
-                        self.casino.LOG.debug(f"Bouncer {self.bouncer_id} selected customer [{self.current_customer.id}] from queue")
                         if self.allow_entry(self.current_customer):
-                            self.casino.LOG.debug(f"Bouncer {self.bouncer_id} allowed customer {self.current_customer.id} to enter")
+                            self.casino.LOG.debug(f"Bouncer [{self.bouncer_id}] allowed customer [{self.current_customer.id}] to enter")
                             with self.casino.locks['customer']:
                                 self.casino.customers.append(self.current_customer)
                         else:

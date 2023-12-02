@@ -1,7 +1,8 @@
 import threading
 import concurrent.futures
 import random
-import sys
+import matplotlib.pyplot as plt
+import numpy as np
 import time
 from classes.classes_file import Roulette, BlackJack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB, myLogger
 
@@ -17,13 +18,13 @@ class Casino:
             cls._instance = super(Casino, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self,STARTING_BALANCE,NUM_OF_TABLES,NUM_OF_CUSTOMERS,NUM_OF_DEALERS,NUM_OF_BARTENDERS,NUM_OF_BOUNCERS) -> None:
+    def __init__(self,STARTING_BALANCE,SIM_DURATION, NUM_OF_TABLES,NUM_OF_CUSTOMERS,NUM_OF_DEALERS,NUM_OF_BARTENDERS,NUM_OF_BOUNCERS) -> None:
         """
         :params: starting balance, number of: tables, customers, dealers, bartenders, bouncers.
         Note: Numbers can be made so the user inputs them more alike an actual simulation.
         :extra: initialize_internal() -> instantiates all internal and appends to instance attribute lists. 
         """
-        self._SIM_DURATION = 1000
+        self._SIM_DURATION = SIM_DURATION
         self._balance = STARTING_BALANCE
         self._NUM_OF_TABLES = NUM_OF_TABLES
         self._NUM_OF_CUSTOMERS = NUM_OF_CUSTOMERS     # accessed by bouncer class
@@ -32,7 +33,7 @@ class Casino:
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
 
         self.LOG = myLogger()
-        self.database = casinoDB()
+        self.database = casinoDB(self)
         self.customers = []
         self.customers_denied_entry = []
         self.tables = []
@@ -99,8 +100,7 @@ class Casino:
     @staticmethod
     def update_transactions(func):
         def transactions_append(self, amount, executor:object, table='transactions'):
-            with self.locks['db']:
-                self.database.insert_table(table=table, values=tuple([executor, amount]))
+            self.database.insert_table(table=table, values=tuple([executor, amount]))
             return func(self, amount, executor, table)
         return transactions_append
 
@@ -120,8 +120,26 @@ class Casino:
         :returns: casino balance in case it wants to be printed or smth
         """
         return self._balance
+    
+    def plot_all(self):
+        data = self.database.fetch_table('transactions')
+        for entry in data:
+            amount = entry[0]
+            timestamp = entry[1]
+        
+        amount = []
+        timestamp = []
+        for entry in data:
+            amount.append(entry[0])
+            timestamp.append(entry[1])
+        amount = np.cumsum(amount)
 
-
+        plt.plot(timestamp, amount)
+        plt.xlabel('timestamp')
+        plt.ylabel('cumulative amount ($)')
+        plt.title('Casino balance')
+        plt.show()
+        
     def run(self):
         print('Starting thread')
         self.LOG.info('Starting Thread')
@@ -145,12 +163,16 @@ class Casino:
             customer_threads = [exe.submit(customer.run) for customer in customers]
             self.LOG.info(f"Initialized customer threads: {customer_threads}")
 
-
             while elapsed_time <= self._SIM_DURATION:
                 elapsed_time = time.time() - start_time
     
             self.is_open = False
-            self.LOG.info(f"The Casino is now closed.")
+            
+        exe.shutdown(wait=True)
+
+        self.LOG.info(f"The Casino is now closed.")
+
+        self.plot_all()
 
 
     

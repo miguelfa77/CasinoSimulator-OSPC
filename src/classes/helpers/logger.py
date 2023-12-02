@@ -27,10 +27,3 @@ def myLogger() -> logging.Logger:
         logger.addHandler(console_handler)
 
         return logger
-    
-def clear_log_file(log_file_path):
-    """
-    Clears file for re-run
-    """
-    with open(log_file_path, 'w'):
-        pass

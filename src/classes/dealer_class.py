@@ -1,16 +1,14 @@
 import random
 import time
 import names
-from classes.deck_class import NormalDeck, BlackJackDeck
 
-class Dealer(NormalDeck, BlackJackDeck):
+class Dealer():
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
     def __init__(self, id, casino: object) -> None:
         self.dealer_id = id 
-        self.deck = None
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)  
         self.current_table = None
@@ -68,9 +66,11 @@ class Dealer(NormalDeck, BlackJackDeck):
                         random_choice()
                 else:
                     continue
-                     
+        
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
+            
+        self.casino.LOG.info(f"Dealer {self.dealer_id}: Thread finished")
 
 
 

@@ -4,7 +4,7 @@ from typing import Literal
 import traceback
 
 class casinoDB():
-    def __init__(self):
+    def __init__(self, casino):
         self.db = None
         self.tables = []
         self.config = {'user':'root',
@@ -12,6 +12,7 @@ class casinoDB():
                        'host':'localhost',
                        'port':'3306'}
         self.conn = None
+        self.casino = casino
         self.initialize_db()
 
     def initialize_db(self):
@@ -45,12 +46,10 @@ class casinoDB():
         """
         try:
             self.conn = mysql.connector.connect(database=self.db, **self.config)
-            print('Worked db')
             return self.conn
 
         except:
             self.conn = mysql.connector.connect(**self.config)
-            print('Worked no db')
             return self.conn
     
     def kill_conn(self):
@@ -59,7 +58,7 @@ class casinoDB():
             print("Connection killed successfully")
             return True
         else:
-            print("Connection failed to kill")
+            self.casino.LOG.info("Connection failed to kill/already killed")
             return False
         
     def __enter__(self):
@@ -80,7 +79,7 @@ class casinoDB():
                 print(f"Successfully created database {self.db}")
 
         except mysql.connector.Error as err:
-            print(f"Failed creating database: {err}")
+            self.casino.LOG.error(f"Failed creating database: {err}")
             exit(1)
     
     def create_table(self, table):
@@ -107,10 +106,10 @@ class casinoDB():
                     cursor = self.conn.cursor()
                     cursor.execute(query[table])
                     self.conn.commit()
-                print(f"Successfully created table {table}")
+                self.casino.LOG.info(f"Successfully created table [{table}]")
 
             except (mysql.connector.Error, IOError) as err:
-                print(f"Something went wrong: {err}")
+                self.casino.LOG.error(f"Error creating table [{table}]: {err}")
                 self.conn.rollback()
                 return None      
         else:
@@ -134,10 +133,25 @@ class casinoDB():
                 print(f"Successfully inserted into table {table}")
 
         except Exception as e:
-            with open('log.txt', 'a') as f:
-                f.write(str(e))
-                f.write(traceback.format_exc())
-            traceback.print_exc()
+            self.casino.LOG.error(f"Error inserting into table [{table}]: {e}")
+
+    def fetch_table(self, table):
+        """
+        :returns: data: list of tuples (amount, timestamp)
+        """
+        query = {
+            'transactions': """SELECT amount, timestamp FROM transactions;""",
+            'customers': """"""
+        }
+        try:
+            with self.auth():
+                cursor = self.conn.cursor()
+                cursor.execute(query[table])
+                data = cursor.fetchall()
+                return data
+                
+        except Exception as e:
+            self.casino.LOG.error(f"Error fetching data from table [{table}]: {e}")
 
 """
 db = casinoDB()

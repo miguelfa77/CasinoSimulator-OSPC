@@ -18,7 +18,7 @@ class Customer():
         self.entry_atts_ = {"drunkness":random.randint(0,8),
                             "rage":random.randint(0,8),
                             "is_vip": random.choices([True,False], weights=(10,90), k=1)[0],
-                            "has_weapon": random.choices([True,False], weights=(10,90), k=1)[0]} 
+                            "has_weapon": random.choices([True,False], weights=(5,95), k=1)[0]} 
         self.min_bet_amount = 1
         self.casino: object = casino
 
@@ -35,13 +35,10 @@ class Customer():
     def check_status(self):
         if self in self.casino.customers:
             self.in_casino = True
-            self.casino.LOG.info(f"Customer [{self.id}] in casino")
             return True
         elif self in self.casino.customers_denied_entry:
-            self.casino.LOG.info(f"Customer [{self.id}] denied entry to casino")
             return False
         else:
-            self.casino.LOG.info(f"Customer [{self.id}] denied entry to casino")
             return False
 
              
@@ -58,7 +55,6 @@ class Customer():
         Decorator prints depending on customer_id
         Updates a customers balance/bankroll
         """
-        self.casino.LOG.info(f"{self.id} updating bankroll")
         self.bankroll += amount
         return self.bankroll
     
@@ -67,11 +63,9 @@ class Customer():
 
     def bet(self, amount): 
         while amount < self.min_bet_amount:
-            print(f"Bet placed: {amount}")
             if amount < self.min_bet_amount:
-                print(f"Bet not enough for customer type , increasing bet by 300%...")
                 amount *= 3
-            print(f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account.")
+        self.casino.LOG.info(f"Bet placed: {amount} in table {self.current_table.table_id}")
         self.update_bankroll(amount)
     
     def isBankrupt(self):
@@ -126,12 +120,13 @@ class Customer():
             if self.check_status() is True:
                 self.update_customers(values=tuple([self.id, self.name, self.age, self.gender]))
                 while self.casino.is_open:
-                    activity = random.choices(['play', 'drink', 'bathroom', 'observe'], weights=[0.6, 0.3, 0.05, 0.05], k=1)[0]
+                    activity = random.choices(['play', 'drink', 'bathroom', 'observe'], weights=[0.8, 0.1, 0.05, 0.05], k=1)[0]
 
                     if activity.lower() == 'play':
                         self.enter_table_queue()
-                        time.sleep(30)
+                        time.sleep(60)
                         self.leave_table()
+                        self.casino.LOG.debug(f"Customer [{self.id}] left table")
 
                     elif activity.lower() == 'drink':
                         self.enter_bouncer_queue()
@@ -142,6 +137,7 @@ class Customer():
                         self.goBathroom()
                     else:
                         time.sleep(random.randrange(5,10))
+                self.casino.LOG.info(f"Customer {self.id}: Thread finished")
         except Exception as e:
             self.casino.LOG.error(f"Error: {e}", exc_info=True)
            

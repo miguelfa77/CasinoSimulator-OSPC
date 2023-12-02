@@ -19,7 +19,6 @@ class Bartender():
             if self.casino.queues['bartender']:
                 self.current_customer = self.casino.queues['bartender'].pop()
                 self.current_customer.current_bartender = self
-                #self.casino.LOG.info(f"Selected customer {self.current_customer}")
                 return self.current_customer
             return None
 
@@ -38,7 +37,8 @@ class Bartender():
                     self.casino.LOG.info(f"Bartender selected customer [{self.current_customer.id}]")
                     self.current_drink = self.take_order(drink_options=self.drinks)
                     self.make_drink(self.current_drink)
-                    self.casino.update_balance(5, executor=str(Bartender))
+                    self.casino.update_balance(5, executor=Bartender.__name__)
+                    self.casino.LOG.debug(f"Bartender released customer [{self.current_customer.id}]")
 
                     self.current_customer = None
                     self.current_drink = None
