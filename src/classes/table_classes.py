@@ -64,16 +64,16 @@ class Roulette(Table):
             if self.nums_chosen[customer] == outcome:
                 customer.update_bankroll(outcome * 36)
                 with self.casino.locks["balance"]:
-                    self.casino.update_balance(amount=-(outcome * 36), table=Table.__name__) 
+                    self.casino.update_balance(amount=-(outcome * 36), table=Roulette.__name__) 
             else:
                 with self.casino.locks["balance"]:
-                    self.casino.update_balance(amount=bet_amount, executor=Table.__name__)
+                    self.casino.update_balance(amount=bet_amount, executor=Roulette.__name__)
         self.clear_hands()
 
     def run(self):
         while self.casino.is_open:
             try:
-                self.casino.LOG.info(f"Created Roulette Table {self.table_id} thread")
+                self.casino.LOG.info(f"Created Roulette Table [{self.table_id}] thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
@@ -124,7 +124,7 @@ class BlackJack(Table):
                 player.update_bankroll(sum(self.current_bets.values()))
             else:
                 with self.casino.locks["balance"]:
-                    self.casino.update_balance(amount=sum(self.current_bets.values()), executor=Table.__name__)
+                    self.casino.update_balance(amount=sum(self.current_bets.values()), executor=BlackJack.__name__)
 
 
     def play(self):
@@ -195,14 +195,14 @@ class Poker(Table):
         rake = pot - payoff
         winner = random.choice(self.current_customers)
 
-        self.casino.update_balance(amount=rake, executor=Table.__name__)          # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=rake, executor=Poker.__name__)          # RAKE aka what the casino keeps
         winner.update_bankroll(payoff)
 
         self.current_bets = {}                                                     # EMPTY POT
         time.sleep(1)
         
     def run(self):
-        self.casino.LOG.info(f"Created Poker Table {self.table_id} thread")
+        self.casino.LOG.info(f"Created Poker Table [{self.table_id}] thread")
         while self.casino.is_open:
             try:
                 while not self.current_dealer or len(self.current_customers) < 1:

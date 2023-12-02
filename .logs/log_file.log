@@ -1,1439 +1,263 @@
-2023-12-02 22:59:30,544 - 8393022976 - INFO - Connection failed to kill/already killed
-2023-12-02 22:59:35,383 - 8393022976 - INFO - Successfully created database casino
-2023-12-02 22:59:35,398 - 8393022976 - INFO - Successfully created table [customers]
-2023-12-02 22:59:35,411 - 8393022976 - INFO - Successfully created table [transactions]
-2023-12-02 22:59:35,412 - 8393022976 - INFO - Tables List: [<classes.table_classes.Roulette object at 0x1221976d0>, <classes.table_classes.Roulette object at 0x117e79410>, <classes.table_classes.BlackJack object at 0x122197690>, <classes.table_classes.BlackJack object at 0x122197590>, <classes.table_classes.Poker object at 0x122197650>, <classes.table_classes.Poker object at 0x117be2850>]
-2023-12-02 22:59:35,414 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x122197890>, <classes.dealer_class.Dealer object at 0x1221973d0>, <classes.dealer_class.Dealer object at 0x117e6c310>, <classes.dealer_class.Dealer object at 0x117dca310>, <classes.dealer_class.Dealer object at 0x122197250>, <classes.dealer_class.Dealer object at 0x1221e9dd0>, <classes.dealer_class.Dealer object at 0x1221e9b90>, <classes.dealer_class.Dealer object at 0x1221ea2d0>, <classes.dealer_class.Dealer object at 0x1221ea110>, <classes.dealer_class.Dealer object at 0x1221e9ed0>]
-2023-12-02 22:59:35,414 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x1221ea150>, <classes.bartender_class.Bartender object at 0x1221ea1d0>]
-2023-12-02 22:59:35,415 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x1221ea790>, <classes.bouncer_class.Bouncer object at 0x117948b50>]
-2023-12-02 22:59:35,415 - 8393022976 - INFO - Starting Main Thread
-2023-12-02 22:59:35,418 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 22:59:35,419 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:35,419 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:35,419 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 22:59:35,420 - 10787876864 - INFO - Created Poker Table 2 thread
-2023-12-02 22:59:35,420 - 10838355968 - INFO - Created Poker Table 5 thread
-2023-12-02 22:59:35,420 - 10872008704 - INFO - Running dealer [0] thread
-2023-12-02 22:59:35,421 - 10855182336 - INFO - Running dealer [1] thread
-2023-12-02 22:59:35,421 - 10888835072 - INFO - Running dealer [2] thread
-2023-12-02 22:59:35,422 - 10905661440 - INFO - Running dealer [3] thread
-2023-12-02 22:59:35,422 - 10922487808 - INFO - Running dealer [4] thread
-2023-12-02 22:59:35,422 - 10939314176 - INFO - Running dealer [5] thread
-2023-12-02 22:59:35,423 - 10956140544 - INFO - Running dealer [6] thread
-2023-12-02 22:59:35,423 - 10972966912 - INFO - Running dealer [7] thread
-2023-12-02 22:59:35,424 - 10989793280 - INFO - Running dealer [8] thread
-2023-12-02 22:59:35,424 - 11006619648 - INFO - Running dealer [9] thread
-2023-12-02 22:59:35,425 - 11040272384 - INFO - Running bartender [0] thread
-2023-12-02 22:59:35,437 - 11023446016 - INFO - Running bartender [1] thread
-2023-12-02 22:59:35,469 - 11057098752 - INFO - Running bouncer [0] thread
-2023-12-02 22:59:35,469 - 11090751488 - INFO - Running bouncer [1] thread
-2023-12-02 22:59:35,469 - 8393022976 - INFO - Table threads: [<Future at 0x1221eba50 state=running>, <Future at 0x1221f8e90 state=running>, <Future at 0x1221f9710 state=running>, <Future at 0x1221f99d0 state=running>, <Future at 0x1221fa050 state=running>, <Future at 0x1221f9550 state=running>]
-2023-12-02 22:59:35,469 - 8393022976 - INFO - Dealer threads: [<Future at 0x1221fadd0 state=running>, <Future at 0x1221fb690 state=running>, <Future at 0x1221fbe10 state=running>, <Future at 0x1223003d0 state=running>, <Future at 0x122300710 state=running>, <Future at 0x122300e10 state=running>, <Future at 0x122301910 state=running>, <Future at 0x122301c90 state=running>, <Future at 0x122302150 state=running>, <Future at 0x122302810 state=running>]
-2023-12-02 22:59:35,469 - 8393022976 - INFO - Bartender threads: [<Future at 0x122302c50 state=running>, <Future at 0x122303cd0 state=running>]
-2023-12-02 22:59:35,475 - 8393022976 - INFO - Bouncer threads: [<Future at 0x122318550 state=running>, <Future at 0x1223188d0 state=running>]
-2023-12-02 22:59:35,487 - 8393022976 - INFO - The Casino is now open.
-2023-12-02 22:59:37,265 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.MediumRoller object at 0x122319950>, <classes.customer_classes.LowRoller object at 0x122319850>, <classes.customer_classes.MediumRoller object at 0x1179df810>, <classes.customer_classes.LowRoller object at 0x122319b90>, <classes.customer_classes.MediumRoller object at 0x122319d90>, <classes.customer_classes.LowRoller object at 0x1223198d0>, <classes.customer_classes.HighRoller object at 0x12231ad50>, <classes.customer_classes.LowRoller object at 0x12231a950>, <classes.customer_classes.LowRoller object at 0x12231ac90>, <classes.customer_classes.LowRoller object at 0x117ea5050>, <classes.customer_classes.HighRoller object at 0x12231b190>, <classes.customer_classes.LowRoller object at 0x12231a590>, <classes.customer_classes.LowRoller object at 0x12231b350>, <classes.customer_classes.MediumRoller object at 0x12231b1d0>, <classes.customer_classes.MediumRoller object at 0x11792ad10>, <classes.customer_classes.MediumRoller object at 0x12231b710>, <classes.customer_classes.MediumRoller object at 0x12231b3d0>, <classes.customer_classes.MediumRoller object at 0x12231b950>, <classes.customer_classes.MediumRoller object at 0x12231b8d0>, <classes.customer_classes.MediumRoller object at 0x12231bad0>, <classes.customer_classes.HighRoller object at 0x12231a850>, <classes.customer_classes.LowRoller object at 0x12231bd90>, <classes.customer_classes.HighRoller object at 0x12231bf10>, <classes.customer_classes.MediumRoller object at 0x107a77150>, <classes.customer_classes.HighRoller object at 0x12231b790>, <classes.customer_classes.MediumRoller object at 0x12231b590>, <classes.customer_classes.HighRoller object at 0x12231ba90>, <classes.customer_classes.MediumRoller object at 0x12231ba50>, <classes.customer_classes.MediumRoller object at 0x12231b090>, <classes.customer_classes.MediumRoller object at 0x117b09dd0>, <classes.customer_classes.LowRoller object at 0x122324790>, <classes.customer_classes.HighRoller object at 0x12231bf50>, <classes.customer_classes.MediumRoller object at 0x122319dd0>, <classes.customer_classes.HighRoller object at 0x117de8990>, <classes.customer_classes.MediumRoller object at 0x1223199d0>, <classes.customer_classes.LowRoller object at 0x122324cd0>, <classes.customer_classes.LowRoller object at 0x122302250>, <classes.customer_classes.MediumRoller object at 0x1221e9590>, <classes.customer_classes.MediumRoller object at 0x122324d50>, <classes.customer_classes.MediumRoller object at 0x122325090>, <classes.customer_classes.LowRoller object at 0x122324c90>, <classes.customer_classes.HighRoller object at 0x122324dd0>, <classes.customer_classes.MediumRoller object at 0x122325150>, <classes.customer_classes.LowRoller object at 0x12231af90>, <classes.customer_classes.LowRoller object at 0x122324750>, <classes.customer_classes.LowRoller object at 0x122325110>, <classes.customer_classes.MediumRoller object at 0x122325390>, <classes.customer_classes.HighRoller object at 0x122325450>, <classes.customer_classes.HighRoller object at 0x122325690>, <classes.customer_classes.MediumRoller object at 0x122324390>, <classes.customer_classes.LowRoller object at 0x122325850>, <classes.customer_classes.MediumRoller object at 0x122325250>, <classes.customer_classes.HighRoller object at 0x122325a90>, <classes.customer_classes.MediumRoller object at 0x122325810>, <classes.customer_classes.LowRoller object at 0x122325290>, <classes.customer_classes.MediumRoller object at 0x122325c90>, <classes.customer_classes.HighRoller object at 0x122324990>, <classes.customer_classes.MediumRoller object at 0x122325c10>, <classes.customer_classes.MediumRoller object at 0x122325d50>, <classes.customer_classes.MediumRoller object at 0x122326010>, <classes.customer_classes.LowRoller object at 0x122325ed0>, <classes.customer_classes.LowRoller object at 0x122325910>, <classes.customer_classes.HighRoller object at 0x122326250>, <classes.customer_classes.MediumRoller object at 0x122324250>, <classes.customer_classes.HighRoller object at 0x122326190>, <classes.customer_classes.MediumRoller object at 0x1223263d0>, <classes.customer_classes.MediumRoller object at 0x122325f90>, <classes.customer_classes.HighRoller object at 0x1223265d0>, <classes.customer_classes.LowRoller object at 0x122326590>, <classes.customer_classes.HighRoller object at 0x122326610>, <classes.customer_classes.HighRoller object at 0x122326090>, <classes.customer_classes.HighRoller object at 0x122325d90>, <classes.customer_classes.LowRoller object at 0x107a99290>, <classes.customer_classes.HighRoller object at 0x122326990>, <classes.customer_classes.HighRoller object at 0x122326ad0>, <classes.customer_classes.MediumRoller object at 0x122326a90>, <classes.customer_classes.MediumRoller object at 0x122326b90>, <classes.customer_classes.LowRoller object at 0x122326750>, <classes.customer_classes.MediumRoller object at 0x122326850>, <classes.customer_classes.LowRoller object at 0x122326150>, <classes.customer_classes.MediumRoller object at 0x1223269d0>, <classes.customer_classes.MediumRoller object at 0x122326b10>, <classes.customer_classes.MediumRoller object at 0x122326f50>, <classes.customer_classes.MediumRoller object at 0x122327090>, <classes.customer_classes.MediumRoller object at 0x122325190>, <classes.customer_classes.MediumRoller object at 0x122326c50>, <classes.customer_classes.LowRoller object at 0x122327310>, <classes.customer_classes.MediumRoller object at 0x122327250>, <classes.customer_classes.MediumRoller object at 0x122327190>, <classes.customer_classes.LowRoller object at 0x122326f10>, <classes.customer_classes.HighRoller object at 0x117ada910>, <classes.customer_classes.LowRoller object at 0x122326fd0>, <classes.customer_classes.MediumRoller object at 0x122327790>, <classes.customer_classes.HighRoller object at 0x122327750>, <classes.customer_classes.MediumRoller object at 0x122327890>, <classes.customer_classes.LowRoller object at 0x1221e9c10>, <classes.customer_classes.LowRoller object at 0x122327010>, <classes.customer_classes.LowRoller object at 0x117eb9150>, <classes.customer_classes.MediumRoller object at 0x122327210>, <classes.customer_classes.MediumRoller object at 0x122327bd0>]
-2023-12-02 22:59:37,288 - 11073925120 - INFO - Running customer [0] thread
-2023-12-02 22:59:37,288 - 11073925120 - INFO - Customer [0] entered bouncer queue
-2023-12-02 22:59:37,317 - 11124404224 - INFO - Running customer [1] thread
-2023-12-02 22:59:37,317 - 11124404224 - INFO - Customer [1] entered bouncer queue
-2023-12-02 22:59:37,338 - 11141230592 - INFO - Running customer [2] thread
-2023-12-02 22:59:37,338 - 11141230592 - INFO - Customer [2] entered bouncer queue
-2023-12-02 22:59:37,340 - 11158056960 - INFO - Running customer [3] thread
-2023-12-02 22:59:37,340 - 11158056960 - INFO - Customer [3] entered bouncer queue
-2023-12-02 22:59:37,341 - 11174883328 - INFO - Running customer [4] thread
-2023-12-02 22:59:37,341 - 11174883328 - INFO - Customer [4] entered bouncer queue
-2023-12-02 22:59:37,342 - 11191709696 - INFO - Running customer [5] thread
-2023-12-02 22:59:37,342 - 11191709696 - INFO - Customer [5] entered bouncer queue
-2023-12-02 22:59:37,344 - 11107577856 - INFO - Running customer [6] thread
-2023-12-02 22:59:37,344 - 11107577856 - INFO - Customer [6] entered bouncer queue
-2023-12-02 22:59:37,344 - 11208536064 - INFO - Running customer [7] thread
-2023-12-02 22:59:37,344 - 11208536064 - INFO - Customer [7] entered bouncer queue
-2023-12-02 22:59:37,345 - 11225362432 - INFO - Running customer [8] thread
-2023-12-02 22:59:37,357 - 11225362432 - INFO - Customer [8] entered bouncer queue
-2023-12-02 22:59:37,376 - 11259015168 - INFO - Running customer [9] thread
-2023-12-02 22:59:37,376 - 11259015168 - INFO - Customer [9] entered bouncer queue
-2023-12-02 22:59:37,377 - 11242188800 - INFO - Running customer [10] thread
-2023-12-02 22:59:37,383 - 11242188800 - INFO - Customer [10] entered bouncer queue
-2023-12-02 22:59:37,396 - 11275841536 - INFO - Running customer [11] thread
-2023-12-02 22:59:37,396 - 11275841536 - INFO - Customer [11] entered bouncer queue
-2023-12-02 22:59:37,426 - 11292667904 - INFO - Running customer [12] thread
-2023-12-02 22:59:37,439 - 11292667904 - INFO - Customer [12] entered bouncer queue
-2023-12-02 22:59:37,439 - 11309494272 - INFO - Running customer [13] thread
-2023-12-02 22:59:37,440 - 11309494272 - INFO - Customer [13] entered bouncer queue
-2023-12-02 22:59:37,452 - 11326320640 - INFO - Running customer [14] thread
-2023-12-02 22:59:37,483 - 11090751488 - DEBUG - Bouncer [1] allowed customer [13] to enter
-2023-12-02 22:59:37,501 - 11343147008 - INFO - Running customer [15] thread
-2023-12-02 22:59:37,513 - 11057098752 - INFO - Customer [12] kicked out
-2023-12-02 22:59:37,526 - 11326320640 - INFO - Customer [14] entered bouncer queue
-2023-12-02 22:59:37,538 - 11343147008 - INFO - Customer [15] entered bouncer queue
-2023-12-02 22:59:37,570 - 11359973376 - INFO - Running customer [16] thread
-2023-12-02 22:59:37,576 - 11359973376 - INFO - Customer [16] entered bouncer queue
-2023-12-02 22:59:37,577 - 11393626112 - INFO - Running customer [17] thread
-2023-12-02 22:59:37,588 - 11393626112 - INFO - Customer [17] entered bouncer queue
-2023-12-02 22:59:37,703 - 11376799744 - INFO - Running customer [18] thread
-2023-12-02 22:59:37,716 - 11427278848 - INFO - Running customer [19] thread
-2023-12-02 22:59:37,740 - 11376799744 - INFO - Customer [18] entered bouncer queue
-2023-12-02 22:59:37,766 - 11410452480 - INFO - Running customer [20] thread
-2023-12-02 22:59:37,797 - 11444105216 - INFO - Running customer [21] thread
-2023-12-02 22:59:37,816 - 11427278848 - INFO - Customer [19] entered bouncer queue
-2023-12-02 22:59:37,917 - 11410452480 - INFO - Customer [20] entered bouncer queue
-2023-12-02 22:59:37,923 - 11444105216 - INFO - Customer [21] entered bouncer queue
-2023-12-02 22:59:37,935 - 11460931584 - INFO - Running customer [22] thread
-2023-12-02 22:59:37,966 - 11460931584 - INFO - Customer [22] entered bouncer queue
-2023-12-02 22:59:37,966 - 11477757952 - INFO - Running customer [23] thread
-2023-12-02 22:59:37,972 - 11494584320 - INFO - Running customer [24] thread
-2023-12-02 22:59:37,973 - 11477757952 - INFO - Customer [23] entered bouncer queue
-2023-12-02 22:59:37,973 - 11511410688 - INFO - Running customer [25] thread
-2023-12-02 22:59:37,973 - 11494584320 - INFO - Customer [24] entered bouncer queue
-2023-12-02 22:59:37,974 - 11511410688 - INFO - Customer [25] entered bouncer queue
-2023-12-02 22:59:37,974 - 11528237056 - INFO - Running customer [26] thread
-2023-12-02 22:59:37,974 - 11545063424 - INFO - Running customer [27] thread
-2023-12-02 22:59:37,975 - 11528237056 - INFO - Customer [26] entered bouncer queue
-2023-12-02 22:59:37,975 - 11545063424 - INFO - Customer [27] entered bouncer queue
-2023-12-02 22:59:37,982 - 11561889792 - INFO - Running customer [28] thread
-2023-12-02 22:59:37,982 - 11561889792 - INFO - Customer [28] entered bouncer queue
-2023-12-02 22:59:37,995 - 11578716160 - INFO - Running customer [29] thread
-2023-12-02 22:59:37,995 - 11578716160 - INFO - Customer [29] entered bouncer queue
-2023-12-02 22:59:38,014 - 11612368896 - INFO - Running customer [30] thread
-2023-12-02 22:59:38,015 - 11595542528 - INFO - Running customer [31] thread
-2023-12-02 22:59:38,015 - 11612368896 - INFO - Customer [30] entered bouncer queue
-2023-12-02 22:59:38,015 - 11629195264 - INFO - Running customer [32] thread
-2023-12-02 22:59:38,016 - 11595542528 - INFO - Customer [31] entered bouncer queue
-2023-12-02 22:59:38,016 - 11646021632 - INFO - Running customer [33] thread
-2023-12-02 22:59:38,016 - 11679674368 - INFO - Running customer [34] thread
-2023-12-02 22:59:38,017 - 11629195264 - INFO - Customer [32] entered bouncer queue
-2023-12-02 22:59:38,017 - 11662848000 - INFO - Running customer [35] thread
-2023-12-02 22:59:38,017 - 11646021632 - INFO - Customer [33] entered bouncer queue
-2023-12-02 22:59:38,018 - 11696500736 - INFO - Running customer [36] thread
-2023-12-02 22:59:38,018 - 11713327104 - INFO - Running customer [37] thread
-2023-12-02 22:59:38,030 - 11679674368 - INFO - Customer [34] entered bouncer queue
-2023-12-02 22:59:38,031 - 11730153472 - INFO - Running customer [38] thread
-2023-12-02 22:59:38,031 - 11662848000 - INFO - Customer [35] entered bouncer queue
-2023-12-02 22:59:38,031 - 11746979840 - INFO - Running customer [39] thread
-2023-12-02 22:59:38,032 - 11696500736 - INFO - Customer [36] entered bouncer queue
-2023-12-02 22:59:38,032 - 11713327104 - INFO - Customer [37] entered bouncer queue
-2023-12-02 22:59:38,032 - 11730153472 - INFO - Customer [38] entered bouncer queue
-2023-12-02 22:59:38,032 - 11746979840 - INFO - Customer [39] entered bouncer queue
-2023-12-02 22:59:38,032 - 11763806208 - INFO - Running customer [40] thread
-2023-12-02 22:59:38,033 - 11763806208 - INFO - Customer [40] entered bouncer queue
-2023-12-02 22:59:38,033 - 11797458944 - INFO - Running customer [41] thread
-2023-12-02 22:59:38,034 - 11797458944 - INFO - Customer [41] entered bouncer queue
-2023-12-02 22:59:38,034 - 11780632576 - INFO - Running customer [42] thread
-2023-12-02 22:59:38,034 - 11831111680 - INFO - Running customer [43] thread
-2023-12-02 22:59:38,034 - 11780632576 - INFO - Customer [42] entered bouncer queue
-2023-12-02 22:59:38,035 - 11831111680 - INFO - Customer [43] entered bouncer queue
-2023-12-02 22:59:38,035 - 11814285312 - INFO - Running customer [44] thread
-2023-12-02 22:59:38,035 - 11814285312 - INFO - Customer [44] entered bouncer queue
-2023-12-02 22:59:38,036 - 11847938048 - INFO - Running customer [45] thread
-2023-12-02 22:59:38,036 - 11847938048 - INFO - Customer [45] entered bouncer queue
-2023-12-02 22:59:38,036 - 11881590784 - INFO - Running customer [46] thread
-2023-12-02 22:59:38,036 - 11881590784 - INFO - Customer [46] entered bouncer queue
-2023-12-02 22:59:38,037 - 11864764416 - INFO - Running customer [47] thread
-2023-12-02 22:59:38,037 - 11864764416 - INFO - Customer [47] entered bouncer queue
-2023-12-02 22:59:38,037 - 11898417152 - INFO - Running customer [48] thread
-2023-12-02 22:59:38,037 - 11898417152 - INFO - Customer [48] entered bouncer queue
-2023-12-02 22:59:38,038 - 11915243520 - INFO - Running customer [49] thread
-2023-12-02 22:59:38,038 - 11915243520 - INFO - Customer [49] entered bouncer queue
-2023-12-02 22:59:38,038 - 11932069888 - INFO - Running customer [50] thread
-2023-12-02 22:59:38,039 - 11932069888 - INFO - Customer [50] entered bouncer queue
-2023-12-02 22:59:38,039 - 11965722624 - INFO - Running customer [51] thread
-2023-12-02 22:59:38,039 - 11965722624 - INFO - Customer [51] entered bouncer queue
-2023-12-02 22:59:38,039 - 11948896256 - INFO - Running customer [52] thread
-2023-12-02 22:59:38,046 - 11948896256 - INFO - Customer [52] entered bouncer queue
-2023-12-02 22:59:38,046 - 11999375360 - INFO - Running customer [53] thread
-2023-12-02 22:59:38,046 - 11999375360 - INFO - Customer [53] entered bouncer queue
-2023-12-02 22:59:38,047 - 12016201728 - INFO - Running customer [54] thread
-2023-12-02 22:59:38,048 - 12016201728 - INFO - Customer [54] entered bouncer queue
-2023-12-02 22:59:38,048 - 11982548992 - INFO - Running customer [55] thread
-2023-12-02 22:59:38,048 - 11982548992 - INFO - Customer [55] entered bouncer queue
-2023-12-02 22:59:38,055 - 12033028096 - INFO - Running customer [56] thread
-2023-12-02 22:59:38,055 - 12033028096 - INFO - Customer [56] entered bouncer queue
-2023-12-02 22:59:38,117 - 12049854464 - INFO - Running customer [57] thread
-2023-12-02 22:59:38,141 - 12049854464 - INFO - Customer [57] entered bouncer queue
-2023-12-02 22:59:38,161 - 12066680832 - INFO - Running customer [58] thread
-2023-12-02 22:59:38,161 - 12066680832 - INFO - Customer [58] entered bouncer queue
-2023-12-02 22:59:38,161 - 12100333568 - INFO - Running customer [59] thread
-2023-12-02 22:59:38,161 - 12100333568 - INFO - Customer [59] entered bouncer queue
-2023-12-02 22:59:38,162 - 12083507200 - INFO - Running customer [60] thread
-2023-12-02 22:59:38,162 - 12083507200 - INFO - Customer [60] entered bouncer queue
-2023-12-02 22:59:38,163 - 12117159936 - INFO - Running customer [61] thread
-2023-12-02 22:59:38,163 - 12117159936 - INFO - Customer [61] entered bouncer queue
-2023-12-02 22:59:38,163 - 12133986304 - INFO - Running customer [62] thread
-2023-12-02 22:59:38,163 - 12133986304 - INFO - Customer [62] entered bouncer queue
-2023-12-02 22:59:38,164 - 12150812672 - INFO - Running customer [63] thread
-2023-12-02 22:59:38,164 - 12150812672 - INFO - Customer [63] entered bouncer queue
-2023-12-02 22:59:38,164 - 12184465408 - INFO - Running customer [64] thread
-2023-12-02 22:59:38,165 - 12167639040 - INFO - Running customer [65] thread
-2023-12-02 22:59:38,165 - 12218118144 - INFO - Running customer [66] thread
-2023-12-02 22:59:38,166 - 12184465408 - INFO - Customer [64] entered bouncer queue
-2023-12-02 22:59:38,166 - 12167639040 - INFO - Customer [65] entered bouncer queue
-2023-12-02 22:59:38,166 - 12218118144 - INFO - Customer [66] entered bouncer queue
-2023-12-02 22:59:38,167 - 12234944512 - INFO - Running customer [67] thread
-2023-12-02 22:59:38,167 - 12234944512 - INFO - Customer [67] entered bouncer queue
-2023-12-02 22:59:38,167 - 12201291776 - INFO - Running customer [68] thread
-2023-12-02 22:59:38,167 - 12251770880 - INFO - Running customer [69] thread
-2023-12-02 22:59:38,174 - 12201291776 - INFO - Customer [68] entered bouncer queue
-2023-12-02 22:59:38,230 - 12268597248 - INFO - Running customer [70] thread
-2023-12-02 22:59:38,243 - 12251770880 - INFO - Customer [69] entered bouncer queue
-2023-12-02 22:59:38,255 - 12302249984 - INFO - Running customer [71] thread
-2023-12-02 22:59:38,256 - 12268597248 - INFO - Customer [70] entered bouncer queue
-2023-12-02 22:59:38,256 - 12302249984 - INFO - Customer [71] entered bouncer queue
-2023-12-02 22:59:38,256 - 12285423616 - INFO - Running customer [72] thread
-2023-12-02 22:59:38,257 - 12285423616 - INFO - Customer [72] entered bouncer queue
-2023-12-02 22:59:38,263 - 12319076352 - INFO - Running customer [73] thread
-2023-12-02 22:59:38,270 - 12319076352 - INFO - Customer [73] entered bouncer queue
-2023-12-02 22:59:38,294 - 12335902720 - INFO - Running customer [74] thread
-2023-12-02 22:59:38,307 - 12335902720 - INFO - Customer [74] entered bouncer queue
-2023-12-02 22:59:38,320 - 12352729088 - INFO - Running customer [75] thread
-2023-12-02 22:59:38,320 - 12352729088 - INFO - Customer [75] entered bouncer queue
-2023-12-02 22:59:38,320 - 12369555456 - INFO - Running customer [76] thread
-2023-12-02 22:59:38,321 - 12386381824 - INFO - Running customer [77] thread
-2023-12-02 22:59:38,321 - 12369555456 - INFO - Customer [76] entered bouncer queue
-2023-12-02 22:59:38,322 - 12403208192 - INFO - Running customer [78] thread
-2023-12-02 22:59:38,322 - 12436860928 - INFO - Running customer [79] thread
-2023-12-02 22:59:38,322 - 12386381824 - INFO - Customer [77] entered bouncer queue
-2023-12-02 22:59:38,323 - 12420034560 - INFO - Running customer [80] thread
-2023-12-02 22:59:38,330 - 12403208192 - INFO - Customer [78] entered bouncer queue
-2023-12-02 22:59:38,336 - 12436860928 - INFO - Customer [79] entered bouncer queue
-2023-12-02 22:59:38,351 - 12420034560 - INFO - Customer [80] entered bouncer queue
-2023-12-02 22:59:38,364 - 12453687296 - INFO - Running customer [81] thread
-2023-12-02 22:59:38,364 - 12453687296 - INFO - Customer [81] entered bouncer queue
-2023-12-02 22:59:38,365 - 12487340032 - INFO - Running customer [82] thread
-2023-12-02 22:59:38,365 - 12487340032 - INFO - Customer [82] entered bouncer queue
-2023-12-02 22:59:38,366 - 12470513664 - INFO - Running customer [83] thread
-2023-12-02 22:59:38,366 - 12470513664 - INFO - Customer [83] entered bouncer queue
-2023-12-02 22:59:38,366 - 12504166400 - INFO - Running customer [84] thread
-2023-12-02 22:59:38,366 - 12504166400 - INFO - Customer [84] entered bouncer queue
-2023-12-02 22:59:38,367 - 12520992768 - INFO - Running customer [85] thread
-2023-12-02 22:59:38,367 - 12520992768 - INFO - Customer [85] entered bouncer queue
-2023-12-02 22:59:38,367 - 12537819136 - INFO - Running customer [86] thread
-2023-12-02 22:59:38,367 - 12537819136 - INFO - Customer [86] entered bouncer queue
-2023-12-02 22:59:38,368 - 12554645504 - INFO - Running customer [87] thread
-2023-12-02 22:59:38,368 - 12554645504 - INFO - Customer [87] entered bouncer queue
-2023-12-02 22:59:38,369 - 12571471872 - INFO - Running customer [88] thread
-2023-12-02 22:59:38,369 - 12571471872 - INFO - Customer [88] entered bouncer queue
-2023-12-02 22:59:38,369 - 12588298240 - INFO - Running customer [89] thread
-2023-12-02 22:59:38,369 - 12588298240 - INFO - Customer [89] entered bouncer queue
-2023-12-02 22:59:38,370 - 12605124608 - INFO - Running customer [90] thread
-2023-12-02 22:59:38,370 - 12605124608 - INFO - Customer [90] entered bouncer queue
-2023-12-02 22:59:38,370 - 12621950976 - INFO - Running customer [91] thread
-2023-12-02 22:59:38,370 - 12621950976 - INFO - Customer [91] entered bouncer queue
-2023-12-02 22:59:38,413 - 12638777344 - INFO - Running customer [92] thread
-2023-12-02 22:59:38,413 - 12638777344 - INFO - Customer [92] entered bouncer queue
-2023-12-02 22:59:38,414 - 12655603712 - INFO - Running customer [93] thread
-2023-12-02 22:59:38,414 - 12672430080 - INFO - Running customer [94] thread
-2023-12-02 22:59:38,414 - 12655603712 - INFO - Customer [93] entered bouncer queue
-2023-12-02 22:59:38,415 - 12689256448 - INFO - Running customer [95] thread
-2023-12-02 22:59:38,415 - 12706082816 - INFO - Running customer [96] thread
-2023-12-02 22:59:38,415 - 12672430080 - INFO - Customer [94] entered bouncer queue
-2023-12-02 22:59:38,416 - 12689256448 - INFO - Customer [95] entered bouncer queue
-2023-12-02 22:59:38,416 - 12722909184 - INFO - Running customer [97] thread
-2023-12-02 22:59:38,416 - 12706082816 - INFO - Customer [96] entered bouncer queue
-2023-12-02 22:59:38,416 - 12722909184 - INFO - Customer [97] entered bouncer queue
-2023-12-02 22:59:38,416 - 12739735552 - INFO - Running customer [98] thread
-2023-12-02 22:59:38,417 - 12739735552 - INFO - Customer [98] entered bouncer queue
-2023-12-02 22:59:38,417 - 12756561920 - INFO - Running customer [99] thread
-2023-12-02 22:59:38,417 - 12756561920 - INFO - Customer [99] entered bouncer queue
-2023-12-02 22:59:38,418 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x122319690 state=running>, <Future at 0x122327810 state=running>, <Future at 0x1223302d0 state=running>, <Future at 0x122330790 state=running>, <Future at 0x122330d10 state=running>, <Future at 0x1223310d0 state=running>, <Future at 0x122331b50 state=running>, <Future at 0x1223322d0 state=running>, <Future at 0x122332910 state=running>, <Future at 0x122332fd0 state=running>, <Future at 0x1223330d0 state=running>, <Future at 0x122340390 state=running>, <Future at 0x122340a50 state=running>, <Future at 0x122340910 state=running>, <Future at 0x122341f10 state=running>, <Future at 0x1223424d0 state=running>, <Future at 0x122342ed0 state=running>, <Future at 0x122343150 state=running>, <Future at 0x122343e10 state=running>, <Future at 0x122354610 state=running>, <Future at 0x122354dd0 state=running>, <Future at 0x122355690 state=running>, <Future at 0x122355c90 state=running>, <Future at 0x122356150 state=running>, <Future at 0x122354c90 state=running>, <Future at 0x122357410 state=running>, <Future at 0x122357950 state=running>, <Future at 0x122357dd0 state=running>, <Future at 0x12236c190 state=running>, <Future at 0x12236c650 state=running>, <Future at 0x12236ca50 state=running>, <Future at 0x12236d090 state=running>, <Future at 0x12236d810 state=running>, <Future at 0x12236e7d0 state=running>, <Future at 0x12236eb10 state=running>, <Future at 0x12236f810 state=running>, <Future at 0x12236fb50 state=running>, <Future at 0x122378710 state=running>, <Future at 0x122378a50 state=running>, <Future at 0x122379290 state=running>, <Future at 0x12237ab50 state=running>, <Future at 0x12237b190 state=running>, <Future at 0x12237b510 state=running>, <Future at 0x12237bb50 state=running>, <Future at 0x12237bdd0 state=running>, <Future at 0x12238c6d0 state=running>, <Future at 0x12238cb50 state=running>, <Future at 0x12238cf10 state=running>, <Future at 0x12238d450 state=running>, <Future at 0x12238da90 state=running>, <Future at 0x12238e350 state=running>, <Future at 0x12238e950 state=running>, <Future at 0x12238f090 state=running>, <Future at 0x12238f950 state=running>, <Future at 0x122390050 state=running>, <Future at 0x122390d90 state=running>, <Future at 0x117e8c610 state=running>, <Future at 0x122194c50 state=running>, <Future at 0x1223900d0 state=running>, <Future at 0x122391b90 state=running>, <Future at 0x122393810 state=running>, <Future at 0x122393dd0 state=running>, <Future at 0x12239c490 state=running>, <Future at 0x12239c8d0 state=running>, <Future at 0x12239ce10 state=running>, <Future at 0x12239d210 state=running>, <Future at 0x12239d850 state=running>, <Future at 0x12239dd10 state=running>, <Future at 0x12239e3d0 state=running>, <Future at 0x12239c590 state=running>, <Future at 0x12239f010 state=running>, <Future at 0x12239fd10 state=running>, <Future at 0x1223b4690 state=running>, <Future at 0x1223b4b50 state=running>, <Future at 0x1223b4e90 state=running>, <Future at 0x1223b5510 state=running>, <Future at 0x1223b7850 state=running>, <Future at 0x1223b5c90 state=running>, <Future at 0x1223b7c90 state=running>, <Future at 0x1223c8290 state=running>, <Future at 0x1223c8750 state=running>, <Future at 0x1223c8d90 state=running>, <Future at 0x1223c8dd0 state=running>, <Future at 0x1223c9490 state=running>, <Future at 0x1223c9c90 state=running>, <Future at 0x1223ca3d0 state=running>, <Future at 0x1223caa50 state=running>, <Future at 0x1223cb0d0 state=running>, <Future at 0x1223cb6d0 state=running>, <Future at 0x1223dc290 state=running>, <Future at 0x1223cb650 state=running>, <Future at 0x1223dcf50 state=running>, <Future at 0x1223dc590 state=running>, <Future at 0x1223de6d0 state=running>, <Future at 0x1223dea10 state=running>, <Future at 0x1223df790 state=running>, <Future at 0x1223dfad0 state=running>, <Future at 0x1223e8290 state=running>, <Future at 0x1223e8a10 state=running>, <Future at 0x1223e90d0 state=running>]
-2023-12-02 22:59:38,471 - 11309494272 - INFO - Successfully inserted [(13, 'Eric Shafer', 70, 'male')] into table [customers]
-2023-12-02 22:59:39,461 - 10838355968 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x12231b1d0>]]
-2023-12-02 22:59:39,474 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:39,487 - 10838355968 - INFO - Bet placed: [29889] in table [5]
-2023-12-02 22:59:39,493 - 10838355968 - INFO - Player [13] updated bankroll by: [29889]
-2023-12-02 22:59:39,530 - 11090751488 - DEBUG - Bouncer [1] allowed customer [99] to enter
-2023-12-02 22:59:39,549 - 11057098752 - INFO - Customer [98] kicked out
-2023-12-02 22:59:40,473 - 12756561920 - INFO - Successfully inserted [(99, 'Betty Noyes', 49, 'female')] into table [customers]
-2023-12-02 22:59:40,560 - 10838355968 - INFO - Successfully inserted [('Table', 0.8200000000000003)] into table [transactions]
-2023-12-02 22:59:40,572 - 10838355968 - INFO - Player [13] updated bankroll by: [40.18]
-2023-12-02 22:59:41,555 - 11090751488 - DEBUG - Bouncer [1] allowed customer [97] to enter
-2023-12-02 22:59:41,567 - 11057098752 - DEBUG - Bouncer [0] allowed customer [96] to enter
-2023-12-02 22:59:41,615 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:41,640 - 10838355968 - INFO - Bet placed: [21870] in table [5]
-2023-12-02 22:59:41,691 - 10838355968 - INFO - Player [13] updated bankroll by: [21870]
-2023-12-02 22:59:42,498 - 12722909184 - INFO - Successfully inserted [(97, 'Donald Quintana', 59, 'male')] into table [customers]
-2023-12-02 22:59:42,566 - 12706082816 - INFO - Successfully inserted [(96, 'Mamie King', 79, 'female')] into table [customers]
-2023-12-02 22:59:42,823 - 10838355968 - INFO - Successfully inserted [('Table', 0.1999999999999993)] into table [transactions]
-2023-12-02 22:59:42,853 - 10838355968 - INFO - Player [13] updated bankroll by: [9.8]
-2023-12-02 22:59:43,576 - 11090751488 - INFO - Customer [95] kicked out
-2023-12-02 22:59:43,595 - 11057098752 - INFO - Customer [94] kicked out
-2023-12-02 22:59:43,906 - 10754224128 - DEBUG - Customers in Roulette table [0]: [[]]
-2023-12-02 22:59:43,906 - 10771050496 - DEBUG - Customers in Roulette table [3]: [[]]
-2023-12-02 22:59:43,936 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:43,949 - 10838355968 - INFO - Bet placed: [18225] in table [5]
-2023-12-02 22:59:43,955 - 10838355968 - INFO - Player [13] updated bankroll by: [18225]
-2023-12-02 22:59:45,003 - 10838355968 - INFO - Successfully inserted [('Table', 0.5)] into table [transactions]
-2023-12-02 22:59:45,015 - 10838355968 - INFO - Player [13] updated bankroll by: [24.5]
-2023-12-02 22:59:45,587 - 11090751488 - INFO - Customer [93] kicked out
-2023-12-02 22:59:45,612 - 11057098752 - DEBUG - Bouncer [0] allowed customer [92] to enter
-2023-12-02 22:59:46,038 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:46,076 - 10838355968 - INFO - Bet placed: [10206] in table [5]
-2023-12-02 22:59:46,131 - 10838355968 - INFO - Player [13] updated bankroll by: [10206]
-2023-12-02 22:59:46,570 - 12638777344 - INFO - Successfully inserted [(92, 'Toni Bates', 68, 'female')] into table [customers]
-2023-12-02 22:59:47,193 - 10838355968 - INFO - Successfully inserted [('Table', 0.28000000000000114)] into table [transactions]
-2023-12-02 22:59:47,237 - 10838355968 - INFO - Player [13] updated bankroll by: [13.719999999999999]
-2023-12-02 22:59:47,605 - 11090751488 - INFO - Customer [91] kicked out
-2023-12-02 22:59:47,635 - 11057098752 - INFO - Customer [90] kicked out
-2023-12-02 22:59:48,534 - 10804703232 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.LowRoller object at 0x117eb9150>]]
-2023-12-02 22:59:48,547 - 10804703232 - INFO - Bet placed: [2937] in table [1]
-2023-12-02 22:59:48,608 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:48,651 - 10804703232 - INFO - Player [97] updated bankroll by: [2937]
-2023-12-02 22:59:48,713 - 10838355968 - INFO - Bet placed: [10935] in table [5]
-2023-12-02 22:59:48,750 - 10838355968 - INFO - Player [13] updated bankroll by: [10935]
-2023-12-02 22:59:49,619 - 11090751488 - DEBUG - Bouncer [1] allowed customer [89] to enter
-2023-12-02 22:59:49,652 - 11057098752 - INFO - Customer [88] kicked out
-2023-12-02 22:59:49,748 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:49,755 - 10804703232 - INFO - Bet placed: [1134] in table [1]
-2023-12-02 22:59:49,766 - 10804703232 - INFO - Player [97] updated bankroll by: [1134]
-2023-12-02 22:59:49,855 - 10838355968 - INFO - Successfully inserted [('Table', 0.8999999999999986)] into table [transactions]
-2023-12-02 22:59:49,910 - 10838355968 - INFO - Player [13] updated bankroll by: [44.1]
-2023-12-02 22:59:50,592 - 12588298240 - INFO - Successfully inserted [(89, 'Gladys Puffinburger', 28, 'female')] into table [customers]
-2023-12-02 22:59:50,790 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 22:59:50,833 - 10804703232 - INFO - Player [97] updated bankroll by: [162]
-2023-12-02 22:59:50,839 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:50,846 - 10804703232 - INFO - Bet placed: [2115] in table [1]
-2023-12-02 22:59:50,846 - 10804703232 - INFO - Player [97] updated bankroll by: [2115]
-2023-12-02 22:59:51,007 - 10771050496 - INFO - Bet placed: [15552] in table [3]
-2023-12-02 22:59:51,019 - 10787876864 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x122327bd0>]]
-2023-12-02 22:59:51,020 - 10771050496 - INFO - Player [92] updated bankroll by: [15552]
-2023-12-02 22:59:51,032 - 10821529600 - DEBUG - Customers in Blackjack table [4]: [[]]
-2023-12-02 22:59:51,057 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:51,113 - 10838355968 - INFO - Bet placed: [24786] in table [5]
-2023-12-02 22:59:51,132 - 10838355968 - INFO - Player [13] updated bankroll by: [24786]
-2023-12-02 22:59:51,639 - 11090751488 - DEBUG - Bouncer [1] allowed customer [87] to enter
-2023-12-02 22:59:51,670 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:51,670 - 11057098752 - INFO - Customer [86] kicked out
-2023-12-02 22:59:51,682 - 10771050496 - INFO - Bet placed: [21141] in table [3]
-2023-12-02 22:59:51,720 - 10771050496 - INFO - Player [92] updated bankroll by: [21141]
-2023-12-02 22:59:51,871 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:51,914 - 10804703232 - INFO - Bet placed: [1644] in table [1]
-2023-12-02 22:59:51,952 - 10804703232 - INFO - Player [97] updated bankroll by: [1644]
-2023-12-02 22:59:52,180 - 10838355968 - INFO - Successfully inserted [('Table', 0.6799999999999997)] into table [transactions]
-2023-12-02 22:59:52,199 - 10838355968 - INFO - Player [13] updated bankroll by: [33.32]
-2023-12-02 22:59:52,245 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:52,245 - 10771050496 - INFO - Bet placed: [18225] in table [3]
-2023-12-02 22:59:52,258 - 10771050496 - INFO - Player [92] updated bankroll by: [18225]
-2023-12-02 22:59:52,619 - 12554645504 - INFO - Successfully inserted [(87, 'Emily Lavender', 48, 'female')] into table [customers]
-2023-12-02 22:59:52,825 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:52,850 - 10771050496 - INFO - Bet placed: [14823] in table [3]
-2023-12-02 22:59:52,863 - 10771050496 - INFO - Player [92] updated bankroll by: [14823]
-2023-12-02 22:59:53,006 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:53,012 - 10804703232 - INFO - Bet placed: [2970] in table [1]
-2023-12-02 22:59:53,025 - 10804703232 - INFO - Player [97] updated bankroll by: [2970]
-2023-12-02 22:59:53,217 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 22:59:53,230 - 10838355968 - INFO - Bet placed: [17496] in table [5]
-2023-12-02 22:59:53,230 - 10838355968 - INFO - Player [13] updated bankroll by: [17496]
-2023-12-02 22:59:53,424 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:53,437 - 10771050496 - INFO - Bet placed: [15309] in table [3]
-2023-12-02 22:59:53,492 - 10771050496 - INFO - Player [92] updated bankroll by: [15309]
-2023-12-02 22:59:53,660 - 11090751488 - INFO - Customer [85] kicked out
-2023-12-02 22:59:53,777 - 11057098752 - DEBUG - Bouncer [0] allowed customer [84] to enter
-2023-12-02 22:59:54,041 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:54,042 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:54,054 - 10804703232 - INFO - Bet placed: [2796] in table [1]
-2023-12-02 22:59:54,079 - 10771050496 - INFO - Bet placed: [26244] in table [3]
-2023-12-02 22:59:54,103 - 10804703232 - INFO - Player [97] updated bankroll by: [2796]
-2023-12-02 22:59:54,108 - 10771050496 - INFO - Player [92] updated bankroll by: [26244]
-2023-12-02 22:59:54,298 - 10838355968 - INFO - Successfully inserted [('Table', 0.4800000000000004)] into table [transactions]
-2023-12-02 22:59:54,316 - 10838355968 - INFO - Player [13] updated bankroll by: [23.52]
-2023-12-02 22:59:54,627 - 12504166400 - INFO - Successfully inserted [(84, 'Thomas Steed', 32, 'male')] into table [customers]
-2023-12-02 22:59:54,633 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:54,639 - 10771050496 - INFO - Bet placed: [21870] in table [3]
-2023-12-02 22:59:54,639 - 10771050496 - INFO - Player [92] updated bankroll by: [21870]
-2023-12-02 22:59:55,124 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:55,137 - 10804703232 - INFO - Bet placed: [1641] in table [1]
-2023-12-02 22:59:55,149 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:55,149 - 10804703232 - INFO - Player [97] updated bankroll by: [1641]
-2023-12-02 22:59:55,181 - 10771050496 - INFO - Bet placed: [21141] in table [3]
-2023-12-02 22:59:55,208 - 10771050496 - INFO - Player [92] updated bankroll by: [21141]
-2023-12-02 22:59:55,366 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 22:59:55,403 - 10787876864 - INFO - Bet placed: [14580] in table [2]
-2023-12-02 22:59:55,422 - 10787876864 - INFO - Player [99] updated bankroll by: [14580]
-2023-12-02 22:59:55,687 - 11090751488 - INFO - Customer [83] kicked out
-2023-12-02 22:59:55,726 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:55,739 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 22:59:55,745 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 22:59:55,794 - 11057098752 - INFO - Customer [82] kicked out
-2023-12-02 22:59:56,210 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:56,247 - 10804703232 - INFO - Bet placed: [1407] in table [1]
-2023-12-02 22:59:56,247 - 10804703232 - INFO - Player [97] updated bankroll by: [1407]
-2023-12-02 22:59:56,278 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:56,290 - 10771050496 - INFO - Bet placed: [10206] in table [3]
-2023-12-02 22:59:56,320 - 10771050496 - INFO - Player [92] updated bankroll by: [10206]
-2023-12-02 22:59:56,527 - 10787876864 - INFO - Successfully inserted [('Table', 0.3999999999999986)] into table [transactions]
-2023-12-02 22:59:56,540 - 10787876864 - INFO - Player [99] updated bankroll by: [19.6]
-2023-12-02 22:59:56,866 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:56,879 - 10771050496 - INFO - Bet placed: [19683] in table [3]
-2023-12-02 22:59:56,903 - 10771050496 - INFO - Player [92] updated bankroll by: [19683]
-2023-12-02 22:59:57,344 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:57,375 - 10804703232 - INFO - Bet placed: [1377] in table [1]
-2023-12-02 22:59:57,387 - 10804703232 - INFO - Player [97] updated bankroll by: [1377]
-2023-12-02 22:59:57,492 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:57,554 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 22:59:57,580 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 22:59:57,592 - 10787876864 - INFO - Bet placed: [28431] in table [2]
-2023-12-02 22:59:57,611 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 22:59:57,622 - 10787876864 - INFO - Player [99] updated bankroll by: [28431]
-2023-12-02 22:59:57,702 - 11090751488 - INFO - Customer [81] kicked out
-2023-12-02 22:59:57,820 - 11057098752 - INFO - Customer [80] kicked out
-2023-12-02 22:59:58,175 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:58,182 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 22:59:58,182 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 22:59:58,461 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:58,461 - 10804703232 - INFO - Bet placed: [1758] in table [1]
-2023-12-02 22:59:58,461 - 10804703232 - INFO - Player [97] updated bankroll by: [1758]
-2023-12-02 22:59:58,701 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:58,701 - 10771050496 - INFO - Bet placed: [23571] in table [3]
-2023-12-02 22:59:58,701 - 10771050496 - INFO - Player [92] updated bankroll by: [23571]
-2023-12-02 22:59:58,745 - 10787876864 - INFO - Successfully inserted [('Table', 0.7800000000000011)] into table [transactions]
-2023-12-02 22:59:58,758 - 10787876864 - INFO - Player [99] updated bankroll by: [38.22]
-2023-12-02 22:59:59,236 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:59,242 - 10771050496 - INFO - Bet placed: [18711] in table [3]
-2023-12-02 22:59:59,255 - 10771050496 - INFO - Player [92] updated bankroll by: [18711]
-2023-12-02 22:59:59,496 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 22:59:59,533 - 10804703232 - INFO - Player [97] updated bankroll by: [675]
-2023-12-02 22:59:59,533 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 22:59:59,533 - 10804703232 - INFO - Bet placed: [2145] in table [1]
-2023-12-02 22:59:59,533 - 10804703232 - INFO - Player [97] updated bankroll by: [2145]
-2023-12-02 22:59:59,712 - 11090751488 - DEBUG - Bouncer [1] allowed customer [79] to enter
-2023-12-02 22:59:59,776 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 22:59:59,776 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 22:59:59,801 - 10771050496 - INFO - Bet placed: [12393] in table [3]
-2023-12-02 22:59:59,814 - 10787876864 - INFO - Bet placed: [16038] in table [2]
-2023-12-02 22:59:59,826 - 10771050496 - INFO - Player [92] updated bankroll by: [12393]
-2023-12-02 22:59:59,826 - 10787876864 - INFO - Player [99] updated bankroll by: [16038]
-2023-12-02 22:59:59,839 - 11057098752 - DEBUG - Bouncer [0] allowed customer [78] to enter
-2023-12-02 23:00:00,361 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:00,374 - 10771050496 - INFO - Bet placed: [10449] in table [3]
-2023-12-02 23:00:00,386 - 10771050496 - INFO - Player [92] updated bankroll by: [10449]
-2023-12-02 23:00:00,571 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:00,584 - 10804703232 - INFO - Bet placed: [1404] in table [1]
-2023-12-02 23:00:00,584 - 10804703232 - INFO - Player [97] updated bankroll by: [1404]
-2023-12-02 23:00:00,663 - 12403208192 - INFO - Successfully inserted [(78, 'Adrienne Kovacs', 79, 'female')] into table [customers]
-2023-12-02 23:00:00,768 - 12436860928 - INFO - Successfully inserted [(79, 'Alma Crosby', 72, 'female')] into table [customers]
-2023-12-02 23:00:00,915 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:00,922 - 10771050496 - INFO - Bet placed: [17010] in table [3]
-2023-12-02 23:00:00,941 - 10771050496 - INFO - Player [92] updated bankroll by: [17010]
-2023-12-02 23:00:00,949 - 10787876864 - INFO - Successfully inserted [('Table', 0.4400000000000013)] into table [transactions]
-2023-12-02 23:00:00,962 - 10787876864 - INFO - Player [99] updated bankroll by: [21.56]
-2023-12-02 23:00:01,471 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:01,496 - 10771050496 - INFO - Bet placed: [16038] in table [3]
-2023-12-02 23:00:01,565 - 10771050496 - INFO - Player [92] updated bankroll by: [16038]
-2023-12-02 23:00:01,595 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:01,601 - 10804703232 - INFO - Player [97] updated bankroll by: [551]
-2023-12-02 23:00:01,614 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:01,633 - 10804703232 - INFO - Bet placed: [2901] in table [1]
-2023-12-02 23:00:01,646 - 10804703232 - INFO - Player [97] updated bankroll by: [2901]
-2023-12-02 23:00:01,735 - 11090751488 - DEBUG - Bouncer [1] allowed customer [77] to enter
-2023-12-02 23:00:01,899 - 11057098752 - INFO - Customer [76] kicked out
-2023-12-02 23:00:02,009 - 10821529600 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.MediumRoller object at 0x122327250>]]
-2023-12-02 23:00:02,022 - 10821529600 - INFO - Bet placed: [13041] in table [4]
-2023-12-02 23:00:02,022 - 10821529600 - INFO - Player [87] updated bankroll by: [13041]
-2023-12-02 23:00:02,077 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:02,077 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:02,077 - 10771050496 - INFO - Bet placed: [20655] in table [3]
-2023-12-02 23:00:02,095 - 10838355968 - INFO - Bet placed: [11664] in table [5]
-2023-12-02 23:00:02,101 - 10771050496 - INFO - Player [92] updated bankroll by: [20655]
-2023-12-02 23:00:02,107 - 10838355968 - INFO - Player [13] updated bankroll by: [11664]
-2023-12-02 23:00:02,626 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:02,644 - 10771050496 - INFO - Bet placed: [14580] in table [3]
-2023-12-02 23:00:02,656 - 10771050496 - INFO - Player [92] updated bankroll by: [14580]
-2023-12-02 23:00:02,680 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:02,693 - 10804703232 - INFO - Bet placed: [2475] in table [1]
-2023-12-02 23:00:02,705 - 10804703232 - INFO - Player [97] updated bankroll by: [2475]
-2023-12-02 23:00:02,777 - 12386381824 - INFO - Successfully inserted [(77, 'Michael Gustafson', 75, 'male')] into table [customers]
-2023-12-02 23:00:03,024 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:03,037 - 10821529600 - INFO - Bet placed: [23976] in table [4]
-2023-12-02 23:00:03,049 - 10821529600 - INFO - Player [87] updated bankroll by: [23976]
-2023-12-02 23:00:03,175 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:03,176 - 10838355968 - INFO - Successfully inserted [('Table', 0.9600000000000009)] into table [transactions]
-2023-12-02 23:00:03,186 - 10771050496 - INFO - Bet placed: [14094] in table [3]
-2023-12-02 23:00:03,217 - 10838355968 - INFO - Player [13] updated bankroll by: [47.04]
-2023-12-02 23:00:03,217 - 10771050496 - INFO - Player [92] updated bankroll by: [14094]
-2023-12-02 23:00:03,715 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:03,740 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:03,740 - 10804703232 - INFO - Bet placed: [2715] in table [1]
-2023-12-02 23:00:03,753 - 10771050496 - INFO - Bet placed: [24786] in table [3]
-2023-12-02 23:00:03,759 - 10804703232 - INFO - Player [97] updated bankroll by: [2715]
-2023-12-02 23:00:03,767 - 11090751488 - INFO - Customer [75] kicked out
-2023-12-02 23:00:03,779 - 10771050496 - INFO - Player [92] updated bankroll by: [24786]
-2023-12-02 23:00:03,923 - 11057098752 - INFO - Customer [74] kicked out
-2023-12-02 23:00:04,069 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:04,088 - 10821529600 - INFO - Bet placed: [14742] in table [4]
-2023-12-02 23:00:04,100 - 10821529600 - INFO - Player [87] updated bankroll by: [14742]
-2023-12-02 23:00:04,310 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:04,329 - 10838355968 - INFO - Bet placed: [16038] in table [5]
-2023-12-02 23:00:04,343 - 10838355968 - INFO - Player [13] updated bankroll by: [16038]
-2023-12-02 23:00:04,368 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:04,368 - 10771050496 - INFO - Bet placed: [26244] in table [3]
-2023-12-02 23:00:04,368 - 10771050496 - INFO - Player [92] updated bankroll by: [26244]
-2023-12-02 23:00:04,803 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:04,803 - 10804703232 - INFO - Player [97] updated bankroll by: [958]
-2023-12-02 23:00:04,815 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:04,815 - 10804703232 - INFO - Bet placed: [2937] in table [1]
-2023-12-02 23:00:04,815 - 10804703232 - INFO - Player [97] updated bankroll by: [2937]
-2023-12-02 23:00:04,875 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:04,881 - 10771050496 - INFO - Bet placed: [20169] in table [3]
-2023-12-02 23:00:04,894 - 10771050496 - INFO - Player [92] updated bankroll by: [20169]
-2023-12-02 23:00:05,149 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:05,155 - 10821529600 - INFO - Player [87] updated bankroll by: [588]
-2023-12-02 23:00:05,167 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:05,180 - 10821529600 - INFO - Bet placed: [25731] in table [4]
-2023-12-02 23:00:05,192 - 10821529600 - INFO - Player [87] updated bankroll by: [25731]
-2023-12-02 23:00:05,405 - 10838355968 - INFO - Successfully inserted [('Table', 0.4400000000000013)] into table [transactions]
-2023-12-02 23:00:05,441 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:05,535 - 10771050496 - INFO - Bet placed: [19440] in table [3]
-2023-12-02 23:00:05,560 - 10838355968 - INFO - Player [13] updated bankroll by: [21.56]
-2023-12-02 23:00:05,614 - 10771050496 - INFO - Player [92] updated bankroll by: [19440]
-2023-12-02 23:00:05,807 - 11090751488 - INFO - Customer [73] kicked out
-2023-12-02 23:00:05,826 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:05,838 - 10804703232 - INFO - Player [97] updated bankroll by: [1039]
-2023-12-02 23:00:05,851 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:05,857 - 10804703232 - INFO - Bet placed: [2646] in table [1]
-2023-12-02 23:00:05,869 - 10804703232 - INFO - Player [97] updated bankroll by: [2646]
-2023-12-02 23:00:05,958 - 11057098752 - DEBUG - Bouncer [0] allowed customer [72] to enter
-2023-12-02 23:00:06,173 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:06,216 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:06,228 - 10771050496 - INFO - Bet placed: [14094] in table [3]
-2023-12-02 23:00:06,241 - 10821529600 - INFO - Bet placed: [15471] in table [4]
-2023-12-02 23:00:06,265 - 10771050496 - INFO - Player [92] updated bankroll by: [14094]
-2023-12-02 23:00:06,296 - 10821529600 - INFO - Player [87] updated bankroll by: [15471]
-2023-12-02 23:00:06,696 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:06,698 - 12285423616 - INFO - Successfully inserted [(72, 'Brian Plummer', 65, 'male')] into table [customers]
-2023-12-02 23:00:06,732 - 10787876864 - INFO - Bet placed: [26244] in table [2]
-2023-12-02 23:00:06,769 - 10787876864 - INFO - Player [99] updated bankroll by: [26244]
-2023-12-02 23:00:06,844 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:06,857 - 10771050496 - INFO - Bet placed: [14580] in table [3]
-2023-12-02 23:00:06,881 - 10771050496 - INFO - Player [92] updated bankroll by: [14580]
-2023-12-02 23:00:06,905 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:06,955 - 10804703232 - INFO - Bet placed: [2034] in table [1]
-2023-12-02 23:00:06,968 - 10804703232 - INFO - Player [97] updated bankroll by: [2034]
-2023-12-02 23:00:07,383 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:07,389 - 10821529600 - INFO - Bet placed: [26325] in table [4]
-2023-12-02 23:00:07,401 - 10821529600 - INFO - Player [87] updated bankroll by: [26325]
-2023-12-02 23:00:07,426 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:07,432 - 10771050496 - INFO - Bet placed: [20412] in table [3]
-2023-12-02 23:00:07,432 - 10771050496 - INFO - Player [92] updated bankroll by: [20412]
-2023-12-02 23:00:07,816 - 11090751488 - DEBUG - Bouncer [1] allowed customer [71] to enter
-2023-12-02 23:00:07,817 - 10787876864 - INFO - Successfully inserted [('Table', 0.7199999999999989)] into table [transactions]
-2023-12-02 23:00:07,847 - 10787876864 - INFO - Player [99] updated bankroll by: [35.28]
-2023-12-02 23:00:07,943 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:07,950 - 10771050496 - INFO - Bet placed: [13122] in table [3]
-2023-12-02 23:00:07,950 - 10771050496 - INFO - Player [92] updated bankroll by: [13122]
-2023-12-02 23:00:07,981 - 11057098752 - INFO - Customer [70] kicked out
-2023-12-02 23:00:07,981 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:08,000 - 10804703232 - INFO - Bet placed: [1206] in table [1]
-2023-12-02 23:00:08,000 - 10804703232 - INFO - Player [97] updated bankroll by: [1206]
-2023-12-02 23:00:08,430 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:08,448 - 10821529600 - INFO - Bet placed: [16119] in table [4]
-2023-12-02 23:00:08,491 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:08,491 - 10821529600 - INFO - Player [87] updated bankroll by: [16119]
-2023-12-02 23:00:08,496 - 10771050496 - INFO - Bet placed: [10935] in table [3]
-2023-12-02 23:00:08,547 - 10771050496 - INFO - Player [92] updated bankroll by: [10935]
-2023-12-02 23:00:08,698 - 12302249984 - INFO - Successfully inserted [(71, 'Delsie Wright', 30, 'female')] into table [customers]
-2023-12-02 23:00:08,855 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:08,861 - 10787876864 - INFO - Bet placed: [26244] in table [2]
-2023-12-02 23:00:08,874 - 10787876864 - INFO - Player [99] updated bankroll by: [26244]
-2023-12-02 23:00:09,031 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:09,043 - 10804703232 - INFO - Bet placed: [2979] in table [1]
-2023-12-02 23:00:09,056 - 10804703232 - INFO - Player [97] updated bankroll by: [2979]
-2023-12-02 23:00:09,081 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:09,087 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 23:00:09,087 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 23:00:09,541 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:09,547 - 10821529600 - INFO - Player [87] updated bankroll by: [245]
-2023-12-02 23:00:09,560 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:09,585 - 10821529600 - INFO - Bet placed: [24408] in table [4]
-2023-12-02 23:00:09,585 - 10821529600 - INFO - Player [87] updated bankroll by: [24408]
-2023-12-02 23:00:09,617 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:09,642 - 10771050496 - INFO - Bet placed: [23328] in table [3]
-2023-12-02 23:00:09,666 - 10771050496 - INFO - Player [92] updated bankroll by: [23328]
-2023-12-02 23:00:09,834 - 11090751488 - INFO - Customer [69] kicked out
-2023-12-02 23:00:09,968 - 10787876864 - INFO - Successfully inserted [('Table', 0.7199999999999989)] into table [transactions]
-2023-12-02 23:00:10,009 - 11057098752 - DEBUG - Bouncer [0] allowed customer [68] to enter
-2023-12-02 23:00:10,009 - 10787876864 - INFO - Player [99] updated bankroll by: [35.28]
-2023-12-02 23:00:10,065 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:10,077 - 10804703232 - INFO - Player [97] updated bankroll by: [408]
-2023-12-02 23:00:10,078 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:10,078 - 10804703232 - INFO - Bet placed: [2817] in table [1]
-2023-12-02 23:00:10,078 - 10804703232 - INFO - Player [97] updated bankroll by: [2817]
-2023-12-02 23:00:10,190 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:10,190 - 10771050496 - INFO - Bet placed: [21870] in table [3]
-2023-12-02 23:00:10,190 - 10771050496 - INFO - Player [92] updated bankroll by: [21870]
-2023-12-02 23:00:10,622 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:10,634 - 10821529600 - INFO - Player [87] updated bankroll by: [960]
-2023-12-02 23:00:10,641 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:10,666 - 10821529600 - INFO - Bet placed: [25947] in table [4]
-2023-12-02 23:00:10,672 - 10821529600 - INFO - Player [87] updated bankroll by: [25947]
-2023-12-02 23:00:10,686 - 12201291776 - INFO - Successfully inserted [(68, 'Edward Puckett', 35, 'male')] into table [customers]
-2023-12-02 23:00:10,698 - 12201291776 - INFO - Customer [68] entered bouncer queue
-2023-12-02 23:00:10,714 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:10,720 - 10771050496 - INFO - Bet placed: [22113] in table [3]
-2023-12-02 23:00:10,733 - 10771050496 - INFO - Player [92] updated bankroll by: [22113]
-2023-12-02 23:00:11,043 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:11,061 - 10787876864 - INFO - Bet placed: [10449] in table [2]
-2023-12-02 23:00:11,074 - 10787876864 - INFO - Player [99] updated bankroll by: [10449]
-2023-12-02 23:00:11,098 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:11,160 - 10804703232 - INFO - Bet placed: [1845] in table [1]
-2023-12-02 23:00:11,179 - 10804703232 - INFO - Player [97] updated bankroll by: [1845]
-2023-12-02 23:00:11,248 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:11,278 - 10771050496 - INFO - Bet placed: [24786] in table [3]
-2023-12-02 23:00:11,291 - 10771050496 - INFO - Player [92] updated bankroll by: [24786]
-2023-12-02 23:00:11,721 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:11,733 - 10821529600 - INFO - Player [87] updated bankroll by: [1051]
-2023-12-02 23:00:11,733 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:11,733 - 10821529600 - INFO - Bet placed: [25785] in table [4]
-2023-12-02 23:00:11,740 - 10821529600 - INFO - Player [87] updated bankroll by: [25785]
-2023-12-02 23:00:11,806 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:11,836 - 10771050496 - INFO - Bet placed: [11421] in table [3]
-2023-12-02 23:00:11,849 - 10771050496 - INFO - Player [92] updated bankroll by: [11421]
-2023-12-02 23:00:11,866 - 11090751488 - DEBUG - Bouncer [1] allowed customer [68] to enter
-2023-12-02 23:00:12,029 - 11057098752 - INFO - Customer [67] kicked out
-2023-12-02 23:00:12,192 - 10787876864 - INFO - Successfully inserted [('Table', 0.8599999999999994)] into table [transactions]
-2023-12-02 23:00:12,205 - 10787876864 - INFO - Player [99] updated bankroll by: [42.14]
-2023-12-02 23:00:12,271 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:12,290 - 10804703232 - INFO - Bet placed: [1386] in table [1]
-2023-12-02 23:00:12,296 - 10804703232 - INFO - Player [97] updated bankroll by: [1386]
-2023-12-02 23:00:12,358 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:12,370 - 10771050496 - INFO - Bet placed: [16281] in table [3]
-2023-12-02 23:00:12,383 - 10771050496 - INFO - Player [92] updated bankroll by: [16281]
-2023-12-02 23:00:12,757 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:12,769 - 10821529600 - INFO - Bet placed: [15741] in table [4]
-2023-12-02 23:00:12,788 - 10821529600 - INFO - Player [87] updated bankroll by: [15741]
-2023-12-02 23:00:12,890 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:12,909 - 10771050496 - INFO - Bet placed: [14337] in table [3]
-2023-12-02 23:00:12,921 - 10771050496 - INFO - Player [92] updated bankroll by: [14337]
-2023-12-02 23:00:13,283 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:13,289 - 10838355968 - INFO - Bet placed: [28431] in table [5]
-2023-12-02 23:00:13,302 - 10838355968 - INFO - Player [13] updated bankroll by: [28431]
-2023-12-02 23:00:13,308 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:13,334 - 10804703232 - INFO - Player [97] updated bankroll by: [203]
-2023-12-02 23:00:13,346 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:13,364 - 10804703232 - INFO - Bet placed: [2625] in table [1]
-2023-12-02 23:00:13,402 - 10804703232 - INFO - Player [97] updated bankroll by: [2625]
-2023-12-02 23:00:13,463 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:13,475 - 10771050496 - INFO - Bet placed: [20412] in table [3]
-2023-12-02 23:00:13,475 - 10771050496 - INFO - Player [92] updated bankroll by: [20412]
-2023-12-02 23:00:13,851 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:13,876 - 11090751488 - DEBUG - Bouncer [1] allowed customer [66] to enter
-2023-12-02 23:00:13,944 - 10821529600 - INFO - Bet placed: [16119] in table [4]
-2023-12-02 23:00:14,030 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:14,061 - 10821529600 - INFO - Player [87] updated bankroll by: [16119]
-2023-12-02 23:00:14,092 - 11057098752 - INFO - Customer [65] kicked out
-2023-12-02 23:00:14,148 - 10771050496 - INFO - Bet placed: [11664] in table [3]
-2023-12-02 23:00:14,303 - 10771050496 - INFO - Player [92] updated bankroll by: [11664]
-2023-12-02 23:00:14,418 - 10838355968 - INFO - Successfully inserted [('Table', 0.2599999999999998)] into table [transactions]
-2023-12-02 23:00:14,423 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:14,454 - 10838355968 - INFO - Player [13] updated bankroll by: [12.74]
-2023-12-02 23:00:14,454 - 10804703232 - INFO - Player [97] updated bankroll by: [941]
-2023-12-02 23:00:14,498 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:14,499 - 10804703232 - INFO - Bet placed: [2730] in table [1]
-2023-12-02 23:00:14,499 - 10804703232 - INFO - Player [97] updated bankroll by: [2730]
-2023-12-02 23:00:14,832 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:14,856 - 10771050496 - INFO - Bet placed: [14580] in table [3]
-2023-12-02 23:00:14,856 - 10771050496 - INFO - Player [92] updated bankroll by: [14580]
-2023-12-02 23:00:14,889 - 12218118144 - INFO - Successfully inserted [(66, 'Jacob Kearns', 74, 'male')] into table [customers]
-2023-12-02 23:00:14,937 - 12218118144 - INFO - Customer [66] entered bouncer queue
-2023-12-02 23:00:15,197 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:15,209 - 10821529600 - INFO - Bet placed: [11907] in table [4]
-2023-12-02 23:00:15,222 - 10821529600 - INFO - Player [87] updated bankroll by: [11907]
-2023-12-02 23:00:15,382 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:15,426 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 23:00:15,469 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 23:00:15,519 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:15,519 - 10838355968 - INFO - Bet placed: [29889] in table [5]
-2023-12-02 23:00:15,544 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:15,556 - 10838355968 - INFO - Player [13] updated bankroll by: [29889]
-2023-12-02 23:00:15,656 - 10804703232 - INFO - Player [97] updated bankroll by: [988]
-2023-12-02 23:00:15,711 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:15,724 - 10804703232 - INFO - Bet placed: [1233] in table [1]
-2023-12-02 23:00:15,774 - 10804703232 - INFO - Player [97] updated bankroll by: [1233]
-2023-12-02 23:00:15,998 - 11090751488 - DEBUG - Bouncer [1] allowed customer [66] to enter
-2023-12-02 23:00:16,016 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:16,066 - 10771050496 - INFO - Bet placed: [20412] in table [3]
-2023-12-02 23:00:16,079 - 10771050496 - INFO - Player [92] updated bankroll by: [20412]
-2023-12-02 23:00:16,246 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:16,246 - 11057098752 - INFO - Customer [64] kicked out
-2023-12-02 23:00:16,271 - 10821529600 - INFO - Player [87] updated bankroll by: [170]
-2023-12-02 23:00:16,455 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:16,468 - 10821529600 - INFO - Bet placed: [12636] in table [4]
-2023-12-02 23:00:16,480 - 10821529600 - INFO - Player [87] updated bankroll by: [12636]
-2023-12-02 23:00:16,598 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:16,642 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 23:00:16,661 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 23:00:16,804 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:16,811 - 10838355968 - INFO - Successfully inserted [('Table', 0.8200000000000003)] into table [transactions]
-2023-12-02 23:00:16,853 - 10804703232 - INFO - Bet placed: [2304] in table [1]
-2023-12-02 23:00:16,878 - 10804703232 - INFO - Player [97] updated bankroll by: [2304]
-2023-12-02 23:00:16,879 - 10838355968 - INFO - Player [13] updated bankroll by: [40.18]
-2023-12-02 23:00:17,180 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:17,224 - 10771050496 - INFO - Bet placed: [18954] in table [3]
-2023-12-02 23:00:17,248 - 10771050496 - INFO - Player [92] updated bankroll by: [18954]
-2023-12-02 23:00:17,499 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:17,524 - 10821529600 - INFO - Bet placed: [20898] in table [4]
-2023-12-02 23:00:17,603 - 10821529600 - INFO - Player [87] updated bankroll by: [20898]
-2023-12-02 23:00:17,795 - 10771050496 - INFO - Player [92] updated bankroll by: [504]
-2023-12-02 23:00:17,813 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:17,813 - 10771050496 - INFO - Bet placed: [20169] in table [3]
-2023-12-02 23:00:17,813 - 10771050496 - INFO - Player [92] updated bankroll by: [20169]
-2023-12-02 23:00:17,957 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:17,976 - 10804703232 - INFO - Player [97] updated bankroll by: [278]
-2023-12-02 23:00:18,013 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:18,031 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:18,031 - 10804703232 - INFO - Bet placed: [1740] in table [1]
-2023-12-02 23:00:18,050 - 11090751488 - DEBUG - Bouncer [1] allowed customer [63] to enter
-2023-12-02 23:00:18,136 - 10838355968 - INFO - Bet placed: [22599] in table [5]
-2023-12-02 23:00:18,185 - 10804703232 - INFO - Player [97] updated bankroll by: [1740]
-2023-12-02 23:00:18,279 - 10838355968 - INFO - Player [13] updated bankroll by: [22599]
-2023-12-02 23:00:18,380 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:18,405 - 11057098752 - INFO - Customer [62] kicked out
-2023-12-02 23:00:18,418 - 10771050496 - INFO - Bet placed: [12879] in table [3]
-2023-12-02 23:00:18,596 - 10771050496 - INFO - Player [92] updated bankroll by: [12879]
-2023-12-02 23:00:18,702 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:18,732 - 10821529600 - INFO - Player [87] updated bankroll by: [798]
-2023-12-02 23:00:18,744 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:18,744 - 10821529600 - INFO - Bet placed: [13392] in table [4]
-2023-12-02 23:00:18,745 - 10821529600 - INFO - Player [87] updated bankroll by: [13392]
-2023-12-02 23:00:18,962 - 12150812672 - INFO - Successfully inserted [(63, 'Victor Ballenger', 31, 'male')] into table [customers]
-2023-12-02 23:00:19,135 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:19,153 - 10771050496 - INFO - Bet placed: [21384] in table [3]
-2023-12-02 23:00:19,153 - 10771050496 - INFO - Player [92] updated bankroll by: [21384]
-2023-12-02 23:00:19,379 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:19,435 - 10804703232 - INFO - Bet placed: [1083] in table [1]
-2023-12-02 23:00:19,472 - 10804703232 - INFO - Player [97] updated bankroll by: [1083]
-2023-12-02 23:00:19,527 - 10838355968 - INFO - Successfully inserted [('Table', 0.620000000000001)] into table [transactions]
-2023-12-02 23:00:19,564 - 10838355968 - INFO - Player [13] updated bankroll by: [30.38]
-2023-12-02 23:00:19,686 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:19,692 - 10771050496 - INFO - Bet placed: [17496] in table [3]
-2023-12-02 23:00:19,704 - 10771050496 - INFO - Player [92] updated bankroll by: [17496]
-2023-12-02 23:00:19,840 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:19,871 - 10821529600 - INFO - Player [87] updated bankroll by: [591]
-2023-12-02 23:00:19,895 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:19,895 - 10821529600 - INFO - Bet placed: [29403] in table [4]
-2023-12-02 23:00:19,895 - 10821529600 - INFO - Player [87] updated bankroll by: [29403]
-2023-12-02 23:00:20,238 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:20,239 - 11090751488 - DEBUG - Bouncer [1] allowed customer [61] to enter
-2023-12-02 23:00:20,257 - 10771050496 - INFO - Bet placed: [24057] in table [3]
-2023-12-02 23:00:20,339 - 10771050496 - INFO - Player [92] updated bankroll by: [24057]
-2023-12-02 23:00:20,484 - 11057098752 - INFO - Customer [60] kicked out
-2023-12-02 23:00:20,521 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:20,534 - 10804703232 - INFO - Bet placed: [1674] in table [1]
-2023-12-02 23:00:20,540 - 10804703232 - INFO - Player [97] updated bankroll by: [1674]
-2023-12-02 23:00:20,651 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:20,651 - 10787876864 - INFO - Bet placed: [28431] in table [2]
-2023-12-02 23:00:20,685 - 10787876864 - INFO - Player [99] updated bankroll by: [28431]
-2023-12-02 23:00:20,900 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:20,900 - 10771050496 - INFO - Bet placed: [23085] in table [3]
-2023-12-02 23:00:20,901 - 10771050496 - INFO - Player [92] updated bankroll by: [23085]
-2023-12-02 23:00:20,988 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:21,001 - 10821529600 - INFO - Bet placed: [17550] in table [4]
-2023-12-02 23:00:21,001 - 10821529600 - INFO - Player [87] updated bankroll by: [17550]
-2023-12-02 23:00:21,043 - 12117159936 - INFO - Successfully inserted [(61, 'Albert Smith', 47, 'male')] into table [customers]
-2023-12-02 23:00:21,123 - 12117159936 - INFO - Customer [61] entered bouncer queue
-2023-12-02 23:00:21,472 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:21,503 - 10771050496 - INFO - Bet placed: [14337] in table [3]
-2023-12-02 23:00:21,516 - 10771050496 - INFO - Player [92] updated bankroll by: [14337]
-2023-12-02 23:00:21,564 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:21,565 - 10804703232 - INFO - Bet placed: [2505] in table [1]
-2023-12-02 23:00:21,565 - 10804703232 - INFO - Player [97] updated bankroll by: [2505]
-2023-12-02 23:00:21,813 - 10787876864 - INFO - Successfully inserted [('Table', 0.2599999999999998)] into table [transactions]
-2023-12-02 23:00:21,881 - 10787876864 - INFO - Player [99] updated bankroll by: [12.74]
-2023-12-02 23:00:22,029 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:22,079 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:22,190 - 10821529600 - INFO - Player [87] updated bankroll by: [727]
-2023-12-02 23:00:22,246 - 10771050496 - INFO - Bet placed: [21870] in table [3]
-2023-12-02 23:00:22,312 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:22,321 - 11090751488 - DEBUG - Bouncer [1] allowed customer [61] to enter
-2023-12-02 23:00:22,450 - 10771050496 - INFO - Player [92] updated bankroll by: [21870]
-2023-12-02 23:00:22,585 - 10821529600 - INFO - Bet placed: [12015] in table [4]
-2023-12-02 23:00:22,597 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:22,614 - 11057098752 - DEBUG - Bouncer [0] allowed customer [59] to enter
-2023-12-02 23:00:22,775 - 10821529600 - INFO - Player [87] updated bankroll by: [12015]
-2023-12-02 23:00:22,788 - 10804703232 - INFO - Bet placed: [1545] in table [1]
-2023-12-02 23:00:22,899 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:22,918 - 10804703232 - INFO - Player [97] updated bankroll by: [1545]
-2023-12-02 23:00:22,979 - 10787876864 - INFO - Bet placed: [19683] in table [2]
-2023-12-02 23:00:23,023 - 12100333568 - INFO - Successfully inserted [(59, 'Carson Nalls', 56, 'male')] into table [customers]
-2023-12-02 23:00:23,102 - 10787876864 - INFO - Player [99] updated bankroll by: [19683]
-2023-12-02 23:00:23,251 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:23,251 - 10771050496 - INFO - Bet placed: [18711] in table [3]
-2023-12-02 23:00:23,251 - 10771050496 - INFO - Player [92] updated bankroll by: [18711]
-2023-12-02 23:00:23,830 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:23,916 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:23,934 - 10771050496 - INFO - Bet placed: [11907] in table [3]
-2023-12-02 23:00:24,014 - 10821529600 - INFO - Bet placed: [16983] in table [4]
-2023-12-02 23:00:24,034 - 10771050496 - INFO - Player [92] updated bankroll by: [11907]
-2023-12-02 23:00:24,052 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:24,124 - 10821529600 - INFO - Player [87] updated bankroll by: [16983]
-2023-12-02 23:00:24,268 - 10804703232 - INFO - Player [97] updated bankroll by: [590]
-2023-12-02 23:00:24,393 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:24,405 - 10804703232 - INFO - Bet placed: [2952] in table [1]
-2023-12-02 23:00:24,418 - 10804703232 - INFO - Player [97] updated bankroll by: [2952]
-2023-12-02 23:00:24,444 - 10787876864 - INFO - Successfully inserted [('Table', 0.5399999999999991)] into table [transactions]
-2023-12-02 23:00:24,556 - 10787876864 - INFO - Player [99] updated bankroll by: [26.46]
-2023-12-02 23:00:24,617 - 11090751488 - DEBUG - Bouncer [1] allowed customer [58] to enter
-2023-12-02 23:00:24,642 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:24,679 - 10771050496 - INFO - Bet placed: [21627] in table [3]
-2023-12-02 23:00:24,723 - 10771050496 - INFO - Player [92] updated bankroll by: [21627]
-2023-12-02 23:00:24,909 - 11057098752 - INFO - Customer [57] kicked out
-2023-12-02 23:00:25,199 - 12066680832 - INFO - Successfully inserted [(58, 'Ashley Hopkins', 29, 'female')] into table [customers]
-2023-12-02 23:00:25,256 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:25,368 - 10771050496 - INFO - Bet placed: [29160] in table [3]
-2023-12-02 23:00:25,405 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:25,467 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:25,467 - 10771050496 - INFO - Player [92] updated bankroll by: [29160]
-2023-12-02 23:00:25,523 - 10821529600 - INFO - Bet placed: [17307] in table [4]
-2023-12-02 23:00:25,561 - 10804703232 - INFO - Bet placed: [1494] in table [1]
-2023-12-02 23:00:25,664 - 10754224128 - INFO - Bet placed: [1215] in table [0]
-2023-12-02 23:00:25,730 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:25,762 - 10821529600 - INFO - Player [87] updated bankroll by: [17307]
-2023-12-02 23:00:25,774 - 10804703232 - INFO - Player [97] updated bankroll by: [1494]
-2023-12-02 23:00:25,802 - 10754224128 - INFO - Player [77] updated bankroll by: [1215]
-2023-12-02 23:00:25,851 - 10838355968 - INFO - Bet placed: [10935] in table [5]
-2023-12-02 23:00:26,164 - 10838355968 - INFO - Player [13] updated bankroll by: [10935]
-2023-12-02 23:00:26,171 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:26,450 - 10771050496 - INFO - Bet placed: [16767] in table [3]
-2023-12-02 23:00:26,487 - 10771050496 - INFO - Player [92] updated bankroll by: [16767]
-2023-12-02 23:00:26,537 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:26,705 - 11090751488 - DEBUG - Bouncer [1] allowed customer [56] to enter
-2023-12-02 23:00:26,767 - 10754224128 - INFO - Bet placed: [1782] in table [0]
-2023-12-02 23:00:26,919 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:26,949 - 10754224128 - INFO - Player [77] updated bankroll by: [1782]
-2023-12-02 23:00:26,960 - 10821529600 - INFO - Player [87] updated bankroll by: [714]
-2023-12-02 23:00:27,011 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:27,011 - 11057098752 - DEBUG - Bouncer [0] allowed customer [55] to enter
-2023-12-02 23:00:27,072 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:27,109 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:27,183 - 10804703232 - INFO - Bet placed: [1608] in table [1]
-2023-12-02 23:00:27,295 - 10771050496 - INFO - Bet placed: [18711] in table [3]
-2023-12-02 23:00:27,370 - 12033028096 - INFO - Successfully inserted [(56, 'Cristina Perez', 37, 'female')] into table [customers]
-2023-12-02 23:00:27,450 - 10821529600 - INFO - Bet placed: [10179] in table [4]
-2023-12-02 23:00:27,468 - 10804703232 - INFO - Player [97] updated bankroll by: [1608]
-2023-12-02 23:00:27,500 - 10771050496 - INFO - Player [92] updated bankroll by: [18711]
-2023-12-02 23:00:27,518 - 10838355968 - INFO - Successfully inserted [('Table', 0.8999999999999986)] into table [transactions]
-2023-12-02 23:00:27,536 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:27,573 - 10821529600 - INFO - Player [87] updated bankroll by: [10179]
-2023-12-02 23:00:27,820 - 10754224128 - INFO - Bet placed: [2511] in table [0]
-2023-12-02 23:00:27,820 - 10838355968 - INFO - Player [13] updated bankroll by: [44.1]
-2023-12-02 23:00:27,846 - 11982548992 - INFO - Successfully inserted [(55, 'Caleb Walter', 69, 'male')] into table [customers]
-2023-12-02 23:00:28,016 - 10754224128 - INFO - Player [77] updated bankroll by: [2511]
-2023-12-02 23:00:28,268 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:28,300 - 10771050496 - INFO - Bet placed: [15795] in table [3]
-2023-12-02 23:00:28,300 - 10771050496 - INFO - Player [92] updated bankroll by: [15795]
-2023-12-02 23:00:28,634 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:28,671 - 10804703232 - INFO - Bet placed: [2370] in table [1]
-2023-12-02 23:00:28,696 - 10804703232 - INFO - Player [97] updated bankroll by: [2370]
-2023-12-02 23:00:28,720 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:28,739 - 10754224128 - INFO - Bet placed: [1377] in table [0]
-2023-12-02 23:00:28,806 - 10754224128 - INFO - Player [77] updated bankroll by: [1377]
-2023-12-02 23:00:28,836 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:28,848 - 10771050496 - INFO - Bet placed: [17253] in table [3]
-2023-12-02 23:00:28,848 - 10771050496 - INFO - Player [92] updated bankroll by: [17253]
-2023-12-02 23:00:28,848 - 11090751488 - INFO - Customer [54] kicked out
-2023-12-02 23:00:29,046 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:29,069 - 10821529600 - INFO - Bet placed: [10692] in table [4]
-2023-12-02 23:00:29,088 - 10821529600 - INFO - Player [87] updated bankroll by: [10692]
-2023-12-02 23:00:29,273 - 11057098752 - INFO - Customer [53] kicked out
-2023-12-02 23:00:29,280 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:29,374 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:29,374 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:29,404 - 10838355968 - INFO - Bet placed: [26973] in table [5]
-2023-12-02 23:00:29,546 - 10771050496 - INFO - Bet placed: [13122] in table [3]
-2023-12-02 23:00:29,590 - 10754224128 - INFO - Bet placed: [2052] in table [0]
-2023-12-02 23:00:29,633 - 10838355968 - INFO - Player [13] updated bankroll by: [26973]
-2023-12-02 23:00:29,720 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:29,841 - 10771050496 - INFO - Player [92] updated bankroll by: [13122]
-2023-12-02 23:00:29,859 - 10754224128 - INFO - Player [77] updated bankroll by: [2052]
-2023-12-02 23:00:29,976 - 10804703232 - INFO - Player [97] updated bankroll by: [817]
-2023-12-02 23:00:30,068 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:30,093 - 10804703232 - INFO - Bet placed: [1833] in table [1]
-2023-12-02 23:00:30,118 - 10804703232 - INFO - Player [97] updated bankroll by: [1833]
-2023-12-02 23:00:30,141 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:30,246 - 10821529600 - INFO - Bet placed: [14715] in table [4]
-2023-12-02 23:00:30,359 - 10821529600 - INFO - Player [87] updated bankroll by: [14715]
-2023-12-02 23:00:30,501 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:30,526 - 10771050496 - INFO - Bet placed: [18225] in table [3]
-2023-12-02 23:00:30,551 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:30,557 - 10771050496 - INFO - Player [92] updated bankroll by: [18225]
-2023-12-02 23:00:30,666 - 10754224128 - INFO - Bet placed: [1863] in table [0]
-2023-12-02 23:00:30,883 - 10754224128 - INFO - Player [77] updated bankroll by: [1863]
-2023-12-02 23:00:30,939 - 11090751488 - INFO - Customer [52] kicked out
-2023-12-02 23:00:31,170 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:31,170 - 10804703232 - INFO - Bet placed: [1290] in table [1]
-2023-12-02 23:00:31,170 - 10804703232 - INFO - Player [97] updated bankroll by: [1290]
-2023-12-02 23:00:31,290 - 10838355968 - INFO - Successfully inserted [('Table', 0.740000000000002)] into table [transactions]
-2023-12-02 23:00:31,332 - 11057098752 - DEBUG - Bouncer [0] allowed customer [51] to enter
-2023-12-02 23:00:31,356 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:31,400 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:31,420 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:31,469 - 10838355968 - INFO - Player [13] updated bankroll by: [36.26]
-2023-12-02 23:00:31,581 - 10771050496 - INFO - Bet placed: [16524] in table [3]
-2023-12-02 23:00:31,599 - 10821529600 - INFO - Bet placed: [10989] in table [4]
-2023-12-02 23:00:31,611 - 10754224128 - INFO - Bet placed: [2079] in table [0]
-2023-12-02 23:00:31,661 - 10771050496 - INFO - Player [92] updated bankroll by: [16524]
-2023-12-02 23:00:31,661 - 10821529600 - INFO - Player [87] updated bankroll by: [10989]
-2023-12-02 23:00:31,704 - 10754224128 - INFO - Player [77] updated bankroll by: [2079]
-2023-12-02 23:00:32,208 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:32,239 - 10804703232 - INFO - Bet placed: [2688] in table [1]
-2023-12-02 23:00:32,271 - 10804703232 - INFO - Player [97] updated bankroll by: [2688]
-2023-12-02 23:00:32,333 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:32,364 - 10771050496 - INFO - Bet placed: [24057] in table [3]
-2023-12-02 23:00:32,366 - 11965722624 - INFO - Successfully inserted [(51, 'Yvonne Bomar', 66, 'female')] into table [customers]
-2023-12-02 23:00:32,376 - 10771050496 - INFO - Player [92] updated bankroll by: [24057]
-2023-12-02 23:00:32,444 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:32,660 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:32,747 - 10754224128 - INFO - Bet placed: [2349] in table [0]
-2023-12-02 23:00:32,784 - 10838355968 - INFO - Bet placed: [15309] in table [5]
-2023-12-02 23:00:32,840 - 10754224128 - INFO - Player [77] updated bankroll by: [2349]
-2023-12-02 23:00:32,859 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:32,920 - 10838355968 - INFO - Player [13] updated bankroll by: [15309]
-2023-12-02 23:00:33,011 - 10821529600 - INFO - Bet placed: [14418] in table [4]
-2023-12-02 23:00:33,011 - 11090751488 - INFO - Customer [50] kicked out
-2023-12-02 23:00:33,029 - 10821529600 - INFO - Player [87] updated bankroll by: [14418]
-2023-12-02 23:00:33,122 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:33,289 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:33,325 - 10771050496 - INFO - Bet placed: [17496] in table [3]
-2023-12-02 23:00:33,380 - 10804703232 - INFO - Bet placed: [2772] in table [1]
-2023-12-02 23:00:33,399 - 10771050496 - INFO - Player [92] updated bankroll by: [17496]
-2023-12-02 23:00:33,446 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:33,478 - 10804703232 - INFO - Player [97] updated bankroll by: [2772]
-2023-12-02 23:00:33,528 - 10754224128 - INFO - Bet placed: [1863] in table [0]
-2023-12-02 23:00:33,558 - 11057098752 - INFO - Customer [49] kicked out
-2023-12-02 23:00:33,632 - 10754224128 - INFO - Player [77] updated bankroll by: [1863]
-2023-12-02 23:00:34,029 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:34,083 - 10771050496 - INFO - Bet placed: [19197] in table [3]
-2023-12-02 23:00:34,127 - 10771050496 - INFO - Player [92] updated bankroll by: [19197]
-2023-12-02 23:00:34,327 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:34,327 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:34,395 - 10754224128 - INFO - Bet placed: [1539] in table [0]
-2023-12-02 23:00:34,396 - 10838355968 - INFO - Successfully inserted [('Table', 0.4200000000000017)] into table [transactions]
-2023-12-02 23:00:34,457 - 10821529600 - INFO - Bet placed: [25191] in table [4]
-2023-12-02 23:00:34,488 - 10754224128 - INFO - Player [77] updated bankroll by: [1539]
-2023-12-02 23:00:34,555 - 10838355968 - INFO - Player [13] updated bankroll by: [20.58]
-2023-12-02 23:00:34,568 - 10821529600 - INFO - Player [87] updated bankroll by: [25191]
-2023-12-02 23:00:34,631 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:34,796 - 10804703232 - INFO - Bet placed: [1161] in table [1]
-2023-12-02 23:00:34,813 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:34,813 - 10804703232 - INFO - Player [97] updated bankroll by: [1161]
-2023-12-02 23:00:34,851 - 10771050496 - INFO - Bet placed: [26973] in table [3]
-2023-12-02 23:00:34,971 - 10771050496 - INFO - Player [92] updated bankroll by: [26973]
-2023-12-02 23:00:35,124 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:35,168 - 10754224128 - INFO - Bet placed: [2349] in table [0]
-2023-12-02 23:00:35,174 - 11090751488 - INFO - Customer [48] kicked out
-2023-12-02 23:00:35,199 - 10754224128 - INFO - Player [77] updated bankroll by: [2349]
-2023-12-02 23:00:35,507 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:35,545 - 10771050496 - INFO - Bet placed: [11664] in table [3]
-2023-12-02 23:00:35,569 - 10771050496 - INFO - Player [92] updated bankroll by: [11664]
-2023-12-02 23:00:35,753 - 11057098752 - INFO - Customer [47] kicked out
-2023-12-02 23:00:35,772 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:35,826 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:35,863 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:35,962 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:36,006 - 10821529600 - INFO - Bet placed: [17280] in table [4]
-2023-12-02 23:00:36,042 - 10754224128 - INFO - Bet placed: [1620] in table [0]
-2023-12-02 23:00:36,054 - 10838355968 - INFO - Bet placed: [21870] in table [5]
-2023-12-02 23:00:36,147 - 10804703232 - INFO - Player [97] updated bankroll by: [481]
-2023-12-02 23:00:36,166 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:36,197 - 10821529600 - INFO - Player [87] updated bankroll by: [17280]
-2023-12-02 23:00:36,210 - 10754224128 - INFO - Player [77] updated bankroll by: [1620]
-2023-12-02 23:00:36,253 - 10838355968 - INFO - Player [13] updated bankroll by: [21870]
-2023-12-02 23:00:36,379 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:36,404 - 10771050496 - INFO - Bet placed: [13851] in table [3]
-2023-12-02 23:00:36,789 - 10804703232 - INFO - Bet placed: [2565] in table [1]
-2023-12-02 23:00:36,846 - 10771050496 - INFO - Player [92] updated bankroll by: [13851]
-2023-12-02 23:00:36,908 - 10804703232 - INFO - Player [97] updated bankroll by: [2565]
-2023-12-02 23:00:37,209 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:37,245 - 11090751488 - INFO - Customer [46] kicked out
-2023-12-02 23:00:37,276 - 10754224128 - INFO - Bet placed: [1377] in table [0]
-2023-12-02 23:00:37,495 - 10754224128 - INFO - Player [77] updated bankroll by: [1377]
-2023-12-02 23:00:37,508 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:37,533 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:37,545 - 10771050496 - INFO - Bet placed: [12393] in table [3]
-2023-12-02 23:00:37,626 - 10821529600 - INFO - Player [87] updated bankroll by: [736]
-2023-12-02 23:00:37,726 - 10771050496 - INFO - Player [92] updated bankroll by: [12393]
-2023-12-02 23:00:37,781 - 11057098752 - INFO - Customer [45] kicked out
-2023-12-02 23:00:37,788 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:37,900 - 10838355968 - INFO - Successfully inserted [('Table', 0.1999999999999993)] into table [transactions]
-2023-12-02 23:00:37,992 - 10821529600 - INFO - Bet placed: [14337] in table [4]
-2023-12-02 23:00:38,042 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:38,110 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:38,147 - 10838355968 - INFO - Player [13] updated bankroll by: [9.8]
-2023-12-02 23:00:38,160 - 10821529600 - INFO - Player [87] updated bankroll by: [14337]
-2023-12-02 23:00:38,204 - 10754224128 - INFO - Bet placed: [1080] in table [0]
-2023-12-02 23:00:38,241 - 10804703232 - INFO - Player [97] updated bankroll by: [888]
-2023-12-02 23:00:38,402 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:38,477 - 10754224128 - INFO - Player [77] updated bankroll by: [1080]
-2023-12-02 23:00:38,574 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:38,625 - 10771050496 - INFO - Bet placed: [13608] in table [3]
-2023-12-02 23:00:38,794 - 10804703232 - INFO - Bet placed: [1302] in table [1]
-2023-12-02 23:00:38,899 - 10771050496 - INFO - Player [92] updated bankroll by: [13608]
-2023-12-02 23:00:39,010 - 10804703232 - INFO - Player [97] updated bankroll by: [1302]
-2023-12-02 23:00:39,234 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:39,315 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:39,339 - 11090751488 - INFO - Customer [44] kicked out
-2023-12-02 23:00:39,407 - 10754224128 - INFO - Bet placed: [1863] in table [0]
-2023-12-02 23:00:39,431 - 10838355968 - INFO - Bet placed: [11907] in table [5]
-2023-12-02 23:00:39,456 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:39,597 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:39,691 - 10754224128 - INFO - Player [77] updated bankroll by: [1863]
-2023-12-02 23:00:39,752 - 10838355968 - INFO - Player [13] updated bankroll by: [11907]
-2023-12-02 23:00:39,871 - 10821529600 - INFO - Bet placed: [15066] in table [4]
-2023-12-02 23:00:39,921 - 10771050496 - INFO - Bet placed: [18225] in table [3]
-2023-12-02 23:00:39,970 - 11057098752 - INFO - Customer [43] kicked out
-2023-12-02 23:00:40,155 - 10821529600 - INFO - Player [87] updated bankroll by: [15066]
-2023-12-02 23:00:40,217 - 10771050496 - INFO - Player [92] updated bankroll by: [18225]
-2023-12-02 23:00:40,242 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:40,416 - 10804703232 - INFO - Bet placed: [1776] in table [1]
-2023-12-02 23:00:40,459 - 10804703232 - INFO - Player [97] updated bankroll by: [1776]
-2023-12-02 23:00:40,550 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:40,569 - 10754224128 - INFO - Bet placed: [1539] in table [0]
-2023-12-02 23:00:40,613 - 10754224128 - INFO - Player [77] updated bankroll by: [1539]
-2023-12-02 23:00:40,885 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:40,916 - 10771050496 - INFO - Bet placed: [17982] in table [3]
-2023-12-02 23:00:40,951 - 10771050496 - INFO - Player [92] updated bankroll by: [17982]
-2023-12-02 23:00:41,153 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:41,197 - 10754224128 - INFO - Bet placed: [1863] in table [0]
-2023-12-02 23:00:41,210 - 10838355968 - INFO - Successfully inserted [('Table', 0.980000000000004)] into table [transactions]
-2023-12-02 23:00:41,234 - 10754224128 - INFO - Player [77] updated bankroll by: [1863]
-2023-12-02 23:00:41,351 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:41,479 - 11090751488 - INFO - Customer [42] kicked out
-2023-12-02 23:00:41,479 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:41,491 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:41,520 - 10838355968 - INFO - Player [13] updated bankroll by: [48.019999999999996]
-2023-12-02 23:00:41,535 - 10821529600 - INFO - Bet placed: [15876] in table [4]
-2023-12-02 23:00:41,621 - 10771050496 - INFO - Bet placed: [16038] in table [3]
-2023-12-02 23:00:41,677 - 10804703232 - INFO - Bet placed: [2595] in table [1]
-2023-12-02 23:00:41,794 - 10821529600 - INFO - Player [87] updated bankroll by: [15876]
-2023-12-02 23:00:41,843 - 10771050496 - INFO - Player [92] updated bankroll by: [16038]
-2023-12-02 23:00:41,946 - 10804703232 - INFO - Player [97] updated bankroll by: [2595]
-2023-12-02 23:00:41,998 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:42,177 - 10754224128 - INFO - Bet placed: [2268] in table [0]
-2023-12-02 23:00:42,189 - 10754224128 - INFO - Player [77] updated bankroll by: [2268]
-2023-12-02 23:00:42,381 - 11057098752 - INFO - Customer [41] kicked out
-2023-12-02 23:00:42,651 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:42,683 - 10771050496 - INFO - Bet placed: [14823] in table [3]
-2023-12-02 23:00:42,695 - 10771050496 - INFO - Player [92] updated bankroll by: [14823]
-2023-12-02 23:00:42,713 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:42,763 - 10754224128 - INFO - Bet placed: [1134] in table [0]
-2023-12-02 23:00:42,898 - 10754224128 - INFO - Player [77] updated bankroll by: [1134]
-2023-12-02 23:00:42,948 - 11309494272 - DEBUG - Customer [13] left table
-2023-12-02 23:00:42,961 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:43,030 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:43,085 - 10787876864 - INFO - Bet placed: [27702] in table [2]
-2023-12-02 23:00:43,085 - 10821529600 - INFO - Bet placed: [17010] in table [4]
-2023-12-02 23:00:43,172 - 10804703232 - INFO - Player [Donald Quintana] has won
-2023-12-02 23:00:43,197 - 10787876864 - INFO - Player [99] updated bankroll by: [27702]
-2023-12-02 23:00:43,222 - 10821529600 - INFO - Player [87] updated bankroll by: [17010]
-2023-12-02 23:00:43,222 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:43,355 - 10804703232 - INFO - Player [97] updated bankroll by: [879]
-2023-12-02 23:00:43,443 - 10771050496 - INFO - Bet placed: [18468] in table [3]
-2023-12-02 23:00:43,443 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:43,486 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:43,595 - 10771050496 - INFO - Player [92] updated bankroll by: [18468]
-2023-12-02 23:00:43,712 - 10754224128 - INFO - Bet placed: [1296] in table [0]
-2023-12-02 23:00:43,755 - 11090751488 - INFO - Customer [40] kicked out
-2023-12-02 23:00:43,879 - 10804703232 - INFO - Bet placed: [1608] in table [1]
-2023-12-02 23:00:44,008 - 10754224128 - INFO - Player [77] updated bankroll by: [1296]
-2023-12-02 23:00:44,083 - 10804703232 - INFO - Player [97] updated bankroll by: [1608]
-2023-12-02 23:00:44,393 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:44,400 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:44,431 - 11057098752 - INFO - Customer [39] kicked out
-2023-12-02 23:00:44,493 - 10771050496 - INFO - Bet placed: [17496] in table [3]
-2023-12-02 23:00:44,556 - 10787876864 - INFO - Successfully inserted [('Table', 0.759999999999998)] into table [transactions]
-2023-12-02 23:00:44,587 - 10821529600 - INFO - Player [87] updated bankroll by: [689]
-2023-12-02 23:00:44,666 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:44,865 - 10771050496 - INFO - Player [92] updated bankroll by: [17496]
-2023-12-02 23:00:44,920 - 10787876864 - INFO - Player [99] updated bankroll by: [37.24]
-2023-12-02 23:00:44,945 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:44,975 - 10754224128 - INFO - Bet placed: [1458] in table [0]
-2023-12-02 23:00:45,172 - 10821529600 - INFO - Bet placed: [29403] in table [4]
-2023-12-02 23:00:45,228 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:45,293 - 10754224128 - INFO - Player [77] updated bankroll by: [1458]
-2023-12-02 23:00:45,336 - 10821529600 - INFO - Player [87] updated bankroll by: [29403]
-2023-12-02 23:00:45,336 - 10804703232 - INFO - Bet placed: [2067] in table [1]
-2023-12-02 23:00:45,579 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:45,615 - 10804703232 - INFO - Player [97] updated bankroll by: [2067]
-2023-12-02 23:00:45,671 - 10771050496 - INFO - Bet placed: [13851] in table [3]
-2023-12-02 23:00:45,843 - 10771050496 - INFO - Player [92] updated bankroll by: [13851]
-2023-12-02 23:00:45,940 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:45,964 - 10754224128 - INFO - Bet placed: [1701] in table [0]
-2023-12-02 23:00:46,026 - 10754224128 - INFO - Player [77] updated bankroll by: [1701]
-2023-12-02 23:00:46,075 - 11090751488 - DEBUG - Bouncer [1] allowed customer [38] to enter
-2023-12-02 23:00:46,207 - 12722909184 - DEBUG - Customer [97] left table
-2023-12-02 23:00:46,232 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:46,350 - 10787876864 - INFO - Bet placed: [24786] in table [2]
-2023-12-02 23:00:46,369 - 10787876864 - INFO - Player [99] updated bankroll by: [24786]
-2023-12-02 23:00:46,369 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:46,449 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:46,564 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:46,564 - 10771050496 - INFO - Bet placed: [23085] in table [3]
-2023-12-02 23:00:46,607 - 10821529600 - INFO - Bet placed: [23409] in table [4]
-2023-12-02 23:00:46,705 - 11057098752 - INFO - Customer [37] kicked out
-2023-12-02 23:00:46,724 - 10754224128 - INFO - Bet placed: [2349] in table [0]
-2023-12-02 23:00:46,773 - 10771050496 - INFO - Player [92] updated bankroll by: [23085]
-2023-12-02 23:00:46,805 - 11730153472 - INFO - Successfully inserted [(38, 'Martha Herndon', 41, 'female')] into table [customers]
-2023-12-02 23:00:46,816 - 10821529600 - INFO - Player [87] updated bankroll by: [23409]
-2023-12-02 23:00:46,823 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:47,139 - 10754224128 - INFO - Player [77] updated bankroll by: [2349]
-2023-12-02 23:00:47,654 - 10787876864 - INFO - Successfully inserted [('Table', 0.6799999999999997)] into table [transactions]
-2023-12-02 23:00:47,753 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:47,783 - 10787876864 - INFO - Player [99] updated bankroll by: [33.32]
-2023-12-02 23:00:47,796 - 10771050496 - INFO - Bet placed: [21870] in table [3]
-2023-12-02 23:00:47,858 - 10771050496 - INFO - Player [92] updated bankroll by: [21870]
-2023-12-02 23:00:47,954 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:48,047 - 10754224128 - INFO - Bet placed: [1917] in table [0]
-2023-12-02 23:00:48,066 - 10754224128 - INFO - Player [77] updated bankroll by: [1917]
-2023-12-02 23:00:48,177 - 11090751488 - DEBUG - Bouncer [1] allowed customer [36] to enter
-2023-12-02 23:00:48,395 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:48,425 - 10821529600 - INFO - Bet placed: [12960] in table [4]
-2023-12-02 23:00:48,425 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:48,443 - 10821529600 - INFO - Player [87] updated bankroll by: [12960]
-2023-12-02 23:00:48,487 - 10771050496 - INFO - Bet placed: [12879] in table [3]
-2023-12-02 23:00:48,630 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:48,674 - 10771050496 - INFO - Player [92] updated bankroll by: [12879]
-2023-12-02 23:00:48,705 - 10754224128 - INFO - Bet placed: [1593] in table [0]
-2023-12-02 23:00:48,805 - 11696500736 - INFO - Successfully inserted [(36, 'Lyndsey Petrick', 73, 'female')] into table [customers]
-2023-12-02 23:00:48,840 - 10754224128 - INFO - Player [77] updated bankroll by: [1593]
-2023-12-02 23:00:49,027 - 11057098752 - DEBUG - Bouncer [0] allowed customer [35] to enter
-2023-12-02 23:00:49,058 - 12756561920 - DEBUG - Customer [99] left table
-2023-12-02 23:00:49,076 - 12638777344 - DEBUG - Customer [92] left table
-2023-12-02 23:00:49,151 - 10838355968 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x122324d50>]]
-2023-12-02 23:00:49,187 - 12756561920 - INFO - Customer [99] entered bouncer queue
-2023-12-02 23:00:49,188 - 10804703232 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.LowRoller object at 0x122302250>]]
-2023-12-02 23:00:49,199 - 10787876864 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.LowRoller object at 0x117eb9150>]]
-2023-12-02 23:00:49,262 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:49,275 - 11662848000 - INFO - Successfully inserted [(35, 'James Jacobson', 22, 'male')] into table [customers]
-2023-12-02 23:00:49,312 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:00:49,418 - 10804703232 - INFO - Bet placed: [1953] in table [1]
-2023-12-02 23:00:49,536 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:49,573 - 10838355968 - INFO - Bet placed: [11421] in table [5]
-2023-12-02 23:00:49,622 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:49,777 - 11662848000 - INFO - Customer [35] entered bouncer queue
-2023-12-02 23:00:49,858 - 10804703232 - INFO - Player [36] updated bankroll by: [1953]
-2023-12-02 23:00:49,901 - 10754224128 - INFO - Bet placed: [1890] in table [0]
-2023-12-02 23:00:49,961 - 10838355968 - INFO - Player [38] updated bankroll by: [11421]
-2023-12-02 23:00:50,023 - 10821529600 - INFO - Bet placed: [11961] in table [4]
-2023-12-02 23:00:50,141 - 10754224128 - INFO - Player [77] updated bankroll by: [1890]
-2023-12-02 23:00:50,247 - 10821529600 - INFO - Player [87] updated bankroll by: [11961]
-2023-12-02 23:00:50,341 - 11090751488 - DEBUG - Bouncer [1] allowed customer [35] to enter
-2023-12-02 23:00:50,935 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:50,948 - 10754224128 - INFO - Bet placed: [1863] in table [0]
-2023-12-02 23:00:50,997 - 10754224128 - INFO - Player [77] updated bankroll by: [1863]
-2023-12-02 23:00:51,072 - 12588298240 - DEBUG - Customer [89] left table
-2023-12-02 23:00:51,139 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:00:51,146 - 11057098752 - DEBUG - Bouncer [0] allowed customer [99] to enter
-2023-12-02 23:00:51,252 - 10804703232 - INFO - Player [36] updated bankroll by: [707]
-2023-12-02 23:00:51,264 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:51,314 - 10804703232 - INFO - Bet placed: [1074] in table [1]
-2023-12-02 23:00:51,321 - 10838355968 - INFO - Successfully inserted [('Table', 0.9399999999999977)] into table [transactions]
-2023-12-02 23:00:51,407 - 10804703232 - INFO - Player [36] updated bankroll by: [1074]
-2023-12-02 23:00:51,493 - 10838355968 - INFO - Player [38] updated bankroll by: [46.06]
-2023-12-02 23:00:51,494 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:51,592 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:51,772 - 10821529600 - INFO - Bet placed: [16362] in table [4]
-2023-12-02 23:00:51,784 - 10754224128 - INFO - Bet placed: [2511] in table [0]
-2023-12-02 23:00:51,794 - 10821529600 - INFO - Player [87] updated bankroll by: [16362]
-2023-12-02 23:00:51,827 - 10754224128 - INFO - Player [77] updated bankroll by: [2511]
-2023-12-02 23:00:52,484 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:52,515 - 10754224128 - INFO - Bet placed: [2133] in table [0]
-2023-12-02 23:00:52,552 - 11090751488 - INFO - Customer [34] kicked out
-2023-12-02 23:00:52,590 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:00:52,691 - 10754224128 - INFO - Player [77] updated bankroll by: [2133]
-2023-12-02 23:00:52,714 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:00:52,826 - 10804703232 - INFO - Player [36] updated bankroll by: [450]
-2023-12-02 23:00:52,893 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:52,923 - 10787876864 - INFO - Bet placed: [1053] in table [2]
-2023-12-02 23:00:52,935 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:52,985 - 10821529600 - INFO - Bet placed: [13122] in table [4]
-2023-12-02 23:00:53,053 - 10787876864 - INFO - Player [97] updated bankroll by: [1053]
-2023-12-02 23:00:53,286 - 10804703232 - INFO - Bet placed: [2367] in table [1]
-2023-12-02 23:00:53,299 - 11057098752 - INFO - Customer [33] kicked out
-2023-12-02 23:00:53,405 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:53,489 - 10821529600 - INFO - Player [87] updated bankroll by: [13122]
-2023-12-02 23:00:53,569 - 10804703232 - INFO - Player [36] updated bankroll by: [2367]
-2023-12-02 23:00:53,716 - 10754224128 - INFO - Bet placed: [1620] in table [0]
-2023-12-02 23:00:53,963 - 10754224128 - INFO - Player [77] updated bankroll by: [1620]
-2023-12-02 23:00:54,499 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:54,524 - 10754224128 - INFO - Bet placed: [1782] in table [0]
-2023-12-02 23:00:54,568 - 10754224128 - INFO - Player [77] updated bankroll by: [1782]
-2023-12-02 23:00:54,697 - 10787876864 - INFO - Successfully inserted [('Table', 0.7800000000000011)] into table [transactions]
-2023-12-02 23:00:54,758 - 10787876864 - INFO - Player [97] updated bankroll by: [38.22]
-2023-12-02 23:00:54,796 - 11090751488 - DEBUG - Bouncer [1] allowed customer [32] to enter
-2023-12-02 23:00:54,950 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:54,981 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:00:54,993 - 10821529600 - INFO - Player [87] updated bankroll by: [241]
-2023-12-02 23:00:55,035 - 10804703232 - INFO - Player [36] updated bankroll by: [859]
-2023-12-02 23:00:55,073 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:55,164 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:55,183 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:55,333 - 10821529600 - INFO - Bet placed: [24624] in table [4]
-2023-12-02 23:00:55,432 - 10754224128 - INFO - Bet placed: [2673] in table [0]
-2023-12-02 23:00:55,519 - 10804703232 - INFO - Bet placed: [2226] in table [1]
-2023-12-02 23:00:55,618 - 11057098752 - DEBUG - Bouncer [0] allowed customer [31] to enter
-2023-12-02 23:00:55,722 - 10821529600 - INFO - Player [87] updated bankroll by: [24624]
-2023-12-02 23:00:55,754 - 10754224128 - INFO - Player [77] updated bankroll by: [2673]
-2023-12-02 23:00:55,826 - 10804703232 - INFO - Player [36] updated bankroll by: [2226]
-2023-12-02 23:00:55,858 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:56,213 - 11629195264 - INFO - Successfully inserted [(32, 'Nigel Bryan', 19, 'male')] into table [customers]
-2023-12-02 23:00:56,272 - 10838355968 - INFO - Bet placed: [20412] in table [5]
-2023-12-02 23:00:56,439 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:56,456 - 10838355968 - INFO - Player [38] updated bankroll by: [20412]
-2023-12-02 23:00:56,501 - 10754224128 - INFO - Bet placed: [1458] in table [0]
-2023-12-02 23:00:56,781 - 10754224128 - INFO - Player [77] updated bankroll by: [1458]
-2023-12-02 23:00:56,931 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:56,955 - 11090751488 - DEBUG - Bouncer [1] allowed customer [30] to enter
-2023-12-02 23:00:57,055 - 10821529600 - INFO - Bet placed: [18387] in table [4]
-2023-12-02 23:00:57,178 - 11595542528 - INFO - Successfully inserted [(31, 'Shannon Forney', 36, 'female')] into table [customers]
-2023-12-02 23:00:57,215 - 10821529600 - INFO - Player [87] updated bankroll by: [18387]
-2023-12-02 23:00:57,343 - 11595542528 - INFO - Customer [31] entered bouncer queue
-2023-12-02 23:00:57,444 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:57,462 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:57,505 - 10804703232 - INFO - Bet placed: [1665] in table [1]
-2023-12-02 23:00:57,519 - 11612368896 - INFO - Successfully inserted [(30, 'Larry Suennen', 75, 'male')] into table [customers]
-2023-12-02 23:00:57,722 - 10754224128 - INFO - Bet placed: [1377] in table [0]
-2023-12-02 23:00:57,833 - 10804703232 - INFO - Player [36] updated bankroll by: [1665]
-2023-12-02 23:00:57,872 - 10838355968 - INFO - Successfully inserted [('Table', 0.5600000000000023)] into table [transactions]
-2023-12-02 23:00:57,945 - 10754224128 - INFO - Player [77] updated bankroll by: [1377]
-2023-12-02 23:00:57,976 - 11057098752 - DEBUG - Bouncer [0] allowed customer [31] to enter
-2023-12-02 23:00:58,323 - 10838355968 - INFO - Player [38] updated bankroll by: [27.439999999999998]
-2023-12-02 23:00:58,428 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:00:58,689 - 10821529600 - INFO - Player [87] updated bankroll by: [308]
-2023-12-02 23:00:58,705 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:00:58,839 - 10821529600 - INFO - Bet placed: [13689] in table [4]
-2023-12-02 23:00:58,891 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:59,003 - 10821529600 - INFO - Player [87] updated bankroll by: [13689]
-2023-12-02 23:00:59,041 - 10754224128 - INFO - Bet placed: [1620] in table [0]
-2023-12-02 23:00:59,072 - 10754224128 - INFO - Player [77] updated bankroll by: [1620]
-2023-12-02 23:00:59,158 - 11090751488 - INFO - Customer [29] kicked out
-2023-12-02 23:00:59,214 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:00:59,389 - 10804703232 - INFO - Bet placed: [1437] in table [1]
-2023-12-02 23:00:59,485 - 10804703232 - INFO - Player [36] updated bankroll by: [1437]
-2023-12-02 23:00:59,659 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:00:59,703 - 10754224128 - INFO - Bet placed: [1053] in table [0]
-2023-12-02 23:00:59,770 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:00:59,800 - 10754224128 - INFO - Player [77] updated bankroll by: [1053]
-2023-12-02 23:00:59,935 - 10838355968 - INFO - Bet placed: [16767] in table [5]
-2023-12-02 23:01:00,107 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:00,201 - 10838355968 - INFO - Player [38] updated bankroll by: [16767]
-2023-12-02 23:01:00,348 - 10821529600 - INFO - Bet placed: [22383] in table [4]
-2023-12-02 23:01:00,434 - 10821529600 - INFO - Player [87] updated bankroll by: [22383]
-2023-12-02 23:01:00,441 - 11057098752 - INFO - Customer [28] kicked out
-2023-12-02 23:01:00,472 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:00,503 - 10754224128 - INFO - Bet placed: [1458] in table [0]
-2023-12-02 23:01:00,652 - 10754224128 - INFO - Player [77] updated bankroll by: [1458]
-2023-12-02 23:01:00,664 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:00,682 - 10804703232 - INFO - Bet placed: [2790] in table [1]
-2023-12-02 23:01:00,689 - 10804703232 - INFO - Player [36] updated bankroll by: [2790]
-2023-12-02 23:01:01,185 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:01,310 - 11090751488 - INFO - Customer [27] kicked out
-2023-12-02 23:01:01,489 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:01,583 - 10754224128 - INFO - Bet placed: [2403] in table [0]
-2023-12-02 23:01:01,741 - 10821529600 - INFO - Bet placed: [23490] in table [4]
-2023-12-02 23:01:01,741 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:01:01,742 - 10838355968 - INFO - Successfully inserted [('Table', 0.46000000000000085)] into table [transactions]
-2023-12-02 23:01:01,790 - 10754224128 - INFO - Player [77] updated bankroll by: [2403]
-2023-12-02 23:01:01,809 - 10821529600 - INFO - Player [87] updated bankroll by: [23490]
-2023-12-02 23:01:01,846 - 10804703232 - INFO - Player [36] updated bankroll by: [994]
-2023-12-02 23:01:01,926 - 10838355968 - INFO - Player [38] updated bankroll by: [22.54]
-2023-12-02 23:01:02,092 - 12504166400 - DEBUG - Customer [84] left table
-2023-12-02 23:01:02,167 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:02,475 - 11057098752 - DEBUG - Bouncer [0] allowed customer [26] to enter
-2023-12-02 23:01:02,482 - 10804703232 - INFO - Bet placed: [1791] in table [1]
-2023-12-02 23:01:02,524 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:02,741 - 10804703232 - INFO - Player [36] updated bankroll by: [1791]
-2023-12-02 23:01:02,982 - 10754224128 - INFO - Bet placed: [1053] in table [0]
-2023-12-02 23:01:03,086 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:01:03,147 - 10754224128 - INFO - Player [77] updated bankroll by: [1053]
-2023-12-02 23:01:03,308 - 10821529600 - INFO - Player [87] updated bankroll by: [329]
-2023-12-02 23:01:03,444 - 11528237056 - INFO - Successfully inserted [(26, 'Eva Mcgill', 56, 'female')] into table [customers]
-2023-12-02 23:01:03,622 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:03,751 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:01:03,839 - 11090751488 - INFO - Customer [25] kicked out
-2023-12-02 23:01:03,883 - 10821529600 - INFO - Bet placed: [26244] in table [4]
-2023-12-02 23:01:04,018 - 10838355968 - INFO - Bet placed: [20412] in table [5]
-2023-12-02 23:01:04,061 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:04,200 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:04,255 - 10821529600 - INFO - Player [87] updated bankroll by: [26244]
-2023-12-02 23:01:04,317 - 10838355968 - INFO - Player [38] updated bankroll by: [20412]
-2023-12-02 23:01:04,360 - 10754224128 - INFO - Bet placed: [1809] in table [0]
-2023-12-02 23:01:04,651 - 11057098752 - DEBUG - Bouncer [0] allowed customer [24] to enter
-2023-12-02 23:01:04,651 - 10804703232 - INFO - Bet placed: [2556] in table [1]
-2023-12-02 23:01:04,924 - 10754224128 - INFO - Player [77] updated bankroll by: [1809]
-2023-12-02 23:01:05,214 - 10804703232 - INFO - Player [36] updated bankroll by: [2556]
-2023-12-02 23:01:05,887 - 10821529600 - INFO - Player [Emily Lavender] has won
-2023-12-02 23:01:05,950 - 10821529600 - INFO - Player [87] updated bankroll by: [1030]
-2023-12-02 23:01:06,019 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:06,043 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:06,080 - 10754224128 - INFO - Bet placed: [2754] in table [0]
-2023-12-02 23:01:06,118 - 10821529600 - INFO - Bet placed: [15606] in table [4]
-2023-12-02 23:01:06,129 - 10754224128 - INFO - Player [77] updated bankroll by: [2754]
-2023-12-02 23:01:06,180 - 10838355968 - INFO - Successfully inserted [('Table', 0.5600000000000023)] into table [transactions]
-2023-12-02 23:01:06,216 - 11090751488 - DEBUG - Bouncer [1] allowed customer [23] to enter
-2023-12-02 23:01:06,272 - 10821529600 - INFO - Player [87] updated bankroll by: [15606]
-2023-12-02 23:01:06,297 - 11494584320 - INFO - Successfully inserted [(24, 'Barbara Griffiths', 50, 'female')] into table [customers]
-2023-12-02 23:01:06,666 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:06,729 - 12403208192 - DEBUG - Customer [78] left table
-2023-12-02 23:01:06,735 - 12436860928 - DEBUG - Customer [79] left table
-2023-12-02 23:01:06,741 - 10838355968 - INFO - Player [38] updated bankroll by: [27.439999999999998]
-2023-12-02 23:01:06,987 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:07,105 - 10804703232 - INFO - Bet placed: [2475] in table [1]
-2023-12-02 23:01:07,260 - 11057098752 - INFO - Customer [22] kicked out
-2023-12-02 23:01:07,324 - 11477757952 - INFO - Successfully inserted [(23, 'John Baker', 46, 'male')] into table [customers]
-2023-12-02 23:01:07,552 - 10754224128 - INFO - Bet placed: [1728] in table [0]
-2023-12-02 23:01:07,682 - 10804703232 - INFO - Player [36] updated bankroll by: [2475]
-2023-12-02 23:01:08,245 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:08,332 - 10754224128 - INFO - Player [77] updated bankroll by: [1728]
-2023-12-02 23:01:08,529 - 10771050496 - INFO - Bet placed: [28431] in table [3]
-2023-12-02 23:01:08,567 - 10821529600 - INFO - Bet placed: [17361] in table [4]
-2023-12-02 23:01:08,655 - 10771050496 - INFO - Player [92] updated bankroll by: [28431]
-2023-12-02 23:01:08,680 - 12554645504 - DEBUG - Customer [87] left table
-2023-12-02 23:01:08,710 - 10821529600 - INFO - Player [87] updated bankroll by: [17361]
-2023-12-02 23:01:08,734 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:01:08,821 - 11090751488 - DEBUG - Bouncer [1] allowed customer [21] to enter
-2023-12-02 23:01:09,063 - 10787876864 - INFO - Bet placed: [2673] in table [2]
-2023-12-02 23:01:09,279 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:09,342 - 10787876864 - INFO - Player [97] updated bankroll by: [2673]
-2023-12-02 23:01:09,342 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:01:09,429 - 10754224128 - INFO - Bet placed: [2646] in table [0]
-2023-12-02 23:01:09,540 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:01:09,697 - 10771050496 - INFO - Bet placed: [23571] in table [3]
-2023-12-02 23:01:09,832 - 10754224128 - INFO - Player [77] updated bankroll by: [2646]
-2023-12-02 23:01:09,862 - 11057098752 - INFO - Customer [20] kicked out
-2023-12-02 23:01:09,924 - 10804703232 - INFO - Player [36] updated bankroll by: [913]
-2023-12-02 23:01:09,997 - 10821529600 - INFO - Created Blackjack Table [4] thread
-2023-12-02 23:01:09,997 - 10771050496 - INFO - Player [92] updated bankroll by: [23571]
-2023-12-02 23:01:10,366 - 11444105216 - INFO - Successfully inserted [(21, 'Jim Kachermeyer', 39, 'male')] into table [customers]
-2023-12-02 23:01:10,390 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:10,616 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:10,794 - 10804703232 - INFO - Bet placed: [1209] in table [1]
-2023-12-02 23:01:10,910 - 10754224128 - INFO - Bet placed: [1512] in table [0]
-2023-12-02 23:01:11,004 - 10787876864 - INFO - Successfully inserted [('Table', 0.22000000000000064)] into table [transactions]
-2023-12-02 23:01:11,083 - 10804703232 - INFO - Player [36] updated bankroll by: [1209]
-2023-12-02 23:01:11,127 - 10754224128 - INFO - Player [77] updated bankroll by: [1512]
-2023-12-02 23:01:11,170 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:01:11,351 - 11090751488 - DEBUG - Bouncer [1] allowed customer [19] to enter
-2023-12-02 23:01:11,393 - 10787876864 - INFO - Player [97] updated bankroll by: [10.78]
-2023-12-02 23:01:11,734 - 10771050496 - INFO - Bet placed: [21870] in table [3]
-2023-12-02 23:01:12,087 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:12,106 - 11427278848 - INFO - Successfully inserted [(19, 'Robert Golden', 61, 'male')] into table [customers]
-2023-12-02 23:01:12,123 - 10771050496 - INFO - Player [92] updated bankroll by: [21870]
-2023-12-02 23:01:12,272 - 10754224128 - INFO - Bet placed: [1296] in table [0]
-2023-12-02 23:01:12,366 - 11057098752 - DEBUG - Bouncer [0] allowed customer [18] to enter
-2023-12-02 23:01:12,433 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:01:12,588 - 10754224128 - INFO - Player [77] updated bankroll by: [1296]
-2023-12-02 23:01:12,705 - 10804703232 - INFO - Player [36] updated bankroll by: [477]
-2023-12-02 23:01:12,847 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:12,847 - 10804703232 - INFO - Bet placed: [1152] in table [1]
-2023-12-02 23:01:12,922 - 10804703232 - INFO - Player [36] updated bankroll by: [1152]
-2023-12-02 23:01:12,989 - 10787876864 - DEBUG - Customers not empty
-2023-12-02 23:01:13,121 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:01:13,214 - 10787876864 - INFO - Bet placed: [1053] in table [2]
-2023-12-02 23:01:13,288 - 10754224128 - INFO - Player [77] updated bankroll by: [576]
-2023-12-02 23:01:13,288 - 12706082816 - DEBUG - Customer [96] left table
-2023-12-02 23:01:13,342 - 10771050496 - INFO - Bet placed: [14580] in table [3]
-2023-12-02 23:01:13,380 - 10787876864 - INFO - Player [97] updated bankroll by: [1053]
-2023-12-02 23:01:13,535 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:13,546 - 11376799744 - INFO - Successfully inserted [(18, 'David Stanley', 41, 'male')] into table [customers]
-2023-12-02 23:01:13,701 - 10771050496 - INFO - Player [92] updated bankroll by: [14580]
-2023-12-02 23:01:13,782 - 11090751488 - INFO - Customer [17] kicked out
-2023-12-02 23:01:13,986 - 10754224128 - INFO - Bet placed: [2430] in table [0]
-2023-12-02 23:01:14,226 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:01:14,460 - 10754224128 - INFO - Player [77] updated bankroll by: [2430]
-2023-12-02 23:01:14,585 - 10804703232 - INFO - Player [36] updated bankroll by: [405]
-2023-12-02 23:01:14,660 - 11057098752 - INFO - Customer [16] kicked out
-2023-12-02 23:01:14,790 - 10804703232 - INFO - Created Blackjack Table [1] thread
-2023-12-02 23:01:14,803 - 10771050496 - INFO - Created Roulette Table 3 thread
-2023-12-02 23:01:15,026 - 10804703232 - INFO - Bet placed: [1038] in table [1]
-2023-12-02 23:01:15,027 - 10787876864 - INFO - Successfully inserted [('Table', 0.7800000000000011)] into table [transactions]
-2023-12-02 23:01:15,069 - 10771050496 - INFO - Bet placed: [19683] in table [3]
-2023-12-02 23:01:15,212 - 10804703232 - INFO - Player [36] updated bankroll by: [1038]
-2023-12-02 23:01:15,292 - 10754224128 - INFO - Created Roulette Table 0 thread
-2023-12-02 23:01:15,385 - 10787876864 - INFO - Player [97] updated bankroll by: [38.22]
-2023-12-02 23:01:15,435 - 10771050496 - INFO - Player [92] updated bankroll by: [19683]
-2023-12-02 23:01:15,501 - 11595542528 - INFO - Customer [31]: Thread finished
-2023-12-02 23:01:15,501 - 12756561920 - INFO - Customer [99]: Thread finished
-2023-12-02 23:01:15,501 - 12218118144 - INFO - Customer [66]: Thread finished
-2023-12-02 23:01:15,501 - 12201291776 - INFO - Customer [68]: Thread finished
-2023-12-02 23:01:15,501 - 11662848000 - INFO - Customer [35]: Thread finished
-2023-12-02 23:01:15,501 - 12117159936 - INFO - Customer [61]: Thread finished
-2023-12-02 23:01:15,501 - 10754224128 - INFO - Bet placed: [1161] in table [0]
-2023-12-02 23:01:15,504 - 10754224128 - INFO - Player [77] updated bankroll by: [1161]
-2023-12-02 23:01:16,366 - 11090751488 - INFO - Customer [15] kicked out
-2023-12-02 23:01:16,500 - 10804703232 - INFO - Player [Lyndsey Petrick] has won
-2023-12-02 23:01:16,501 - 10804703232 - INFO - Player [36] updated bankroll by: [366]
-2023-12-02 23:01:16,506 - 10838355968 - DEBUG - Customers not empty
-2023-12-02 23:01:16,507 - 10838355968 - INFO - Bet placed: [26244] in table [5]
-2023-12-02 23:01:16,507 - 10838355968 - INFO - Player [38] updated bankroll by: [26244]
-2023-12-02 23:01:16,698 - 10989793280 - INFO - Dealer [8]: Thread finished
-2023-12-02 23:01:16,845 - 11057098752 - DEBUG - Bouncer [0] allowed customer [14] to enter
-2023-12-02 23:01:17,224 - 11326320640 - INFO - Successfully inserted [(14, 'Carroll Bonilla', 64, 'male')] into table [customers]
-2023-12-02 23:01:17,225 - 11326320640 - INFO - Customer [14]: Thread finished
-2023-12-02 23:01:17,523 - 10838355968 - INFO - Successfully inserted [('Table', 0.7199999999999989)] into table [transactions]
-2023-12-02 23:01:17,524 - 10838355968 - INFO - Player [38] updated bankroll by: [35.28]
-2023-12-02 23:01:18,527 - 10821529600 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.HighRoller object at 0x12231b790>]]
-2023-12-02 23:01:18,528 - 10821529600 - INFO - Bet placed: [238383] in table [4]
-2023-12-02 23:01:18,528 - 10821529600 - INFO - Player [24] updated bankroll by: [238383]
-2023-12-02 23:01:20,655 - 12386381824 - DEBUG - Customer [77] left table
-2023-12-02 23:01:20,656 - 12386381824 - INFO - Customer [77]: Thread finished
-2023-12-02 23:01:21,879 - 12554645504 - INFO - Customer [87]: Thread finished
-2023-12-02 23:01:22,639 - 10922487808 - INFO - Dealer [4]: Thread finished
-2023-12-02 23:01:23,639 - 10888835072 - INFO - Dealer [2]: Thread finished
-2023-12-02 23:01:25,378 - 10905661440 - INFO - Dealer [3]: Thread finished
-2023-12-02 23:01:25,559 - 10972966912 - INFO - Dealer [7]: Thread finished
-2023-12-02 23:01:25,692 - 12302249984 - DEBUG - Customer [71] left table
-2023-12-02 23:01:25,692 - 12150812672 - DEBUG - Customer [63] left table
-2023-12-02 23:01:25,692 - 12302249984 - INFO - Customer [71]: Thread finished
-2023-12-02 23:01:25,693 - 12150812672 - INFO - Customer [63]: Thread finished
-2023-12-02 23:01:26,510 - 10939314176 - INFO - Dealer [5]: Thread finished
-2023-12-02 23:01:27,406 - 10855182336 - INFO - Dealer [1]: Thread finished
-2023-12-02 23:01:27,510 - 10956140544 - INFO - Dealer [6]: Thread finished
-2023-12-02 23:01:27,620 - 10872008704 - INFO - Dealer [0]: Thread finished
-2023-12-02 23:01:32,509 - 11006619648 - INFO - Dealer [9]: Thread finished
-2023-12-02 23:01:42,866 - 12033028096 - DEBUG - Customer [56] left table
-2023-12-02 23:01:42,866 - 11982548992 - DEBUG - Customer [55] left table
-2023-12-02 23:01:42,867 - 12285423616 - DEBUG - Customer [72] left table
-2023-12-02 23:01:42,867 - 12033028096 - INFO - Customer [56]: Thread finished
-2023-12-02 23:01:42,867 - 11982548992 - INFO - Customer [55]: Thread finished
-2023-12-02 23:01:42,868 - 12285423616 - INFO - Customer [72]: Thread finished
-2023-12-02 23:01:42,940 - 11965722624 - DEBUG - Customer [51] left table
-2023-12-02 23:01:42,941 - 12100333568 - DEBUG - Customer [59] left table
-2023-12-02 23:01:42,941 - 12066680832 - DEBUG - Customer [58] left table
-2023-12-02 23:01:42,941 - 11965722624 - INFO - Customer [51]: Thread finished
-2023-12-02 23:01:42,941 - 12100333568 - INFO - Customer [59]: Thread finished
-2023-12-02 23:01:42,941 - 12066680832 - INFO - Customer [58]: Thread finished
-2023-12-02 23:01:46,212 - 11309494272 - DEBUG - Customer [13] left table
-2023-12-02 23:01:46,213 - 11309494272 - INFO - Customer [13]: Thread finished
-2023-12-02 23:01:48,974 - 11730153472 - DEBUG - Customer [38] left table
-2023-12-02 23:01:48,974 - 11730153472 - INFO - Customer [38]: Thread finished
-2023-12-02 23:01:48,976 - 12722909184 - DEBUG - Customer [97] left table
-2023-12-02 23:01:48,976 - 12722909184 - INFO - Customer [97]: Thread finished
-2023-12-02 23:01:49,192 - 11696500736 - DEBUG - Customer [36] left table
-2023-12-02 23:01:49,193 - 11696500736 - INFO - Customer [36]: Thread finished
-2023-12-02 23:01:49,210 - 12638777344 - DEBUG - Customer [92] left table
-2023-12-02 23:01:49,210 - 12638777344 - INFO - Customer [92]: Thread finished
-2023-12-02 23:02:08,547 - 11629195264 - DEBUG - Customer [32] left table
-2023-12-02 23:02:08,548 - 11629195264 - INFO - Customer [32]: Thread finished
-2023-12-02 23:02:08,628 - 11612368896 - DEBUG - Customer [30] left table
-2023-12-02 23:02:08,628 - 11612368896 - INFO - Customer [30]: Thread finished
-2023-12-02 23:02:08,715 - 12504166400 - DEBUG - Customer [84] left table
-2023-12-02 23:02:08,715 - 12504166400 - INFO - Customer [84]: Thread finished
-2023-12-02 23:02:16,506 - 11477757952 - DEBUG - Customer [23] left table
-2023-12-02 23:02:16,506 - 12403208192 - DEBUG - Customer [78] left table
-2023-12-02 23:02:16,507 - 11477757952 - INFO - Customer [23]: Thread finished
-2023-12-02 23:02:16,507 - 12403208192 - INFO - Customer [78]: Thread finished
-2023-12-02 23:02:16,507 - 12588298240 - DEBUG - Customer [89] left table
-2023-12-02 23:02:16,508 - 12588298240 - INFO - Customer [89]: Thread finished
-2023-12-02 23:02:18,530 - 11427278848 - DEBUG - Customer [19] left table
-2023-12-02 23:02:18,531 - 11494584320 - DEBUG - Customer [24] left table
-2023-12-02 23:02:18,531 - 12436860928 - DEBUG - Customer [79] left table
-2023-12-02 23:02:18,531 - 11444105216 - DEBUG - Customer [21] left table
-2023-12-02 23:02:18,531 - 11376799744 - DEBUG - Customer [18] left table
-2023-12-02 23:02:18,532 - 11528237056 - DEBUG - Customer [26] left table
-2023-12-02 23:02:18,532 - 12706082816 - DEBUG - Customer [96] left table
-2023-12-02 23:02:18,532 - 11427278848 - INFO - Customer [19]: Thread finished
-2023-12-02 23:02:18,533 - 11494584320 - INFO - Customer [24]: Thread finished
-2023-12-02 23:02:18,533 - 12436860928 - INFO - Customer [79]: Thread finished
-2023-12-02 23:02:18,533 - 11444105216 - INFO - Customer [21]: Thread finished
-2023-12-02 23:02:18,533 - 11376799744 - INFO - Customer [18]: Thread finished
-2023-12-02 23:02:18,533 - 11528237056 - INFO - Customer [26]: Thread finished
-2023-12-02 23:02:18,533 - 12706082816 - INFO - Customer [96]: Thread finished
+2023-12-03 00:46:16,538 - 8393022976 - INFO - Connection failed to kill/already killed
+2023-12-03 00:46:18,372 - 8393022976 - INFO - Successfully created database casino
+2023-12-03 00:46:18,391 - 8393022976 - INFO - Successfully created table [customers]
+2023-12-03 00:46:18,404 - 8393022976 - INFO - Successfully created table [transactions]
+2023-12-03 00:46:18,404 - 8393022976 - INFO - Tables List: [<classes.table_classes.Roulette object at 0x11fab8390>, <classes.table_classes.Roulette object at 0x11fab8310>, <classes.table_classes.BlackJack object at 0x11fab8110>, <classes.table_classes.BlackJack object at 0x10f6ffa90>, <classes.table_classes.Poker object at 0x11fab8190>, <classes.table_classes.Poker object at 0x11fab8610>]
+2023-12-03 00:46:18,408 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x11fab8550>, <classes.dealer_class.Dealer object at 0x11f86f0d0>, <classes.dealer_class.Dealer object at 0x10ee93050>, <classes.dealer_class.Dealer object at 0x10fceb290>, <classes.dealer_class.Dealer object at 0x11fae7150>, <classes.dealer_class.Dealer object at 0x11fae7050>, <classes.dealer_class.Dealer object at 0x11fae4990>, <classes.dealer_class.Dealer object at 0x11fae7090>, <classes.dealer_class.Dealer object at 0x11fae7350>, <classes.dealer_class.Dealer object at 0x11fae6d90>]
+2023-12-03 00:46:18,408 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x11fae5850>, <classes.bartender_class.Bartender object at 0x11f817050>]
+2023-12-03 00:46:18,409 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x10fc5a190>, <classes.bouncer_class.Bouncer object at 0x11fae7550>, <classes.bouncer_class.Bouncer object at 0x11fae7790>, <classes.bouncer_class.Bouncer object at 0x11fae77d0>]
+2023-12-03 00:46:18,409 - 8393022976 - INFO - Starting Main Thread
+2023-12-03 00:46:18,411 - 6224080896 - INFO - Created Roulette Table 0 thread
+2023-12-03 00:46:18,412 - 6257733632 - INFO - Created Roulette Table 3 thread
+2023-12-03 00:46:18,412 - 6274560000 - INFO - Created Blackjack Table [1] thread
+2023-12-03 00:46:18,413 - 6291386368 - INFO - Created Blackjack Table [4] thread
+2023-12-03 00:46:18,413 - 6240907264 - INFO - Created Poker Table 2 thread
+2023-12-03 00:46:18,413 - 6308212736 - INFO - Created Poker Table 5 thread
+2023-12-03 00:46:18,414 - 6325039104 - INFO - Running dealer [0] thread
+2023-12-03 00:46:18,414 - 6341865472 - INFO - Running dealer [1] thread
+2023-12-03 00:46:18,415 - 6358691840 - INFO - Running dealer [2] thread
+2023-12-03 00:46:18,415 - 6375518208 - INFO - Running dealer [3] thread
+2023-12-03 00:46:18,415 - 6392344576 - INFO - Running dealer [4] thread
+2023-12-03 00:46:18,415 - 6409170944 - INFO - Running dealer [5] thread
+2023-12-03 00:46:18,416 - 6425997312 - INFO - Running dealer [6] thread
+2023-12-03 00:46:18,416 - 10754224128 - INFO - Running dealer [7] thread
+2023-12-03 00:46:18,417 - 10771050496 - INFO - Running dealer [8] thread
+2023-12-03 00:46:18,417 - 10787876864 - INFO - Running dealer [9] thread
+2023-12-03 00:46:18,417 - 10804703232 - INFO - Running bartender [0] thread
+2023-12-03 00:46:18,455 - 10821529600 - INFO - Running bartender [1] thread
+2023-12-03 00:46:18,468 - 10838355968 - INFO - Running bouncer [0] thread
+2023-12-03 00:46:18,517 - 10855182336 - INFO - Running bouncer [1] thread
+2023-12-03 00:46:18,560 - 10872008704 - INFO - Running bouncer [2] thread
+2023-12-03 00:46:18,619 - 10888835072 - INFO - Running bouncer [3] thread
+2023-12-03 00:46:18,632 - 8393022976 - INFO - Table threads: [<Future at 0x11faf0910 state=running>, <Future at 0x11faf1dd0 state=running>, <Future at 0x11faf2110 state=running>, <Future at 0x11faf28d0 state=running>, <Future at 0x11faf3090 state=running>, <Future at 0x11fae6b90 state=running>]
+2023-12-03 00:46:18,692 - 8393022976 - INFO - Dealer threads: [<Future at 0x11faf3a90 state=running>, <Future at 0x11fafc3d0 state=running>, <Future at 0x11fafc710 state=running>, <Future at 0x11fafcdd0 state=running>, <Future at 0x11fafd210 state=running>, <Future at 0x11fafe090 state=running>, <Future at 0x11fafe3d0 state=running>, <Future at 0x11fafef10 state=running>, <Future at 0x11faff390 state=running>, <Future at 0x11faff750 state=running>]
+2023-12-03 00:46:18,716 - 8393022976 - INFO - Bartender threads: [<Future at 0x11fbac0d0 state=running>, <Future at 0x11fbac490 state=running>]
+2023-12-03 00:46:18,742 - 8393022976 - INFO - Bouncer threads: [<Future at 0x11fbad010 state=running>, <Future at 0x11fbace10 state=running>, <Future at 0x11fbae7d0 state=running>, <Future at 0x11fbaebd0 state=running>]
+2023-12-03 00:46:18,754 - 8393022976 - INFO - The Casino is now open.
+2023-12-03 00:46:23,418 - 6224080896 - DEBUG - Customers in Roulette table [0]: [[]]
+2023-12-03 00:46:23,418 - 6257733632 - DEBUG - Customers in Roulette table [3]: [[]]
+2023-12-03 00:46:25,511 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.LowRoller object at 0x11fbafd90>, <classes.customer_classes.LowRoller object at 0x11fbafc90>, <classes.customer_classes.MediumRoller object at 0x11fbafcd0>, <classes.customer_classes.LowRoller object at 0x11fbaff10>, <classes.customer_classes.MediumRoller object at 0x11fbafc50>, <classes.customer_classes.MediumRoller object at 0x11fbafdd0>, <classes.customer_classes.MediumRoller object at 0x11fbae490>, <classes.customer_classes.HighRoller object at 0x11fbb8cd0>, <classes.customer_classes.MediumRoller object at 0x10fc68810>, <classes.customer_classes.LowRoller object at 0x11fbaff50>, <classes.customer_classes.MediumRoller object at 0x11f86ae10>, <classes.customer_classes.MediumRoller object at 0x11fbb9410>, <classes.customer_classes.MediumRoller object at 0x11fbb96d0>, <classes.customer_classes.LowRoller object at 0x11fbb9490>, <classes.customer_classes.LowRoller object at 0x11fbb95d0>, <classes.customer_classes.MediumRoller object at 0x11fbb9990>, <classes.customer_classes.LowRoller object at 0x11fbb9b90>, <classes.customer_classes.HighRoller object at 0x11fbb9cd0>, <classes.customer_classes.MediumRoller object at 0x11fbb8950>, <classes.customer_classes.MediumRoller object at 0x11fbb9e90>, <classes.customer_classes.LowRoller object at 0x10fa98410>, <classes.customer_classes.MediumRoller object at 0x10f97f990>, <classes.customer_classes.LowRoller object at 0x11fae6250>, <classes.customer_classes.HighRoller object at 0x11fbb9d10>, <classes.customer_classes.HighRoller object at 0x11fbba110>, <classes.customer_classes.MediumRoller object at 0x11fbb9950>, <classes.customer_classes.LowRoller object at 0x11fbba550>, <classes.customer_classes.HighRoller object at 0x11fbba210>, <classes.customer_classes.MediumRoller object at 0x11fbba750>, <classes.customer_classes.MediumRoller object at 0x11fbba7d0>, <classes.customer_classes.MediumRoller object at 0x11fbb9550>, <classes.customer_classes.MediumRoller object at 0x11fbba5d0>, <classes.customer_classes.MediumRoller object at 0x11fbba850>, <classes.customer_classes.MediumRoller object at 0x11faf3ed0>, <classes.customer_classes.MediumRoller object at 0x11fbba3d0>, <classes.customer_classes.MediumRoller object at 0x11fafd310>, <classes.customer_classes.HighRoller object at 0x11fbba590>, <classes.customer_classes.MediumRoller object at 0x11fbbac50>, <classes.customer_classes.MediumRoller object at 0x11fbbab50>, <classes.customer_classes.MediumRoller object at 0x11fbb9590>, <classes.customer_classes.MediumRoller object at 0x11fbbae10>, <classes.customer_classes.LowRoller object at 0x11fbbae50>, <classes.customer_classes.LowRoller object at 0x11fbbad10>, <classes.customer_classes.MediumRoller object at 0x11fbba910>, <classes.customer_classes.MediumRoller object at 0x11fbbacd0>, <classes.customer_classes.LowRoller object at 0x11fbbad90>, <classes.customer_classes.HighRoller object at 0x11fbbaa50>, <classes.customer_classes.HighRoller object at 0x11fbbb350>, <classes.customer_classes.MediumRoller object at 0x11fbbb210>, <classes.customer_classes.LowRoller object at 0x11fbbb550>, <classes.customer_classes.MediumRoller object at 0x11fbbb690>, <classes.customer_classes.HighRoller object at 0x11fbbb790>, <classes.customer_classes.MediumRoller object at 0x11fbbb2d0>, <classes.customer_classes.MediumRoller object at 0x11fbbb490>, <classes.customer_classes.LowRoller object at 0x11fbbb810>, <classes.customer_classes.HighRoller object at 0x11fbbba10>, <classes.customer_classes.MediumRoller object at 0x11fbbb010>, <classes.customer_classes.MediumRoller object at 0x11fbbaf90>, <classes.customer_classes.MediumRoller object at 0x11fbbb710>, <classes.customer_classes.MediumRoller object at 0x11fbbbb90>]
+2023-12-03 00:46:25,610 - 10905661440 - INFO - Running customer [0] thread
+2023-12-03 00:46:25,629 - 10905661440 - INFO - Customer [0] entered bouncer queue
+2023-12-03 00:46:25,686 - 10922487808 - INFO - Running customer [1] thread
+2023-12-03 00:46:25,686 - 10922487808 - INFO - Customer [1] entered bouncer queue
+2023-12-03 00:46:25,705 - 10939314176 - INFO - Running customer [2] thread
+2023-12-03 00:46:25,718 - 10939314176 - INFO - Customer [2] entered bouncer queue
+2023-12-03 00:46:25,718 - 10972966912 - INFO - Running customer [3] thread
+2023-12-03 00:46:25,752 - 10956140544 - INFO - Running customer [4] thread
+2023-12-03 00:46:25,783 - 10989793280 - INFO - Running customer [5] thread
+2023-12-03 00:46:25,814 - 10972966912 - INFO - Customer [3] entered bouncer queue
+2023-12-03 00:46:25,882 - 10956140544 - INFO - Customer [4] entered bouncer queue
+2023-12-03 00:46:25,900 - 11006619648 - INFO - Running customer [6] thread
+2023-12-03 00:46:25,944 - 10989793280 - INFO - Customer [5] entered bouncer queue
+2023-12-03 00:46:25,963 - 11023446016 - INFO - Running customer [7] thread
+2023-12-03 00:46:25,968 - 11006619648 - INFO - Customer [6] entered bouncer queue
+2023-12-03 00:46:26,018 - 11023446016 - INFO - Customer [7] entered bouncer queue
+2023-12-03 00:46:26,018 - 11040272384 - INFO - Running customer [8] thread
+2023-12-03 00:46:26,043 - 11057098752 - INFO - Running customer [9] thread
+2023-12-03 00:46:26,043 - 11040272384 - INFO - Customer [8] entered bouncer queue
+2023-12-03 00:46:26,105 - 11073925120 - INFO - Running customer [10] thread
+2023-12-03 00:46:26,130 - 11090751488 - INFO - Running customer [11] thread
+2023-12-03 00:46:26,187 - 11057098752 - INFO - Customer [9] entered bouncer queue
+2023-12-03 00:46:26,199 - 11107577856 - INFO - Running customer [12] thread
+2023-12-03 00:46:26,230 - 11124404224 - INFO - Running customer [13] thread
+2023-12-03 00:46:26,262 - 11141230592 - INFO - Running customer [14] thread
+2023-12-03 00:46:26,299 - 11073925120 - INFO - Customer [10] entered bouncer queue
+2023-12-03 00:46:26,306 - 11158056960 - INFO - Running customer [15] thread
+2023-12-03 00:46:26,349 - 11174883328 - INFO - Running customer [16] thread
+2023-12-03 00:46:26,356 - 11191709696 - INFO - Running customer [17] thread
+2023-12-03 00:46:26,389 - 11090751488 - INFO - Customer [11] entered bouncer queue
+2023-12-03 00:46:26,413 - 11208536064 - INFO - Running customer [18] thread
+2023-12-03 00:46:26,463 - 11225362432 - INFO - Running customer [19] thread
+2023-12-03 00:46:26,482 - 11107577856 - INFO - Customer [12] entered bouncer queue
+2023-12-03 00:46:26,538 - 11259015168 - INFO - Running customer [20] thread
+2023-12-03 00:46:26,595 - 11242188800 - INFO - Running customer [21] thread
+2023-12-03 00:46:26,601 - 11124404224 - INFO - Customer [13] entered bouncer queue
+2023-12-03 00:46:26,644 - 11141230592 - INFO - Customer [14] entered bouncer queue
+2023-12-03 00:46:26,651 - 11158056960 - INFO - Customer [15] entered bouncer queue
+2023-12-03 00:46:26,664 - 11292667904 - INFO - Running customer [22] thread
+2023-12-03 00:46:26,721 - 11174883328 - INFO - Customer [16] entered bouncer queue
+2023-12-03 00:46:26,733 - 11275841536 - INFO - Running customer [23] thread
+2023-12-03 00:46:26,752 - 11191709696 - INFO - Customer [17] entered bouncer queue
+2023-12-03 00:46:26,758 - 11326320640 - INFO - Running customer [24] thread
+2023-12-03 00:46:26,771 - 11208536064 - INFO - Customer [18] entered bouncer queue
+2023-12-03 00:46:26,809 - 11309494272 - INFO - Running customer [25] thread
+2023-12-03 00:46:26,853 - 11343147008 - INFO - Running customer [26] thread
+2023-12-03 00:46:26,890 - 10838355968 - DEBUG - Bouncer [0] allowed customer [18] to enter
+2023-12-03 00:46:26,953 - 11359973376 - INFO - Running customer [27] thread
+2023-12-03 00:46:26,959 - 11225362432 - INFO - Customer [19] entered bouncer queue
+2023-12-03 00:46:26,959 - 11393626112 - INFO - Running customer [28] thread
+2023-12-03 00:46:26,979 - 11376799744 - INFO - Running customer [29] thread
+2023-12-03 00:46:27,023 - 11259015168 - INFO - Customer [20] entered bouncer queue
+2023-12-03 00:46:27,085 - 10855182336 - DEBUG - Bouncer [1] allowed customer [20] to enter
+2023-12-03 00:46:27,104 - 11410452480 - INFO - Running customer [30] thread
+2023-12-03 00:46:27,110 - 10872008704 - DEBUG - Bouncer [2] allowed customer [19] to enter
+2023-12-03 00:46:27,160 - 11427278848 - INFO - Running customer [31] thread
+2023-12-03 00:46:27,167 - 11242188800 - INFO - Customer [21] entered bouncer queue
+2023-12-03 00:46:27,198 - 11444105216 - INFO - Running customer [32] thread
+2023-12-03 00:46:27,224 - 11477757952 - INFO - Running customer [33] thread
+2023-12-03 00:46:27,236 - 11494584320 - INFO - Running customer [34] thread
+2023-12-03 00:46:27,248 - 10888835072 - DEBUG - Bouncer [3] allowed customer [21] to enter
+2023-12-03 00:46:27,317 - 11511410688 - INFO - Running customer [35] thread
+2023-12-03 00:46:27,336 - 11460931584 - INFO - Running customer [36] thread
+2023-12-03 00:46:27,380 - 11292667904 - INFO - Customer [22] entered bouncer queue
+2023-12-03 00:46:27,380 - 11528237056 - INFO - Running customer [37] thread
+2023-12-03 00:46:27,480 - 11275841536 - INFO - Customer [23] entered bouncer queue
+2023-12-03 00:46:27,567 - 11545063424 - INFO - Running customer [38] thread
+2023-12-03 00:46:27,586 - 11326320640 - INFO - Customer [24] entered bouncer queue
+2023-12-03 00:46:27,605 - 11578716160 - INFO - Running customer [39] thread
+2023-12-03 00:46:27,647 - 11309494272 - INFO - Customer [25] entered bouncer queue
+2023-12-03 00:46:27,660 - 11561889792 - INFO - Running customer [40] thread
+2023-12-03 00:46:27,685 - 11595542528 - INFO - Running customer [41] thread
+2023-12-03 00:46:27,685 - 11343147008 - INFO - Customer [26] entered bouncer queue
+2023-12-03 00:46:27,710 - 11359973376 - INFO - Customer [27] entered bouncer queue
+2023-12-03 00:46:27,710 - 11612368896 - INFO - Running customer [42] thread
+2023-12-03 00:46:27,747 - 11393626112 - INFO - Customer [28] entered bouncer queue
+2023-12-03 00:46:27,865 - 11376799744 - INFO - Customer [29] entered bouncer queue
+2023-12-03 00:46:27,865 - 11629195264 - INFO - Running customer [43] thread
+2023-12-03 00:46:27,908 - 11410452480 - INFO - Customer [30] entered bouncer queue
+2023-12-03 00:46:27,976 - 11427278848 - INFO - Customer [31] entered bouncer queue
+2023-12-03 00:46:27,983 - 11208536064 - INFO - Successfully inserted [(18, 'Marvin Garcia', 39, 'male')] into table [customers]
+2023-12-03 00:46:28,012 - 11662848000 - INFO - Running customer [44] thread
+2023-12-03 00:46:28,030 - 11444105216 - INFO - Customer [32] entered bouncer queue
+2023-12-03 00:46:28,030 - 11679674368 - INFO - Running customer [45] thread
+2023-12-03 00:46:28,074 - 11646021632 - INFO - Running customer [46] thread
+2023-12-03 00:46:28,144 - 11477757952 - INFO - Customer [33] entered bouncer queue
+2023-12-03 00:46:28,151 - 11696500736 - INFO - Running customer [47] thread
+2023-12-03 00:46:28,182 - 11225362432 - INFO - Successfully inserted [(19, 'Elizabeth Krieg', 42, 'female')] into table [customers]
+2023-12-03 00:46:28,194 - 11713327104 - INFO - Running customer [48] thread
+2023-12-03 00:46:28,225 - 11494584320 - INFO - Customer [34] entered bouncer queue
+2023-12-03 00:46:28,263 - 11730153472 - INFO - Running customer [49] thread
+2023-12-03 00:46:28,321 - 11746979840 - INFO - Running customer [50] thread
+2023-12-03 00:46:28,383 - 11511410688 - INFO - Customer [35] entered bouncer queue
+2023-12-03 00:46:28,409 - 11259015168 - INFO - Successfully inserted [(20, 'Jose Nava', 69, 'male')] into table [customers]
+2023-12-03 00:46:28,420 - 11763806208 - INFO - Running customer [51] thread
+2023-12-03 00:46:28,439 - 6224080896 - INFO - Bet placed: [13365] in table [0]
+2023-12-03 00:46:28,483 - 11780632576 - INFO - Running customer [52] thread
+2023-12-03 00:46:28,483 - 11460931584 - INFO - Customer [36] entered bouncer queue
+2023-12-03 00:46:28,520 - 11814285312 - INFO - Running customer [53] thread
+2023-12-03 00:46:28,520 - 11797458944 - INFO - Running customer [54] thread
+2023-12-03 00:46:28,533 - 11831111680 - INFO - Running customer [55] thread
+2023-12-03 00:46:28,545 - 6224080896 - INFO - Player [19] updated bankroll by: [13365]
+2023-12-03 00:46:28,558 - 6240907264 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.LowRoller object at 0x10fa98410>]]
+2023-12-03 00:46:28,564 - 11847938048 - INFO - Running customer [56] thread
+2023-12-03 00:46:28,583 - 11242188800 - INFO - Successfully inserted [(21, 'Sandra Uhlman', 63, 'female')] into table [customers]
+2023-12-03 00:46:28,595 - 11528237056 - INFO - Customer [37] entered bouncer queue
+2023-12-03 00:46:28,682 - 11864764416 - INFO - Running customer [57] thread
+2023-12-03 00:46:28,763 - 11898417152 - INFO - Running customer [58] thread
+2023-12-03 00:46:28,799 - 6240907264 - DEBUG - Customers not empty
+2023-12-03 00:46:28,849 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x11fbaf010 state=running>, <Future at 0x11fbbb6d0 state=running>, <Future at 0x11fbc0750 state=running>, <Future at 0x11fbc09d0 state=running>, <Future at 0x11fbc1810 state=running>, <Future at 0x11fbc1850 state=running>, <Future at 0x11fbc2850 state=running>, <Future at 0x11fbc37d0 state=running>, <Future at 0x11fbc3ad0 state=running>, <Future at 0x11fbc3e90 state=running>, <Future at 0x11fbd0410 state=running>, <Future at 0x11fbd09d0 state=running>, <Future at 0x11fbd0f90 state=running>, <Future at 0x11fbd2010 state=running>, <Future at 0x11fbd2cd0 state=running>, <Future at 0x11fbd2f90 state=running>, <Future at 0x11fbd34d0 state=running>, <Future at 0x11fbd3a50 state=running>, <Future at 0x11fbd3dd0 state=running>, <Future at 0x11fbe03d0 state=running>, <Future at 0x11fbe1610 state=running>, <Future at 0x11fbe1b10 state=running>, <Future at 0x11fbd2450 state=running>, <Future at 0x11fbe2550 state=running>, <Future at 0x11fbe32d0 state=running>, <Future at 0x11fbe3750 state=running>, <Future at 0x11fbe3d10 state=running>, <Future at 0x11fbfca50 state=running>, <Future at 0x11fbfd0d0 state=running>, <Future at 0x11fbfd910 state=running>, <Future at 0x11fbfdb50 state=running>, <Future at 0x11fbfeb10 state=running>, <Future at 0x11fbfff10 state=running>, <Future at 0x11fbfe850 state=running>, <Future at 0x11fbe2810 state=running>, <Future at 0x11fc048d0 state=running>, <Future at 0x11fc04e90 state=running>, <Future at 0x11fc05ed0 state=running>, <Future at 0x11fc06250 state=running>, <Future at 0x11fc06890 state=running>, <Future at 0x11fc07290 state=running>, <Future at 0x11fc078d0 state=running>, <Future at 0x11fc181d0 state=running>, <Future at 0x11fc18210 state=running>, <Future at 0x11fbfd810 state=running>, <Future at 0x11fc19590 state=running>, <Future at 0x11fc1a7d0 state=running>, <Future at 0x11fc1b150 state=running>, <Future at 0x11fc1b6d0 state=running>, <Future at 0x11fc1bb50 state=running>, <Future at 0x11fc20690 state=running>, <Future at 0x11fc21050 state=running>, <Future at 0x11fbc2690 state=running>, <Future at 0x11fa95590 state=running>, <Future at 0x11fc22090 state=running>, <Future at 0x11fc23310 state=running>, <Future at 0x11fc23650 state=running>, <Future at 0x11fc23cd0 state=running>, <Future at 0x11fc23750 state=running>, <Future at 0x11fc23e90 state=pending>]
+2023-12-03 00:46:28,849 - 11881590784 - INFO - Running customer [59] thread
+2023-12-03 00:46:28,931 - 11545063424 - INFO - Customer [38] entered bouncer queue
+2023-12-03 00:46:29,039 - 6240907264 - INFO - Bet placed: [1863] in table [2]
+2023-12-03 00:46:29,150 - 11578716160 - INFO - Customer [39] entered bouncer queue
+2023-12-03 00:46:29,187 - 6240907264 - INFO - Player [20] updated bankroll by: [1863]
+2023-12-03 00:46:29,261 - 11561889792 - INFO - Customer [40] entered bouncer queue
+2023-12-03 00:46:29,312 - 6224080896 - INFO - Successfully inserted [('Roulette', 55)] into table [transactions]
+2023-12-03 00:46:29,312 - 11595542528 - INFO - Customer [41] entered bouncer queue
+2023-12-03 00:46:29,424 - 11612368896 - INFO - Customer [42] entered bouncer queue
+2023-12-03 00:46:29,442 - 11629195264 - INFO - Customer [43] entered bouncer queue
+2023-12-03 00:46:29,480 - 11208536064 - INFO - Customer [18] entered bouncer queue
+2023-12-03 00:46:29,499 - 11662848000 - INFO - Customer [44] entered bouncer queue
+2023-12-03 00:46:29,536 - 11679674368 - INFO - Customer [45] entered bouncer queue
+2023-12-03 00:46:29,593 - 11646021632 - INFO - Customer [46] entered bouncer queue
+2023-12-03 00:46:29,618 - 11696500736 - INFO - Customer [47] entered bouncer queue
+2023-12-03 00:46:29,618 - 11713327104 - INFO - Customer [48] entered bouncer queue
+2023-12-03 00:46:29,662 - 11730153472 - INFO - Customer [49] entered bouncer queue
+2023-12-03 00:46:29,724 - 11746979840 - INFO - Customer [50] entered bouncer queue
+2023-12-03 00:46:29,817 - 11763806208 - INFO - Customer [51] entered bouncer queue
+2023-12-03 00:46:29,871 - 11780632576 - INFO - Customer [52] entered bouncer queue
+2023-12-03 00:46:30,034 - 11814285312 - INFO - Customer [53] entered bouncer queue
+2023-12-03 00:46:30,065 - 11797458944 - INFO - Customer [54] entered bouncer queue
+2023-12-03 00:46:30,078 - 11831111680 - INFO - Customer [55] entered bouncer queue
+2023-12-03 00:46:30,115 - 11847938048 - INFO - Customer [56] entered bouncer queue
+2023-12-03 00:46:30,159 - 10838355968 - DEBUG - Bouncer [0] allowed customer [56] to enter
+2023-12-03 00:46:30,215 - 11864764416 - INFO - Customer [57] entered bouncer queue
+2023-12-03 00:46:30,247 - 11898417152 - INFO - Customer [58] entered bouncer queue
+2023-12-03 00:46:30,278 - 11881590784 - INFO - Customer [59] entered bouncer queue
+2023-12-03 00:46:30,359 - 10855182336 - DEBUG - Bouncer [1] allowed customer [59] to enter
+2023-12-03 00:46:30,401 - 10872008704 - DEBUG - Bouncer [2] allowed customer [58] to enter
+2023-12-03 00:46:30,421 - 6240907264 - INFO - Successfully inserted [('Poker', 0.46000000000000085)] into table [transactions]
+2023-12-03 00:46:30,440 - 10888835072 - DEBUG - Bouncer [3] allowed customer [57] to enter
+2023-12-03 00:46:31,324 - 11847938048 - INFO - Successfully inserted [(56, 'Paulina Orlando', 32, 'female')] into table [customers]
+2023-12-03 00:46:31,446 - 11864764416 - INFO - Successfully inserted [(57, 'Francisco Monaghan', 26, 'male')] into table [customers]
+2023-12-03 00:46:31,628 - 11898417152 - INFO - Successfully inserted [(58, 'Perry Russ', 22, 'male')] into table [customers]
+2023-12-03 00:46:31,784 - 11881590784 - INFO - Successfully inserted [(59, 'Melissa Trela', 35, 'female')] into table [customers]
+2023-12-03 00:46:32,220 - 10838355968 - DEBUG - Bouncer [0] allowed customer [55] to enter
+2023-12-03 00:46:32,448 - 10872008704 - INFO - Customer [54] kicked out
+2023-12-03 00:46:32,511 - 10855182336 - DEBUG - Bouncer [1] allowed customer [53] to enter
+2023-12-03 00:46:32,555 - 10888835072 - INFO - Customer [52] kicked out
+2023-12-03 00:46:33,302 - 11814285312 - INFO - Successfully inserted [(53, 'Mildred Janda', 44, 'female')] into table [customers]
+2023-12-03 00:46:33,565 - 11831111680 - INFO - Successfully inserted [(55, 'Darwin Martin', 74, 'male')] into table [customers]
+2023-12-03 00:46:34,234 - 10838355968 - INFO - Customer [51] kicked out
+2023-12-03 00:46:34,526 - 10872008704 - DEBUG - Bouncer [2] allowed customer [50] to enter
+2023-12-03 00:46:34,562 - 10855182336 - INFO - Customer [49] kicked out
+2023-12-03 00:46:34,617 - 10888835072 - INFO - Customer [48] kicked out
+2023-12-03 00:46:35,098 - 11746979840 - INFO - Successfully inserted [(50, 'Joseph Tucker', 51, 'male')] into table [customers]
+2023-12-03 00:46:36,279 - 10838355968 - DEBUG - Bouncer [0] allowed customer [47] to enter
+2023-12-03 00:46:36,566 - 10872008704 - INFO - Customer [46] kicked out
+2023-12-03 00:46:36,621 - 10855182336 - INFO - Customer [45] kicked out
+2023-12-03 00:46:36,664 - 10888835072 - INFO - Customer [44] kicked out
+2023-12-03 00:46:36,839 - 11696500736 - INFO - Successfully inserted [(47, 'Laura Williams', 34, 'female')] into table [customers]
+2023-12-03 00:46:38,355 - 10838355968 - DEBUG - Bouncer [0] allowed customer [18] to enter
+2023-12-03 00:46:38,623 - 10872008704 - DEBUG - Bouncer [2] allowed customer [43] to enter
+2023-12-03 00:46:38,678 - 10855182336 - INFO - Customer [42] kicked out
+2023-12-03 00:46:38,703 - 10888835072 - INFO - Customer [41] kicked out
+2023-12-03 00:46:39,768 - 11629195264 - INFO - Successfully inserted [(43, 'Willie Coker', 61, 'female')] into table [customers]
+2023-12-03 00:46:40,415 - 10838355968 - INFO - Customer [40] kicked out
+2023-12-03 00:46:40,722 - 10855182336 - INFO - Customer [39] kicked out
+2023-12-03 00:46:40,820 - 10888835072 - INFO - Customer [38] kicked out
+2023-12-03 00:46:40,839 - 10872008704 - DEBUG - Bouncer [2] allowed customer [37] to enter
+2023-12-03 00:46:41,304 - 11528237056 - INFO - Successfully inserted [(37, 'Eileen Ramsey', 20, 'female')] into table [customers]
+2023-12-03 00:46:42,445 - 10838355968 - INFO - Customer [36] kicked out
+2023-12-03 00:46:42,831 - 10855182336 - INFO - Customer [35] kicked out
+2023-12-03 00:46:42,872 - 10872008704 - INFO - Customer [34] kicked out
+2023-12-03 00:46:42,909 - 10888835072 - INFO - Customer [33] kicked out
+2023-12-03 00:46:44,493 - 10838355968 - INFO - Customer [32] kicked out
+2023-12-03 00:46:44,865 - 10855182336 - DEBUG - Bouncer [1] allowed customer [31] to enter
+2023-12-03 00:46:44,927 - 10872008704 - DEBUG - Bouncer [2] allowed customer [30] to enter
+2023-12-03 00:46:44,970 - 10888835072 - DEBUG - Bouncer [3] allowed customer [29] to enter
+2023-12-03 00:46:45,289 - 11376799744 - INFO - Successfully inserted [(29, 'John Paduano', 69, 'male')] into table [customers]
+2023-12-03 00:46:45,637 - 11410452480 - INFO - Successfully inserted [(30, 'Amanda Meeks', 18, 'female')] into table [customers]
+2023-12-03 00:46:45,870 - 11427278848 - INFO - Successfully inserted [(31, 'Brian Leon', 42, 'male')] into table [customers]
+2023-12-03 00:46:46,626 - 10838355968 - INFO - Customer [28] kicked out
+2023-12-03 00:46:46,956 - 10855182336 - INFO - Customer [27] kicked out
+2023-12-03 00:46:46,980 - 10872008704 - INFO - Customer [26] kicked out
+2023-12-03 00:46:47,011 - 10888835072 - DEBUG - Bouncer [3] allowed customer [25] to enter
+2023-12-03 00:46:47,405 - 11309494272 - INFO - Successfully inserted [(25, 'Janie Evans', 71, 'female')] into table [customers]
+2023-12-03 00:46:48,696 - 10838355968 - INFO - Customer [24] kicked out
+2023-12-03 00:46:49,007 - 10855182336 - DEBUG - Bouncer [1] allowed customer [23] to enter
+2023-12-03 00:46:49,094 - 10872008704 - INFO - Customer [22] kicked out
+2023-12-03 00:46:49,176 - 10888835072 - INFO - Customer [17] kicked out
+2023-12-03 00:46:50,218 - 11275841536 - INFO - Successfully inserted [(23, 'Michael Trout', 40, 'male')] into table [customers]
+2023-12-03 00:46:50,778 - 10838355968 - DEBUG - Bouncer [0] allowed customer [16] to enter
+2023-12-03 00:46:51,103 - 10855182336 - INFO - Customer [15] kicked out
+2023-12-03 00:46:51,184 - 10872008704 - DEBUG - Bouncer [2] allowed customer [14] to enter
+2023-12-03 00:46:51,265 - 10888835072 - DEBUG - Bouncer [3] allowed customer [13] to enter
+2023-12-03 00:46:51,551 - 11174883328 - INFO - Successfully inserted [(16, 'Nathaniel Cortez', 68, 'male')] into table [customers]
+2023-12-03 00:46:51,724 - 11141230592 - INFO - Successfully inserted [(14, 'George Quintana', 48, 'male')] into table [customers]
+2023-12-03 00:46:52,418 - 11124404224 - INFO - Successfully inserted [(13, 'Myrna Rodriguez', 26, 'female')] into table [customers]
+2023-12-03 00:46:52,820 - 10838355968 - DEBUG - Bouncer [0] allowed customer [12] to enter
+2023-12-03 00:46:53,139 - 10855182336 - INFO - Customer [11] kicked out
+2023-12-03 00:46:53,208 - 10872008704 - INFO - Customer [10] kicked out
+2023-12-03 00:46:53,323 - 10888835072 - DEBUG - Bouncer [3] allowed customer [9] to enter
+2023-12-03 00:46:53,410 - 11107577856 - INFO - Successfully inserted [(12, 'Harry Auld', 25, 'male')] into table [customers]
+2023-12-03 00:46:53,890 - 11057098752 - INFO - Successfully inserted [(9, 'Cris Morris', 68, 'female')] into table [customers]
+2023-12-03 00:46:54,904 - 10838355968 - DEBUG - Bouncer [0] allowed customer [8] to enter
+2023-12-03 00:46:55,164 - 10855182336 - INFO - Customer [7] kicked out
+2023-12-03 00:46:55,261 - 10872008704 - INFO - Customer [6] kicked out
+2023-12-03 00:46:55,368 - 10888835072 - DEBUG - Bouncer [3] allowed customer [5] to enter
+2023-12-03 00:46:55,760 - 10989793280 - INFO - Successfully inserted [(5, 'Stacy Clements', 52, 'female')] into table [customers]
+2023-12-03 00:46:55,993 - 11040272384 - INFO - Successfully inserted [(8, 'Geraldine Martin', 39, 'female')] into table [customers]
+2023-12-03 00:46:57,031 - 10838355968 - DEBUG - Bouncer [0] allowed customer [4] to enter
+2023-12-03 00:46:57,205 - 10855182336 - INFO - Customer [3] kicked out
+2023-12-03 00:46:57,285 - 10872008704 - INFO - Customer [2] kicked out
+2023-12-03 00:46:57,406 - 10888835072 - DEBUG - Bouncer [3] allowed customer [1] to enter
+2023-12-03 00:46:57,682 - 10922487808 - INFO - Successfully inserted [(1, 'Donna Jiles', 62, 'female')] into table [customers]
+2023-12-03 00:46:57,849 - 10956140544 - INFO - Successfully inserted [(4, 'Terry Mccarthy', 49, 'male')] into table [customers]
+2023-12-03 00:46:57,941 - 10956140544 - INFO - Customer [4] entered bouncer queue
+2023-12-03 00:46:59,141 - 10838355968 - DEBUG - Bouncer [0] allowed customer [4] to enter
+2023-12-03 00:46:59,246 - 10855182336 - DEBUG - Bouncer [1] allowed customer [0] to enter
+2023-12-03 00:46:59,528 - 10905661440 - INFO - Successfully inserted [(0, 'Kristy Sultan', 66, 'female')] into table [customers]
+2023-12-03 00:48:48,762 - 11208536064 - INFO - Customer [18]: Thread finished
+2023-12-03 00:48:48,763 - 10956140544 - INFO - Customer [4]: Thread finished

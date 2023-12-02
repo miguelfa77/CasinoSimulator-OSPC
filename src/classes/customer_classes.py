@@ -117,6 +117,8 @@ class Customer():
             self.casino.LOG.info(f"Running customer [{self.id}] thread")
             self.enter_bouncer_queue()
             while self not in self.casino.customers_denied_entry and self not in self.casino.customers:
+                if self.casino.is_open == False:
+                    break
                 time.sleep(1)
             if self.check_status() is True:
                 self.update_customers(values=tuple([self.id, self.name, self.age, self.gender]))
