@@ -55,7 +55,6 @@ class casinoDB():
     def kill_conn(self):
         if self.conn.is_connected():
             self.conn.close()
-            print("Connection killed successfully")
             return True
         else:
             self.casino.LOG.info("Connection failed to kill/already killed")
@@ -76,7 +75,7 @@ class casinoDB():
                 cursor.execute(query)
                 self.conn.commit()
                 self.kill_conn()
-                print(f"Successfully created database {self.db}")
+                self.casino.LOG.info(f"Successfully created database {self.db}")
 
         except mysql.connector.Error as err:
             self.casino.LOG.error(f"Failed creating database: {err}")
@@ -130,7 +129,7 @@ class casinoDB():
                 cursor = self.conn.cursor()
                 cursor.execute(query[table], values)
                 self.conn.commit()
-                print(f"Successfully inserted into table {table}")
+                self.casino.LOG.info(f"Successfully inserted [{values}] into table [{table}]")
 
         except Exception as e:
             self.casino.LOG.error(f"Error inserting into table [{table}]: {e}")
@@ -152,14 +151,6 @@ class casinoDB():
                 
         except Exception as e:
             self.casino.LOG.error(f"Error fetching data from table [{table}]: {e}")
-
-"""
-db = casinoDB()
-
-db.insert_table('transactions',('Table', 10))
-db.insert_table('customers', (5, 'juan', 10, 'male'))
-
-"""
 
         
     

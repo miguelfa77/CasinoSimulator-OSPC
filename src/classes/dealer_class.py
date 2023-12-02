@@ -70,7 +70,7 @@ class Dealer():
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
             
-        self.casino.LOG.info(f"Dealer {self.dealer_id}: Thread finished")
+        self.casino.LOG.info(f"Dealer [{self.dealer_id}]: Thread finished")
 
 
 

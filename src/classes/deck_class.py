@@ -34,11 +34,3 @@ def deck_type(deck_type) -> NormalDeck or BlackJackDeck:
     deck = {"normal": NormalDeck, "blackjack": BlackJackDeck}
 
     return deck[deck_type]()
-
-
-deck = deck_type("normal")
-print(deck.deck)
-deck.shuffle_deck()
-print(deck.deck)
-card = deck.draw_card()
-print(card)

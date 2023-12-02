@@ -65,7 +65,7 @@ class Customer():
         while amount < self.min_bet_amount:
             if amount < self.min_bet_amount:
                 amount *= 3
-        self.casino.LOG.info(f"Bet placed: {amount} in table {self.current_table.table_id}")
+        self.casino.LOG.info(f"Bet placed: [{amount}] in table [{self.current_table.table_id}]")
         self.update_bankroll(amount)
     
     def isBankrupt(self):
@@ -138,84 +138,9 @@ class Customer():
                         self.goBathroom()
                     else:
                         time.sleep(random.randrange(5,10))
-                self.casino.LOG.info(f"Customer {self.id}: Thread finished")
+                self.casino.LOG.info(f"Customer [{self.id}]: Thread finished")
         except Exception as e:
-            self.casino.LOG.error(f"Error: {e}", exc_info=True)
-           
-        """
-        at_the_door = True
-        bouncer_found = False
-        while at_the_door:
-            self.casino.LOG.info(f"{self.id} is waiting in line to enter the Casino")
-            self.casino.LOG.info(f"{self.id} is waiting for a bouncer")
-            while not bouncer_found:
-                for bouncer in self.casino.bouncers:
-                    if bouncer.locks.locked():
-                        time.sleep(2)
-                        continue
-                    bncr = bouncer
-                    break
-                bouncer_found = True
-            entry = bncr.allow_entry(self)
-            if not entry:
-                return
-            print(f"{self.name} has entered the casino.") 
-            self.casino.customers.append(self) # Add self to casino list of customers
-            at_the_door = False
-        """
-
-        """
-        while True:
-            # EXIT CONDITIONS
-
-            # Exit condition 1
-            if self.isBankrupt():
-                break
-            # Exit condition 2
-            if (self.bankroll > (self.start_bankroll*1.75)) or (self.bankroll < (self.start_bankroll*0.25)):
-                break
-            # Exit condition 3
-            if self.games_played > 10:
-                break
-
-            # SELECT AN ACTIVITY 
-            task_id = random.choices(["play", "bar", "bathroom"], weights=(60,20,10), k=1)[0]
-            
-            # SELECT A TABLE TO GO PLAY AT
-            # if task_id == "play":
-            #     table_chosen = random.choices(self.casino.tables, k=1)[0]
-            #     append to table queue
-                # CAREFUL, not all tables have play method, some have play()
-                                    #   add table_type attribute to table classes to identify which method to use
-                                    #   or create a consistent method for all
-            
-            # BAR
-            if task_id == "bar":
-                at_the_bar = True
-                unattended = True
-                while at_the_bar:
-                    while unattended:
-                        print(f"{self.name} is waiting at the bar")
-                        for bartender in self.casino.bartenders:
-                            if bartender.lock.locked():
-                                continue
-                            brt = bartender
-                            unattended = False
-                    print(f"{self.name} is being attended by bartender {brt.name}")
-                    brt.take_order(self)
-                    drink = brt.make_drink()
-                    brt.serve_drink(self)
-                    print(f"{self.name} enjoys the {drink}.")
-                    time.sleep(5)
-                    at_the_bar = False
-                continue
-
-            # BATHROOM
-            if task_id == "bathroom":
-                self.goBathroom()
-                continue
-
-            """         
+            self.casino.LOG.error(f"Error: {e}", exc_info=True)   
 
 
 class HighRoller(Customer):
