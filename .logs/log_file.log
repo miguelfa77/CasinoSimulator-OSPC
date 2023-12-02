@@ -1,174 +1,640 @@
-2023-12-02 02:55:58,828 - 8393022976 - INFO - Tables List: [<classes.table_classes.Poker object at 0x10252dd90>, <classes.table_classes.Poker object at 0x10252ea90>, <classes.table_classes.Poker object at 0x10252f750>, <classes.table_classes.Poker object at 0x10253c4d0>, <classes.table_classes.Poker object at 0x10253d290>, <classes.table_classes.Poker object at 0x10253e090>]
-2023-12-02 02:55:58,830 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x10107fb50>, <classes.dealer_class.Dealer object at 0x1011c32d0>, <classes.dealer_class.Dealer object at 0x10253ee50>, <classes.dealer_class.Dealer object at 0x10253f010>, <classes.dealer_class.Dealer object at 0x10253f110>, <classes.dealer_class.Dealer object at 0x10253ee90>, <classes.dealer_class.Dealer object at 0x10253f050>, <classes.dealer_class.Dealer object at 0x10253f210>, <classes.dealer_class.Dealer object at 0x10253f410>, <classes.dealer_class.Dealer object at 0x10253f250>]
-2023-12-02 02:55:58,830 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x10253ef90>, <classes.bartender_class.Bartender object at 0x1024d1910>]
-2023-12-02 02:55:58,830 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x10253f5d0>, <classes.bouncer_class.Bouncer object at 0x10253f6d0>]
-2023-12-02 02:55:58,830 - 8393022976 - INFO - Starting Thread
-2023-12-02 02:55:58,831 - 6173470720 - INFO - Created table 0 thread
-2023-12-02 02:55:58,831 - 6190297088 - INFO - Created table 1 thread
-2023-12-02 02:55:58,831 - 6207123456 - INFO - Created table 2 thread
-2023-12-02 02:55:58,831 - 6223949824 - INFO - Created table 3 thread
-2023-12-02 02:55:58,831 - 6240776192 - INFO - Created table 4 thread
-2023-12-02 02:55:58,832 - 6257602560 - INFO - Created table 5 thread
-2023-12-02 02:55:58,832 - 6274428928 - INFO - Running dealer [0] thread
-2023-12-02 02:55:58,832 - 6291255296 - INFO - Running dealer [1] thread
-2023-12-02 02:55:58,832 - 6308081664 - INFO - Running dealer [2] thread
-2023-12-02 02:55:58,832 - 6324908032 - INFO - Running dealer [3] thread
-2023-12-02 02:55:58,832 - 6341734400 - INFO - Running dealer [4] thread
-2023-12-02 02:55:58,832 - 6358560768 - INFO - Running dealer [5] thread
-2023-12-02 02:55:58,832 - 6375387136 - INFO - Running dealer [6] thread
-2023-12-02 02:55:58,832 - 6392213504 - INFO - Running dealer [7] thread
-2023-12-02 02:55:58,833 - 6409039872 - INFO - Running dealer [8] thread
-2023-12-02 02:55:58,833 - 6425866240 - INFO - Running dealer [9] thread
-2023-12-02 02:55:58,833 - 10754224128 - INFO - Running bartender [0] thread
-2023-12-02 02:55:58,846 - 10771050496 - INFO - Running bartender [1] thread
-2023-12-02 02:55:58,852 - 10787876864 - INFO - Running bouncer [0] thread
-2023-12-02 02:55:58,876 - 10804703232 - INFO - Running bouncer [1] thread
-2023-12-02 02:55:58,894 - 8393022976 - INFO - Table threads: [<Future at 0x10253fcd0 state=running>, <Future at 0x10254c310 state=running>, <Future at 0x10254c610 state=running>, <Future at 0x10254ca50 state=running>, <Future at 0x10254ce90 state=running>, <Future at 0x10254d010 state=running>]
-2023-12-02 02:55:58,894 - 8393022976 - INFO - Dealer threads: [<Future at 0x10254d950 state=running>, <Future at 0x10254de10 state=running>, <Future at 0x10254e290 state=running>, <Future at 0x10254e590 state=running>, <Future at 0x10254ed10 state=running>, <Future at 0x10254f190 state=running>, <Future at 0x10254f5d0 state=running>, <Future at 0x10254f8d0 state=running>, <Future at 0x102558050 state=running>, <Future at 0x10254e190 state=running>]
-2023-12-02 02:55:58,919 - 8393022976 - INFO - Bartender threads: [<Future at 0x10254fed0 state=running>, <Future at 0x10254fad0 state=running>]
-2023-12-02 02:55:58,944 - 8393022976 - INFO - Bouncer threads: [<Future at 0x102558bd0 state=running>, <Future at 0x102558f10 state=running>]
-2023-12-02 02:55:58,957 - 8393022976 - INFO - The Casino is now open.
-2023-12-02 02:56:01,659 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.MediumRoller object at 0x102559490>, <classes.customer_classes.MediumRoller object at 0x102559110>, <classes.customer_classes.MediumRoller object at 0x102559790>, <classes.customer_classes.HighRoller object at 0x102559a50>, <classes.customer_classes.MediumRoller object at 0x101602610>, <classes.customer_classes.HighRoller object at 0x102559810>, <classes.customer_classes.LowRoller object at 0x1025599d0>, <classes.customer_classes.MediumRoller object at 0x102559d10>, <classes.customer_classes.MediumRoller object at 0x102559e50>, <classes.customer_classes.LowRoller object at 0x102518590>, <classes.customer_classes.HighRoller object at 0x1025597d0>, <classes.customer_classes.MediumRoller object at 0x102559f50>, <classes.customer_classes.MediumRoller object at 0x10255a210>, <classes.customer_classes.LowRoller object at 0x10255a2d0>, <classes.customer_classes.MediumRoller object at 0x10255a510>, <classes.customer_classes.HighRoller object at 0x10255a450>, <classes.customer_classes.LowRoller object at 0x10255a790>, <classes.customer_classes.HighRoller object at 0x10255a550>, <classes.customer_classes.LowRoller object at 0x10255a990>, <classes.customer_classes.MediumRoller object at 0x10255aad0>, <classes.customer_classes.MediumRoller object at 0x10255ac50>, <classes.customer_classes.MediumRoller object at 0x10255ae10>, <classes.customer_classes.MediumRoller object at 0x10255afd0>, <classes.customer_classes.HighRoller object at 0x10255b010>, <classes.customer_classes.MediumRoller object at 0x10255acd0>, <classes.customer_classes.LowRoller object at 0x10255b210>, <classes.customer_classes.MediumRoller object at 0x10255ad50>, <classes.customer_classes.HighRoller object at 0x10255b5d0>, <classes.customer_classes.MediumRoller object at 0x10255b350>, <classes.customer_classes.LowRoller object at 0x10255b710>, <classes.customer_classes.HighRoller object at 0x10255b6d0>, <classes.customer_classes.LowRoller object at 0x10255b910>, <classes.customer_classes.HighRoller object at 0x10255b8d0>, <classes.customer_classes.HighRoller object at 0x10255bc10>, <classes.customer_classes.MediumRoller object at 0x10255bd90>, <classes.customer_classes.MediumRoller object at 0x10255be50>, <classes.customer_classes.MediumRoller object at 0x10255ab50>, <classes.customer_classes.MediumRoller object at 0x10255bfd0>, <classes.customer_classes.LowRoller object at 0x10255c1d0>, <classes.customer_classes.MediumRoller object at 0x10255c110>, <classes.customer_classes.MediumRoller object at 0x10255c410>, <classes.customer_classes.MediumRoller object at 0x10255c5d0>, <classes.customer_classes.MediumRoller object at 0x10255c390>, <classes.customer_classes.MediumRoller object at 0x10255c610>, <classes.customer_classes.LowRoller object at 0x10255c550>, <classes.customer_classes.MediumRoller object at 0x10255c890>, <classes.customer_classes.MediumRoller object at 0x10255c590>, <classes.customer_classes.HighRoller object at 0x10255c8d0>, <classes.customer_classes.MediumRoller object at 0x10255c690>, <classes.customer_classes.LowRoller object at 0x10255c650>]
-2023-12-02 02:56:01,701 - 10821529600 - INFO - Running customer [0] thread
-2023-12-02 02:56:01,713 - 10838355968 - INFO - Running customer [1] thread
-2023-12-02 02:56:01,737 - 10855182336 - INFO - Running customer [2] thread
-2023-12-02 02:56:01,737 - 10821529600 - INFO - Customer [0] entered bouncer queue
-2023-12-02 02:56:01,744 - 10872008704 - INFO - Running customer [3] thread
-2023-12-02 02:56:01,756 - 10888835072 - INFO - Running customer [4] thread
-2023-12-02 02:56:01,781 - 10905661440 - INFO - Running customer [5] thread
-2023-12-02 02:56:01,806 - 10922487808 - INFO - Running customer [6] thread
-2023-12-02 02:56:01,812 - 10939314176 - INFO - Running customer [7] thread
-2023-12-02 02:56:01,812 - 10838355968 - INFO - Customer [1] entered bouncer queue
-2023-12-02 02:56:01,837 - 10956140544 - INFO - Running customer [8] thread
-2023-12-02 02:56:01,862 - 10972966912 - INFO - Running customer [9] thread
-2023-12-02 02:56:01,874 - 10989793280 - INFO - Running customer [10] thread
-2023-12-02 02:56:01,893 - 11006619648 - INFO - Running customer [11] thread
-2023-12-02 02:56:01,918 - 11023446016 - INFO - Running customer [12] thread
-2023-12-02 02:56:01,943 - 11040272384 - INFO - Running customer [13] thread
-2023-12-02 02:56:01,974 - 11057098752 - INFO - Running customer [14] thread
-2023-12-02 02:56:01,986 - 11073925120 - INFO - Running customer [15] thread
-2023-12-02 02:56:02,042 - 11090751488 - INFO - Running customer [16] thread
-2023-12-02 02:56:02,066 - 10855182336 - INFO - Customer [2] entered bouncer queue
-2023-12-02 02:56:02,066 - 11107577856 - INFO - Running customer [17] thread
-2023-12-02 02:56:02,073 - 11124404224 - INFO - Running customer [18] thread
-2023-12-02 02:56:02,084 - 11141230592 - INFO - Running customer [19] thread
-2023-12-02 02:56:02,129 - 11158056960 - INFO - Running customer [20] thread
-2023-12-02 02:56:02,158 - 11174883328 - INFO - Running customer [21] thread
-2023-12-02 02:56:02,193 - 11191709696 - INFO - Running customer [22] thread
-2023-12-02 02:56:02,253 - 11208536064 - INFO - Running customer [23] thread
-2023-12-02 02:56:02,265 - 11225362432 - INFO - Running customer [24] thread
-2023-12-02 02:56:02,276 - 11242188800 - INFO - Running customer [25] thread
-2023-12-02 02:56:02,331 - 11259015168 - INFO - Running customer [26] thread
-2023-12-02 02:56:02,374 - 11275841536 - INFO - Running customer [27] thread
-2023-12-02 02:56:02,393 - 11292667904 - INFO - Running customer [28] thread
-2023-12-02 02:56:02,424 - 11309494272 - INFO - Running customer [29] thread
-2023-12-02 02:56:02,424 - 10872008704 - INFO - Customer [3] entered bouncer queue
-2023-12-02 02:56:02,454 - 11326320640 - INFO - Running customer [30] thread
-2023-12-02 02:56:02,465 - 11343147008 - INFO - Running customer [31] thread
-2023-12-02 02:56:02,484 - 11359973376 - INFO - Running customer [32] thread
-2023-12-02 02:56:02,509 - 11376799744 - INFO - Running customer [33] thread
-2023-12-02 02:56:02,521 - 11393626112 - INFO - Running customer [34] thread
-2023-12-02 02:56:02,546 - 11410452480 - INFO - Running customer [35] thread
-2023-12-02 02:56:02,603 - 11427278848 - INFO - Running customer [36] thread
-2023-12-02 02:56:02,646 - 11444105216 - INFO - Running customer [37] thread
-2023-12-02 02:56:02,684 - 11460931584 - INFO - Running customer [38] thread
-2023-12-02 02:56:02,715 - 11477757952 - INFO - Running customer [39] thread
-2023-12-02 02:56:02,728 - 11494584320 - INFO - Running customer [40] thread
-2023-12-02 02:56:02,746 - 11511410688 - INFO - Running customer [41] thread
-2023-12-02 02:56:02,802 - 11528237056 - INFO - Running customer [42] thread
-2023-12-02 02:56:02,855 - 11545063424 - INFO - Running customer [43] thread
-2023-12-02 02:56:02,877 - 11561889792 - INFO - Running customer [44] thread
-2023-12-02 02:56:02,902 - 11578716160 - INFO - Running customer [45] thread
-2023-12-02 02:56:02,902 - 10804703232 - DEBUG - Bouncer 1 queue full
-2023-12-02 02:56:02,914 - 10787876864 - DEBUG - Bouncer 0 queue full
-2023-12-02 02:56:02,933 - 11595542528 - INFO - Running customer [46] thread
-2023-12-02 02:56:02,946 - 10888835072 - INFO - Customer [4] entered bouncer queue
-2023-12-02 02:56:02,958 - 11612368896 - INFO - Running customer [47] thread
-2023-12-02 02:56:02,969 - 11629195264 - INFO - Running customer [48] thread
-2023-12-02 02:56:02,988 - 11646021632 - INFO - Running customer [49] thread
-2023-12-02 02:56:03,007 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x10255cb90 state=running>, <Future at 0x10255cf10 state=running>, <Future at 0x10255d1d0 state=running>, <Future at 0x10255d6d0 state=running>, <Future at 0x10255dbd0 state=running>, <Future at 0x10255d310 state=running>, <Future at 0x10255e4d0 state=running>, <Future at 0x10255e890 state=running>, <Future at 0x10255ec50 state=running>, <Future at 0x10255e0d0 state=running>, <Future at 0x10255f6d0 state=running>, <Future at 0x10255fa50 state=running>, <Future at 0x10255ff50 state=running>, <Future at 0x10255e250 state=running>, <Future at 0x10256cad0 state=running>, <Future at 0x10256ce90 state=running>, <Future at 0x10255edd0 state=running>, <Future at 0x10256d490 state=running>, <Future at 0x10255f410 state=running>, <Future at 0x10256dcd0 state=running>, <Future at 0x10256e190 state=running>, <Future at 0x10256e7d0 state=running>, <Future at 0x10256ea90 state=running>, <Future at 0x10256ed50 state=running>, <Future at 0x10256f0d0 state=running>, <Future at 0x10256f4d0 state=running>, <Future at 0x10256fa50 state=running>, <Future at 0x10256fd10 state=running>, <Future at 0x102580210 state=running>, <Future at 0x10255eed0 state=running>, <Future at 0x10256da90 state=running>, <Future at 0x102580fd0 state=running>, <Future at 0x102581290 state=running>, <Future at 0x102581890 state=running>, <Future at 0x102581b50 state=running>, <Future at 0x102582150 state=running>, <Future at 0x102582510 state=running>, <Future at 0x1025828d0 state=running>, <Future at 0x102582c90 state=running>, <Future at 0x10256f650 state=running>, <Future at 0x102583390 state=running>, <Future at 0x102583690 state=running>, <Future at 0x102583bd0 state=running>, <Future at 0x1035f4190 state=running>, <Future at 0x102580690 state=running>, <Future at 0x1035f4910 state=running>, <Future at 0x102580a90 state=running>, <Future at 0x1035f58d0 state=running>, <Future at 0x102580f50 state=running>, <Future at 0x1035f6050 state=running>]
-2023-12-02 02:56:03,404 - 10905661440 - INFO - Customer [5] entered bouncer queue
-2023-12-02 02:56:03,535 - 10922487808 - INFO - Customer [6] entered bouncer queue
-2023-12-02 02:56:03,553 - 10939314176 - INFO - Customer [7] entered bouncer queue
-2023-12-02 02:56:03,572 - 10956140544 - INFO - Customer [8] entered bouncer queue
-2023-12-02 02:56:03,591 - 10972966912 - INFO - Customer [9] entered bouncer queue
-2023-12-02 02:56:03,653 - 10989793280 - INFO - Customer [10] entered bouncer queue
-2023-12-02 02:56:03,672 - 11006619648 - INFO - Customer [11] entered bouncer queue
-2023-12-02 02:56:03,685 - 11023446016 - INFO - Customer [12] entered bouncer queue
-2023-12-02 02:56:03,703 - 11040272384 - INFO - Customer [13] entered bouncer queue
-2023-12-02 02:56:03,740 - 11057098752 - INFO - Customer [14] entered bouncer queue
-2023-12-02 02:56:03,778 - 11073925120 - INFO - Customer [15] entered bouncer queue
-2023-12-02 02:56:03,797 - 11090751488 - INFO - Customer [16] entered bouncer queue
-2023-12-02 02:56:03,815 - 11107577856 - INFO - Customer [17] entered bouncer queue
-2023-12-02 02:56:03,853 - 11124404224 - INFO - Customer [18] entered bouncer queue
-2023-12-02 02:56:03,853 - 11141230592 - INFO - Customer [19] entered bouncer queue
-2023-12-02 02:56:03,853 - 11158056960 - INFO - Customer [20] entered bouncer queue
-2023-12-02 02:56:03,896 - 11174883328 - INFO - Customer [21] entered bouncer queue
-2023-12-02 02:56:03,914 - 11191709696 - INFO - Customer [22] entered bouncer queue
-2023-12-02 02:56:03,927 - 11208536064 - INFO - Customer [23] entered bouncer queue
-2023-12-02 02:56:03,983 - 11225362432 - INFO - Customer [24] entered bouncer queue
-2023-12-02 02:56:04,002 - 11242188800 - INFO - Customer [25] entered bouncer queue
-2023-12-02 02:56:04,021 - 11259015168 - INFO - Customer [26] entered bouncer queue
-2023-12-02 02:56:04,040 - 11275841536 - INFO - Customer [27] entered bouncer queue
-2023-12-02 02:56:04,115 - 11292667904 - INFO - Customer [28] entered bouncer queue
-2023-12-02 02:56:04,140 - 11309494272 - INFO - Customer [29] entered bouncer queue
-2023-12-02 02:56:04,152 - 11326320640 - INFO - Customer [30] entered bouncer queue
-2023-12-02 02:56:04,165 - 11343147008 - INFO - Customer [31] entered bouncer queue
-2023-12-02 02:56:04,190 - 11359973376 - INFO - Customer [32] entered bouncer queue
-2023-12-02 02:56:04,202 - 11376799744 - INFO - Customer [33] entered bouncer queue
-2023-12-02 02:56:04,215 - 11393626112 - INFO - Customer [34] entered bouncer queue
-2023-12-02 02:56:04,234 - 11410452480 - INFO - Customer [35] entered bouncer queue
-2023-12-02 02:56:04,246 - 11427278848 - INFO - Customer [36] entered bouncer queue
-2023-12-02 02:56:04,276 - 11444105216 - INFO - Customer [37] entered bouncer queue
-2023-12-02 02:56:04,295 - 11460931584 - INFO - Customer [38] entered bouncer queue
-2023-12-02 02:56:04,345 - 11477757952 - INFO - Customer [39] entered bouncer queue
-2023-12-02 02:56:04,433 - 11494584320 - INFO - Customer [40] entered bouncer queue
-2023-12-02 02:56:04,464 - 11511410688 - INFO - Customer [41] entered bouncer queue
-2023-12-02 02:56:04,483 - 11528237056 - INFO - Customer [42] entered bouncer queue
-2023-12-02 02:56:04,495 - 11545063424 - INFO - Customer [43] entered bouncer queue
-2023-12-02 02:56:04,508 - 11561889792 - INFO - Customer [44] entered bouncer queue
-2023-12-02 02:56:04,519 - 11578716160 - INFO - Customer [45] entered bouncer queue
-2023-12-02 02:56:04,538 - 10804703232 - DEBUG - Bouncer 1 selected customer [45] from queue
-2023-12-02 02:56:04,557 - 10804703232 - DEBUG - Bouncer 1 allowed customer 45 to enter
-2023-12-02 02:56:04,588 - 10787876864 - DEBUG - Bouncer 0 selected customer [44] from queue
-2023-12-02 02:56:04,607 - 10787876864 - DEBUG - Bouncer 0 allowed customer 44 to enter
-2023-12-02 02:56:04,626 - 11595542528 - INFO - Customer [46] entered bouncer queue
-2023-12-02 02:56:04,644 - 11612368896 - INFO - Customer [47] entered bouncer queue
-2023-12-02 02:56:04,656 - 11629195264 - INFO - Customer [48] entered bouncer queue
-2023-12-02 02:56:04,681 - 11646021632 - INFO - Customer [49] entered bouncer queue
-2023-12-02 02:56:05,525 - 11561889792 - INFO - Customer [44] in casino
-2023-12-02 02:56:05,574 - 11578716160 - INFO - Customer [45] in casino
-2023-12-02 02:56:06,636 - 10787876864 - DEBUG - Bouncer 0 queue full
-2023-12-02 02:56:06,648 - 10804703232 - DEBUG - Bouncer 1 queue full
-2023-12-02 02:56:06,661 - 10787876864 - DEBUG - Bouncer 0 selected customer [49] from queue
-2023-12-02 02:56:06,778 - 10787876864 - INFO - Customer [49] kicked out
-2023-12-02 02:56:06,796 - 10804703232 - DEBUG - Bouncer 1 selected customer [48] from queue
-2023-12-02 02:56:06,853 - 10804703232 - DEBUG - Bouncer 1 allowed customer 48 to enter
-2023-12-02 02:56:07,722 - 11629195264 - INFO - Customer [48] in casino
-2023-12-02 02:56:07,733 - 11646021632 - INFO - Customer [49] denied entry to casino
-2023-12-02 02:56:07,902 - 11629195264 - INFO - Customer [48] entered bouncer queue
-2023-12-02 02:56:08,806 - 10787876864 - DEBUG - Bouncer 0 queue full
-2023-12-02 02:56:08,844 - 10787876864 - DEBUG - Bouncer 0 selected customer [48] from queue
-2023-12-02 02:56:08,869 - 10787876864 - DEBUG - Bouncer 0 allowed customer 48 to enter
-2023-12-02 02:56:08,899 - 10804703232 - DEBUG - Bouncer 1 queue full
-2023-12-02 02:56:08,942 - 6223949824 - INFO - Player [45] updated bankroll by: [26973]
-2023-12-02 02:56:08,980 - 10804703232 - DEBUG - Bouncer 1 selected customer [47] from queue
-2023-12-02 02:56:08,992 - 6223949824 - INFO - 45 updating bankroll
-2023-12-02 02:56:09,036 - 10804703232 - INFO - Customer [47] kicked out
-2023-12-02 02:56:09,730 - 11612368896 - INFO - Customer [47] denied entry to casino
-2023-12-02 02:56:10,091 - 6223949824 - ERROR - Error: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:11,766 - 8393022976 - INFO - Tables List: [<classes.table_classes.Poker object at 0x102f95f10>, <classes.table_classes.Poker object at 0x103d2eb90>, <classes.table_classes.Poker object at 0x103d2f850>, <classes.table_classes.Poker object at 0x103d405d0>, <classes.table_classes.Poker object at 0x103d41390>, <classes.table_classes.Poker object at 0x103d42190>]
+2023-12-02 11:25:11,767 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x103d42f90>, <classes.dealer_class.Dealer object at 0x102ef7450>, <classes.dealer_class.Dealer object at 0x103d43110>, <classes.dealer_class.Dealer object at 0x103d43250>, <classes.dealer_class.Dealer object at 0x103d43210>, <classes.dealer_class.Dealer object at 0x103d433d0>, <classes.dealer_class.Dealer object at 0x103d43450>, <classes.dealer_class.Dealer object at 0x103d43390>, <classes.dealer_class.Dealer object at 0x103d43590>, <classes.dealer_class.Dealer object at 0x103d43350>]
+2023-12-02 11:25:11,769 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x103d43550>, <classes.bartender_class.Bartender object at 0x103d43410>]
+2023-12-02 11:25:11,769 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x103d43650>, <classes.bouncer_class.Bouncer object at 0x103d43810>]
+2023-12-02 11:25:11,769 - 8393022976 - INFO - Starting Thread
+2023-12-02 11:25:11,770 - 6148288512 - INFO - Created table 0 thread
+2023-12-02 11:25:11,770 - 6165114880 - INFO - Created table 1 thread
+2023-12-02 11:25:11,770 - 6181941248 - INFO - Created table 2 thread
+2023-12-02 11:25:11,770 - 6198767616 - INFO - Created table 3 thread
+2023-12-02 11:25:11,770 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:25:11,770 - 6232420352 - INFO - Created table 5 thread
+2023-12-02 11:25:11,770 - 6249246720 - INFO - Running dealer [0] thread
+2023-12-02 11:25:11,771 - 6266073088 - INFO - Running dealer [1] thread
+2023-12-02 11:25:11,771 - 6282899456 - INFO - Running dealer [2] thread
+2023-12-02 11:25:11,771 - 6299725824 - INFO - Running dealer [3] thread
+2023-12-02 11:25:11,771 - 6316552192 - INFO - Running dealer [4] thread
+2023-12-02 11:25:11,771 - 6333378560 - INFO - Running dealer [5] thread
+2023-12-02 11:25:11,772 - 6350204928 - INFO - Running dealer [6] thread
+2023-12-02 11:25:11,772 - 6367031296 - INFO - Running dealer [7] thread
+2023-12-02 11:25:11,772 - 6383857664 - INFO - Running dealer [8] thread
+2023-12-02 11:25:11,772 - 6400684032 - INFO - Running dealer [9] thread
+2023-12-02 11:25:11,772 - 6417510400 - INFO - Running bartender [0] thread
+2023-12-02 11:25:11,772 - 6434336768 - INFO - Running bartender [1] thread
+2023-12-02 11:25:11,790 - 10754224128 - INFO - Running bouncer [0] thread
+2023-12-02 11:25:11,790 - 10771050496 - INFO - Running bouncer [1] thread
+2023-12-02 11:25:11,803 - 8393022976 - INFO - Table threads: [<Future at 0x103d437d0 state=running>, <Future at 0x103d4c4d0 state=running>, <Future at 0x103d4c7d0 state=running>, <Future at 0x103d4cd50 state=running>, <Future at 0x103d4d190 state=running>, <Future at 0x103d4cc90 state=running>]
+2023-12-02 11:25:11,863 - 8393022976 - INFO - Dealer threads: [<Future at 0x103d4d8d0 state=running>, <Future at 0x103d4dcd0 state=running>, <Future at 0x103d4e150 state=running>, <Future at 0x103d4e710 state=running>, <Future at 0x103d4e9d0 state=running>, <Future at 0x103d4edd0 state=running>, <Future at 0x103d4f0d0 state=running>, <Future at 0x103d4f810 state=running>, <Future at 0x103d4fb10 state=running>, <Future at 0x103d4f690 state=running>]
+2023-12-02 11:25:11,876 - 8393022976 - INFO - Bartender threads: [<Future at 0x103d5c510 state=running>, <Future at 0x103d4fd90 state=running>]
+2023-12-02 11:25:11,901 - 8393022976 - INFO - Bouncer threads: [<Future at 0x103d5cbd0 state=running>, <Future at 0x103d5d350 state=running>]
+2023-12-02 11:25:11,914 - 8393022976 - INFO - The Casino is now open.
+2023-12-02 11:25:15,467 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.MediumRoller object at 0x103d5d690>, <classes.customer_classes.MediumRoller object at 0x103d5d850>, <classes.customer_classes.MediumRoller object at 0x103d5d210>, <classes.customer_classes.MediumRoller object at 0x103d5d990>, <classes.customer_classes.MediumRoller object at 0x103d5dc10>, <classes.customer_classes.HighRoller object at 0x103d5ddd0>, <classes.customer_classes.MediumRoller object at 0x103d5de10>, <classes.customer_classes.LowRoller object at 0x103d5dd90>, <classes.customer_classes.HighRoller object at 0x1029daf50>, <classes.customer_classes.LowRoller object at 0x103d5dcd0>, <classes.customer_classes.MediumRoller object at 0x103d5d9d0>, <classes.customer_classes.LowRoller object at 0x103d5e410>, <classes.customer_classes.MediumRoller object at 0x103d5e250>, <classes.customer_classes.MediumRoller object at 0x103d5e690>, <classes.customer_classes.LowRoller object at 0x103d5e810>, <classes.customer_classes.LowRoller object at 0x103d5e510>, <classes.customer_classes.LowRoller object at 0x103d5e990>, <classes.customer_classes.MediumRoller object at 0x103d5e9d0>, <classes.customer_classes.MediumRoller object at 0x103d5eb90>, <classes.customer_classes.MediumRoller object at 0x103d5ea10>, <classes.customer_classes.MediumRoller object at 0x103d5edd0>, <classes.customer_classes.LowRoller object at 0x103d5ec50>, <classes.customer_classes.MediumRoller object at 0x103d5f050>, <classes.customer_classes.MediumRoller object at 0x103d5f0d0>, <classes.customer_classes.MediumRoller object at 0x103d5f390>, <classes.customer_classes.LowRoller object at 0x103d5f350>, <classes.customer_classes.MediumRoller object at 0x103d5f250>, <classes.customer_classes.MediumRoller object at 0x103d5f6d0>, <classes.customer_classes.LowRoller object at 0x103d5f510>, <classes.customer_classes.HighRoller object at 0x103d5f790>, <classes.customer_classes.MediumRoller object at 0x1028837d0>, <classes.customer_classes.LowRoller object at 0x103d5fb50>, <classes.customer_classes.LowRoller object at 0x103d5fd10>, <classes.customer_classes.LowRoller object at 0x103d5fbd0>, <classes.customer_classes.HighRoller object at 0x103d5fed0>, <classes.customer_classes.HighRoller object at 0x103d5fad0>, <classes.customer_classes.HighRoller object at 0x103d5fe90>, <classes.customer_classes.MediumRoller object at 0x103d60210>, <classes.customer_classes.LowRoller object at 0x103d60050>, <classes.customer_classes.HighRoller object at 0x103d60510>, <classes.customer_classes.HighRoller object at 0x103d60610>, <classes.customer_classes.HighRoller object at 0x103d60790>, <classes.customer_classes.MediumRoller object at 0x103d60690>, <classes.customer_classes.LowRoller object at 0x103d607d0>, <classes.customer_classes.HighRoller object at 0x103d60350>, <classes.customer_classes.MediumRoller object at 0x103d609d0>, <classes.customer_classes.HighRoller object at 0x103d60550>, <classes.customer_classes.LowRoller object at 0x103d60890>, <classes.customer_classes.HighRoller object at 0x103d60990>, <classes.customer_classes.HighRoller object at 0x103d60d10>]
+2023-12-02 11:25:15,505 - 10787876864 - INFO - Running customer [0] thread
+2023-12-02 11:25:15,524 - 10804703232 - INFO - Running customer [1] thread
+2023-12-02 11:25:15,549 - 10787876864 - INFO - Customer [0] entered bouncer queue
+2023-12-02 11:25:15,591 - 10821529600 - INFO - Running customer [2] thread
+2023-12-02 11:25:15,610 - 10838355968 - INFO - Running customer [3] thread
+2023-12-02 11:25:15,629 - 10804703232 - INFO - Customer [1] entered bouncer queue
+2023-12-02 11:25:15,648 - 10855182336 - INFO - Running customer [4] thread
+2023-12-02 11:25:15,660 - 10872008704 - INFO - Running customer [5] thread
+2023-12-02 11:25:15,673 - 10888835072 - INFO - Running customer [6] thread
+2023-12-02 11:25:15,709 - 10905661440 - INFO - Running customer [7] thread
+2023-12-02 11:25:15,721 - 10821529600 - INFO - Customer [2] entered bouncer queue
+2023-12-02 11:25:15,746 - 10922487808 - INFO - Running customer [8] thread
+2023-12-02 11:25:15,778 - 10939314176 - INFO - Running customer [9] thread
+2023-12-02 11:25:15,809 - 10956140544 - INFO - Running customer [10] thread
+2023-12-02 11:25:15,821 - 10972966912 - INFO - Running customer [11] thread
+2023-12-02 11:25:15,834 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:15,846 - 10989793280 - INFO - Running customer [12] thread
+2023-12-02 11:25:15,857 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:15,876 - 11006619648 - INFO - Running customer [13] thread
+2023-12-02 11:25:15,895 - 11023446016 - INFO - Running customer [14] thread
+2023-12-02 11:25:15,926 - 11040272384 - INFO - Running customer [15] thread
+2023-12-02 11:25:15,957 - 11057098752 - INFO - Running customer [16] thread
+2023-12-02 11:25:15,963 - 10838355968 - INFO - Customer [3] entered bouncer queue
+2023-12-02 11:25:16,000 - 11073925120 - INFO - Running customer [17] thread
+2023-12-02 11:25:16,043 - 11090751488 - INFO - Running customer [18] thread
+2023-12-02 11:25:16,068 - 11107577856 - INFO - Running customer [19] thread
+2023-12-02 11:25:16,075 - 11124404224 - INFO - Running customer [20] thread
+2023-12-02 11:25:16,081 - 11141230592 - INFO - Running customer [21] thread
+2023-12-02 11:25:16,093 - 11158056960 - INFO - Running customer [22] thread
+2023-12-02 11:25:16,112 - 11174883328 - INFO - Running customer [23] thread
+2023-12-02 11:25:16,124 - 11191709696 - INFO - Running customer [24] thread
+2023-12-02 11:25:16,136 - 11208536064 - INFO - Running customer [25] thread
+2023-12-02 11:25:16,161 - 11225362432 - INFO - Running customer [26] thread
+2023-12-02 11:25:16,185 - 11242188800 - INFO - Running customer [27] thread
+2023-12-02 11:25:16,229 - 11259015168 - INFO - Running customer [28] thread
+2023-12-02 11:25:16,241 - 11275841536 - INFO - Running customer [29] thread
+2023-12-02 11:25:16,253 - 11292667904 - INFO - Running customer [30] thread
+2023-12-02 11:25:16,266 - 11309494272 - INFO - Running customer [31] thread
+2023-12-02 11:25:16,277 - 11326320640 - INFO - Running customer [32] thread
+2023-12-02 11:25:16,302 - 11343147008 - INFO - Running customer [33] thread
+2023-12-02 11:25:16,334 - 11359973376 - INFO - Running customer [34] thread
+2023-12-02 11:25:16,334 - 10855182336 - INFO - Customer [4] entered bouncer queue
+2023-12-02 11:25:16,359 - 11376799744 - INFO - Running customer [35] thread
+2023-12-02 11:25:16,396 - 11393626112 - INFO - Running customer [36] thread
+2023-12-02 11:25:16,422 - 11410452480 - INFO - Running customer [37] thread
+2023-12-02 11:25:16,453 - 11427278848 - INFO - Running customer [38] thread
+2023-12-02 11:25:16,490 - 11444105216 - INFO - Running customer [39] thread
+2023-12-02 11:25:16,503 - 11460931584 - INFO - Running customer [40] thread
+2023-12-02 11:25:16,515 - 11477757952 - INFO - Running customer [41] thread
+2023-12-02 11:25:16,553 - 11494584320 - INFO - Running customer [42] thread
+2023-12-02 11:25:16,572 - 11511410688 - INFO - Running customer [43] thread
+2023-12-02 11:25:16,596 - 11528237056 - INFO - Running customer [44] thread
+2023-12-02 11:25:16,609 - 11545063424 - INFO - Running customer [45] thread
+2023-12-02 11:25:16,628 - 11561889792 - INFO - Running customer [46] thread
+2023-12-02 11:25:16,646 - 11578716160 - INFO - Running customer [47] thread
+2023-12-02 11:25:16,672 - 11595542528 - INFO - Running customer [48] thread
+2023-12-02 11:25:16,703 - 11612368896 - INFO - Running customer [49] thread
+2023-12-02 11:25:16,709 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x103d60c50 state=running>, <Future at 0x103d61110 state=running>, <Future at 0x103d613d0 state=running>, <Future at 0x103d618d0 state=running>, <Future at 0x103d61c90 state=running>, <Future at 0x103d61590 state=running>, <Future at 0x103d62590 state=running>, <Future at 0x103d62a50 state=running>, <Future at 0x103d62f50 state=running>, <Future at 0x103d632d0 state=running>, <Future at 0x103d637d0 state=running>, <Future at 0x103d63cd0 state=running>, <Future at 0x103d63f50 state=running>, <Future at 0x103d62c10 state=running>, <Future at 0x103d74b50 state=running>, <Future at 0x103d75110 state=running>, <Future at 0x103d753d0 state=running>, <Future at 0x103d61010 state=running>, <Future at 0x103d75cd0 state=running>, <Future at 0x103d63990 state=running>, <Future at 0x103d76590 state=running>, <Future at 0x103d76b90 state=running>, <Future at 0x103d76e50 state=running>, <Future at 0x103d775d0 state=running>, <Future at 0x103d77890 state=running>, <Future at 0x103d77ad0 state=running>, <Future at 0x103d77e50 state=running>, <Future at 0x103d748d0 state=running>, <Future at 0x103d847d0 state=running>, <Future at 0x103d75590 state=running>, <Future at 0x103d84f50 state=running>, <Future at 0x103d85210 state=running>, <Future at 0x103d75ad0 state=running>, <Future at 0x103d85b10 state=running>, <Future at 0x103d85f90 state=running>, <Future at 0x103d864d0 state=running>, <Future at 0x103d76310 state=running>, <Future at 0x103d86dd0 state=running>, <Future at 0x103d76ad0 state=running>, <Future at 0x103d77010 state=running>, <Future at 0x103d77510 state=running>, <Future at 0x103d87f10 state=running>, <Future at 0x103d77910 state=running>, <Future at 0x103ee48d0 state=running>, <Future at 0x103ee4bd0 state=running>, <Future at 0x103ee5150 state=running>, <Future at 0x103d77c50 state=running>, <Future at 0x103d84050 state=running>, <Future at 0x103d84510 state=running>, <Future at 0x103ee6610 state=running>]
+2023-12-02 11:25:16,928 - 10872008704 - INFO - Customer [5] entered bouncer queue
+2023-12-02 11:25:17,367 - 10888835072 - INFO - Customer [6] entered bouncer queue
+2023-12-02 11:25:17,424 - 10905661440 - INFO - Customer [7] entered bouncer queue
+2023-12-02 11:25:17,442 - 10922487808 - INFO - Customer [8] entered bouncer queue
+2023-12-02 11:25:17,486 - 10939314176 - INFO - Customer [9] entered bouncer queue
+2023-12-02 11:25:17,499 - 10956140544 - INFO - Customer [10] entered bouncer queue
+2023-12-02 11:25:17,518 - 10972966912 - INFO - Customer [11] entered bouncer queue
+2023-12-02 11:25:17,536 - 10754224128 - DEBUG - Bouncer 0 selected customer [11] from queue
+2023-12-02 11:25:17,555 - 10754224128 - DEBUG - Bouncer 0 allowed customer 11 to enter
+2023-12-02 11:25:17,630 - 10989793280 - INFO - Customer [12] entered bouncer queue
+2023-12-02 11:25:17,649 - 10771050496 - DEBUG - Bouncer 1 selected customer [12] from queue
+2023-12-02 11:25:17,662 - 10771050496 - INFO - Customer [12] kicked out
+2023-12-02 11:25:17,686 - 11006619648 - INFO - Customer [13] entered bouncer queue
+2023-12-02 11:25:17,742 - 11023446016 - INFO - Customer [14] entered bouncer queue
+2023-12-02 11:25:17,761 - 11040272384 - INFO - Customer [15] entered bouncer queue
+2023-12-02 11:25:17,786 - 11057098752 - INFO - Customer [16] entered bouncer queue
+2023-12-02 11:25:17,823 - 11073925120 - INFO - Customer [17] entered bouncer queue
+2023-12-02 11:25:17,861 - 11090751488 - INFO - Customer [18] entered bouncer queue
+2023-12-02 11:25:17,880 - 11107577856 - INFO - Customer [19] entered bouncer queue
+2023-12-02 11:25:17,899 - 11124404224 - INFO - Customer [20] entered bouncer queue
+2023-12-02 11:25:17,924 - 11141230592 - INFO - Customer [21] entered bouncer queue
+2023-12-02 11:25:17,955 - 11158056960 - INFO - Customer [22] entered bouncer queue
+2023-12-02 11:25:17,986 - 11174883328 - INFO - Customer [23] entered bouncer queue
+2023-12-02 11:25:18,005 - 11191709696 - INFO - Customer [24] entered bouncer queue
+2023-12-02 11:25:18,023 - 11208536064 - INFO - Customer [25] entered bouncer queue
+2023-12-02 11:25:18,036 - 11225362432 - INFO - Customer [26] entered bouncer queue
+2023-12-02 11:25:18,080 - 11242188800 - INFO - Customer [27] entered bouncer queue
+2023-12-02 11:25:18,123 - 11259015168 - INFO - Customer [28] entered bouncer queue
+2023-12-02 11:25:18,148 - 11275841536 - INFO - Customer [29] entered bouncer queue
+2023-12-02 11:25:18,167 - 11292667904 - INFO - Customer [30] entered bouncer queue
+2023-12-02 11:25:18,180 - 11309494272 - INFO - Customer [31] entered bouncer queue
+2023-12-02 11:25:18,205 - 11326320640 - INFO - Customer [32] entered bouncer queue
+2023-12-02 11:25:18,224 - 11343147008 - INFO - Customer [33] entered bouncer queue
+2023-12-02 11:25:18,224 - 11359973376 - INFO - Customer [34] entered bouncer queue
+2023-12-02 11:25:18,280 - 11376799744 - INFO - Customer [35] entered bouncer queue
+2023-12-02 11:25:18,323 - 11393626112 - INFO - Customer [36] entered bouncer queue
+2023-12-02 11:25:18,353 - 11410452480 - INFO - Customer [37] entered bouncer queue
+2023-12-02 11:25:18,372 - 11427278848 - INFO - Customer [38] entered bouncer queue
+2023-12-02 11:25:18,409 - 11444105216 - INFO - Customer [39] entered bouncer queue
+2023-12-02 11:25:18,434 - 11460931584 - INFO - Customer [40] entered bouncer queue
+2023-12-02 11:25:18,509 - 11477757952 - INFO - Customer [41] entered bouncer queue
+2023-12-02 11:25:18,559 - 10972966912 - INFO - Customer [11] in casino
+2023-12-02 11:25:18,559 - 11494584320 - INFO - Customer [42] entered bouncer queue
+2023-12-02 11:25:18,661 - 11511410688 - INFO - Customer [43] entered bouncer queue
+2023-12-02 11:25:18,673 - 10989793280 - INFO - Customer [12] denied entry to casino
+2023-12-02 11:25:18,686 - 11528237056 - INFO - Customer [44] entered bouncer queue
+2023-12-02 11:25:18,705 - 11545063424 - INFO - Customer [45] entered bouncer queue
+2023-12-02 11:25:18,748 - 11561889792 - INFO - Customer [46] entered bouncer queue
+2023-12-02 11:25:18,760 - 11578716160 - INFO - Customer [47] entered bouncer queue
+2023-12-02 11:25:18,835 - 11595542528 - INFO - Customer [48] entered bouncer queue
+2023-12-02 11:25:18,872 - 11612368896 - INFO - Customer [49] entered bouncer queue
+2023-12-02 11:25:19,627 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:19,670 - 10754224128 - DEBUG - Bouncer 0 selected customer [49] from queue
+2023-12-02 11:25:19,695 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:19,696 - 10754224128 - DEBUG - Bouncer 0 allowed customer 49 to enter
+2023-12-02 11:25:19,739 - 10771050496 - DEBUG - Bouncer 1 selected customer [48] from queue
+2023-12-02 11:25:19,739 - 10771050496 - INFO - Customer [48] kicked out
+2023-12-02 11:25:19,858 - 11595542528 - INFO - Customer [48] denied entry to casino
+2023-12-02 11:25:19,915 - 11612368896 - INFO - Customer [49] in casino
+2023-12-02 11:25:20,089 - 11612368896 - INFO - Customer [49] entered bouncer queue
+2023-12-02 11:25:21,748 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:21,748 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:21,772 - 10771050496 - DEBUG - Bouncer 1 selected customer [49] from queue
+2023-12-02 11:25:21,860 - 10771050496 - DEBUG - Bouncer 1 allowed customer 49 to enter
+2023-12-02 11:25:21,890 - 10754224128 - DEBUG - Bouncer 0 selected customer [47] from queue
+2023-12-02 11:25:21,978 - 10754224128 - DEBUG - Bouncer 0 allowed customer 47 to enter
+2023-12-02 11:25:22,026 - 6215593984 - INFO - Player [11] updated bankroll by: [2187]
+2023-12-02 11:25:22,119 - 6215593984 - INFO - 11 updating bankroll
+2023-12-02 11:25:22,920 - 11578716160 - INFO - Customer [47] in casino
+2023-12-02 11:25:23,200 - 6215593984 - ERROR - Error: object of type 'NormalDeck' has no len()
 Traceback (most recent call last):
-  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/table_classes.py", line 225, in run
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
     self.play()
-  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/table_classes.py", line 187, in play
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
     self.current_dealer.shuffle_deck()
-  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/deck_class.py", line 8, in shuffle_deck
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
     random.shuffle(self.deck)
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
     for i in reversed(range(1, len(x))):
                                ^^^^^^
 TypeError: object of type 'NormalDeck' has no len()
-2023-12-02 02:56:10,185 - 6190297088 - INFO - Player [44] updated bankroll by: [1161]
-2023-12-02 02:56:10,615 - 6190297088 - INFO - 44 updating bankroll
-2023-12-02 02:56:10,896 - 10787876864 - DEBUG - Bouncer 0 queue full
-2023-12-02 02:56:10,946 - 10787876864 - DEBUG - Bouncer 0 selected customer [46] from queue
+2023-12-02 11:25:23,866 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:23,878 - 10771050496 - DEBUG - Bouncer 1 selected customer [46] from queue
+2023-12-02 11:25:23,902 - 10771050496 - INFO - Customer [46] kicked out
+2023-12-02 11:25:23,994 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:24,013 - 10754224128 - DEBUG - Bouncer 0 selected customer [45] from queue
+2023-12-02 11:25:24,025 - 10754224128 - DEBUG - Bouncer 0 allowed customer 45 to enter
+2023-12-02 11:25:24,043 - 11561889792 - INFO - Customer [46] denied entry to casino
+2023-12-02 11:25:24,852 - 11545063424 - INFO - Customer [45] in casino
+2023-12-02 11:25:25,948 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:25,979 - 10771050496 - DEBUG - Bouncer 1 selected customer [44] from queue
+2023-12-02 11:25:26,011 - 10771050496 - DEBUG - Bouncer 1 allowed customer 44 to enter
+2023-12-02 11:25:26,085 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:26,104 - 10754224128 - DEBUG - Bouncer 0 selected customer [43] from queue
+2023-12-02 11:25:26,154 - 10754224128 - DEBUG - Bouncer 0 allowed customer 43 to enter
+2023-12-02 11:25:26,827 - 11511410688 - INFO - Customer [43] in casino
+2023-12-02 11:25:26,883 - 11528237056 - INFO - Customer [44] in casino
+2023-12-02 11:25:26,990 - 11511410688 - INFO - Customer [43] entered bouncer queue
+2023-12-02 11:25:28,094 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:28,131 - 10771050496 - DEBUG - Bouncer 1 selected customer [43] from queue
+2023-12-02 11:25:28,169 - 10771050496 - DEBUG - Bouncer 1 allowed customer 43 to enter
+2023-12-02 11:25:28,182 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:28,249 - 10754224128 - DEBUG - Bouncer 0 selected customer [42] from queue
+2023-12-02 11:25:28,262 - 10754224128 - INFO - Customer [42] kicked out
+2023-12-02 11:25:28,403 - 6148288512 - INFO - Player [45] updated bankroll by: [15309]
+2023-12-02 11:25:28,415 - 6148288512 - INFO - 45 updating bankroll
+2023-12-02 11:25:28,725 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:25:28,813 - 11494584320 - INFO - Customer [42] denied entry to casino
+2023-12-02 11:25:29,648 - 6148288512 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:29,898 - 6215593984 - INFO - Player [11] updated bankroll by: [2187]
+2023-12-02 11:25:30,009 - 6215593984 - INFO - 11 updating bankroll
+2023-12-02 11:25:30,239 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:30,289 - 10771050496 - DEBUG - Bouncer 1 selected customer [41] from queue
+2023-12-02 11:25:30,319 - 10771050496 - INFO - Customer [41] kicked out
+2023-12-02 11:25:30,319 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:30,444 - 10754224128 - DEBUG - Bouncer 0 selected customer [40] from queue
+2023-12-02 11:25:30,492 - 10754224128 - DEBUG - Bouncer 0 allowed customer 40 to enter
+2023-12-02 11:25:30,680 - 11460931584 - INFO - Customer [40] in casino
+2023-12-02 11:25:30,818 - 11477757952 - INFO - Customer [41] denied entry to casino
+2023-12-02 11:25:31,061 - 6215593984 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:32,406 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:32,425 - 10771050496 - DEBUG - Bouncer 1 selected customer [39] from queue
+2023-12-02 11:25:32,444 - 10771050496 - INFO - Customer [39] kicked out
+2023-12-02 11:25:32,568 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:32,593 - 10754224128 - DEBUG - Bouncer 0 selected customer [38] from queue
+2023-12-02 11:25:32,619 - 10754224128 - INFO - Customer [38] kicked out
+2023-12-02 11:25:32,718 - 11444105216 - INFO - Customer [39] denied entry to casino
+2023-12-02 11:25:32,736 - 11427278848 - INFO - Customer [38] denied entry to casino
+2023-12-02 11:25:34,469 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:34,547 - 10771050496 - DEBUG - Bouncer 1 selected customer [37] from queue
+2023-12-02 11:25:34,653 - 10771050496 - INFO - Customer [37] kicked out
+2023-12-02 11:25:34,659 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:34,728 - 6148288512 - INFO - Created table 0 thread
+2023-12-02 11:25:34,763 - 11410452480 - INFO - Customer [37] denied entry to casino
+2023-12-02 11:25:34,937 - 10754224128 - DEBUG - Bouncer 0 selected customer [36] from queue
+2023-12-02 11:25:35,054 - 6232420352 - INFO - Player [40] updated bankroll by: [124659]
+2023-12-02 11:25:35,073 - 10754224128 - DEBUG - Bouncer 0 allowed customer 36 to enter
+2023-12-02 11:25:35,098 - 6232420352 - INFO - 40 updating bankroll
+2023-12-02 11:25:35,745 - 11393626112 - INFO - Customer [36] in casino
+2023-12-02 11:25:36,065 - 11393626112 - INFO - Customer [36] entered bouncer queue
+2023-12-02 11:25:36,208 - 6232420352 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:36,239 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:25:36,606 - 6148288512 - INFO - Player [45] updated bankroll by: [26244]
+2023-12-02 11:25:36,663 - 6148288512 - INFO - 45 updating bankroll
+2023-12-02 11:25:36,713 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:36,737 - 10771050496 - DEBUG - Bouncer 1 selected customer [36] from queue
+2023-12-02 11:25:36,774 - 10771050496 - DEBUG - Bouncer 1 allowed customer 36 to enter
+2023-12-02 11:25:37,179 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:37,204 - 10754224128 - DEBUG - Bouncer 0 selected customer [35] from queue
+2023-12-02 11:25:37,216 - 10754224128 - INFO - Customer [35] kicked out
+2023-12-02 11:25:37,761 - 6148288512 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:37,939 - 11376799744 - INFO - Customer [35] denied entry to casino
+2023-12-02 11:25:38,076 - 6215593984 - INFO - Player [11] updated bankroll by: [2916]
+2023-12-02 11:25:38,150 - 6215593984 - INFO - 11 updating bankroll
+2023-12-02 11:25:38,821 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:38,926 - 10771050496 - DEBUG - Bouncer 1 selected customer [34] from queue
+2023-12-02 11:25:39,007 - 10771050496 - DEBUG - Bouncer 1 allowed customer 34 to enter
+2023-12-02 11:25:39,249 - 6215593984 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:39,336 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:39,627 - 10754224128 - DEBUG - Bouncer 0 selected customer [33] from queue
+2023-12-02 11:25:39,695 - 10754224128 - INFO - Customer [33] kicked out
+2023-12-02 11:25:39,733 - 11359973376 - INFO - Customer [34] in casino
+2023-12-02 11:25:40,630 - 11343147008 - INFO - Customer [33] denied entry to casino
+2023-12-02 11:25:41,106 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:41,155 - 10771050496 - DEBUG - Bouncer 1 selected customer [32] from queue
+2023-12-02 11:25:41,197 - 10771050496 - INFO - Customer [32] kicked out
+2023-12-02 11:25:41,326 - 6232420352 - INFO - Created table 5 thread
+2023-12-02 11:25:41,716 - 11326320640 - INFO - Customer [32] denied entry to casino
+2023-12-02 11:25:41,728 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:41,961 - 10754224128 - DEBUG - Bouncer 0 selected customer [31] from queue
+2023-12-02 11:25:41,961 - 10754224128 - INFO - Customer [31] kicked out
+2023-12-02 11:25:42,140 - 6165114880 - INFO - Player [44] updated bankroll by: [203391]
+2023-12-02 11:25:42,240 - 6165114880 - INFO - 44 updating bankroll
+2023-12-02 11:25:42,947 - 6148288512 - INFO - Created table 0 thread
+2023-12-02 11:25:42,979 - 11309494272 - INFO - Customer [31] denied entry to casino
+2023-12-02 11:25:43,305 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:43,371 - 10771050496 - DEBUG - Bouncer 1 selected customer [30] from queue
+2023-12-02 11:25:43,409 - 10771050496 - DEBUG - Bouncer 1 allowed customer 30 to enter
+2023-12-02 11:25:43,446 - 6165114880 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:43,619 - 11292667904 - INFO - Customer [30] in casino
+2023-12-02 11:25:43,830 - 6198767616 - INFO - Player [34] updated bankroll by: [203391]
+2023-12-02 11:25:43,830 - 6198767616 - INFO - 34 updating bankroll
+2023-12-02 11:25:44,023 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:44,054 - 10754224128 - DEBUG - Bouncer 0 selected customer [29] from queue
+2023-12-02 11:25:44,061 - 10754224128 - INFO - Customer [29] kicked out
+2023-12-02 11:25:44,453 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:25:44,743 - 11275841536 - INFO - Customer [29] denied entry to casino
+2023-12-02 11:25:44,841 - 6198767616 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:45,477 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:45,496 - 6148288512 - INFO - Player [45] updated bankroll by: [29160]
+2023-12-02 11:25:45,496 - 10771050496 - DEBUG - Bouncer 1 selected customer [28] from queue
+2023-12-02 11:25:45,551 - 6148288512 - INFO - 45 updating bankroll
+2023-12-02 11:25:45,806 - 10771050496 - INFO - Customer [28] kicked out
+2023-12-02 11:25:46,279 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:46,315 - 10754224128 - DEBUG - Bouncer 0 selected customer [27] from queue
+2023-12-02 11:25:46,340 - 10754224128 - DEBUG - Bouncer 0 allowed customer 27 to enter
+2023-12-02 11:25:46,767 - 11242188800 - INFO - Customer [27] in casino
+2023-12-02 11:25:46,816 - 11259015168 - INFO - Customer [28] denied entry to casino
+2023-12-02 11:25:46,990 - 6148288512 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:47,844 - 6232420352 - INFO - Player [40] updated bankroll by: [255879]
+2023-12-02 11:25:47,895 - 6232420352 - INFO - 40 updating bankroll
+2023-12-02 11:25:48,068 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:48,137 - 10771050496 - DEBUG - Bouncer 1 selected customer [26] from queue
+2023-12-02 11:25:48,236 - 10771050496 - DEBUG - Bouncer 1 allowed customer 26 to enter
+2023-12-02 11:25:48,378 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:48,416 - 10754224128 - DEBUG - Bouncer 0 selected customer [25] from queue
+2023-12-02 11:25:48,483 - 10754224128 - DEBUG - Bouncer 0 allowed customer 25 to enter
+2023-12-02 11:25:48,718 - 11208536064 - INFO - Customer [25] in casino
+2023-12-02 11:25:48,736 - 10972966912 - INFO - Customer [11] entered bouncer queue
+2023-12-02 11:25:48,873 - 11225362432 - INFO - Customer [26] in casino
+2023-12-02 11:25:48,885 - 6165114880 - INFO - Created table 1 thread
+2023-12-02 11:25:48,935 - 6232420352 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:49,073 - 11208536064 - INFO - Customer [25] entered bouncer queue
+2023-12-02 11:25:49,989 - 6198767616 - INFO - Created table 3 thread
+2023-12-02 11:25:49,995 - 6215593984 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:50,253 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:50,353 - 10771050496 - DEBUG - Bouncer 1 selected customer [25] from queue
+2023-12-02 11:25:50,390 - 10771050496 - DEBUG - Bouncer 1 allowed customer 25 to enter
+2023-12-02 11:25:50,652 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:50,677 - 10754224128 - DEBUG - Bouncer 0 selected customer [11] from queue
+2023-12-02 11:25:50,696 - 10754224128 - DEBUG - Bouncer 0 allowed customer 11 to enter
+2023-12-02 11:25:51,080 - 6165114880 - INFO - Player [44] updated bankroll by: [209952]
+2023-12-02 11:25:51,093 - 6165114880 - INFO - 44 updating bankroll
+2023-12-02 11:25:52,154 - 6165114880 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:52,382 - 6148288512 - INFO - Created table 0 thread
+2023-12-02 11:25:52,618 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:52,748 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:52,876 - 10771050496 - DEBUG - Bouncer 1 selected customer [24] from queue
+2023-12-02 11:25:53,039 - 10771050496 - DEBUG - Bouncer 1 allowed customer 24 to enter
+2023-12-02 11:25:53,057 - 6198767616 - INFO - Player [34] updated bankroll by: [104976]
+2023-12-02 11:25:53,281 - 10754224128 - DEBUG - Bouncer 0 selected customer [23] from queue
+2023-12-02 11:25:53,287 - 6198767616 - INFO - 34 updating bankroll
+2023-12-02 11:25:53,300 - 10754224128 - DEBUG - Bouncer 0 allowed customer 23 to enter
+2023-12-02 11:25:53,337 - 11191709696 - INFO - Customer [24] in casino
+2023-12-02 11:25:53,503 - 11578716160 - INFO - Customer [47] entered bouncer queue
+2023-12-02 11:25:53,877 - 11174883328 - INFO - Customer [23] in casino
+2023-12-02 11:25:54,261 - 6232420352 - INFO - Created table 5 thread
+2023-12-02 11:25:54,349 - 11174883328 - INFO - Customer [23] entered bouncer queue
+2023-12-02 11:25:54,497 - 6198767616 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:54,896 - 6181941248 - INFO - Player [27] updated bankroll by: [10206]
+2023-12-02 11:25:54,946 - 6181941248 - INFO - 27 updating bankroll
+2023-12-02 11:25:55,220 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:55,300 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:25:55,318 - 10771050496 - DEBUG - Bouncer 1 selected customer [23] from queue
+2023-12-02 11:25:55,545 - 10771050496 - DEBUG - Bouncer 1 allowed customer 23 to enter
+2023-12-02 11:25:55,545 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:55,625 - 10754224128 - DEBUG - Bouncer 0 selected customer [47] from queue
+2023-12-02 11:25:55,817 - 10754224128 - DEBUG - Bouncer 0 allowed customer 47 to enter
+2023-12-02 11:25:56,002 - 6181941248 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:57,193 - 6232420352 - INFO - Player [40] updated bankroll by: [104976]
+2023-12-02 11:25:57,218 - 6232420352 - INFO - 40 updating bankroll
+2023-12-02 11:25:57,713 - 6165114880 - INFO - Created table 1 thread
+2023-12-02 11:25:57,836 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:25:58,197 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:25:58,203 - 10771050496 - DEBUG - Bouncer 1 selected customer [22] from queue
+2023-12-02 11:25:58,258 - 6232420352 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:58,505 - 10771050496 - DEBUG - Bouncer 1 allowed customer 22 to enter
+2023-12-02 11:25:58,979 - 10754224128 - DEBUG - Bouncer 0 selected customer [21] from queue
+2023-12-02 11:25:59,095 - 10754224128 - INFO - Customer [21] kicked out
+2023-12-02 11:25:59,604 - 6148288512 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:25:59,635 - 11158056960 - INFO - Customer [22] in casino
+2023-12-02 11:25:59,802 - 6198767616 - INFO - Created table 3 thread
+2023-12-02 11:26:00,373 - 11141230592 - INFO - Customer [21] denied entry to casino
+2023-12-02 11:26:00,684 - 6215593984 - INFO - Player [45] updated bankroll by: [23328]
+2023-12-02 11:26:00,869 - 6215593984 - INFO - 45 updating bankroll
+2023-12-02 11:26:00,936 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:01,016 - 10771050496 - DEBUG - Bouncer 1 selected customer [20] from queue
+2023-12-02 11:26:01,065 - 10771050496 - INFO - Customer [20] kicked out
+2023-12-02 11:26:01,255 - 6181941248 - INFO - Created table 2 thread
+2023-12-02 11:26:01,439 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:26:01,519 - 10754224128 - DEBUG - Bouncer 0 selected customer [19] from queue
+2023-12-02 11:26:01,617 - 10754224128 - INFO - Customer [19] kicked out
+2023-12-02 11:26:01,954 - 6215593984 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:26:02,021 - 11107577856 - INFO - Customer [19] denied entry to casino
+2023-12-02 11:26:02,139 - 11124404224 - INFO - Customer [20] denied entry to casino
+2023-12-02 11:26:03,174 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:03,199 - 10771050496 - DEBUG - Bouncer 1 selected customer [18] from queue
+2023-12-02 11:26:03,223 - 10771050496 - INFO - Customer [18] kicked out
+2023-12-02 11:26:03,315 - 6165114880 - INFO - Player [44] updated bankroll by: [157464]
+2023-12-02 11:26:03,346 - 6165114880 - INFO - 44 updating bankroll
+2023-12-02 11:26:03,544 - 11090751488 - INFO - Customer [18] denied entry to casino
+2023-12-02 11:26:03,687 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:26:03,744 - 10754224128 - DEBUG - Bouncer 0 selected customer [17] from queue
+2023-12-02 11:26:03,769 - 10754224128 - INFO - Customer [17] kicked out
+2023-12-02 11:26:03,769 - 6232420352 - INFO - Created table 5 thread
+2023-12-02 11:26:04,097 - 11073925120 - INFO - Customer [17] denied entry to casino
+2023-12-02 11:26:04,506 - 6165114880 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:26:04,975 - 6148288512 - INFO - Created table 0 thread
+2023-12-02 11:26:05,265 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:05,357 - 10771050496 - DEBUG - Bouncer 1 selected customer [16] from queue
+2023-12-02 11:26:05,376 - 10771050496 - DEBUG - Bouncer 1 allowed customer 16 to enter
+2023-12-02 11:26:05,562 - 6198767616 - INFO - Player [34] updated bankroll by: [107163]
+2023-12-02 11:26:05,790 - 6198767616 - INFO - 34 updating bankroll
+2023-12-02 11:26:05,815 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:26:05,920 - 11057098752 - INFO - Customer [16] in casino
+2023-12-02 11:26:06,101 - 10754224128 - DEBUG - Bouncer 0 selected customer [15] from queue
+2023-12-02 11:26:06,436 - 10754224128 - INFO - Customer [15] kicked out
+2023-12-02 11:26:06,498 - 11057098752 - INFO - Customer [16] entered bouncer queue
+2023-12-02 11:26:06,997 - 6198767616 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:26:07,398 - 6215593984 - INFO - Created table 4 thread
+2023-12-02 11:26:07,472 - 11040272384 - INFO - Customer [15] denied entry to casino
+2023-12-02 11:26:07,677 - 6181941248 - INFO - Player [27] updated bankroll by: [21870]
+2023-12-02 11:26:07,683 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:07,714 - 6181941248 - INFO - 27 updating bankroll
+2023-12-02 11:26:07,770 - 10771050496 - DEBUG - Bouncer 1 selected customer [16] from queue
+2023-12-02 11:26:08,024 - 10771050496 - DEBUG - Bouncer 1 allowed customer 16 to enter
+2023-12-02 11:26:08,527 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:26:08,575 - 10754224128 - DEBUG - Bouncer 0 selected customer [14] from queue
+2023-12-02 11:26:08,875 - 6181941248 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:26:08,900 - 10754224128 - INFO - Customer [14] kicked out
+2023-12-02 11:26:09,685 - 11023446016 - INFO - Customer [14] denied entry to casino
+2023-12-02 11:26:10,119 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:10,169 - 6165114880 - INFO - Created table 1 thread
+2023-12-02 11:26:10,243 - 10771050496 - DEBUG - Bouncer 1 selected customer [13] from queue
+2023-12-02 11:26:10,564 - 10771050496 - INFO - Customer [13] kicked out
+2023-12-02 11:26:10,583 - 6148288512 - INFO - Player [40] updated bankroll by: [131220]
+2023-12-02 11:26:10,657 - 11006619648 - INFO - Customer [13] denied entry to casino
+2023-12-02 11:26:10,657 - 6148288512 - INFO - 40 updating bankroll
+2023-12-02 11:26:11,280 - 10754224128 - DEBUG - Bouncer 0 queue full
+2023-12-02 11:26:11,404 - 10754224128 - DEBUG - Bouncer 0 selected customer [10] from queue
+2023-12-02 11:26:11,497 - 10754224128 - DEBUG - Bouncer 0 allowed customer 10 to enter
+2023-12-02 11:26:12,155 - 6148288512 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/src/classes/deck_class.py", line 10, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 11:26:12,203 - 6198767616 - INFO - Created table 3 thread
+2023-12-02 11:26:12,209 - 10956140544 - INFO - Customer [10] in casino
+2023-12-02 11:26:12,698 - 10771050496 - DEBUG - Bouncer 1 queue full
+2023-12-02 11:26:12,911 - 6232420352 - INFO - Player [22] updated bankroll by: [11178]
+2023-12-02 11:26:12,935 - 10771050496 - DEBUG - Bouncer 1 selected customer [9] from queue
+2023-12-02 11:26:12,998 - 6232420352 - INFO - 22 updating bankroll
+2023-12-02 11:26:13,061 - 10771050496 - INFO - Customer [9] kicked out
+2023-12-02 11:26:13,408 - 10939314176 - INFO - Customer [9] denied entry to casino
+2023-12-02 11:26:13,732 - 10754224128 - DEBUG - Bouncer 0 queue full

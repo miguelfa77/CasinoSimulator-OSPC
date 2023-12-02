@@ -1,7 +1,6 @@
 import time
 import random
 import names
-import threading
 
 class Customer():
     def __init__(self, id=None, casino=None):

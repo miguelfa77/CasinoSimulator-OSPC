@@ -1,6 +1,5 @@
 import random
 import names
-import threading
 
 class Bartender():
 
