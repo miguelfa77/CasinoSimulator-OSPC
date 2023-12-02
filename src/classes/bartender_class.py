@@ -15,18 +15,17 @@ class Bartender():
         self.casino: object = casino
 
     def select_customer(self):
-        with self.casino.locks['bartender']:
-            if self.casino.queues['bartender']:
+        if self.casino.queues['bartender']:
+            with self.casino.locks['bartender']:
                 self.current_customer = self.casino.queues['bartender'].pop()
-                self.current_customer.current_bartender = self
-                return self.current_customer
-            return None
+            self.current_customer.current_bartender = self
+            return self.current_customer
+        return None
 
     def take_order(self, drink_options: list):
-        with self.casino.locks['bartender']:
-            self.current_drink = self.current_customer.order_drink(drink_options)
-            self.current_customer.current_drink = self.current_drink
-            return self.current_drink      
+        self.current_drink = self.current_customer.order_drink(drink_options)
+        self.current_customer.current_drink = self.current_drink
+        return self.current_drink      
     
     def run(self):
         try:
