@@ -138,6 +138,7 @@ class Casino:
         plt.xlabel('timestamp')
         plt.ylabel('cumulative amount ($)')
         plt.title('Casino balance')
+        plt.savefig('CasinoPerformance.png')
         plt.show()
         
     def run(self):
@@ -167,8 +168,8 @@ class Casino:
                 elapsed_time = time.time() - start_time
     
             self.is_open = False
-            
-        exe.shutdown(wait=True)
+
+        exe.shutdown()
 
         self.LOG.info(f"The Casino is now closed.")
 

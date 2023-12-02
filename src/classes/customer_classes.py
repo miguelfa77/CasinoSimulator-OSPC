@@ -94,10 +94,10 @@ class Customer():
             self.casino.queues['bartender'].append(self)
 
     def leave_bartender(self):
-        while not self.current_bartender and not self.current_drink:
+        while not self.current_bartender and not self.current_drink and self.casino.is_open:
             pass
         if self.current_bartender and self.current_drink:
-            with self.locks['bartender']:
+            with self.casino.locks['bartender']:
                 self.current_bartender = None
                 self.current_drink = None
 
@@ -107,8 +107,9 @@ class Customer():
 
     def leave_table(self):
         if self.current_table:
-            self.current_table.current_customers.remove(self)
-            self.current_table = None
+            with self.casino.locks['table']['customer']:
+                self.current_table.current_customers.remove(self)
+                self.current_table = None
             
 
     def run(self):
