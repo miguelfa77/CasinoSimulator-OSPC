@@ -1,30 +1,27 @@
 import random
 import time
 import names
-from classes.deck_class import NormalDeck, BlackJackDeck
 
-
-class Dealer(NormalDeck, BlackJackDeck):
+class Dealer():
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
-
     def __init__(self, id, casino: object) -> None:
-        self.dealer_id = id
-        self.deck = None
+        self.dealer_id = id 
         self.name = names.get_first_name()
-        self.age = random.randint(18, 60)
+        self.age = random.randint(18, 60)  
         self.current_table = None
         self.casino: object = casino
+
 
     def enter_table_queue(self):
         """
         Accesses via casino instance
         :returns: table_id (where dealer is) or None
         """
-        with self.casino.locks["table"]["dealer"]:
-            self.casino.queues["table"]["dealer"].append(self)
+        with self.casino.locks['table']['dealer']:
+            self.casino.queues['table']['dealer'].append(self)
 
     def check_table(self):
         for table in self.casino.tables:
@@ -33,32 +30,32 @@ class Dealer(NormalDeck, BlackJackDeck):
                 return True
         else:
             return None
-
+    
     def leave_table(self) -> None:
         for table in self.casino.tables:
             if self is table.current_dealer:
-                with self.casino.locks["table"]["dealer"]:
+                with self.casino.locks['table']['dealer']:
                     table.current_dealer = None
                 return True
-        if self in self.casino.queues["table"]["dealer"]:
-            with self.casino.locks["table"]["dealer"]:
-                self.casino.queues["table"]["dealer"].remove(self)
+        if self in self.casino.queues['table']['dealer']:
+            with self.casino.locks['table']['dealer']:
+                self.casino.queues['table']['dealer'].remove(self)
                 return True
         else:
             return False
-
+         
     def take_break(self) -> None:
         if self.current_table:
             self.leave_table()
-            time.sleep(random.randrange(2, 5))
+            time.sleep(random.randrange(2,5))
         else:
-            time.sleep(random.randrange(2, 5))
-
+            time.sleep(random.randrange(2,5))
+   
     def run(self):
         self.casino.LOG.info(f"Running dealer [{self.dealer_id}] thread")
         while self.casino.is_open:
             try:
-                time.sleep(random.randrange(0, 5))
+                time.sleep(random.randrange(0,5))
 
                 self.enter_table_queue()
 
@@ -69,6 +66,16 @@ class Dealer(NormalDeck, BlackJackDeck):
                         random_choice()
                 else:
                     continue
-
+        
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
+            
+        self.casino.LOG.info(f"Dealer {self.dealer_id}: Thread finished")
+
+
+
+
+
+        
+
+
