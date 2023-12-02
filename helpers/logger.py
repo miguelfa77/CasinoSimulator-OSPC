@@ -6,6 +6,10 @@ LOG_FOLDER = ".logs"
 def myLogger() -> logging.Logger:
 
     file_name = "log_file.log"
+
+    log_file_path = os.path.join(LOG_FOLDER, file_name)
+    clear_log_file(log_file_path)
+
     logger = logging.getLogger(file_name)
 
     if not logger.hasHandlers():
@@ -27,3 +31,10 @@ def myLogger() -> logging.Logger:
         logger.addHandler(console_handler)
 
         return logger
+    
+def clear_log_file(log_file_path):
+    """
+    Clears file for re-run
+    """
+    with open(log_file_path, 'w'):
+        pass

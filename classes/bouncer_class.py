@@ -1,6 +1,7 @@
 from classes.customer_classes import Customer
 import random
 import names
+import time
 
 """
 - Bouncers share the same queue
@@ -15,30 +16,26 @@ class Bouncer:
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)
         self.current_customer = None
-        self.vip_list = set()  # List of VIP customer names
+        self.vip_list = set()
         self.casino: object = casino
     
     def check_id(self, customer:Customer):
         if customer.age < 18:
-            self.kick_out(customer, reason='underage')
             return False
         return True
 
     def check_drunkenness(self, customer:Customer):
         if customer.entry_atts_['drunkness'] > 5:
-            self.kick_out(customer, reason='too drunk')
             return False
         return True
 
     def check_rage(self, customer:Customer):
         if customer.entry_atts_['rage'] > 5:
-            self.kick_out(customer, reason='raging')
             return False
         return True
 
     def check_weapons(self, customer:Customer):
         if customer.entry_atts_['has_weapon']:
-            self.kick_out(customer, reason='carrying a weapon')
             return False
         return True
 
@@ -51,32 +48,34 @@ class Bouncer:
             return True
         return False
 
-    def kick_out(self, customer:Customer, reason):
-        self.casino.LOG.info(f'Customer [{customer}] kicked out')
-        self.kicked_out_customers.append(customer)
+    def kick_out(self, customer:Customer, reason=None):
+        self.casino.LOG.info(f'Customer [{customer.id}] kicked out')
+        self.casino.customers_denied_entry.append(customer)
 
     def allow_entry(self, customer:Customer):
-        if self.check_vip(customer) and self.check_id(customer) and self.check_drunkenness(customer) and self.check_rage(customer) and self.check_weapons(customer):
-            print(f"Customer [{customer}] is allowed to enter.")
+        if self.check_id(customer) and self.check_drunkenness(customer) and self.check_rage(customer) and self.check_weapons(customer):
             return True
         else:
             return False
             
     def run(self):
-        try:
-            self.casino.LOG.info(f"Created bouncer {self.bouncer_id} thread")
-            while self.casino.is_open:
+        self.casino.LOG.info(f"Running bouncer [{self.bouncer_id}] thread")
+        while self.casino.is_open:
+            time.sleep(2)
+            try:
                 if self.casino.queues['bouncer']:
+                    self.casino.LOG.debug(f"Bouncer {self.bouncer_id} queue full")
                     with self.casino.locks['bouncer']:
                         self.current_customer = self.casino.queues['bouncer'].pop()
-                        self.casino.LOG.info(f"Bouncer selected customer {self.current_customer}")
+                        self.casino.LOG.debug(f"Bouncer {self.bouncer_id} selected customer [{self.current_customer.id}] from queue")
                         if self.allow_entry(self.current_customer):
+                            self.casino.LOG.debug(f"Bouncer {self.bouncer_id} allowed customer {self.current_customer.id} to enter")
                             with self.casino.locks['customer']:
                                 self.casino.customers.append(self.current_customer)
                         else:
-                            self.kicked_out_customers.append(self.current_customer)  
-        except Exception as e:
-            self.casino.LOG.error(f"Error: {e}", exc_info=True)
+                            self.kick_out(self.current_customer) 
+            except Exception as e:
+                self.casino.LOG.error(f"Error: {e}", exc_info=True)
 
                 
 

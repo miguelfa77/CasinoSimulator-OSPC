@@ -4,7 +4,7 @@ from classes.customer_classes import Customer, HighRoller, MediumRoller, LowRoll
 from classes.bartender_class import Bartender
 from classes.bouncer_class import Bouncer
 from classes.casinoDB import casinoDB
-from helpers.logger import myLogger
+from helpers.logger import myLogger, clear_log_file
 
 """
 Logic to prevent circular imports:

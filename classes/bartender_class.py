@@ -19,37 +19,27 @@ class Bartender():
         with self.casino.locks['bartender']:
             if self.casino.queues['bartender']:
                 self.current_customer = self.casino.queues['bartender'].pop()
-                self.casino.LOG.info(f"Selected customer {self.current_customer}")
+                self.current_customer.current_bartender = self
+                #self.casino.LOG.info(f"Selected customer {self.current_customer}")
                 return self.current_customer
             return None
 
     def take_order(self, drink_options: list):
-        self.current_drink = self.current_customer.order_drink(drink_options)
-        return self.current_drink       
-    
-    def make_drink(self, drink):
-        if self.current_drink:
-            return drink
-        else:
-            pass
-
-    def serve_drink(self, customer):
-        if self.current_drink:
-            pass
-        else:
-            pass
-
+        with self.casino.locks['bartender']:
+            self.current_drink = self.current_customer.order_drink(drink_options)
+            self.current_customer.current_drink = self.current_drink
+            return self.current_drink      
     
     def run(self):
         try:
-            self.casino.LOG.info(f"Created bartender {self.bartender_id} thread")
+            self.casino.LOG.info(f"Running bartender [{self.bartender_id}] thread")
             while self.casino.is_open:
                 self.current_customer = self.select_customer()
                 if self.current_customer:
-                    self.casino.LOG.info(f"Bartender selected customer {self.current_customer}")
-                    self.current_drink = self.take_order(self.drinks)
+                    self.casino.LOG.info(f"Bartender selected customer [{self.current_customer.id}]")
+                    self.current_drink = self.take_order(drink_options=self.drinks)
                     self.make_drink(self.current_drink)
-                    self.casino.update_balance(5, executor=Bartender)
+                    self.casino.update_balance(5, executor=str(Bartender))
 
                     self.current_customer = None
                     self.current_drink = None

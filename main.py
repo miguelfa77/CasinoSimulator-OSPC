@@ -8,9 +8,9 @@ if __name__ == "__main__":
 
     starting_balance = 100000000
     NUM_OF_TABLES = 6                   # MUST BE MULTIPLE OF 3
-    NUM_OF_CUSTOMERS = 100
+    NUM_OF_CUSTOMERS = 50
     NUM_OF_DEALERS = 10
-    NUM_OF_BARTENDERS = 5
+    NUM_OF_BARTENDERS = 2
     NUM_OF_BOUNCERS = 2
 
 

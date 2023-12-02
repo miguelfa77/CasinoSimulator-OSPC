@@ -1,15 +1,16 @@
 import random
 import time
 import names
-from classes.deck_class import Deck
+from classes.deck_class import NormalDeck, BlackJackDeck
 
-class Dealer(Deck):
+class Dealer(NormalDeck, BlackJackDeck):
     """
     :methods: shuffle_deck, draw_card, take_break, run
     :params: id, tables : list of Table instances
     """
     def __init__(self, id, casino: object) -> None:
         self.dealer_id = id 
+        self.deck = None
         self.name = names.get_first_name()
         self.age = random.randint(18, 60)  
         self.current_table = None
@@ -35,7 +36,8 @@ class Dealer(Deck):
     def leave_table(self) -> None:
         for table in self.casino.tables:
             if self is table.current_dealer:
-                table.current_dealer = None
+                with self.casino.locks['table']['dealer']:
+                    table.current_dealer = None
                 return True
         if self in self.casino.queues['table']['dealer']:
             with self.casino.locks['table']['dealer']:
@@ -52,8 +54,8 @@ class Dealer(Deck):
             time.sleep(random.randrange(2,5))
    
     def run(self):
+        self.casino.LOG.info(f"Running dealer [{self.dealer_id}] thread")
         while self.casino.is_open:
-            self.casino.LOG.info(f"Created bartender {self.dealer_id} thread")
             try:
                 time.sleep(random.randrange(0,5))
 

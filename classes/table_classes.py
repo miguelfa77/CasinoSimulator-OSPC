@@ -1,10 +1,11 @@
 import random
 import time 
-import deck_class as dck
+from classes.deck_class import deck_type
 
 class Table():
     def __init__(self, casino:object):
-        self.current_bets = {}           # dict holding total table bet amounts. specifies per player id.
+        self.current_bets = {}
+        self.deck = None           # dict holding total table bet amounts. specifies per player id.
         self.current_dealer = None
         self.current_customers = []
         self.max_players = None
@@ -19,6 +20,7 @@ class Table():
     def select_dealer(self):
         with self.casino.locks['table']['dealer']:
             self.current_dealer = self.casino.queues['table']['dealer'].pop()
+            self.current_dealer.deck = self.deck
             return self.current_dealer
     
     def customer_waiting(self):
@@ -96,7 +98,7 @@ class BlackJack(Table):
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
-        self.deck = dck.deck_type('blackjack')
+        self.deck = deck_type('blackjack')
         self.max_players = 3
         self.casino = casino
         self._hands = {}
@@ -169,8 +171,9 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
-        self.deck = dck.deck_type('normal')
+        self.deck = deck_type('normal')
         self.max_players = 6
+        self.min_bet_amount = 20
         self.casino = casino
     
     def get_bets(self):
@@ -199,7 +202,8 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
         rake = pot - payoff
         winner = random.choice(self.current_customers)
 
-        self.casino.update_balance(amount=rake, executor=Table)                         # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=rake, executor=str(Table))          # RAKE aka what the casino keeps
+        winner.update_bankroll(payoff)
 
         self.current_bets = {}                                          # EMPTY POT
         time.sleep(1)
@@ -207,7 +211,7 @@ class Poker(Table): # IMPLEMENTATION NOT FINAL
     def run(self):
         while self.casino.is_open:
             try:
-                self.casino.LOG.info(f"Created bartender {self.table_id} thread")
+                self.casino.LOG.info(f"Created table {self.table_id} thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()

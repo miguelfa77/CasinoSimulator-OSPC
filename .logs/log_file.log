@@ -1,21 +1,174 @@
-2023-12-01 19:38:23,637 - 8393022976 - INFO - Starting Thread
-2023-12-01 19:38:32,763 - 10939314176 - INFO - Just created customer 0 thread
-2023-12-01 19:38:32,769 - 10956140544 - INFO - Just created customer 1 thread
-2023-12-01 19:44:00,811 - 8393022976 - INFO - Starting Thread
-2023-12-01 19:44:00,814 - 6187134976 - INFO - Created Table 0 thread
-2023-12-01 19:44:00,815 - 6203961344 - INFO - Created Table 3 thread
-2023-12-01 19:44:00,815 - 6220787712 - INFO - Created table 1 thread
-2023-12-01 19:44:00,816 - 6237614080 - INFO - Created table 4 thread
-2023-12-01 19:44:00,817 - 6254440448 - INFO - Created bartender 2 thread
-2023-12-01 19:44:00,817 - 6288093184 - INFO - Created bartender 5 thread
-2023-12-01 19:44:00,818 - 6271266816 - INFO - Created bartender 0 thread
-2023-12-01 19:44:00,818 - 6304919552 - INFO - Created bartender 1 thread
-2023-12-01 19:44:00,819 - 6321745920 - INFO - Created bartender 2 thread
-2023-12-01 19:44:00,819 - 6355398656 - INFO - Created bartender 3 thread
-2023-12-01 19:44:00,819 - 6338572288 - INFO - Created bartender 4 thread
-2023-12-01 19:44:00,820 - 6372225024 - INFO - Created bartender 5 thread
-2023-12-01 19:44:00,820 - 6389051392 - INFO - Created bartender 6 thread
-2023-12-01 19:44:00,821 - 6405877760 - INFO - Created bartender 7 thread
-2023-12-01 19:44:00,821 - 6422704128 - INFO - Created bartender 8 thread
-2023-12-01 19:44:00,821 - 6439530496 - INFO - Created bartender 9 thread
-2023-12-01 19:44:00,822 - 10754224128 - INFO - Created bartender 0 thread
+2023-12-02 02:55:58,828 - 8393022976 - INFO - Tables List: [<classes.table_classes.Poker object at 0x10252dd90>, <classes.table_classes.Poker object at 0x10252ea90>, <classes.table_classes.Poker object at 0x10252f750>, <classes.table_classes.Poker object at 0x10253c4d0>, <classes.table_classes.Poker object at 0x10253d290>, <classes.table_classes.Poker object at 0x10253e090>]
+2023-12-02 02:55:58,830 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x10107fb50>, <classes.dealer_class.Dealer object at 0x1011c32d0>, <classes.dealer_class.Dealer object at 0x10253ee50>, <classes.dealer_class.Dealer object at 0x10253f010>, <classes.dealer_class.Dealer object at 0x10253f110>, <classes.dealer_class.Dealer object at 0x10253ee90>, <classes.dealer_class.Dealer object at 0x10253f050>, <classes.dealer_class.Dealer object at 0x10253f210>, <classes.dealer_class.Dealer object at 0x10253f410>, <classes.dealer_class.Dealer object at 0x10253f250>]
+2023-12-02 02:55:58,830 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x10253ef90>, <classes.bartender_class.Bartender object at 0x1024d1910>]
+2023-12-02 02:55:58,830 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x10253f5d0>, <classes.bouncer_class.Bouncer object at 0x10253f6d0>]
+2023-12-02 02:55:58,830 - 8393022976 - INFO - Starting Thread
+2023-12-02 02:55:58,831 - 6173470720 - INFO - Created table 0 thread
+2023-12-02 02:55:58,831 - 6190297088 - INFO - Created table 1 thread
+2023-12-02 02:55:58,831 - 6207123456 - INFO - Created table 2 thread
+2023-12-02 02:55:58,831 - 6223949824 - INFO - Created table 3 thread
+2023-12-02 02:55:58,831 - 6240776192 - INFO - Created table 4 thread
+2023-12-02 02:55:58,832 - 6257602560 - INFO - Created table 5 thread
+2023-12-02 02:55:58,832 - 6274428928 - INFO - Running dealer [0] thread
+2023-12-02 02:55:58,832 - 6291255296 - INFO - Running dealer [1] thread
+2023-12-02 02:55:58,832 - 6308081664 - INFO - Running dealer [2] thread
+2023-12-02 02:55:58,832 - 6324908032 - INFO - Running dealer [3] thread
+2023-12-02 02:55:58,832 - 6341734400 - INFO - Running dealer [4] thread
+2023-12-02 02:55:58,832 - 6358560768 - INFO - Running dealer [5] thread
+2023-12-02 02:55:58,832 - 6375387136 - INFO - Running dealer [6] thread
+2023-12-02 02:55:58,832 - 6392213504 - INFO - Running dealer [7] thread
+2023-12-02 02:55:58,833 - 6409039872 - INFO - Running dealer [8] thread
+2023-12-02 02:55:58,833 - 6425866240 - INFO - Running dealer [9] thread
+2023-12-02 02:55:58,833 - 10754224128 - INFO - Running bartender [0] thread
+2023-12-02 02:55:58,846 - 10771050496 - INFO - Running bartender [1] thread
+2023-12-02 02:55:58,852 - 10787876864 - INFO - Running bouncer [0] thread
+2023-12-02 02:55:58,876 - 10804703232 - INFO - Running bouncer [1] thread
+2023-12-02 02:55:58,894 - 8393022976 - INFO - Table threads: [<Future at 0x10253fcd0 state=running>, <Future at 0x10254c310 state=running>, <Future at 0x10254c610 state=running>, <Future at 0x10254ca50 state=running>, <Future at 0x10254ce90 state=running>, <Future at 0x10254d010 state=running>]
+2023-12-02 02:55:58,894 - 8393022976 - INFO - Dealer threads: [<Future at 0x10254d950 state=running>, <Future at 0x10254de10 state=running>, <Future at 0x10254e290 state=running>, <Future at 0x10254e590 state=running>, <Future at 0x10254ed10 state=running>, <Future at 0x10254f190 state=running>, <Future at 0x10254f5d0 state=running>, <Future at 0x10254f8d0 state=running>, <Future at 0x102558050 state=running>, <Future at 0x10254e190 state=running>]
+2023-12-02 02:55:58,919 - 8393022976 - INFO - Bartender threads: [<Future at 0x10254fed0 state=running>, <Future at 0x10254fad0 state=running>]
+2023-12-02 02:55:58,944 - 8393022976 - INFO - Bouncer threads: [<Future at 0x102558bd0 state=running>, <Future at 0x102558f10 state=running>]
+2023-12-02 02:55:58,957 - 8393022976 - INFO - The Casino is now open.
+2023-12-02 02:56:01,659 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.MediumRoller object at 0x102559490>, <classes.customer_classes.MediumRoller object at 0x102559110>, <classes.customer_classes.MediumRoller object at 0x102559790>, <classes.customer_classes.HighRoller object at 0x102559a50>, <classes.customer_classes.MediumRoller object at 0x101602610>, <classes.customer_classes.HighRoller object at 0x102559810>, <classes.customer_classes.LowRoller object at 0x1025599d0>, <classes.customer_classes.MediumRoller object at 0x102559d10>, <classes.customer_classes.MediumRoller object at 0x102559e50>, <classes.customer_classes.LowRoller object at 0x102518590>, <classes.customer_classes.HighRoller object at 0x1025597d0>, <classes.customer_classes.MediumRoller object at 0x102559f50>, <classes.customer_classes.MediumRoller object at 0x10255a210>, <classes.customer_classes.LowRoller object at 0x10255a2d0>, <classes.customer_classes.MediumRoller object at 0x10255a510>, <classes.customer_classes.HighRoller object at 0x10255a450>, <classes.customer_classes.LowRoller object at 0x10255a790>, <classes.customer_classes.HighRoller object at 0x10255a550>, <classes.customer_classes.LowRoller object at 0x10255a990>, <classes.customer_classes.MediumRoller object at 0x10255aad0>, <classes.customer_classes.MediumRoller object at 0x10255ac50>, <classes.customer_classes.MediumRoller object at 0x10255ae10>, <classes.customer_classes.MediumRoller object at 0x10255afd0>, <classes.customer_classes.HighRoller object at 0x10255b010>, <classes.customer_classes.MediumRoller object at 0x10255acd0>, <classes.customer_classes.LowRoller object at 0x10255b210>, <classes.customer_classes.MediumRoller object at 0x10255ad50>, <classes.customer_classes.HighRoller object at 0x10255b5d0>, <classes.customer_classes.MediumRoller object at 0x10255b350>, <classes.customer_classes.LowRoller object at 0x10255b710>, <classes.customer_classes.HighRoller object at 0x10255b6d0>, <classes.customer_classes.LowRoller object at 0x10255b910>, <classes.customer_classes.HighRoller object at 0x10255b8d0>, <classes.customer_classes.HighRoller object at 0x10255bc10>, <classes.customer_classes.MediumRoller object at 0x10255bd90>, <classes.customer_classes.MediumRoller object at 0x10255be50>, <classes.customer_classes.MediumRoller object at 0x10255ab50>, <classes.customer_classes.MediumRoller object at 0x10255bfd0>, <classes.customer_classes.LowRoller object at 0x10255c1d0>, <classes.customer_classes.MediumRoller object at 0x10255c110>, <classes.customer_classes.MediumRoller object at 0x10255c410>, <classes.customer_classes.MediumRoller object at 0x10255c5d0>, <classes.customer_classes.MediumRoller object at 0x10255c390>, <classes.customer_classes.MediumRoller object at 0x10255c610>, <classes.customer_classes.LowRoller object at 0x10255c550>, <classes.customer_classes.MediumRoller object at 0x10255c890>, <classes.customer_classes.MediumRoller object at 0x10255c590>, <classes.customer_classes.HighRoller object at 0x10255c8d0>, <classes.customer_classes.MediumRoller object at 0x10255c690>, <classes.customer_classes.LowRoller object at 0x10255c650>]
+2023-12-02 02:56:01,701 - 10821529600 - INFO - Running customer [0] thread
+2023-12-02 02:56:01,713 - 10838355968 - INFO - Running customer [1] thread
+2023-12-02 02:56:01,737 - 10855182336 - INFO - Running customer [2] thread
+2023-12-02 02:56:01,737 - 10821529600 - INFO - Customer [0] entered bouncer queue
+2023-12-02 02:56:01,744 - 10872008704 - INFO - Running customer [3] thread
+2023-12-02 02:56:01,756 - 10888835072 - INFO - Running customer [4] thread
+2023-12-02 02:56:01,781 - 10905661440 - INFO - Running customer [5] thread
+2023-12-02 02:56:01,806 - 10922487808 - INFO - Running customer [6] thread
+2023-12-02 02:56:01,812 - 10939314176 - INFO - Running customer [7] thread
+2023-12-02 02:56:01,812 - 10838355968 - INFO - Customer [1] entered bouncer queue
+2023-12-02 02:56:01,837 - 10956140544 - INFO - Running customer [8] thread
+2023-12-02 02:56:01,862 - 10972966912 - INFO - Running customer [9] thread
+2023-12-02 02:56:01,874 - 10989793280 - INFO - Running customer [10] thread
+2023-12-02 02:56:01,893 - 11006619648 - INFO - Running customer [11] thread
+2023-12-02 02:56:01,918 - 11023446016 - INFO - Running customer [12] thread
+2023-12-02 02:56:01,943 - 11040272384 - INFO - Running customer [13] thread
+2023-12-02 02:56:01,974 - 11057098752 - INFO - Running customer [14] thread
+2023-12-02 02:56:01,986 - 11073925120 - INFO - Running customer [15] thread
+2023-12-02 02:56:02,042 - 11090751488 - INFO - Running customer [16] thread
+2023-12-02 02:56:02,066 - 10855182336 - INFO - Customer [2] entered bouncer queue
+2023-12-02 02:56:02,066 - 11107577856 - INFO - Running customer [17] thread
+2023-12-02 02:56:02,073 - 11124404224 - INFO - Running customer [18] thread
+2023-12-02 02:56:02,084 - 11141230592 - INFO - Running customer [19] thread
+2023-12-02 02:56:02,129 - 11158056960 - INFO - Running customer [20] thread
+2023-12-02 02:56:02,158 - 11174883328 - INFO - Running customer [21] thread
+2023-12-02 02:56:02,193 - 11191709696 - INFO - Running customer [22] thread
+2023-12-02 02:56:02,253 - 11208536064 - INFO - Running customer [23] thread
+2023-12-02 02:56:02,265 - 11225362432 - INFO - Running customer [24] thread
+2023-12-02 02:56:02,276 - 11242188800 - INFO - Running customer [25] thread
+2023-12-02 02:56:02,331 - 11259015168 - INFO - Running customer [26] thread
+2023-12-02 02:56:02,374 - 11275841536 - INFO - Running customer [27] thread
+2023-12-02 02:56:02,393 - 11292667904 - INFO - Running customer [28] thread
+2023-12-02 02:56:02,424 - 11309494272 - INFO - Running customer [29] thread
+2023-12-02 02:56:02,424 - 10872008704 - INFO - Customer [3] entered bouncer queue
+2023-12-02 02:56:02,454 - 11326320640 - INFO - Running customer [30] thread
+2023-12-02 02:56:02,465 - 11343147008 - INFO - Running customer [31] thread
+2023-12-02 02:56:02,484 - 11359973376 - INFO - Running customer [32] thread
+2023-12-02 02:56:02,509 - 11376799744 - INFO - Running customer [33] thread
+2023-12-02 02:56:02,521 - 11393626112 - INFO - Running customer [34] thread
+2023-12-02 02:56:02,546 - 11410452480 - INFO - Running customer [35] thread
+2023-12-02 02:56:02,603 - 11427278848 - INFO - Running customer [36] thread
+2023-12-02 02:56:02,646 - 11444105216 - INFO - Running customer [37] thread
+2023-12-02 02:56:02,684 - 11460931584 - INFO - Running customer [38] thread
+2023-12-02 02:56:02,715 - 11477757952 - INFO - Running customer [39] thread
+2023-12-02 02:56:02,728 - 11494584320 - INFO - Running customer [40] thread
+2023-12-02 02:56:02,746 - 11511410688 - INFO - Running customer [41] thread
+2023-12-02 02:56:02,802 - 11528237056 - INFO - Running customer [42] thread
+2023-12-02 02:56:02,855 - 11545063424 - INFO - Running customer [43] thread
+2023-12-02 02:56:02,877 - 11561889792 - INFO - Running customer [44] thread
+2023-12-02 02:56:02,902 - 11578716160 - INFO - Running customer [45] thread
+2023-12-02 02:56:02,902 - 10804703232 - DEBUG - Bouncer 1 queue full
+2023-12-02 02:56:02,914 - 10787876864 - DEBUG - Bouncer 0 queue full
+2023-12-02 02:56:02,933 - 11595542528 - INFO - Running customer [46] thread
+2023-12-02 02:56:02,946 - 10888835072 - INFO - Customer [4] entered bouncer queue
+2023-12-02 02:56:02,958 - 11612368896 - INFO - Running customer [47] thread
+2023-12-02 02:56:02,969 - 11629195264 - INFO - Running customer [48] thread
+2023-12-02 02:56:02,988 - 11646021632 - INFO - Running customer [49] thread
+2023-12-02 02:56:03,007 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x10255cb90 state=running>, <Future at 0x10255cf10 state=running>, <Future at 0x10255d1d0 state=running>, <Future at 0x10255d6d0 state=running>, <Future at 0x10255dbd0 state=running>, <Future at 0x10255d310 state=running>, <Future at 0x10255e4d0 state=running>, <Future at 0x10255e890 state=running>, <Future at 0x10255ec50 state=running>, <Future at 0x10255e0d0 state=running>, <Future at 0x10255f6d0 state=running>, <Future at 0x10255fa50 state=running>, <Future at 0x10255ff50 state=running>, <Future at 0x10255e250 state=running>, <Future at 0x10256cad0 state=running>, <Future at 0x10256ce90 state=running>, <Future at 0x10255edd0 state=running>, <Future at 0x10256d490 state=running>, <Future at 0x10255f410 state=running>, <Future at 0x10256dcd0 state=running>, <Future at 0x10256e190 state=running>, <Future at 0x10256e7d0 state=running>, <Future at 0x10256ea90 state=running>, <Future at 0x10256ed50 state=running>, <Future at 0x10256f0d0 state=running>, <Future at 0x10256f4d0 state=running>, <Future at 0x10256fa50 state=running>, <Future at 0x10256fd10 state=running>, <Future at 0x102580210 state=running>, <Future at 0x10255eed0 state=running>, <Future at 0x10256da90 state=running>, <Future at 0x102580fd0 state=running>, <Future at 0x102581290 state=running>, <Future at 0x102581890 state=running>, <Future at 0x102581b50 state=running>, <Future at 0x102582150 state=running>, <Future at 0x102582510 state=running>, <Future at 0x1025828d0 state=running>, <Future at 0x102582c90 state=running>, <Future at 0x10256f650 state=running>, <Future at 0x102583390 state=running>, <Future at 0x102583690 state=running>, <Future at 0x102583bd0 state=running>, <Future at 0x1035f4190 state=running>, <Future at 0x102580690 state=running>, <Future at 0x1035f4910 state=running>, <Future at 0x102580a90 state=running>, <Future at 0x1035f58d0 state=running>, <Future at 0x102580f50 state=running>, <Future at 0x1035f6050 state=running>]
+2023-12-02 02:56:03,404 - 10905661440 - INFO - Customer [5] entered bouncer queue
+2023-12-02 02:56:03,535 - 10922487808 - INFO - Customer [6] entered bouncer queue
+2023-12-02 02:56:03,553 - 10939314176 - INFO - Customer [7] entered bouncer queue
+2023-12-02 02:56:03,572 - 10956140544 - INFO - Customer [8] entered bouncer queue
+2023-12-02 02:56:03,591 - 10972966912 - INFO - Customer [9] entered bouncer queue
+2023-12-02 02:56:03,653 - 10989793280 - INFO - Customer [10] entered bouncer queue
+2023-12-02 02:56:03,672 - 11006619648 - INFO - Customer [11] entered bouncer queue
+2023-12-02 02:56:03,685 - 11023446016 - INFO - Customer [12] entered bouncer queue
+2023-12-02 02:56:03,703 - 11040272384 - INFO - Customer [13] entered bouncer queue
+2023-12-02 02:56:03,740 - 11057098752 - INFO - Customer [14] entered bouncer queue
+2023-12-02 02:56:03,778 - 11073925120 - INFO - Customer [15] entered bouncer queue
+2023-12-02 02:56:03,797 - 11090751488 - INFO - Customer [16] entered bouncer queue
+2023-12-02 02:56:03,815 - 11107577856 - INFO - Customer [17] entered bouncer queue
+2023-12-02 02:56:03,853 - 11124404224 - INFO - Customer [18] entered bouncer queue
+2023-12-02 02:56:03,853 - 11141230592 - INFO - Customer [19] entered bouncer queue
+2023-12-02 02:56:03,853 - 11158056960 - INFO - Customer [20] entered bouncer queue
+2023-12-02 02:56:03,896 - 11174883328 - INFO - Customer [21] entered bouncer queue
+2023-12-02 02:56:03,914 - 11191709696 - INFO - Customer [22] entered bouncer queue
+2023-12-02 02:56:03,927 - 11208536064 - INFO - Customer [23] entered bouncer queue
+2023-12-02 02:56:03,983 - 11225362432 - INFO - Customer [24] entered bouncer queue
+2023-12-02 02:56:04,002 - 11242188800 - INFO - Customer [25] entered bouncer queue
+2023-12-02 02:56:04,021 - 11259015168 - INFO - Customer [26] entered bouncer queue
+2023-12-02 02:56:04,040 - 11275841536 - INFO - Customer [27] entered bouncer queue
+2023-12-02 02:56:04,115 - 11292667904 - INFO - Customer [28] entered bouncer queue
+2023-12-02 02:56:04,140 - 11309494272 - INFO - Customer [29] entered bouncer queue
+2023-12-02 02:56:04,152 - 11326320640 - INFO - Customer [30] entered bouncer queue
+2023-12-02 02:56:04,165 - 11343147008 - INFO - Customer [31] entered bouncer queue
+2023-12-02 02:56:04,190 - 11359973376 - INFO - Customer [32] entered bouncer queue
+2023-12-02 02:56:04,202 - 11376799744 - INFO - Customer [33] entered bouncer queue
+2023-12-02 02:56:04,215 - 11393626112 - INFO - Customer [34] entered bouncer queue
+2023-12-02 02:56:04,234 - 11410452480 - INFO - Customer [35] entered bouncer queue
+2023-12-02 02:56:04,246 - 11427278848 - INFO - Customer [36] entered bouncer queue
+2023-12-02 02:56:04,276 - 11444105216 - INFO - Customer [37] entered bouncer queue
+2023-12-02 02:56:04,295 - 11460931584 - INFO - Customer [38] entered bouncer queue
+2023-12-02 02:56:04,345 - 11477757952 - INFO - Customer [39] entered bouncer queue
+2023-12-02 02:56:04,433 - 11494584320 - INFO - Customer [40] entered bouncer queue
+2023-12-02 02:56:04,464 - 11511410688 - INFO - Customer [41] entered bouncer queue
+2023-12-02 02:56:04,483 - 11528237056 - INFO - Customer [42] entered bouncer queue
+2023-12-02 02:56:04,495 - 11545063424 - INFO - Customer [43] entered bouncer queue
+2023-12-02 02:56:04,508 - 11561889792 - INFO - Customer [44] entered bouncer queue
+2023-12-02 02:56:04,519 - 11578716160 - INFO - Customer [45] entered bouncer queue
+2023-12-02 02:56:04,538 - 10804703232 - DEBUG - Bouncer 1 selected customer [45] from queue
+2023-12-02 02:56:04,557 - 10804703232 - DEBUG - Bouncer 1 allowed customer 45 to enter
+2023-12-02 02:56:04,588 - 10787876864 - DEBUG - Bouncer 0 selected customer [44] from queue
+2023-12-02 02:56:04,607 - 10787876864 - DEBUG - Bouncer 0 allowed customer 44 to enter
+2023-12-02 02:56:04,626 - 11595542528 - INFO - Customer [46] entered bouncer queue
+2023-12-02 02:56:04,644 - 11612368896 - INFO - Customer [47] entered bouncer queue
+2023-12-02 02:56:04,656 - 11629195264 - INFO - Customer [48] entered bouncer queue
+2023-12-02 02:56:04,681 - 11646021632 - INFO - Customer [49] entered bouncer queue
+2023-12-02 02:56:05,525 - 11561889792 - INFO - Customer [44] in casino
+2023-12-02 02:56:05,574 - 11578716160 - INFO - Customer [45] in casino
+2023-12-02 02:56:06,636 - 10787876864 - DEBUG - Bouncer 0 queue full
+2023-12-02 02:56:06,648 - 10804703232 - DEBUG - Bouncer 1 queue full
+2023-12-02 02:56:06,661 - 10787876864 - DEBUG - Bouncer 0 selected customer [49] from queue
+2023-12-02 02:56:06,778 - 10787876864 - INFO - Customer [49] kicked out
+2023-12-02 02:56:06,796 - 10804703232 - DEBUG - Bouncer 1 selected customer [48] from queue
+2023-12-02 02:56:06,853 - 10804703232 - DEBUG - Bouncer 1 allowed customer 48 to enter
+2023-12-02 02:56:07,722 - 11629195264 - INFO - Customer [48] in casino
+2023-12-02 02:56:07,733 - 11646021632 - INFO - Customer [49] denied entry to casino
+2023-12-02 02:56:07,902 - 11629195264 - INFO - Customer [48] entered bouncer queue
+2023-12-02 02:56:08,806 - 10787876864 - DEBUG - Bouncer 0 queue full
+2023-12-02 02:56:08,844 - 10787876864 - DEBUG - Bouncer 0 selected customer [48] from queue
+2023-12-02 02:56:08,869 - 10787876864 - DEBUG - Bouncer 0 allowed customer 48 to enter
+2023-12-02 02:56:08,899 - 10804703232 - DEBUG - Bouncer 1 queue full
+2023-12-02 02:56:08,942 - 6223949824 - INFO - Player [45] updated bankroll by: [26973]
+2023-12-02 02:56:08,980 - 10804703232 - DEBUG - Bouncer 1 selected customer [47] from queue
+2023-12-02 02:56:08,992 - 6223949824 - INFO - 45 updating bankroll
+2023-12-02 02:56:09,036 - 10804703232 - INFO - Customer [47] kicked out
+2023-12-02 02:56:09,730 - 11612368896 - INFO - Customer [47] denied entry to casino
+2023-12-02 02:56:10,091 - 6223949824 - ERROR - Error: object of type 'NormalDeck' has no len()
+Traceback (most recent call last):
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/table_classes.py", line 225, in run
+    self.play()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/table_classes.py", line 187, in play
+    self.current_dealer.shuffle_deck()
+  File "/Users/miguelfa/Library/Mobile Documents/com~apple~CloudDocs/Desktop/3:1_IE/OS & PL/CasinoSimulator/CasinoSimulator-OSPC/classes/deck_class.py", line 8, in shuffle_deck
+    random.shuffle(self.deck)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 380, in shuffle
+    for i in reversed(range(1, len(x))):
+                               ^^^^^^
+TypeError: object of type 'NormalDeck' has no len()
+2023-12-02 02:56:10,185 - 6190297088 - INFO - Player [44] updated bankroll by: [1161]
+2023-12-02 02:56:10,615 - 6190297088 - INFO - 44 updating bankroll
+2023-12-02 02:56:10,896 - 10787876864 - DEBUG - Bouncer 0 queue full
+2023-12-02 02:56:10,946 - 10787876864 - DEBUG - Bouncer 0 selected customer [46] from queue
