@@ -1,6 +1,5 @@
 import os
 import mysql.connector
-from typing import Literal
 import traceback
 
 
@@ -51,7 +50,7 @@ class casinoDB:
             print("Worked db")
             return self.conn
 
-        except:
+        except Exception:
             self.conn = mysql.connector.connect(**self.config)
             print("Worked no db")
             return self.conn
@@ -99,7 +98,7 @@ class casinoDB:
                             """,
             "customers": """CREATE TABLE IF NOT EXISTS customers(
                             customer_id INT PRIMARY KEY,
-                            name VARCHAR(255) NOT NULL, 
+                            name VARCHAR(255) NOT NULL,
                             age VARCHAR(255) NOT NULL,
                             gender VARCHAR(255));
                             """,

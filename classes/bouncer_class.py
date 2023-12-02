@@ -6,7 +6,7 @@ import time
 """
 - Bouncers share the same queue
 - Add customer attr. to the customer class
-- Possibility: Initilize only the Bouncer instances with customers as constructors and append to 
+- Possibility: Initilize only the Bouncer instances with customers as constructors and append to
 """
 
 

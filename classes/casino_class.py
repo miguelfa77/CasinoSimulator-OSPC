@@ -1,7 +1,6 @@
 import threading
 import concurrent.futures
 import random
-import sys
 import time
 from classes.classes_file import (
     Roulette,
@@ -87,7 +86,10 @@ class Casino:
                 [BlackJack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
         """
-        tables = [Poker(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        poker = [Poker(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        roulette = [Roulette(table_id + 1, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        bj = [BlackJack(table_id + 2, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        tables = poker + roulette + bj
         self.tables.extend(tables)
         self.LOG.info(f"Tables List: {tables}")
 
@@ -179,4 +181,4 @@ class Casino:
                 elapsed_time = time.time() - start_time
 
             self.is_open = False
-            self.LOG.info(f"The Casino is now closed.")
+            self.LOG.info("The Casino is now closed.")

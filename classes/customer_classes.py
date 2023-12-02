@@ -1,7 +1,6 @@
 import time
 import random
 import names
-import threading
 
 
 class Customer:
@@ -71,13 +70,8 @@ class Customer:
 
     def bet(self, amount):
         while amount < self.min_bet_amount:
-            print(f"Bet placed: {amount}")
             if amount < self.min_bet_amount:
-                print(f"Bet not enough for customer type , increasing bet by 300%...")
                 amount *= 3
-            print(
-                f"{self.name} has placed a bet of {amount}, leaving them with a total of {self.bankroll} in their account."
-            )
         self.update_bankroll(amount)
 
     def isBankrupt(self):

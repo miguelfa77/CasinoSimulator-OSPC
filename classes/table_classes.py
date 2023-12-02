@@ -1,5 +1,4 @@
 import random
-import threading
 import time
 import deck_class as dck
 
@@ -116,10 +115,7 @@ class BlackJack(Table):
                 print(f"Player {player.name} has won.")
                 player.win(sum(self.current_bets.values()))
             elif (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21):
-                print(f"Player {player.name} has won")
                 player.win(sum(self.current_bets.values()))
-            elif sum(self._hands[player]) > 21:
-                print(f"Player went over, lost")
             else:
                 with self.casino.locks["balance"]:
                     self.casino._balance += sum(self.current_bets.values())
