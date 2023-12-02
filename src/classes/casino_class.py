@@ -71,7 +71,10 @@ class Casino:
                 [BlackJack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
                 [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES, 3)]
         """
-        tables = [Poker(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        roulette = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        blackjack = [BlackJack(table_id+1, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        poker = [Poker(table_id+2, self) for table_id in range(0, self._NUM_OF_TABLES)]
+        tables = roulette + blackjack + poker
         self.tables.extend(tables)
         self.LOG.info(f"Tables List: {tables}")
 

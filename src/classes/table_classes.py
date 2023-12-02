@@ -40,7 +40,7 @@ class Roulette(Table):
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
-        # self.max_players = 10
+        self.max_players = 10
         self.casino = casino
         self.nums_chosen = {}
 
@@ -63,7 +63,7 @@ class Roulette(Table):
         for customer in self.current_customers:
             bet_amount = self.current_bets[customer]
             if self.nums_chosen[customer] == outcome:
-                customer.win(outcome * 36)
+                customer.update_bankroll(outcome * 36)
                 with self.casino.locks["balance"]:
                     self.casino._balance -= outcome * 36
             else:
@@ -119,12 +119,10 @@ class BlackJack(Table):
         for player in self.current_customers:
             if sum(self._hands[player]) == 21:
                 print(f"Player {player.name} has won.")
-                player.win(sum(self.current_bets.values()))
+                player.update_bankroll(sum(self.current_bets.values()))
             elif (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21):
                 print(f"Player {player.name} has won")
-                player.win(sum(self.current_bets.values()))
-            elif sum(self._hands[player]) > 21:
-                print(f"Player went over, lost")
+                player.update_bankroll(sum(self.current_bets.values()))
             else:
                 with self.casino.locks["balance"]:
                     self.casino._balance += sum(self.current_bets.values())
@@ -156,7 +154,7 @@ class BlackJack(Table):
                         time.sleep(5)
                 self.get_bets()
                 self.play()
-                self.payoff_bets()
+                
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
                 time.sleep(5)
