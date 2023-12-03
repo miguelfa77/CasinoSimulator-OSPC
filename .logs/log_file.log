@@ -1,882 +1,783 @@
-2023-12-03 16:20:36,182 - 8393022976 - INFO - Connection failed to kill/already killed
-2023-12-03 16:20:36,193 - 8393022976 - INFO - Successfully created database casino
-2023-12-03 16:20:36,215 - 8393022976 - INFO - Successfully created table [customers]
-2023-12-03 16:20:36,226 - 8393022976 - INFO - Successfully created table [transactions]
-2023-12-03 16:20:36,227 - 8393022976 - INFO - Tables List: [<classes.table_classes.Roulette object at 0x126922650>, <classes.table_classes.Roulette object at 0x12658f590>, <classes.table_classes.BlackJack object at 0x126922c90>, <classes.table_classes.BlackJack object at 0x1178a9210>, <classes.table_classes.Poker object at 0x1265f5e10>, <classes.table_classes.Poker object at 0x126615390>]
-2023-12-03 16:20:36,227 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x126922cd0>, <classes.dealer_class.Dealer object at 0x1266377d0>, <classes.dealer_class.Dealer object at 0x126576190>, <classes.dealer_class.Dealer object at 0x126922d50>, <classes.dealer_class.Dealer object at 0x126922e50>, <classes.dealer_class.Dealer object at 0x126922f90>, <classes.dealer_class.Dealer object at 0x126923150>, <classes.dealer_class.Dealer object at 0x126922ed0>, <classes.dealer_class.Dealer object at 0x126922d90>, <classes.dealer_class.Dealer object at 0x126922f50>]
-2023-12-03 16:20:36,228 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x126922fd0>, <classes.bartender_class.Bartender object at 0x126616c10>]
-2023-12-03 16:20:36,228 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x126923090>, <classes.bouncer_class.Bouncer object at 0x126923390>, <classes.bouncer_class.Bouncer object at 0x126923450>, <classes.bouncer_class.Bouncer object at 0x1269234d0>]
-2023-12-03 16:20:36,228 - 8393022976 - INFO - Starting Main Thread
-2023-12-03 16:20:36,229 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:20:36,229 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:20:36,229 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:20:36,229 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:20:36,229 - 6192050176 - INFO - Created Poker Table [2] thread
-2023-12-03 16:20:36,229 - 6208876544 - INFO - Created Poker Table [5] thread
-2023-12-03 16:20:36,230 - 6225702912 - INFO - Running dealer [0] thread
-2023-12-03 16:20:36,230 - 6242529280 - INFO - Running dealer [1] thread
-2023-12-03 16:20:36,230 - 6259355648 - INFO - Running dealer [2] thread
-2023-12-03 16:20:36,230 - 6276182016 - INFO - Running dealer [3] thread
-2023-12-03 16:20:36,230 - 6293008384 - INFO - Running dealer [4] thread
-2023-12-03 16:20:36,230 - 6309834752 - INFO - Running dealer [5] thread
-2023-12-03 16:20:36,230 - 6326661120 - INFO - Running dealer [6] thread
-2023-12-03 16:20:36,230 - 6343487488 - INFO - Running dealer [7] thread
-2023-12-03 16:20:36,230 - 6360313856 - INFO - Running dealer [8] thread
-2023-12-03 16:20:36,230 - 6377140224 - INFO - Running dealer [9] thread
-2023-12-03 16:20:36,230 - 6393966592 - INFO - Running bartender [0] thread
-2023-12-03 16:20:36,230 - 6410792960 - INFO - Running bartender [1] thread
-2023-12-03 16:20:36,231 - 6427619328 - INFO - Running bouncer [0] thread
-2023-12-03 16:20:36,237 - 10754224128 - INFO - Running bouncer [1] thread
-2023-12-03 16:20:36,256 - 10771050496 - INFO - Running bouncer [2] thread
-2023-12-03 16:20:36,293 - 10787876864 - INFO - Running bouncer [3] thread
-2023-12-03 16:20:36,306 - 8393022976 - INFO - Table threads: [<Future at 0x1265f6190 state=running>, <Future at 0x126930110 state=running>, <Future at 0x1269304d0 state=running>, <Future at 0x1269307d0 state=running>, <Future at 0x126930c10 state=running>, <Future at 0x126931150 state=running>]
-2023-12-03 16:20:36,399 - 8393022976 - INFO - Dealer threads: [<Future at 0x126931410 state=running>, <Future at 0x126931b10 state=running>, <Future at 0x126931e10 state=running>, <Future at 0x126932110 state=running>, <Future at 0x126932410 state=running>, <Future at 0x126932590 state=running>, <Future at 0x126932d50 state=running>, <Future at 0x126933110 state=running>, <Future at 0x1269336d0 state=running>, <Future at 0x126933b50 state=running>]
-2023-12-03 16:20:36,411 - 8393022976 - INFO - Bartender threads: [<Future at 0x126933f10 state=running>, <Future at 0x1269442d0 state=running>]
-2023-12-03 16:20:36,424 - 8393022976 - INFO - Bouncer threads: [<Future at 0x1269447d0 state=running>, <Future at 0x126944c10 state=running>, <Future at 0x126945050 state=running>, <Future at 0x1269455d0 state=running>]
-2023-12-03 16:20:36,436 - 8393022976 - INFO - The Casino is now open.
-2023-12-03 16:20:40,011 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.MediumRoller object at 0x126945b90>, <classes.customer_classes.HighRoller object at 0x1265f5e90>, <classes.customer_classes.MediumRoller object at 0x1265b1950>, <classes.customer_classes.MediumRoller object at 0x126945d50>, <classes.customer_classes.LowRoller object at 0x126945dd0>, <classes.customer_classes.HighRoller object at 0x126945d10>, <classes.customer_classes.HighRoller object at 0x126578710>, <classes.customer_classes.MediumRoller object at 0x126945ed0>, <classes.customer_classes.MediumRoller object at 0x1269452d0>, <classes.customer_classes.MediumRoller object at 0x1261c94d0>, <classes.customer_classes.LowRoller object at 0x126945ad0>, <classes.customer_classes.MediumRoller object at 0x126946310>, <classes.customer_classes.MediumRoller object at 0x126946210>, <classes.customer_classes.MediumRoller object at 0x126946690>, <classes.customer_classes.HighRoller object at 0x126946810>, <classes.customer_classes.MediumRoller object at 0x1269468d0>, <classes.customer_classes.HighRoller object at 0x126946a10>, <classes.customer_classes.MediumRoller object at 0x126946850>, <classes.customer_classes.MediumRoller object at 0x126946b50>, <classes.customer_classes.MediumRoller object at 0x126945f50>, <classes.customer_classes.MediumRoller object at 0x126946c50>, <classes.customer_classes.HighRoller object at 0x126946f50>, <classes.customer_classes.HighRoller object at 0x126947050>, <classes.customer_classes.HighRoller object at 0x126947310>, <classes.customer_classes.MediumRoller object at 0x126947290>, <classes.customer_classes.LowRoller object at 0x126947510>, <classes.customer_classes.MediumRoller object at 0x126947690>, <classes.customer_classes.MediumRoller object at 0x126947710>, <classes.customer_classes.MediumRoller object at 0x1269474d0>, <classes.customer_classes.MediumRoller object at 0x126947ad0>, <classes.customer_classes.MediumRoller object at 0x126947b50>, <classes.customer_classes.MediumRoller object at 0x126947c50>, <classes.customer_classes.MediumRoller object at 0x126947e10>, <classes.customer_classes.MediumRoller object at 0x126947f90>, <classes.customer_classes.MediumRoller object at 0x126947890>, <classes.customer_classes.MediumRoller object at 0x126947790>, <classes.customer_classes.MediumRoller object at 0x12694c2d0>, <classes.customer_classes.MediumRoller object at 0x12694c0d0>, <classes.customer_classes.MediumRoller object at 0x12694c610>, <classes.customer_classes.MediumRoller object at 0x12694c510>, <classes.customer_classes.LowRoller object at 0x12694c690>, <classes.customer_classes.HighRoller object at 0x12694c310>, <classes.customer_classes.MediumRoller object at 0x12694c5d0>, <classes.customer_classes.MediumRoller object at 0x12694c890>, <classes.customer_classes.HighRoller object at 0x12694c8d0>, <classes.customer_classes.MediumRoller object at 0x12694c9d0>, <classes.customer_classes.MediumRoller object at 0x12694cc10>, <classes.customer_classes.MediumRoller object at 0x12694c450>, <classes.customer_classes.LowRoller object at 0x12694cd90>, <classes.customer_classes.MediumRoller object at 0x12694cd10>]
-2023-12-03 16:20:40,055 - 10804703232 - INFO - Running customer [0] thread
-2023-12-03 16:20:40,067 - 10821529600 - INFO - Running customer [1] thread
-2023-12-03 16:20:40,092 - 10804703232 - INFO - Customer [0] entered bouncer queue
-2023-12-03 16:20:40,092 - 10838355968 - INFO - Running customer [2] thread
-2023-12-03 16:20:40,117 - 10821529600 - INFO - Customer [1] entered bouncer queue
-2023-12-03 16:20:40,117 - 10855182336 - INFO - Running customer [3] thread
-2023-12-03 16:20:40,147 - 10872008704 - INFO - Running customer [4] thread
-2023-12-03 16:20:40,167 - 10888835072 - INFO - Running customer [5] thread
-2023-12-03 16:20:40,184 - 10905661440 - INFO - Running customer [6] thread
-2023-12-03 16:20:40,184 - 10838355968 - INFO - Customer [2] entered bouncer queue
-2023-12-03 16:20:40,228 - 10922487808 - INFO - Running customer [7] thread
-2023-12-03 16:20:40,241 - 10855182336 - INFO - Customer [3] entered bouncer queue
-2023-12-03 16:20:40,258 - 10939314176 - INFO - Running customer [8] thread
-2023-12-03 16:20:40,276 - 10872008704 - INFO - Customer [4] entered bouncer queue
-2023-12-03 16:20:40,288 - 10956140544 - INFO - Running customer [9] thread
-2023-12-03 16:20:40,304 - 6427619328 - INFO - Bouncer [0] allowed customer [4] to enter
-2023-12-03 16:20:40,312 - 10972966912 - INFO - Running customer [10] thread
-2023-12-03 16:20:40,355 - 10989793280 - INFO - Running customer [11] thread
-2023-12-03 16:20:40,390 - 11006619648 - INFO - Running customer [12] thread
-2023-12-03 16:20:40,451 - 11023446016 - INFO - Running customer [13] thread
-2023-12-03 16:20:40,489 - 11040272384 - INFO - Running customer [14] thread
-2023-12-03 16:20:40,525 - 10888835072 - INFO - Customer [5] entered bouncer queue
-2023-12-03 16:20:40,531 - 10905661440 - INFO - Customer [6] entered bouncer queue
-2023-12-03 16:20:40,538 - 10754224128 - INFO - Bouncer [1] allowed customer [6] to enter
-2023-12-03 16:20:40,568 - 11057098752 - INFO - Running customer [15] thread
-2023-12-03 16:20:40,637 - 11073925120 - INFO - Running customer [16] thread
-2023-12-03 16:20:40,668 - 10771050496 - INFO - Bouncer [2] allowed customer [5] to enter
-2023-12-03 16:20:40,668 - 11090751488 - INFO - Running customer [17] thread
-2023-12-03 16:20:40,681 - 11107577856 - INFO - Running customer [18] thread
-2023-12-03 16:20:40,706 - 11124404224 - INFO - Running customer [19] thread
-2023-12-03 16:20:40,737 - 11141230592 - INFO - Running customer [20] thread
-2023-12-03 16:20:40,755 - 11158056960 - INFO - Running customer [21] thread
-2023-12-03 16:20:40,762 - 11174883328 - INFO - Running customer [22] thread
-2023-12-03 16:20:40,793 - 11191709696 - INFO - Running customer [23] thread
-2023-12-03 16:20:40,818 - 11208536064 - INFO - Running customer [24] thread
-2023-12-03 16:20:40,818 - 10787876864 - INFO - Bouncer [3] allowed customer [3] to enter
-2023-12-03 16:20:40,843 - 11225362432 - INFO - Running customer [25] thread
-2023-12-03 16:20:40,868 - 11242188800 - INFO - Running customer [26] thread
-2023-12-03 16:20:40,880 - 11259015168 - INFO - Running customer [27] thread
-2023-12-03 16:20:40,893 - 11275841536 - INFO - Running customer [28] thread
-2023-12-03 16:20:40,929 - 11292667904 - INFO - Running customer [29] thread
-2023-12-03 16:20:40,966 - 11309494272 - INFO - Running customer [30] thread
-2023-12-03 16:20:40,971 - 11326320640 - INFO - Running customer [31] thread
-2023-12-03 16:20:40,984 - 11343147008 - INFO - Running customer [32] thread
-2023-12-03 16:20:41,050 - 11359973376 - INFO - Running customer [33] thread
-2023-12-03 16:20:41,050 - 10922487808 - INFO - Customer [7] entered bouncer queue
-2023-12-03 16:20:41,069 - 10939314176 - INFO - Customer [8] entered bouncer queue
-2023-12-03 16:20:41,081 - 10956140544 - INFO - Customer [9] entered bouncer queue
-2023-12-03 16:20:41,087 - 10972966912 - INFO - Customer [10] entered bouncer queue
-2023-12-03 16:20:41,087 - 11376799744 - INFO - Running customer [34] thread
-2023-12-03 16:20:41,100 - 10989793280 - INFO - Customer [11] entered bouncer queue
-2023-12-03 16:20:41,112 - 11006619648 - INFO - Customer [12] entered bouncer queue
-2023-12-03 16:20:41,119 - 11023446016 - INFO - Customer [13] entered bouncer queue
-2023-12-03 16:20:41,125 - 11393626112 - INFO - Running customer [35] thread
-2023-12-03 16:20:41,125 - 11040272384 - INFO - Customer [14] entered bouncer queue
-2023-12-03 16:20:41,137 - 11057098752 - INFO - Customer [15] entered bouncer queue
-2023-12-03 16:20:41,144 - 11073925120 - INFO - Customer [16] entered bouncer queue
-2023-12-03 16:20:41,150 - 11410452480 - INFO - Running customer [36] thread
-2023-12-03 16:20:41,163 - 11427278848 - INFO - Running customer [37] thread
-2023-12-03 16:20:41,175 - 11090751488 - INFO - Customer [17] entered bouncer queue
-2023-12-03 16:20:41,200 - 11107577856 - INFO - Customer [18] entered bouncer queue
-2023-12-03 16:20:41,219 - 11124404224 - INFO - Customer [19] entered bouncer queue
-2023-12-03 16:20:41,230 - 11141230592 - INFO - Customer [20] entered bouncer queue
-2023-12-03 16:20:41,230 - 11444105216 - INFO - Running customer [38] thread
-2023-12-03 16:20:41,262 - 11158056960 - INFO - Customer [21] entered bouncer queue
-2023-12-03 16:20:41,274 - 11174883328 - INFO - Customer [22] entered bouncer queue
-2023-12-03 16:20:41,286 - 11460931584 - INFO - Running customer [39] thread
-2023-12-03 16:20:41,292 - 11191709696 - INFO - Customer [23] entered bouncer queue
-2023-12-03 16:20:41,317 - 11208536064 - INFO - Customer [24] entered bouncer queue
-2023-12-03 16:20:41,330 - 11225362432 - INFO - Customer [25] entered bouncer queue
-2023-12-03 16:20:41,342 - 11242188800 - INFO - Customer [26] entered bouncer queue
-2023-12-03 16:20:41,343 - 11477757952 - INFO - Running customer [40] thread
-2023-12-03 16:20:41,355 - 11259015168 - INFO - Customer [27] entered bouncer queue
-2023-12-03 16:20:41,367 - 11275841536 - INFO - Customer [28] entered bouncer queue
-2023-12-03 16:20:41,392 - 11494584320 - INFO - Running customer [41] thread
-2023-12-03 16:20:41,392 - 11292667904 - INFO - Customer [29] entered bouncer queue
-2023-12-03 16:20:41,398 - 11309494272 - INFO - Customer [30] entered bouncer queue
-2023-12-03 16:20:41,411 - 11511410688 - INFO - Running customer [42] thread
-2023-12-03 16:20:41,411 - 11326320640 - INFO - Customer [31] entered bouncer queue
-2023-12-03 16:20:41,423 - 11528237056 - INFO - Running customer [43] thread
-2023-12-03 16:20:41,436 - 11343147008 - INFO - Customer [32] entered bouncer queue
-2023-12-03 16:20:41,461 - 11545063424 - INFO - Running customer [44] thread
-2023-12-03 16:20:41,485 - 11359973376 - INFO - Customer [33] entered bouncer queue
-2023-12-03 16:20:41,491 - 11561889792 - INFO - Running customer [45] thread
-2023-12-03 16:20:41,491 - 11376799744 - INFO - Customer [34] entered bouncer queue
-2023-12-03 16:20:41,520 - 11578716160 - INFO - Running customer [46] thread
-2023-12-03 16:20:41,521 - 10855182336 - INFO - Successfully inserted [(3, 'Sherri Smith', 54, 'female')] into table [customers]
-2023-12-03 16:20:41,521 - 11595542528 - INFO - Running customer [47] thread
-2023-12-03 16:20:41,533 - 11612368896 - INFO - Running customer [48] thread
-2023-12-03 16:20:41,570 - 11629195264 - INFO - Running customer [49] thread
-2023-12-03 16:20:41,583 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x12694cbd0 state=running>, <Future at 0x12694d210 state=running>, <Future at 0x12694d510 state=running>, <Future at 0x12694d9d0 state=running>, <Future at 0x12694de90 state=running>, <Future at 0x12694e490 state=running>, <Future at 0x12694e750 state=running>, <Future at 0x12694ec50 state=running>, <Future at 0x12694f150 state=running>, <Future at 0x12694f550 state=running>, <Future at 0x12694fd90 state=running>, <Future at 0x12694ee50 state=running>, <Future at 0x126954490 state=running>, <Future at 0x12694f210 state=running>, <Future at 0x126954b90 state=running>, <Future at 0x12694e910 state=running>, <Future at 0x126955190 state=running>, <Future at 0x12694fb90 state=running>, <Future at 0x126955610 state=running>, <Future at 0x126955950 state=running>, <Future at 0x126955e10 state=running>, <Future at 0x1269562d0 state=running>, <Future at 0x126956690 state=running>, <Future at 0x126956b90 state=running>, <Future at 0x126956f10 state=running>, <Future at 0x126957250 state=running>, <Future at 0x126957790 state=running>, <Future at 0x126957b10 state=running>, <Future at 0x126970150 state=running>, <Future at 0x126956390 state=running>, <Future at 0x126956850 state=running>, <Future at 0x126970cd0 state=running>, <Future at 0x12694f790 state=running>, <Future at 0x126957450 state=running>, <Future at 0x126971a10 state=running>, <Future at 0x126971cd0 state=running>, <Future at 0x1269722d0 state=running>, <Future at 0x126972e50 state=running>, <Future at 0x1269730d0 state=running>, <Future at 0x126973550 state=running>, <Future at 0x126973d50 state=running>, <Future at 0x126978bd0 state=running>, <Future at 0x126978ed0 state=running>, <Future at 0x126979450 state=running>, <Future at 0x126979b10 state=running>, <Future at 0x126971dd0 state=running>, <Future at 0x12697a9d0 state=running>, <Future at 0x126957bd0 state=running>, <Future at 0x12697b3d0 state=running>, <Future at 0x126972390 state=running>]
-2023-12-03 16:20:41,595 - 11393626112 - INFO - Customer [35] entered bouncer queue
-2023-12-03 16:20:41,719 - 11410452480 - INFO - Customer [36] entered bouncer queue
-2023-12-03 16:20:41,757 - 11427278848 - INFO - Customer [37] entered bouncer queue
-2023-12-03 16:20:41,863 - 11444105216 - INFO - Customer [38] entered bouncer queue
-2023-12-03 16:20:41,949 - 11460931584 - INFO - Customer [39] entered bouncer queue
-2023-12-03 16:20:42,098 - 11477757952 - INFO - Customer [40] entered bouncer queue
-2023-12-03 16:20:42,155 - 11494584320 - INFO - Customer [41] entered bouncer queue
-2023-12-03 16:20:42,236 - 11511410688 - INFO - Customer [42] entered bouncer queue
-2023-12-03 16:20:42,317 - 11528237056 - INFO - Customer [43] entered bouncer queue
-2023-12-03 16:20:42,347 - 11545063424 - INFO - Customer [44] entered bouncer queue
-2023-12-03 16:20:42,391 - 11561889792 - INFO - Customer [45] entered bouncer queue
-2023-12-03 16:20:42,470 - 11578716160 - INFO - Customer [46] entered bouncer queue
-2023-12-03 16:20:42,520 - 11595542528 - INFO - Customer [47] entered bouncer queue
-2023-12-03 16:20:42,538 - 6427619328 - INFO - Customer [47] kicked out
-2023-12-03 16:20:42,601 - 10872008704 - INFO - Successfully inserted [(4, 'Patricia Nelson', 73, 'female')] into table [customers]
-2023-12-03 16:20:43,247 - 11612368896 - INFO - Customer [48] entered bouncer queue
-2023-12-03 16:20:43,259 - 11629195264 - INFO - Customer [49] entered bouncer queue
-2023-12-03 16:20:43,284 - 10754224128 - INFO - Customer [49] kicked out
-2023-12-03 16:20:43,314 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x126945dd0>]]
-2023-12-03 16:20:43,315 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.MediumRoller object at 0x126945d50>]]
-2023-12-03 16:20:43,402 - 10771050496 - INFO - Bouncer [2] allowed customer [48] to enter
-2023-12-03 16:20:43,403 - 10888835072 - INFO - Successfully inserted [(5, 'John Dueber', 50, 'male')] into table [customers]
-2023-12-03 16:20:43,661 - 10787876864 - INFO - Customer [46] kicked out
-2023-12-03 16:20:43,848 - 10905661440 - INFO - Successfully inserted [(6, 'Mary Randall', 61, 'female')] into table [customers]
-2023-12-03 16:20:44,396 - 11612368896 - INFO - Successfully inserted [(48, 'Rose Rosenthal', 78, 'female')] into table [customers]
-2023-12-03 16:20:44,480 - 6393966592 - INFO - Bartender selected customer [48]
-2023-12-03 16:20:44,545 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:20:44,558 - 6393966592 - DEBUG - Bartender released customer [48]
-2023-12-03 16:20:44,584 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:20:45,257 - 6427619328 - INFO - Customer [45] kicked out
-2023-12-03 16:20:45,417 - 10754224128 - INFO - Bouncer [1] allowed customer [44] to enter
-2023-12-03 16:20:45,640 - 10771050496 - INFO - Bouncer [2] allowed customer [43] to enter
-2023-12-03 16:20:45,801 - 10787876864 - INFO - Bouncer [3] allowed customer [42] to enter
-2023-12-03 16:20:46,046 - 11511410688 - INFO - Successfully inserted [(42, 'Scott Griffin', 77, 'male')] into table [customers]
-2023-12-03 16:20:46,250 - 6141571072 - INFO - Successfully inserted [('Roulette', 23)] into table [transactions]
-2023-12-03 16:20:46,256 - 11528237056 - INFO - Successfully inserted [(43, 'Christopher Tada', 49, 'male')] into table [customers]
-2023-12-03 16:20:46,300 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:20:46,356 - 6124744704 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.HighRoller object at 0x126578710>]]
-2023-12-03 16:20:46,394 - 6158397440 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.HighRoller object at 0x126945d10>]]
-2023-12-03 16:20:46,556 - 11545063424 - INFO - Successfully inserted [(44, 'Gloria Garcia', 36, 'female')] into table [customers]
-2023-12-03 16:20:47,323 - 6427619328 - INFO - Bouncer [0] allowed customer [41] to enter
-2023-12-03 16:20:47,453 - 10754224128 - INFO - Customer [40] kicked out
-2023-12-03 16:20:47,592 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:20:47,665 - 10771050496 - INFO - Customer [39] kicked out
-2023-12-03 16:20:47,834 - 10787876864 - INFO - Customer [38] kicked out
-2023-12-03 16:20:48,034 - 11494584320 - INFO - Successfully inserted [(41, 'Ruth Moore', 66, 'female')] into table [customers]
-2023-12-03 16:20:49,368 - 6427619328 - INFO - Customer [37] kicked out
-2023-12-03 16:20:49,493 - 10754224128 - INFO - Bouncer [1] allowed customer [36] to enter
-2023-12-03 16:20:49,712 - 10771050496 - INFO - Customer [35] kicked out
-2023-12-03 16:20:49,751 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6600000000000037)] into table [transactions]
-2023-12-03 16:20:49,846 - 11410452480 - INFO - Successfully inserted [(36, 'Perry Rudio', 75, 'female')] into table [customers]
-2023-12-03 16:20:49,912 - 10787876864 - INFO - Customer [34] kicked out
-2023-12-03 16:20:51,437 - 6427619328 - INFO - Bouncer [0] allowed customer [33] to enter
-2023-12-03 16:20:51,439 - 6141571072 - INFO - Successfully inserted [('Roulette', 17)] into table [transactions]
-2023-12-03 16:20:51,517 - 10754224128 - INFO - Customer [32] kicked out
-2023-12-03 16:20:51,542 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:20:51,579 - 6175223808 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.MediumRoller object at 0x12694c890>]]
-2023-12-03 16:20:51,690 - 11359973376 - INFO - Successfully inserted [(33, 'Bobby Hail', 38, 'male')] into table [customers]
-2023-12-03 16:20:51,758 - 10771050496 - INFO - Customer [31] kicked out
-2023-12-03 16:20:51,958 - 10787876864 - INFO - Customer [30] kicked out
-2023-12-03 16:20:52,683 - 6158397440 - INFO - Successfully inserted [('BlackJack', -514)] into table [transactions]
-2023-12-03 16:20:52,756 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:20:53,505 - 6427619328 - INFO - Customer [29] kicked out
-2023-12-03 16:20:53,568 - 10754224128 - INFO - Bouncer [1] allowed customer [28] to enter
-2023-12-03 16:20:53,779 - 10771050496 - INFO - Customer [27] kicked out
-2023-12-03 16:20:53,899 - 6208876544 - INFO - Successfully inserted [('Poker', 0.28000000000000114)] into table [transactions]
-2023-12-03 16:20:53,980 - 10787876864 - INFO - Bouncer [3] allowed customer [26] to enter
-2023-12-03 16:20:54,311 - 11242188800 - INFO - Successfully inserted [(26, 'Ella Wolfe', 41, 'female')] into table [customers]
-2023-12-03 16:20:54,455 - 11275841536 - INFO - Successfully inserted [(28, 'Angel Dun', 21, 'male')] into table [customers]
-2023-12-03 16:20:54,473 - 11612368896 - DEBUG - Customer [48]: ordered drink
-2023-12-03 16:20:54,498 - 6410792960 - INFO - Bartender selected customer [48]
-2023-12-03 16:20:54,556 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:20:54,582 - 6410792960 - DEBUG - Bartender released customer [48]
-2023-12-03 16:20:55,525 - 6427619328 - INFO - Bouncer [0] allowed customer [25] to enter
-2023-12-03 16:20:55,607 - 10754224128 - INFO - Customer [24] kicked out
-2023-12-03 16:20:55,812 - 10771050496 - INFO - Customer [23] kicked out
-2023-12-03 16:20:56,061 - 10787876864 - INFO - Customer [22] kicked out
-2023-12-03 16:20:56,081 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:20:56,367 - 11225362432 - INFO - Successfully inserted [(25, 'Thomas Carlyle', 75, 'male')] into table [customers]
-2023-12-03 16:20:57,564 - 6427619328 - INFO - Customer [21] kicked out
-2023-12-03 16:20:57,639 - 10754224128 - INFO - Bouncer [1] allowed customer [20] to enter
-2023-12-03 16:20:57,833 - 10771050496 - INFO - Bouncer [2] allowed customer [19] to enter
-2023-12-03 16:20:57,871 - 6141571072 - INFO - Successfully inserted [('Roulette', 88)] into table [transactions]
-2023-12-03 16:20:57,914 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:20:58,065 - 11124404224 - INFO - Successfully inserted [(19, 'Mary Caines', 69, 'female')] into table [customers]
-2023-12-03 16:20:58,184 - 10787876864 - INFO - Customer [18] kicked out
-2023-12-03 16:20:58,203 - 11141230592 - INFO - Successfully inserted [(20, 'James Ray', 47, 'male')] into table [customers]
-2023-12-03 16:20:58,957 - 6175223808 - INFO - Player [Christopher Tada] has won
-2023-12-03 16:20:58,988 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:20:59,637 - 6427619328 - INFO - Customer [17] kicked out
-2023-12-03 16:20:59,692 - 10754224128 - INFO - Bouncer [1] allowed customer [16] to enter
-2023-12-03 16:20:59,878 - 10771050496 - INFO - Customer [15] kicked out
-2023-12-03 16:21:00,018 - 11073925120 - INFO - Successfully inserted [(16, 'Miriam Hunter', 70, 'female')] into table [customers]
-2023-12-03 16:21:00,154 - 6158397440 - INFO - Successfully inserted [('BlackJack', -381)] into table [transactions]
-2023-12-03 16:21:00,186 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:00,223 - 10787876864 - INFO - Customer [14] kicked out
-2023-12-03 16:21:00,834 - 6124744704 - INFO - Successfully inserted [('Roulette', 38)] into table [transactions]
-2023-12-03 16:21:00,890 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:01,695 - 6427619328 - INFO - Customer [13] kicked out
-2023-12-03 16:21:01,769 - 10754224128 - INFO - Bouncer [1] allowed customer [12] to enter
-2023-12-03 16:21:01,919 - 10771050496 - INFO - Customer [11] kicked out
-2023-12-03 16:21:02,007 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8599999999999994)] into table [transactions]
-2023-12-03 16:21:02,301 - 10787876864 - INFO - Bouncer [3] allowed customer [10] to enter
-2023-12-03 16:21:02,850 - 11006619648 - INFO - Successfully inserted [(12, 'Catherine Cross', 79, 'female')] into table [customers]
-2023-12-03 16:21:02,992 - 10972966912 - INFO - Successfully inserted [(10, 'Gertrude Dubreuil', 73, 'female')] into table [customers]
-2023-12-03 16:21:03,036 - 6410792960 - INFO - Bartender selected customer [10]
-2023-12-03 16:21:03,132 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:21:03,156 - 6410792960 - DEBUG - Bartender released customer [10]
-2023-12-03 16:21:03,722 - 6427619328 - INFO - Bouncer [0] allowed customer [9] to enter
-2023-12-03 16:21:03,778 - 10754224128 - INFO - Bouncer [1] allowed customer [8] to enter
-2023-12-03 16:21:03,892 - 10956140544 - INFO - Successfully inserted [(9, 'Sylvia Jones', 69, 'female')] into table [customers]
-2023-12-03 16:21:03,978 - 10771050496 - INFO - Customer [7] kicked out
-2023-12-03 16:21:04,173 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:21:04,346 - 10787876864 - INFO - Customer [2] kicked out
-2023-12-03 16:21:04,514 - 11612368896 - DEBUG - Customer [48]: ordered drink
-2023-12-03 16:21:04,564 - 6410792960 - INFO - Bartender selected customer [48]
-2023-12-03 16:21:04,635 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:21:04,673 - 6410792960 - DEBUG - Bartender released customer [48]
-2023-12-03 16:21:04,778 - 10939314176 - INFO - Successfully inserted [(8, 'Micheal Vinson', 67, 'male')] into table [customers]
-2023-12-03 16:21:05,339 - 6192050176 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x126946c50>]]
-2023-12-03 16:21:05,768 - 6427619328 - INFO - Customer [1] kicked out
-2023-12-03 16:21:05,805 - 10754224128 - INFO - Customer [0] kicked out
-2023-12-03 16:21:06,500 - 6175223808 - INFO - Successfully inserted [('BlackJack', -654)] into table [transactions]
-2023-12-03 16:21:06,543 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:07,731 - 6158397440 - INFO - Successfully inserted [('BlackJack', -221)] into table [transactions]
-2023-12-03 16:21:07,788 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:08,450 - 6124744704 - INFO - Successfully inserted [('Roulette', 71)] into table [transactions]
-2023-12-03 16:21:08,512 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:09,077 - 6141571072 - INFO - Successfully inserted [('Roulette', 95)] into table [transactions]
-2023-12-03 16:21:09,132 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:10,280 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:21:12,451 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:21:13,043 - 10972966912 - DEBUG - Customer [10]: ordered drink
-2023-12-03 16:21:14,560 - 11612368896 - DEBUG - Customer [48]: ordered drink
-2023-12-03 16:21:14,597 - 6208876544 - INFO - Successfully inserted [('Poker', 0.33999999999999986)] into table [transactions]
-2023-12-03 16:21:16,707 - 6158397440 - INFO - Player [John Dueber] has won
-2023-12-03 16:21:16,726 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:17,318 - 6124744704 - INFO - Successfully inserted [('Roulette', 92)] into table [transactions]
-2023-12-03 16:21:17,381 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:18,020 - 6141571072 - INFO - Successfully inserted [('Roulette', 91)] into table [transactions]
-2023-12-03 16:21:18,075 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:19,163 - 6192050176 - INFO - Successfully inserted [('Poker', 0.33999999999999986)] into table [transactions]
-2023-12-03 16:21:21,293 - 6175223808 - INFO - Player [Christopher Tada] has won
-2023-12-03 16:21:21,318 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:22,449 - 6208876544 - INFO - Successfully inserted [('Poker', 0.980000000000004)] into table [transactions]
-2023-12-03 16:21:24,621 - 6158397440 - INFO - Successfully inserted [('BlackJack', -143)] into table [transactions]
-2023-12-03 16:21:24,688 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:25,301 - 6124744704 - INFO - Successfully inserted [('Roulette', 42)] into table [transactions]
-2023-12-03 16:21:25,374 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:26,000 - 6141571072 - INFO - Successfully inserted [('Roulette', 39)] into table [transactions]
-2023-12-03 16:21:26,042 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:27,165 - 6192050176 - INFO - Successfully inserted [('Poker', 0.22000000000000064)] into table [transactions]
-2023-12-03 16:21:29,261 - 6175223808 - INFO - Player [Christopher Tada] has won
-2023-12-03 16:21:29,298 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:30,403 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:21:32,560 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5199999999999996)] into table [transactions]
-2023-12-03 16:21:34,290 - 6124744704 - INFO - Successfully inserted [('Roulette', 72)] into table [transactions]
-2023-12-03 16:21:34,346 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:34,983 - 6141571072 - INFO - Successfully inserted [('Roulette', 75)] into table [transactions]
-2023-12-03 16:21:35,058 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:36,208 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:21:38,388 - 6175223808 - INFO - Successfully inserted [('BlackJack', -449)] into table [transactions]
-2023-12-03 16:21:38,463 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:39,509 - 6158397440 - INFO - Player [John Dueber] has won
-2023-12-03 16:21:39,534 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:40,692 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:21:42,358 - 6124744704 - INFO - Successfully inserted [('Roulette', 78)] into table [transactions]
-2023-12-03 16:21:42,414 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:43,015 - 6141571072 - INFO - Successfully inserted [('Roulette', 28)] into table [transactions]
-2023-12-03 16:21:43,068 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:44,175 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:21:46,401 - 6175223808 - INFO - Successfully inserted [('BlackJack', -947)] into table [transactions]
-2023-12-03 16:21:46,457 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:47,482 - 6158397440 - INFO - Player [John Dueber] has won
-2023-12-03 16:21:47,506 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:48,624 - 6208876544 - INFO - Successfully inserted [('Poker', 0.22000000000000064)] into table [transactions]
-2023-12-03 16:21:50,359 - 6124744704 - INFO - Successfully inserted [('Roulette', 53)] into table [transactions]
-2023-12-03 16:21:50,415 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:21:50,427 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:21:50,452 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:21:50,470 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:21:51,583 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5800000000000018)] into table [transactions]
-2023-12-03 16:21:52,672 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:21:52,690 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:21:52,741 - 6393966592 - INFO - Bartender selected customer [6]
-2023-12-03 16:21:52,772 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:21:52,779 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:21:52,779 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:21:52,779 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:21:52,786 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:21:52,915 - 6393966592 - DEBUG - Bartender released customer [6]
-2023-12-03 16:21:53,734 - 6175223808 - INFO - Player [Christopher Tada] has won
-2023-12-03 16:21:53,771 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:53,803 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:21:53,815 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x12694cd90>]]
-2023-12-03 16:21:53,864 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:21:53,920 - 6393966592 - INFO - Bartender selected customer [43]
-2023-12-03 16:21:53,984 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:21:54,020 - 6393966592 - DEBUG - Bartender released customer [43]
-2023-12-03 16:21:55,008 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8400000000000034)] into table [transactions]
-2023-12-03 16:21:57,182 - 6192050176 - INFO - Successfully inserted [('Poker', 0.4800000000000004)] into table [transactions]
-2023-12-03 16:21:58,328 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:21:58,347 - 6158397440 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.MediumRoller object at 0x12694c2d0>]]
-2023-12-03 16:21:58,353 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.MediumRoller object at 0x12694c5d0>]]
-2023-12-03 16:21:59,016 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:21:59,449 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:22:00,206 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:22:00,206 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:22:00,554 - 6175223808 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.HighRoller object at 0x12694c8d0>]]
-2023-12-03 16:22:00,585 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:00,716 - 10888835072 - DEBUG - Customer [5]: went to bathroom
-2023-12-03 16:22:00,915 - 11225362432 - DEBUG - Customer [25]: left table
-2023-12-03 16:22:01,614 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:01,671 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:02,309 - 6141571072 - INFO - Successfully inserted [('Roulette', 39)] into table [transactions]
-2023-12-03 16:22:02,390 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:02,750 - 10905661440 - DEBUG - Customer [6]: ordered drink
-2023-12-03 16:22:02,787 - 6410792960 - INFO - Bartender selected customer [6]
-2023-12-03 16:22:02,871 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:22:02,909 - 6410792960 - DEBUG - Bartender released customer [6]
-2023-12-03 16:22:03,564 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6400000000000006)] into table [transactions]
-2023-12-03 16:22:03,926 - 11528237056 - DEBUG - Customer [43]: ordered drink
-2023-12-03 16:22:05,298 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:22:05,749 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:22:05,817 - 11494584320 - DEBUG - Customer [41]: went to bathroom
-2023-12-03 16:22:06,572 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:22:07,879 - 6208876544 - INFO - Successfully inserted [('Poker', 0.28000000000000114)] into table [transactions]
-2023-12-03 16:22:08,534 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:22:08,960 - 6124744704 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.MediumRoller object at 0x126947690>]]
-2023-12-03 16:22:09,160 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:22:09,166 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:22:09,260 - 11275841536 - DEBUG - Customer [28]: went to bathroom
-2023-12-03 16:22:09,976 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:10,025 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:10,595 - 6141571072 - INFO - Successfully inserted [('Roulette', 45)] into table [transactions]
-2023-12-03 16:22:10,676 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:11,812 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:22:12,568 - 11006619648 - DEBUG - Customer [12]: went to bathroom
-2023-12-03 16:22:12,792 - 10905661440 - DEBUG - Customer [6]: ordered drink
-2023-12-03 16:22:13,860 - 11494584320 - DEBUG - Customer [41]: went to bathroom
-2023-12-03 16:22:13,987 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:22:16,218 - 6175223808 - INFO - Successfully inserted [('BlackJack', -614)] into table [transactions]
-2023-12-03 16:22:16,312 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:17,405 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5199999999999996)] into table [transactions]
-2023-12-03 16:22:19,108 - 6124744704 - INFO - Successfully inserted [('Roulette', 85)] into table [transactions]
-2023-12-03 16:22:19,163 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:20,201 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:20,251 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:20,251 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:22:20,907 - 6141571072 - INFO - Successfully inserted [('Roulette', 22)] into table [transactions]
-2023-12-03 16:22:20,963 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:21,007 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:22:22,142 - 6175223808 - INFO - Successfully inserted [('BlackJack', -604)] into table [transactions]
-2023-12-03 16:22:22,179 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:23,316 - 6208876544 - INFO - Successfully inserted [('Poker', 0.35999999999999943)] into table [transactions]
-2023-12-03 16:22:25,040 - 6124744704 - INFO - Successfully inserted [('Roulette', 26)] into table [transactions]
-2023-12-03 16:22:25,102 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:26,133 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:26,171 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:26,812 - 6141571072 - INFO - Successfully inserted [('Roulette', 91)] into table [transactions]
-2023-12-03 16:22:26,837 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:26,869 - 6192050176 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x126946c50>]]
-2023-12-03 16:22:27,900 - 6175223808 - INFO - Player [Gloria Garcia] has won
-2023-12-03 16:22:27,943 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:29,082 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:22:31,177 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9200000000000017)] into table [transactions]
-2023-12-03 16:22:33,277 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:33,308 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:33,893 - 6141571072 - INFO - Successfully inserted [('Roulette', 26)] into table [transactions]
-2023-12-03 16:22:33,936 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:35,081 - 6192050176 - INFO - Successfully inserted [('Poker', 0.2400000000000002)] into table [transactions]
-2023-12-03 16:22:36,173 - 11612368896 - DEBUG - Customer [48]: left table
-2023-12-03 16:22:37,283 - 6175223808 - INFO - Successfully inserted [('BlackJack', -998)] into table [transactions]
-2023-12-03 16:22:37,326 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:37,939 - 6124744704 - INFO - Successfully inserted [('Roulette', 92)] into table [transactions]
-2023-12-03 16:22:38,008 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:39,057 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:39,113 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:39,753 - 6141571072 - INFO - Successfully inserted [('Roulette', 83)] into table [transactions]
-2023-12-03 16:22:39,808 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:40,929 - 6192050176 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:22:43,103 - 6175223808 - INFO - Successfully inserted [('BlackJack', -770)] into table [transactions]
-2023-12-03 16:22:43,160 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:43,179 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x126945ad0>]]
-2023-12-03 16:22:44,261 - 6158397440 - INFO - Player [Perry Rudio] has won
-2023-12-03 16:22:44,312 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:44,883 - 6141571072 - INFO - Successfully inserted [('Roulette', 66)] into table [transactions]
-2023-12-03 16:22:44,938 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:46,065 - 6192050176 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:22:47,229 - 11612368896 - DEBUG - Customer [48]: went to bathroom
-2023-12-03 16:22:48,153 - 6175223808 - INFO - Player [Gloria Garcia] has won
-2023-12-03 16:22:48,172 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:48,816 - 6124744704 - INFO - Successfully inserted [('Roulette', 29)] into table [transactions]
-2023-12-03 16:22:48,853 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:49,973 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:22:52,190 - 6158397440 - INFO - Successfully inserted [('BlackJack', -617)] into table [transactions]
-2023-12-03 16:22:52,252 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:22:52,860 - 6141571072 - INFO - Successfully inserted [('Roulette', 17)] into table [transactions]
-2023-12-03 16:22:52,897 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:22:53,848 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:22:53,892 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:22:54,037 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:22:56,197 - 6175223808 - INFO - Successfully inserted [('BlackJack', -198)] into table [transactions]
-2023-12-03 16:22:56,228 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:22:56,865 - 6124744704 - INFO - Successfully inserted [('Roulette', 57)] into table [transactions]
-2023-12-03 16:22:56,883 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:22:58,009 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8200000000000003)] into table [transactions]
-2023-12-03 16:23:00,212 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:23:02,375 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:23:02,469 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:23:04,633 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3000000000000007)] into table [transactions]
-2023-12-03 16:23:06,764 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:23:08,983 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:23:09,059 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5199999999999996)] into table [transactions]
-2023-12-03 16:23:11,249 - 6175223808 - INFO - Successfully inserted [('BlackJack', -444)] into table [transactions]
-2023-12-03 16:23:11,292 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:23:11,935 - 6124744704 - INFO - Successfully inserted [('Roulette', 39)] into table [transactions]
-2023-12-03 16:23:12,009 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:23:12,033 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:23:12,045 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:23:12,058 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:23:12,083 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:23:12,126 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:23:12,187 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:23:13,331 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7800000000000011)] into table [transactions]
-2023-12-03 16:23:15,101 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:23:15,101 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:23:15,101 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:23:15,493 - 6192050176 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:23:17,666 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5600000000000023)] into table [transactions]
-2023-12-03 16:23:18,482 - 11225362432 - DEBUG - Customer [25]: left table
-2023-12-03 16:23:18,741 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:23:18,815 - 6158397440 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.HighRoller object at 0x12694c8d0>]]
-2023-12-03 16:23:18,866 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.MediumRoller object at 0x12694c2d0>]]
-2023-12-03 16:23:19,191 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:23:19,197 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:23:19,209 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:23:19,977 - 6208876544 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:23:20,991 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:23:20,998 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:23:22,130 - 6208876544 - INFO - Successfully inserted [('Poker', 0.35999999999999943)] into table [transactions]
-2023-12-03 16:23:24,323 - 6208876544 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:23:25,120 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:23:25,425 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:23:26,565 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:23:27,643 - 6124744704 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.LowRoller object at 0x126947510>]]
-2023-12-03 16:23:28,760 - 6158397440 - INFO - Successfully inserted [('BlackJack', -940)] into table [transactions]
-2023-12-03 16:23:28,797 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:23:29,492 - 6141571072 - INFO - Successfully inserted [('Roulette', 67)] into table [transactions]
-2023-12-03 16:23:29,554 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:23:30,701 - 6208876544 - INFO - Successfully inserted [('Poker', 0.379999999999999)] into table [transactions]
-2023-12-03 16:23:31,780 - 6175223808 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.HighRoller object at 0x12694c310>]]
-2023-12-03 16:23:31,818 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:23:32,543 - 6124744704 - INFO - Successfully inserted [('Roulette', 74)] into table [transactions]
-2023-12-03 16:23:32,605 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:23:33,674 - 6158397440 - INFO - Successfully inserted [('BlackJack', -286)] into table [transactions]
-2023-12-03 16:23:33,724 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:23:34,390 - 6141571072 - INFO - Successfully inserted [('Roulette', 83)] into table [transactions]
-2023-12-03 16:23:34,439 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:23:35,581 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:23:37,771 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6600000000000037)] into table [transactions]
-2023-12-03 16:23:38,889 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:23:38,895 - 6192050176 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x126947690>]]
-2023-12-03 16:23:38,969 - 6393966592 - INFO - Bartender selected customer [10]
-2023-12-03 16:23:39,077 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:23:39,103 - 6393966592 - DEBUG - Bartender released customer [10]
-2023-12-03 16:23:39,939 - 6158397440 - INFO - Player [Gloria Garcia] has won
-2023-12-03 16:23:39,958 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:23:40,541 - 6141571072 - INFO - Successfully inserted [('Roulette', 83)] into table [transactions]
-2023-12-03 16:23:40,628 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:23:41,653 - 6175223808 - INFO - Player [Ruth Moore] has won
-2023-12-03 16:23:41,684 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:23:42,365 - 6124744704 - INFO - Successfully inserted [('Roulette', 62)] into table [transactions]
-2023-12-03 16:23:42,409 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:23:43,552 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5800000000000018)] into table [transactions]
-2023-12-03 16:23:45,833 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:23:48,017 - 6192050176 - INFO - Successfully inserted [('Poker', 0.33999999999999986)] into table [transactions]
-2023-12-03 16:23:48,986 - 10972966912 - DEBUG - Customer [10]: ordered drink
-2023-12-03 16:23:50,174 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:23:51,241 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x126946c50>]]
-2023-12-03 16:23:52,270 - 6158397440 - INFO - Player [Gloria Garcia] has won
-2023-12-03 16:23:52,314 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:23:52,947 - 6141571072 - INFO - Successfully inserted [('Roulette', 72)] into table [transactions]
-2023-12-03 16:23:52,983 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:23:54,006 - 6175223808 - INFO - Player [Ruth Moore] has won
-2023-12-03 16:23:54,031 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:23:55,099 - 11612368896 - DEBUG - Customer [48]: left table
-2023-12-03 16:23:55,163 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:23:56,817 - 6124744704 - INFO - Successfully inserted [('Roulette', 43)] into table [transactions]
-2023-12-03 16:23:56,866 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:23:58,028 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:24:00,166 - 6208876544 - INFO - Successfully inserted [('Poker', 0.980000000000004)] into table [transactions]
-2023-12-03 16:24:02,376 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7800000000000011)] into table [transactions]
-2023-12-03 16:24:04,507 - 6208876544 - INFO - Successfully inserted [('Poker', 0.2400000000000002)] into table [transactions]
-2023-12-03 16:24:06,752 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3000000000000007)] into table [transactions]
-2023-12-03 16:24:08,886 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:24:11,091 - 6208876544 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:24:12,170 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:24:12,206 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:24:12,206 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:24:12,256 - 6410792960 - INFO - Bartender selected customer [3]
-2023-12-03 16:24:12,339 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:24:12,363 - 6410792960 - DEBUG - Bartender released customer [3]
-2023-12-03 16:24:13,259 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:24:14,457 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:24:15,416 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:24:17,525 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:24:18,767 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:24:18,808 - 6410792960 - INFO - Bartender selected customer [42]
-2023-12-03 16:24:18,901 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:24:18,920 - 6410792960 - DEBUG - Bartender released customer [42]
-2023-12-03 16:24:19,808 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5800000000000018)] into table [transactions]
-2023-12-03 16:24:21,954 - 6208876544 - INFO - Successfully inserted [('Poker', 0.22000000000000064)] into table [transactions]
-2023-12-03 16:24:22,260 - 10855182336 - DEBUG - Customer [3]: ordered drink
-2023-12-03 16:24:24,101 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:24:26,337 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3000000000000007)] into table [transactions]
-2023-12-03 16:24:28,505 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:24:28,804 - 11511410688 - DEBUG - Customer [42]: ordered drink
-2023-12-03 16:24:28,816 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:24:28,853 - 6393966592 - INFO - Bartender selected customer [42]
-2023-12-03 16:24:28,954 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:24:28,998 - 6393966592 - DEBUG - Bartender released customer [42]
-2023-12-03 16:24:29,596 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:24:29,596 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:24:29,596 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:24:29,596 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:24:29,596 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:24:29,602 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:24:29,626 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:24:29,702 - 6410792960 - INFO - Bartender selected customer [8]
-2023-12-03 16:24:29,929 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:24:29,967 - 6410792960 - DEBUG - Bartender released customer [8]
-2023-12-03 16:24:30,679 - 6208876544 - INFO - Successfully inserted [('Poker', 0.28000000000000114)] into table [transactions]
-2023-12-03 16:24:32,800 - 11073925120 - DEBUG - Customer [16]: went to bathroom
-2023-12-03 16:24:32,807 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:24:34,972 - 6175223808 - INFO - Successfully inserted [('BlackJack', -392)] into table [transactions]
-2023-12-03 16:24:35,027 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:24:35,040 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:24:35,058 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:24:36,136 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:24:38,300 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:24:38,861 - 11511410688 - DEBUG - Customer [42]: ordered drink
-2023-12-03 16:24:39,709 - 10939314176 - DEBUG - Customer [8]: ordered drink
-2023-12-03 16:24:40,502 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8599999999999994)] into table [transactions]
-2023-12-03 16:24:42,640 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:24:44,812 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:24:47,021 - 6192050176 - INFO - Successfully inserted [('Poker', 0.2599999999999998)] into table [transactions]
-2023-12-03 16:24:48,084 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:24:48,115 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:24:48,159 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:24:49,345 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6400000000000006)] into table [transactions]
-2023-12-03 16:24:51,526 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:24:53,002 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:24:53,052 - 6393966592 - INFO - Bartender selected customer [10]
-2023-12-03 16:24:53,153 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:24:53,184 - 6393966592 - DEBUG - Bartender released customer [10]
-2023-12-03 16:24:53,666 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:24:55,860 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8599999999999994)] into table [transactions]
-2023-12-03 16:24:58,052 - 6208876544 - INFO - Successfully inserted [('Poker', 0.35999999999999943)] into table [transactions]
-2023-12-03 16:25:00,248 - 6208876544 - INFO - Successfully inserted [('Poker', 0.33999999999999986)] into table [transactions]
-2023-12-03 16:25:02,409 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:25:03,059 - 10972966912 - DEBUG - Customer [10]: ordered drink
-2023-12-03 16:25:04,586 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6400000000000006)] into table [transactions]
-2023-12-03 16:25:06,721 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:25:08,951 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:25:11,139 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:25:13,276 - 6208876544 - INFO - Successfully inserted [('Poker', 0.980000000000004)] into table [transactions]
-2023-12-03 16:25:15,447 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5600000000000023)] into table [transactions]
-2023-12-03 16:25:17,591 - 6208876544 - INFO - Successfully inserted [('Poker', 0.740000000000002)] into table [transactions]
-2023-12-03 16:25:19,791 - 6208876544 - INFO - Successfully inserted [('Poker', 0.740000000000002)] into table [transactions]
-2023-12-03 16:25:21,975 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:25:24,125 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:25:26,341 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:25:28,473 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3999999999999986)] into table [transactions]
-2023-12-03 16:25:30,640 - 6208876544 - INFO - Successfully inserted [('Poker', 0.2599999999999998)] into table [transactions]
-2023-12-03 16:25:32,825 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:25:33,943 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:25:35,012 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:25:35,048 - 11612368896 - DEBUG - Customer [48]: left table
-2023-12-03 16:25:37,193 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7800000000000011)] into table [transactions]
-2023-12-03 16:25:39,375 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7800000000000011)] into table [transactions]
-2023-12-03 16:25:41,553 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:25:43,659 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:25:44,739 - 11225362432 - DEBUG - Customer [25]: left table
-2023-12-03 16:25:44,789 - 6192050176 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.LowRoller object at 0x126945dd0>]]
-2023-12-03 16:25:44,820 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:25:44,826 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:25:44,864 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:25:44,931 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:25:44,962 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x1269452d0>]]
-2023-12-03 16:25:44,980 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.LowRoller object at 0x126945ad0>]]
-2023-12-03 16:25:45,035 - 6175223808 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.LowRoller object at 0x12694cd90>]]
-2023-12-03 16:25:46,157 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8200000000000003)] into table [transactions]
-2023-12-03 16:25:48,093 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:25:48,131 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:25:48,149 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:25:48,155 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:25:48,155 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:25:48,155 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:25:48,179 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:25:48,217 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:25:48,311 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:25:50,539 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:25:52,673 - 6192050176 - INFO - Successfully inserted [('Poker', 0.980000000000004)] into table [transactions]
-2023-12-03 16:25:54,816 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:25:56,952 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8200000000000003)] into table [transactions]
-2023-12-03 16:25:58,255 - 11528237056 - DEBUG - Customer [43]: went to bathroom
-2023-12-03 16:25:59,105 - 6192050176 - INFO - Successfully inserted [('Poker', 0.28000000000000114)] into table [transactions]
-2023-12-03 16:26:01,266 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:26:03,489 - 6192050176 - INFO - Successfully inserted [('Poker', 0.3999999999999986)] into table [transactions]
-2023-12-03 16:26:04,569 - 6124744704 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.HighRoller object at 0x126946a10>]]
-2023-12-03 16:26:04,600 - 6158397440 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.MediumRoller object at 0x1261c94d0>]]
-2023-12-03 16:26:05,238 - 6141571072 - INFO - Successfully inserted [('Roulette', 90)] into table [transactions]
-2023-12-03 16:26:05,332 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:26:06,437 - 6192050176 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:26:08,554 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5600000000000023)] into table [transactions]
-2023-12-03 16:26:10,748 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:26:12,901 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:26:15,109 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:26:16,762 - 6141571072 - INFO - Successfully inserted [('Roulette', 54)] into table [transactions]
-2023-12-03 16:26:16,854 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:26:17,958 - 6208876544 - INFO - Successfully inserted [('Poker', 0.379999999999999)] into table [transactions]
-2023-12-03 16:26:20,178 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:26:22,327 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3000000000000007)] into table [transactions]
-2023-12-03 16:26:24,543 - 6158397440 - INFO - Successfully inserted [('BlackJack', -984)] into table [transactions]
-2023-12-03 16:26:24,606 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:26:25,747 - 6192050176 - INFO - Successfully inserted [('Poker', 0.35999999999999943)] into table [transactions]
-2023-12-03 16:26:27,897 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:26:30,013 - 6192050176 - INFO - Successfully inserted [('Poker', 0.2599999999999998)] into table [transactions]
-2023-12-03 16:26:32,250 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:26:34,422 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:26:36,709 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:26:38,909 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:26:41,042 - 6208876544 - INFO - Successfully inserted [('Poker', 0.2599999999999998)] into table [transactions]
-2023-12-03 16:26:43,209 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:26:44,832 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:26:44,838 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:26:44,851 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:26:44,851 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:26:44,863 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:26:44,888 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:26:45,013 - 6393966592 - INFO - Bartender selected customer [33]
-2023-12-03 16:26:45,063 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:26:45,087 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:26:45,169 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:26:45,194 - 6393966592 - DEBUG - Bartender released customer [33]
-2023-12-03 16:26:45,470 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4800000000000004)] into table [transactions]
-2023-12-03 16:26:47,657 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3999999999999986)] into table [transactions]
-2023-12-03 16:26:49,348 - 6141571072 - INFO - Successfully inserted [('Roulette', 86)] into table [transactions]
-2023-12-03 16:26:49,397 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:26:50,468 - 6175223808 - INFO - Player [Rose Rosenthal] has won
-2023-12-03 16:26:50,505 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:26:51,101 - 6124744704 - INFO - Successfully inserted [('Roulette', 87)] into table [transactions]
-2023-12-03 16:26:51,163 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:26:52,311 - 6192050176 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:26:54,493 - 6192050176 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:26:55,009 - 11359973376 - DEBUG - Customer [33]: ordered drink
-2023-12-03 16:26:55,598 - 11612368896 - DEBUG - Customer [48]: left table
-2023-12-03 16:26:55,616 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:26:55,641 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:26:56,790 - 6158397440 - INFO - Player [Sylvia Jones] has won
-2023-12-03 16:26:56,821 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:26:56,846 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:26:57,452 - 6124744704 - INFO - Successfully inserted [('Roulette', 40)] into table [transactions]
-2023-12-03 16:26:57,512 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:26:57,531 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:26:57,655 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x1269452d0>]]
-2023-12-03 16:26:57,667 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:26:58,758 - 6158397440 - INFO - Successfully inserted [('BlackJack', -644)] into table [transactions]
-2023-12-03 16:26:58,820 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:26:58,832 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.LowRoller object at 0x126945ad0>]]
-2023-12-03 16:26:59,444 - 6124744704 - INFO - Successfully inserted [('Roulette', 50)] into table [transactions]
-2023-12-03 16:26:59,487 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:27:00,593 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:27:02,778 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:27:04,572 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:27:04,572 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:27:04,581 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:27:04,597 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:27:04,628 - 6393966592 - INFO - Bartender selected customer [5]
-2023-12-03 16:27:04,768 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:27:04,799 - 6393966592 - DEBUG - Bartender released customer [5]
-2023-12-03 16:27:04,938 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:27:05,350 - 11225362432 - DEBUG - Customer [25]: left table
-2023-12-03 16:27:05,351 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:27:05,363 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:27:06,631 - 11612368896 - DEBUG - Customer [48]: went to bathroom
-2023-12-03 16:27:07,062 - 6208876544 - INFO - Successfully inserted [('Poker', 0.33999999999999986)] into table [transactions]
-2023-12-03 16:27:09,228 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8400000000000034)] into table [transactions]
-2023-12-03 16:27:11,437 - 6208876544 - INFO - Successfully inserted [('Poker', 0.2400000000000002)] into table [transactions]
-2023-12-03 16:27:13,585 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3000000000000007)] into table [transactions]
-2023-12-03 16:27:14,633 - 10888835072 - DEBUG - Customer [5]: ordered drink
-2023-12-03 16:27:15,733 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:27:18,024 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:27:20,206 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:27:22,397 - 6208876544 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:27:24,635 - 6208876544 - INFO - Successfully inserted [('Poker', 0.620000000000001)] into table [transactions]
-2023-12-03 16:27:26,813 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5800000000000018)] into table [transactions]
-2023-12-03 16:27:29,010 - 6208876544 - INFO - Successfully inserted [('Poker', 0.7999999999999972)] into table [transactions]
-2023-12-03 16:27:31,171 - 6208876544 - INFO - Successfully inserted [('Poker', 0.980000000000004)] into table [transactions]
-2023-12-03 16:27:33,353 - 6208876544 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:27:35,495 - 6208876544 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:27:37,680 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:27:39,848 - 6208876544 - INFO - Successfully inserted [('Poker', 0.379999999999999)] into table [transactions]
-2023-12-03 16:27:42,018 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4800000000000004)] into table [transactions]
-2023-12-03 16:27:44,190 - 6208876544 - INFO - Successfully inserted [('Poker', 0.3200000000000003)] into table [transactions]
-2023-12-03 16:27:46,371 - 6208876544 - INFO - Successfully inserted [('Poker', 0.5199999999999996)] into table [transactions]
-2023-12-03 16:27:48,578 - 6208876544 - INFO - Successfully inserted [('Poker', 0.8999999999999986)] into table [transactions]
-2023-12-03 16:27:49,689 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:27:49,701 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:27:49,720 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:27:50,413 - 6141571072 - INFO - Successfully inserted [('Roulette', 83)] into table [transactions]
-2023-12-03 16:27:50,457 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:27:50,482 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:27:50,488 - 6175223808 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.HighRoller object at 0x126578710>]]
-2023-12-03 16:27:50,501 - 6192050176 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.LowRoller object at 0x12694cd90>]]
-2023-12-03 16:27:51,595 - 6208876544 - INFO - Successfully inserted [('Poker', 0.759999999999998)] into table [transactions]
-2023-12-03 16:27:53,789 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4800000000000004)] into table [transactions]
-2023-12-03 16:27:55,433 - 6141571072 - INFO - Successfully inserted [('Roulette', 63)] into table [transactions]
-2023-12-03 16:27:55,490 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:27:55,538 - 6124744704 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.HighRoller object at 0x126946a10>]]
-2023-12-03 16:27:55,607 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:27:55,651 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:27:55,681 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:27:55,681 - 6393966592 - INFO - Bartender selected customer [42]
-2023-12-03 16:27:55,713 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:27:55,732 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:27:55,732 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:27:55,768 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:27:55,808 - 6393966592 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:27:55,895 - 6393966592 - DEBUG - Bartender released customer [42]
-2023-12-03 16:27:56,684 - 6192050176 - INFO - Successfully inserted [('Poker', 0.759999999999998)] into table [transactions]
-2023-12-03 16:27:57,586 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:27:57,735 - 10956140544 - DEBUG - Customer [9]: went to bathroom
-2023-12-03 16:27:57,778 - 6410792960 - INFO - Bartender selected customer [9]
-2023-12-03 16:27:57,854 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:27:57,892 - 6410792960 - DEBUG - Bartender released customer [9]
-2023-12-03 16:27:58,826 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:27:59,507 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:28:00,976 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:28:02,619 - 6141571072 - INFO - Successfully inserted [('Roulette', 27)] into table [transactions]
-2023-12-03 16:28:02,681 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:28:03,823 - 6175223808 - INFO - Successfully inserted [('BlackJack', -186)] into table [transactions]
-2023-12-03 16:28:03,853 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:28:04,458 - 6124744704 - INFO - Successfully inserted [('Roulette', 66)] into table [transactions]
-2023-12-03 16:28:04,514 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:28:04,570 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:28:04,582 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:28:04,670 - 6158397440 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.MediumRoller object at 0x126947f90>]]
-2023-12-03 16:28:04,732 - 6208876544 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x126945dd0>]]
-2023-12-03 16:28:04,776 - 6141571072 - INFO - Created Roulette Table [3] thread
-2023-12-03 16:28:05,420 - 6124744704 - INFO - Successfully inserted [('Roulette', 85)] into table [transactions]
-2023-12-03 16:28:05,482 - 6124744704 - INFO - Created Roulette Table [0] thread
-2023-12-03 16:28:05,675 - 11511410688 - DEBUG - Customer [42]: ordered drink
-2023-12-03 16:28:05,719 - 6410792960 - INFO - Bartender selected customer [42]
-2023-12-03 16:28:05,795 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:28:05,820 - 6410792960 - DEBUG - Bartender released customer [42]
-2023-12-03 16:28:06,581 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:28:07,788 - 10956140544 - DEBUG - Customer [9]: ordered drink
-2023-12-03 16:28:08,727 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:28:10,889 - 6192050176 - INFO - Successfully inserted [('Poker', 0.1999999999999993)] into table [transactions]
-2023-12-03 16:28:13,065 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:28:15,225 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6000000000000014)] into table [transactions]
-2023-12-03 16:28:15,736 - 11511410688 - DEBUG - Customer [42]: ordered drink
-2023-12-03 16:28:17,372 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:28:19,527 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:28:21,680 - 6192050176 - INFO - Successfully inserted [('Poker', 0.35999999999999943)] into table [transactions]
-2023-12-03 16:28:23,811 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9399999999999977)] into table [transactions]
-2023-12-03 16:28:26,036 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5800000000000018)] into table [transactions]
-2023-12-03 16:28:28,195 - 6192050176 - INFO - Successfully inserted [('Poker', 0.8800000000000026)] into table [transactions]
-2023-12-03 16:28:30,442 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5399999999999991)] into table [transactions]
-2023-12-03 16:28:32,581 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:28:34,719 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6600000000000037)] into table [transactions]
-2023-12-03 16:28:36,866 - 6192050176 - INFO - Successfully inserted [('Poker', 0.740000000000002)] into table [transactions]
-2023-12-03 16:28:39,077 - 6192050176 - INFO - Successfully inserted [('Poker', 0.9600000000000009)] into table [transactions]
-2023-12-03 16:28:41,277 - 6192050176 - INFO - Successfully inserted [('Poker', 0.5)] into table [transactions]
-2023-12-03 16:28:43,477 - 6192050176 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:28:45,641 - 6192050176 - INFO - Successfully inserted [('Poker', 0.379999999999999)] into table [transactions]
-2023-12-03 16:28:47,786 - 6192050176 - INFO - Successfully inserted [('Poker', 0.7199999999999989)] into table [transactions]
-2023-12-03 16:28:49,730 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:28:49,730 - 11225362432 - DEBUG - Customer [25]: left table
-2023-12-03 16:28:49,736 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:28:49,736 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:28:49,780 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:28:49,780 - 6410792960 - INFO - Bartender selected customer [25]
-2023-12-03 16:28:49,866 - 6175223808 - INFO - Player [Mary Randall] has won
-2023-12-03 16:28:49,929 - 6175223808 - INFO - Created Blackjack Table [4] thread
-2023-12-03 16:28:49,948 - 6410792960 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
-2023-12-03 16:28:49,979 - 6410792960 - DEBUG - Bartender released customer [25]
-2023-12-03 16:28:50,942 - 6158397440 - INFO - Player [Bobby Hail] has won
-2023-12-03 16:28:50,980 - 6158397440 - INFO - Created Blackjack Table [1] thread
-2023-12-03 16:28:52,075 - 6208876544 - INFO - Successfully inserted [('Poker', 0.4400000000000013)] into table [transactions]
-2023-12-03 16:28:54,314 - 6208876544 - INFO - Successfully inserted [('Poker', 0.2599999999999998)] into table [transactions]
-2023-12-03 16:28:55,508 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:28:56,439 - 6208876544 - INFO - Successfully inserted [('Poker', 0.6799999999999997)] into table [transactions]
-2023-12-03 16:28:57,954 - 6124744704 - INFO - Successfully inserted [('Roulette', -576)] into table [transactions]
-2023-12-03 16:28:58,973 - 6192050176 - INFO - Successfully inserted [('Poker', 0.6400000000000006)] into table [transactions]
-2023-12-03 16:28:59,785 - 11225362432 - DEBUG - Customer [25]: ordered drink
-2023-12-03 16:28:59,785 - 11225362432 - INFO - Customer [25]: Thread finished
-2023-12-03 16:28:59,979 - 11612368896 - DEBUG - Customer [48]: left table
-2023-12-03 16:28:59,980 - 11612368896 - INFO - Customer [48]: Thread finished
-2023-12-03 16:29:00,989 - 6175223808 - INFO - Successfully inserted [('BlackJack', -549)] into table [transactions]
-2023-12-03 16:29:00,989 - 10905661440 - DEBUG - Customer [6]: left table
-2023-12-03 16:29:00,989 - 10905661440 - INFO - Customer [6]: Thread finished
-2023-12-03 16:29:01,993 - 6158397440 - INFO - Player [Bobby Hail] has won
-2023-12-03 16:29:01,993 - 6141571072 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.MediumRoller object at 0x12694c890>]]
-2023-12-03 16:29:01,994 - 11073925120 - DEBUG - Customer [16]: left table
-2023-12-03 16:29:01,994 - 11073925120 - INFO - Customer [16]: Thread finished
-2023-12-03 16:29:02,514 - 6141571072 - INFO - Successfully inserted [('Roulette', 82)] into table [transactions]
-2023-12-03 16:29:04,370 - 6309834752 - INFO - Dealer [5]: Thread finished
-2023-12-03 16:29:04,372 - 6377140224 - INFO - Dealer [9]: Thread finished
-2023-12-03 16:29:04,391 - 6326661120 - INFO - Dealer [6]: Thread finished
-2023-12-03 16:29:04,531 - 11545063424 - DEBUG - Customer [44]: left table
-2023-12-03 16:29:04,531 - 11545063424 - INFO - Customer [44]: Thread finished
-2023-12-03 16:29:04,544 - 11410452480 - DEBUG - Customer [36]: left table
-2023-12-03 16:29:04,545 - 11410452480 - INFO - Customer [36]: Thread finished
-2023-12-03 16:29:04,551 - 10855182336 - DEBUG - Customer [3]: left table
-2023-12-03 16:29:04,551 - 11494584320 - DEBUG - Customer [41]: left table
-2023-12-03 16:29:04,551 - 11141230592 - DEBUG - Customer [20]: left table
-2023-12-03 16:29:04,551 - 11359973376 - DEBUG - Customer [33]: left table
-2023-12-03 16:29:04,551 - 10855182336 - INFO - Customer [3]: Thread finished
-2023-12-03 16:29:04,551 - 11494584320 - INFO - Customer [41]: Thread finished
-2023-12-03 16:29:04,551 - 11141230592 - INFO - Customer [20]: Thread finished
-2023-12-03 16:29:04,551 - 11359973376 - INFO - Customer [33]: Thread finished
-2023-12-03 16:29:04,713 - 10872008704 - DEBUG - Customer [4]: left table
-2023-12-03 16:29:04,713 - 10872008704 - INFO - Customer [4]: Thread finished
-2023-12-03 16:29:05,391 - 6360313856 - INFO - Dealer [8]: Thread finished
-2023-12-03 16:29:05,500 - 10972966912 - DEBUG - Customer [10]: left table
-2023-12-03 16:29:05,501 - 10939314176 - DEBUG - Customer [8]: left table
-2023-12-03 16:29:05,501 - 11242188800 - DEBUG - Customer [26]: left table
-2023-12-03 16:29:05,501 - 10972966912 - INFO - Customer [10]: Thread finished
-2023-12-03 16:29:05,501 - 10939314176 - INFO - Customer [8]: Thread finished
-2023-12-03 16:29:05,501 - 11242188800 - INFO - Customer [26]: Thread finished
-2023-12-03 16:29:06,369 - 6242529280 - INFO - Dealer [1]: Thread finished
-2023-12-03 16:29:06,391 - 6293008384 - INFO - Dealer [4]: Thread finished
-2023-12-03 16:29:06,391 - 6259355648 - INFO - Dealer [2]: Thread finished
-2023-12-03 16:29:06,535 - 6225702912 - INFO - Dealer [0]: Thread finished
-2023-12-03 16:29:08,536 - 6276182016 - INFO - Dealer [3]: Thread finished
-2023-12-03 16:29:13,946 - 6343487488 - INFO - Dealer [7]: Thread finished
-2023-12-03 16:29:49,941 - 10956140544 - DEBUG - Customer [9]: left table
-2023-12-03 16:29:49,942 - 10956140544 - INFO - Customer [9]: Thread finished
-2023-12-03 16:29:59,985 - 11124404224 - DEBUG - Customer [19]: left table
-2023-12-03 16:29:59,985 - 11006619648 - DEBUG - Customer [12]: left table
-2023-12-03 16:29:59,985 - 11275841536 - DEBUG - Customer [28]: left table
-2023-12-03 16:29:59,985 - 11528237056 - DEBUG - Customer [43]: left table
-2023-12-03 16:29:59,985 - 11124404224 - INFO - Customer [19]: Thread finished
-2023-12-03 16:29:59,985 - 11006619648 - INFO - Customer [12]: Thread finished
-2023-12-03 16:29:59,986 - 11275841536 - INFO - Customer [28]: Thread finished
-2023-12-03 16:29:59,986 - 11528237056 - INFO - Customer [43]: Thread finished
-2023-12-03 16:30:01,999 - 11511410688 - DEBUG - Customer [42]: left table
-2023-12-03 16:30:02,000 - 10888835072 - DEBUG - Customer [5]: left table
-2023-12-03 16:30:02,000 - 11511410688 - INFO - Customer [42]: Thread finished
-2023-12-03 16:30:02,000 - 10888835072 - INFO - Customer [5]: Thread finished
-2023-12-03 16:30:02,001 - 8393022976 - INFO - The Casino is now closed.
+2023-12-03 18:18:32,722 - 8393022976 - INFO - Connection failed to kill/already killed
+2023-12-03 18:18:32,734 - 8393022976 - INFO - Successfully created database casino
+2023-12-03 18:18:32,748 - 8393022976 - INFO - Successfully created table [customers]
+2023-12-03 18:18:32,759 - 8393022976 - INFO - Successfully created table [transactions]
+2023-12-03 18:18:32,759 - 8393022976 - INFO - Tables List: [<classes.table_classes.Roulette object at 0x11831e2d0>, <classes.table_classes.Roulette object at 0x1175e6750>, <classes.table_classes.BlackJack object at 0x11831e490>, <classes.table_classes.BlackJack object at 0x118020910>, <classes.table_classes.Poker object at 0x11831e0d0>, <classes.table_classes.Poker object at 0x11831e690>]
+2023-12-03 18:18:32,761 - 8393022976 - INFO - Dealers List: [<classes.dealer_class.Dealer object at 0x11803ca90>, <classes.dealer_class.Dealer object at 0x11831e810>, <classes.dealer_class.Dealer object at 0x11831e790>, <classes.dealer_class.Dealer object at 0x11831e910>, <classes.dealer_class.Dealer object at 0x11831e6d0>, <classes.dealer_class.Dealer object at 0x11831e890>, <classes.dealer_class.Dealer object at 0x11831e9d0>, <classes.dealer_class.Dealer object at 0x11831eb50>, <classes.dealer_class.Dealer object at 0x11831ec50>]
+2023-12-03 18:18:32,761 - 8393022976 - INFO - Bartenders List: [<classes.bartender_class.Bartender object at 0x11831e050>, <classes.bartender_class.Bartender object at 0x11831ed10>]
+2023-12-03 18:18:32,761 - 8393022976 - INFO - Bouncers List: [<classes.bouncer_class.Bouncer object at 0x11831ed50>, <classes.bouncer_class.Bouncer object at 0x1175f00d0>, <classes.bouncer_class.Bouncer object at 0x11831edd0>, <classes.bouncer_class.Bouncer object at 0x11831ec90>]
+2023-12-03 18:18:32,762 - 8393022976 - INFO - Starting Main Thread
+2023-12-03 18:18:32,763 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:32,763 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:18:32,763 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:18:32,763 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:18:32,763 - 6358691840 - INFO - Created Poker Table [2] thread
+2023-12-03 18:18:32,764 - 6375518208 - INFO - Created Poker Table [5] thread
+2023-12-03 18:18:32,764 - 6392344576 - INFO - Running dealer [0] thread
+2023-12-03 18:18:32,764 - 6409170944 - INFO - Running dealer [1] thread
+2023-12-03 18:18:32,764 - 6425997312 - INFO - Running dealer [2] thread
+2023-12-03 18:18:32,764 - 10754224128 - INFO - Running dealer [3] thread
+2023-12-03 18:18:32,764 - 10771050496 - INFO - Running dealer [4] thread
+2023-12-03 18:18:32,764 - 10787876864 - INFO - Running dealer [5] thread
+2023-12-03 18:18:32,764 - 10804703232 - INFO - Running dealer [6] thread
+2023-12-03 18:18:32,764 - 10821529600 - INFO - Running dealer [7] thread
+2023-12-03 18:18:32,765 - 10838355968 - INFO - Running dealer [8] thread
+2023-12-03 18:18:32,765 - 10855182336 - INFO - Running bartender [0] thread
+2023-12-03 18:18:32,765 - 10872008704 - INFO - Running bartender [1] thread
+2023-12-03 18:18:32,775 - 10888835072 - INFO - Running bouncer [0] thread
+2023-12-03 18:18:32,799 - 10905661440 - INFO - Running bouncer [1] thread
+2023-12-03 18:18:32,818 - 10922487808 - INFO - Running bouncer [2] thread
+2023-12-03 18:18:32,843 - 10939314176 - INFO - Running bouncer [3] thread
+2023-12-03 18:18:32,856 - 8393022976 - INFO - Table threads: [<Future at 0x11831ecd0 state=running>, <Future at 0x11831fa90 state=running>, <Future at 0x11831fd50 state=running>, <Future at 0x11832c250 state=running>, <Future at 0x11831ff90 state=running>, <Future at 0x11832c650 state=running>]
+2023-12-03 18:18:32,905 - 8393022976 - INFO - Dealer threads: [<Future at 0x11832ccd0 state=running>, <Future at 0x11832d3d0 state=running>, <Future at 0x11832d850 state=running>, <Future at 0x11832dc90 state=running>, <Future at 0x11832df90 state=running>, <Future at 0x11832d2d0 state=running>, <Future at 0x11832e850 state=running>, <Future at 0x11832ec90 state=running>, <Future at 0x11832f210 state=running>]
+2023-12-03 18:18:32,930 - 8393022976 - INFO - Bartender threads: [<Future at 0x11832f550 state=running>, <Future at 0x11832f790 state=running>]
+2023-12-03 18:18:32,943 - 8393022976 - INFO - Bouncer threads: [<Future at 0x11832fb90 state=running>, <Future at 0x118340090 state=running>, <Future at 0x1183405d0 state=running>, <Future at 0x1183408d0 state=running>]
+2023-12-03 18:18:32,955 - 8393022976 - INFO - The Casino is now open.
+2023-12-03 18:18:40,746 - 8393022976 - INFO - Initialized customers: [<classes.customer_classes.LowRoller object at 0x118340d50>, <classes.customer_classes.MediumRoller object at 0x117fae450>, <classes.customer_classes.MediumRoller object at 0x117f6b990>, <classes.customer_classes.MediumRoller object at 0x118341210>, <classes.customer_classes.HighRoller object at 0x118341410>, <classes.customer_classes.LowRoller object at 0x118341150>, <classes.customer_classes.LowRoller object at 0x118341690>, <classes.customer_classes.MediumRoller object at 0x117af9dd0>, <classes.customer_classes.LowRoller object at 0x118341390>, <classes.customer_classes.LowRoller object at 0x117f795d0>, <classes.customer_classes.HighRoller object at 0x118341a10>, <classes.customer_classes.MediumRoller object at 0x118341b90>, <classes.customer_classes.MediumRoller object at 0x118341c10>, <classes.customer_classes.LowRoller object at 0x118341e50>, <classes.customer_classes.MediumRoller object at 0x118341f10>, <classes.customer_classes.MediumRoller object at 0x118341c50>, <classes.customer_classes.HighRoller object at 0x118341d90>, <classes.customer_classes.LowRoller object at 0x1183422d0>, <classes.customer_classes.HighRoller object at 0x118342450>, <classes.customer_classes.MediumRoller object at 0x118342490>, <classes.customer_classes.MediumRoller object at 0x1183426d0>, <classes.customer_classes.MediumRoller object at 0x118342790>, <classes.customer_classes.MediumRoller object at 0x118342610>, <classes.customer_classes.MediumRoller object at 0x118342a50>, <classes.customer_classes.MediumRoller object at 0x1183425d0>, <classes.customer_classes.LowRoller object at 0x118342d10>, <classes.customer_classes.MediumRoller object at 0x118342c90>, <classes.customer_classes.HighRoller object at 0x118342e90>, <classes.customer_classes.LowRoller object at 0x118342b50>, <classes.customer_classes.LowRoller object at 0x118342cd0>, <classes.customer_classes.MediumRoller object at 0x118342bd0>, <classes.customer_classes.MediumRoller object at 0x118343310>, <classes.customer_classes.MediumRoller object at 0x1183433d0>, <classes.customer_classes.MediumRoller object at 0x1183436d0>, <classes.customer_classes.MediumRoller object at 0x118343850>, <classes.customer_classes.MediumRoller object at 0x118343710>, <classes.customer_classes.HighRoller object at 0x118343a90>, <classes.customer_classes.MediumRoller object at 0x1175d2850>, <classes.customer_classes.LowRoller object at 0x118343b90>, <classes.customer_classes.LowRoller object at 0x118343dd0>, <classes.customer_classes.LowRoller object at 0x118343d90>, <classes.customer_classes.LowRoller object at 0x118343910>, <classes.customer_classes.LowRoller object at 0x118343950>, <classes.customer_classes.MediumRoller object at 0x118343e90>, <classes.customer_classes.MediumRoller object at 0x118343ed0>, <classes.customer_classes.HighRoller object at 0x118343c10>, <classes.customer_classes.HighRoller object at 0x118343f50>, <classes.customer_classes.LowRoller object at 0x118343c50>, <classes.customer_classes.HighRoller object at 0x118344290>, <classes.customer_classes.HighRoller object at 0x118344310>, <classes.customer_classes.LowRoller object at 0x118344590>, <classes.customer_classes.MediumRoller object at 0x118344690>, <classes.customer_classes.MediumRoller object at 0x1183446d0>, <classes.customer_classes.HighRoller object at 0x118344750>, <classes.customer_classes.MediumRoller object at 0x118344810>, <classes.customer_classes.MediumRoller object at 0x118344390>, <classes.customer_classes.MediumRoller object at 0x118344990>, <classes.customer_classes.MediumRoller object at 0x118344a10>, <classes.customer_classes.MediumRoller object at 0x118344b90>, <classes.customer_classes.MediumRoller object at 0x118344450>, <classes.customer_classes.HighRoller object at 0x118344c50>, <classes.customer_classes.MediumRoller object at 0x118344cd0>, <classes.customer_classes.HighRoller object at 0x118344b10>, <classes.customer_classes.LowRoller object at 0x118344b50>, <classes.customer_classes.MediumRoller object at 0x118344e50>, <classes.customer_classes.MediumRoller object at 0x118344dd0>, <classes.customer_classes.LowRoller object at 0x118345110>, <classes.customer_classes.LowRoller object at 0x118345050>, <classes.customer_classes.LowRoller object at 0x118345250>, <classes.customer_classes.LowRoller object at 0x118345290>]
+2023-12-03 18:18:40,784 - 10956140544 - INFO - Running customer [0] thread
+2023-12-03 18:18:40,796 - 10956140544 - INFO - Customer [0] entered bouncer queue
+2023-12-03 18:18:40,827 - 10888835072 - INFO - Bouncer [0] allowed customer [0] to enter
+2023-12-03 18:18:40,827 - 10972966912 - INFO - Running customer [1] thread
+2023-12-03 18:18:40,870 - 10989793280 - INFO - Running customer [2] thread
+2023-12-03 18:18:40,888 - 11006619648 - INFO - Running customer [3] thread
+2023-12-03 18:18:40,888 - 10972966912 - INFO - Customer [1] entered bouncer queue
+2023-12-03 18:18:40,920 - 10989793280 - INFO - Customer [2] entered bouncer queue
+2023-12-03 18:18:40,920 - 10922487808 - INFO - Customer [2] kicked out
+2023-12-03 18:18:40,920 - 11023446016 - INFO - Running customer [4] thread
+2023-12-03 18:18:40,937 - 11040272384 - INFO - Running customer [5] thread
+2023-12-03 18:18:40,980 - 11057098752 - INFO - Running customer [6] thread
+2023-12-03 18:18:40,993 - 11073925120 - INFO - Running customer [7] thread
+2023-12-03 18:18:41,018 - 10989793280 - INFO - Running customer [8] thread
+2023-12-03 18:18:41,036 - 11107577856 - INFO - Running customer [9] thread
+2023-12-03 18:18:41,037 - 11090751488 - INFO - Running customer [10] thread
+2023-12-03 18:18:41,049 - 11124404224 - INFO - Running customer [11] thread
+2023-12-03 18:18:41,049 - 10939314176 - INFO - Customer [1] kicked out
+2023-12-03 18:18:41,074 - 11141230592 - INFO - Running customer [12] thread
+2023-12-03 18:18:41,099 - 11158056960 - INFO - Running customer [13] thread
+2023-12-03 18:18:41,118 - 11174883328 - INFO - Running customer [14] thread
+2023-12-03 18:18:41,154 - 11191709696 - INFO - Running customer [15] thread
+2023-12-03 18:18:41,161 - 11208536064 - INFO - Running customer [16] thread
+2023-12-03 18:18:41,202 - 11225362432 - INFO - Running customer [17] thread
+2023-12-03 18:18:41,221 - 11242188800 - INFO - Running customer [18] thread
+2023-12-03 18:18:41,240 - 11259015168 - INFO - Running customer [19] thread
+2023-12-03 18:18:41,253 - 11275841536 - INFO - Running customer [20] thread
+2023-12-03 18:18:41,277 - 11292667904 - INFO - Running customer [21] thread
+2023-12-03 18:18:41,289 - 11006619648 - INFO - Customer [3] entered bouncer queue
+2023-12-03 18:18:41,333 - 11023446016 - INFO - Customer [4] entered bouncer queue
+2023-12-03 18:18:41,351 - 11309494272 - INFO - Running customer [22] thread
+2023-12-03 18:18:41,364 - 11040272384 - INFO - Customer [5] entered bouncer queue
+2023-12-03 18:18:41,364 - 11057098752 - INFO - Customer [6] entered bouncer queue
+2023-12-03 18:18:41,364 - 11073925120 - INFO - Customer [7] entered bouncer queue
+2023-12-03 18:18:41,376 - 10989793280 - INFO - Customer [8] entered bouncer queue
+2023-12-03 18:18:41,376 - 11326320640 - INFO - Running customer [23] thread
+2023-12-03 18:18:41,401 - 11343147008 - INFO - Running customer [24] thread
+2023-12-03 18:18:41,402 - 11107577856 - INFO - Customer [9] entered bouncer queue
+2023-12-03 18:18:41,427 - 11359973376 - INFO - Running customer [25] thread
+2023-12-03 18:18:41,427 - 11090751488 - INFO - Customer [10] entered bouncer queue
+2023-12-03 18:18:41,439 - 11124404224 - INFO - Customer [11] entered bouncer queue
+2023-12-03 18:18:41,445 - 11376799744 - INFO - Running customer [26] thread
+2023-12-03 18:18:41,458 - 11141230592 - INFO - Customer [12] entered bouncer queue
+2023-12-03 18:18:41,470 - 11158056960 - INFO - Customer [13] entered bouncer queue
+2023-12-03 18:18:41,470 - 11393626112 - INFO - Running customer [27] thread
+2023-12-03 18:18:41,482 - 11174883328 - INFO - Customer [14] entered bouncer queue
+2023-12-03 18:18:41,482 - 11191709696 - INFO - Customer [15] entered bouncer queue
+2023-12-03 18:18:41,482 - 11410452480 - INFO - Running customer [28] thread
+2023-12-03 18:18:41,495 - 11208536064 - INFO - Customer [16] entered bouncer queue
+2023-12-03 18:18:41,508 - 11427278848 - INFO - Running customer [29] thread
+2023-12-03 18:18:41,520 - 11225362432 - INFO - Customer [17] entered bouncer queue
+2023-12-03 18:18:41,539 - 11444105216 - INFO - Running customer [30] thread
+2023-12-03 18:18:41,551 - 11242188800 - INFO - Customer [18] entered bouncer queue
+2023-12-03 18:18:41,577 - 11460931584 - INFO - Running customer [31] thread
+2023-12-03 18:18:41,577 - 11259015168 - INFO - Customer [19] entered bouncer queue
+2023-12-03 18:18:41,589 - 11477757952 - INFO - Running customer [32] thread
+2023-12-03 18:18:41,602 - 11494584320 - INFO - Running customer [33] thread
+2023-12-03 18:18:41,614 - 11511410688 - INFO - Running customer [34] thread
+2023-12-03 18:18:41,620 - 11528237056 - INFO - Running customer [35] thread
+2023-12-03 18:18:41,620 - 11275841536 - INFO - Customer [20] entered bouncer queue
+2023-12-03 18:18:41,651 - 11545063424 - INFO - Running customer [36] thread
+2023-12-03 18:18:41,651 - 11292667904 - INFO - Customer [21] entered bouncer queue
+2023-12-03 18:18:41,670 - 11561889792 - INFO - Running customer [37] thread
+2023-12-03 18:18:41,688 - 11578716160 - INFO - Running customer [38] thread
+2023-12-03 18:18:41,738 - 11595542528 - INFO - Running customer [39] thread
+2023-12-03 18:18:41,750 - 11309494272 - INFO - Customer [22] entered bouncer queue
+2023-12-03 18:18:41,786 - 11612368896 - INFO - Running customer [40] thread
+2023-12-03 18:18:41,824 - 11629195264 - INFO - Running customer [41] thread
+2023-12-03 18:18:41,837 - 11646021632 - INFO - Running customer [42] thread
+2023-12-03 18:18:41,861 - 11662848000 - INFO - Running customer [43] thread
+2023-12-03 18:18:41,906 - 11326320640 - INFO - Customer [23] entered bouncer queue
+2023-12-03 18:18:41,906 - 11679674368 - INFO - Running customer [44] thread
+2023-12-03 18:18:41,921 - 10956140544 - INFO - Successfully inserted [(0, 'Mario Banda', 54, 'male')] into table [customers]
+2023-12-03 18:18:41,937 - 11696500736 - INFO - Running customer [45] thread
+2023-12-03 18:18:41,955 - 11713327104 - INFO - Running customer [46] thread
+2023-12-03 18:18:41,968 - 11343147008 - INFO - Customer [24] entered bouncer queue
+2023-12-03 18:18:41,979 - 11730153472 - INFO - Running customer [47] thread
+2023-12-03 18:18:42,023 - 11359973376 - INFO - Customer [25] entered bouncer queue
+2023-12-03 18:18:42,029 - 10972966912 - INFO - Running customer [48] thread
+2023-12-03 18:18:42,036 - 11746979840 - INFO - Running customer [49] thread
+2023-12-03 18:18:42,078 - 11763806208 - INFO - Running customer [50] thread
+2023-12-03 18:18:42,128 - 11376799744 - INFO - Customer [26] entered bouncer queue
+2023-12-03 18:18:42,129 - 11780632576 - INFO - Running customer [51] thread
+2023-12-03 18:18:42,183 - 11797458944 - INFO - Running customer [52] thread
+2023-12-03 18:18:42,196 - 11393626112 - INFO - Customer [27] entered bouncer queue
+2023-12-03 18:18:42,221 - 11814285312 - INFO - Running customer [53] thread
+2023-12-03 18:18:42,233 - 11831111680 - INFO - Running customer [54] thread
+2023-12-03 18:18:42,265 - 11847938048 - INFO - Running customer [55] thread
+2023-12-03 18:18:42,290 - 11864764416 - INFO - Running customer [56] thread
+2023-12-03 18:18:42,302 - 11881590784 - INFO - Running customer [57] thread
+2023-12-03 18:18:42,302 - 11410452480 - INFO - Customer [28] entered bouncer queue
+2023-12-03 18:18:42,315 - 11898417152 - INFO - Running customer [58] thread
+2023-12-03 18:18:42,346 - 11915243520 - INFO - Running customer [59] thread
+2023-12-03 18:18:42,359 - 11932069888 - INFO - Running customer [60] thread
+2023-12-03 18:18:42,365 - 11948896256 - INFO - Running customer [61] thread
+2023-12-03 18:18:42,365 - 11427278848 - INFO - Customer [29] entered bouncer queue
+2023-12-03 18:18:42,389 - 11965722624 - INFO - Running customer [62] thread
+2023-12-03 18:18:42,421 - 11982548992 - INFO - Running customer [63] thread
+2023-12-03 18:18:42,421 - 11444105216 - INFO - Customer [30] entered bouncer queue
+2023-12-03 18:18:42,432 - 11999375360 - INFO - Running customer [64] thread
+2023-12-03 18:18:42,445 - 12016201728 - INFO - Running customer [65] thread
+2023-12-03 18:18:42,476 - 12033028096 - INFO - Running customer [66] thread
+2023-12-03 18:18:42,488 - 11460931584 - INFO - Customer [31] entered bouncer queue
+2023-12-03 18:18:42,507 - 12049854464 - INFO - Running customer [67] thread
+2023-12-03 18:18:42,532 - 12066680832 - INFO - Running customer [68] thread
+2023-12-03 18:18:42,551 - 12083507200 - INFO - Running customer [69] thread
+2023-12-03 18:18:42,551 - 11477757952 - INFO - Customer [32] entered bouncer queue
+2023-12-03 18:18:42,564 - 8393022976 - INFO - Initialized customer threads: [<Future at 0x1183453d0 state=running>, <Future at 0x118345710 state=finished returned NoneType>, <Future at 0x118345a10 state=finished returned NoneType>, <Future at 0x118346010 state=running>, <Future at 0x1183462d0 state=running>, <Future at 0x118346b50 state=running>, <Future at 0x118347090 state=running>, <Future at 0x118347350 state=running>, <Future at 0x118347810 state=running>, <Future at 0x118347b10 state=running>, <Future at 0x118347bd0 state=running>, <Future at 0x118347e90 state=running>, <Future at 0x118350790 state=running>, <Future at 0x118350a50 state=running>, <Future at 0x118350e10 state=running>, <Future at 0x118351310 state=running>, <Future at 0x118351690 state=running>, <Future at 0x118347790 state=running>, <Future at 0x118345c90 state=running>, <Future at 0x1183522d0 state=running>, <Future at 0x118352710 state=running>, <Future at 0x1183529d0 state=running>, <Future at 0x118352dd0 state=running>, <Future at 0x1183537d0 state=running>, <Future at 0x118353a90 state=running>, <Future at 0x11836c510 state=running>, <Future at 0x11836c7d0 state=running>, <Future at 0x11836d150 state=running>, <Future at 0x11836d790 state=running>, <Future at 0x11836da50 state=running>, <Future at 0x11836df50 state=running>, <Future at 0x11836e410 state=running>, <Future at 0x11836e910 state=running>, <Future at 0x11836ee10 state=running>, <Future at 0x11836f310 state=running>, <Future at 0x11836fa90 state=running>, <Future at 0x11836fd50 state=running>, <Future at 0x11837c250 state=running>, <Future at 0x118350690 state=running>, <Future at 0x1183531d0 state=running>, <Future at 0x11837cf90 state=running>, <Future at 0x1183534d0 state=running>, <Future at 0x11837da90 state=running>, <Future at 0x11837dd90 state=running>, <Future at 0x118353bd0 state=running>, <Future at 0x11837ebd0 state=running>, <Future at 0x11837ef10 state=running>, <Future at 0x11837f410 state=running>, <Future at 0x11836c990 state=running>, <Future at 0x11837fc50 state=running>, <Future at 0x11837ff50 state=running>, <Future at 0x118388510 state=running>, <Future at 0x11836cf90 state=running>, <Future at 0x118388ed0 state=running>, <Future at 0x1183891d0 state=running>, <Future at 0x118351790 state=running>, <Future at 0x11836d710 state=running>, <Future at 0x118389fd0 state=running>, <Future at 0x11838a510 state=running>, <Future at 0x11838aa50 state=running>, <Future at 0x118351c50 state=running>, <Future at 0x11838b6d0 state=running>, <Future at 0x11838b9d0 state=running>, <Future at 0x11838bf10 state=running>, <Future at 0x119120410 state=running>, <Future at 0x119120bd0 state=running>, <Future at 0x119120ed0 state=running>, <Future at 0x119121450 state=running>, <Future at 0x119121b10 state=running>, <Future at 0x119121f50 state=running>]
+2023-12-03 18:18:42,576 - 11494584320 - INFO - Customer [33] entered bouncer queue
+2023-12-03 18:18:42,608 - 11511410688 - INFO - Customer [34] entered bouncer queue
+2023-12-03 18:18:42,626 - 11528237056 - INFO - Customer [35] entered bouncer queue
+2023-12-03 18:18:42,683 - 11545063424 - INFO - Customer [36] entered bouncer queue
+2023-12-03 18:18:42,714 - 11561889792 - INFO - Customer [37] entered bouncer queue
+2023-12-03 18:18:42,739 - 11578716160 - INFO - Customer [38] entered bouncer queue
+2023-12-03 18:18:42,764 - 11595542528 - INFO - Customer [39] entered bouncer queue
+2023-12-03 18:18:42,815 - 11612368896 - INFO - Customer [40] entered bouncer queue
+2023-12-03 18:18:42,840 - 10888835072 - INFO - Bouncer [0] allowed customer [40] to enter
+2023-12-03 18:18:43,941 - 6143717376 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.LowRoller object at 0x118340d50>]]
+2023-12-03 18:18:44,332 - 11629195264 - INFO - Customer [41] entered bouncer queue
+2023-12-03 18:18:44,351 - 11646021632 - INFO - Customer [42] entered bouncer queue
+2023-12-03 18:18:44,375 - 10905661440 - INFO - Bouncer [1] allowed customer [42] to enter
+2023-12-03 18:18:44,512 - 11662848000 - INFO - Customer [43] entered bouncer queue
+2023-12-03 18:18:44,525 - 11679674368 - INFO - Customer [44] entered bouncer queue
+2023-12-03 18:18:44,580 - 11696500736 - INFO - Customer [45] entered bouncer queue
+2023-12-03 18:18:44,592 - 11713327104 - INFO - Customer [46] entered bouncer queue
+2023-12-03 18:18:44,605 - 10922487808 - INFO - Customer [46] kicked out
+2023-12-03 18:18:44,799 - 11730153472 - INFO - Customer [47] entered bouncer queue
+2023-12-03 18:18:44,811 - 10972966912 - INFO - Customer [48] entered bouncer queue
+2023-12-03 18:18:44,818 - 11746979840 - INFO - Customer [49] entered bouncer queue
+2023-12-03 18:18:44,836 - 11763806208 - INFO - Customer [50] entered bouncer queue
+2023-12-03 18:18:44,855 - 11780632576 - INFO - Customer [51] entered bouncer queue
+2023-12-03 18:18:44,905 - 10939314176 - INFO - Customer [51] kicked out
+2023-12-03 18:18:45,067 - 6143717376 - INFO - Successfully inserted [('Roulette', 1233)] into table [transactions]
+2023-12-03 18:18:45,130 - 11797458944 - INFO - Customer [52] entered bouncer queue
+2023-12-03 18:18:45,148 - 11814285312 - INFO - Customer [53] entered bouncer queue
+2023-12-03 18:18:45,161 - 11831111680 - INFO - Customer [54] entered bouncer queue
+2023-12-03 18:18:45,186 - 11847938048 - INFO - Customer [55] entered bouncer queue
+2023-12-03 18:18:45,192 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:45,192 - 11864764416 - INFO - Customer [56] entered bouncer queue
+2023-12-03 18:18:45,217 - 11881590784 - INFO - Customer [57] entered bouncer queue
+2023-12-03 18:18:45,236 - 11898417152 - INFO - Customer [58] entered bouncer queue
+2023-12-03 18:18:45,249 - 11915243520 - INFO - Customer [59] entered bouncer queue
+2023-12-03 18:18:45,249 - 11932069888 - INFO - Customer [60] entered bouncer queue
+2023-12-03 18:18:45,299 - 11948896256 - INFO - Customer [61] entered bouncer queue
+2023-12-03 18:18:45,324 - 11965722624 - INFO - Customer [62] entered bouncer queue
+2023-12-03 18:18:45,330 - 11982548992 - INFO - Customer [63] entered bouncer queue
+2023-12-03 18:18:45,355 - 11999375360 - INFO - Customer [64] entered bouncer queue
+2023-12-03 18:18:45,416 - 12016201728 - INFO - Customer [65] entered bouncer queue
+2023-12-03 18:18:45,428 - 11612368896 - INFO - Successfully inserted [(40, 'Dennis Valdez', 57, 'male')] into table [customers]
+2023-12-03 18:18:45,447 - 12033028096 - INFO - Customer [66] entered bouncer queue
+2023-12-03 18:18:45,459 - 12049854464 - INFO - Customer [67] entered bouncer queue
+2023-12-03 18:18:45,491 - 12066680832 - INFO - Customer [68] entered bouncer queue
+2023-12-03 18:18:45,516 - 12083507200 - INFO - Customer [69] entered bouncer queue
+2023-12-03 18:18:45,941 - 6143717376 - INFO - Successfully inserted [('Roulette', 2433)] into table [transactions]
+2023-12-03 18:18:45,990 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:46,028 - 11646021632 - INFO - Successfully inserted [(42, 'Oscar Giammarino', 65, 'male')] into table [customers]
+2023-12-03 18:18:46,345 - 10888835072 - INFO - Bouncer [0] allowed customer [69] to enter
+2023-12-03 18:18:46,520 - 10905661440 - INFO - Bouncer [1] allowed customer [68] to enter
+2023-12-03 18:18:46,745 - 6143717376 - INFO - Successfully inserted [('Roulette', 2610)] into table [transactions]
+2023-12-03 18:18:46,802 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:46,808 - 10922487808 - INFO - Bouncer [2] allowed customer [67] to enter
+2023-12-03 18:18:46,845 - 6160543744 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.LowRoller object at 0x118343d90>]]
+2023-12-03 18:18:47,075 - 12083507200 - INFO - Successfully inserted [(69, 'Lucien Boutin', 79, 'male')] into table [customers]
+2023-12-03 18:18:47,125 - 10939314176 - INFO - Bouncer [3] allowed customer [66] to enter
+2023-12-03 18:18:47,392 - 12066680832 - INFO - Successfully inserted [(68, 'Rachelle Lourentzos', 31, 'female')] into table [customers]
+2023-12-03 18:18:47,592 - 12049854464 - INFO - Successfully inserted [(67, 'Willie Ewing', 20, 'male')] into table [customers]
+2023-12-03 18:18:47,634 - 10855182336 - INFO - Bartender selected customer [67]
+2023-12-03 18:18:47,635 - 6143717376 - INFO - Successfully inserted [('Roulette', 2349)] into table [transactions]
+2023-12-03 18:18:47,679 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:47,701 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:18:47,714 - 10855182336 - DEBUG - Bartender released customer [67]
+2023-12-03 18:18:47,950 - 12033028096 - INFO - Successfully inserted [(66, 'Olga Tainter', 48, 'female')] into table [customers]
+2023-12-03 18:18:48,023 - 10872008704 - INFO - Bartender selected customer [66]
+2023-12-03 18:18:48,076 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:18:48,095 - 10872008704 - DEBUG - Bartender released customer [66]
+2023-12-03 18:18:48,371 - 6160543744 - INFO - Successfully inserted [('Roulette', 1299)] into table [transactions]
+2023-12-03 18:18:48,383 - 10888835072 - INFO - Bouncer [0] allowed customer [65] to enter
+2023-12-03 18:18:48,439 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:18:48,552 - 10905661440 - INFO - Customer [64] kicked out
+2023-12-03 18:18:48,862 - 12016201728 - INFO - Successfully inserted [(65, 'Adrian Gillman', 42, 'male')] into table [customers]
+2023-12-03 18:18:48,924 - 10922487808 - INFO - Bouncer [2] allowed customer [63] to enter
+2023-12-03 18:18:49,030 - 6143717376 - INFO - Successfully inserted [('Roulette', 1000)] into table [transactions]
+2023-12-03 18:18:49,079 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:49,160 - 6341865472 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.LowRoller object at 0x118345250>]]
+2023-12-03 18:18:49,247 - 10939314176 - INFO - Customer [62] kicked out
+2023-12-03 18:18:49,776 - 6160543744 - INFO - Successfully inserted [('Roulette', 2592)] into table [transactions]
+2023-12-03 18:18:49,854 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:18:49,874 - 11982548992 - INFO - Successfully inserted [(63, 'Sarah Bowman', 62, 'female')] into table [customers]
+2023-12-03 18:18:49,936 - 6358691840 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x118344dd0>]]
+2023-12-03 18:18:50,457 - 10888835072 - INFO - Customer [61] kicked out
+2023-12-03 18:18:50,526 - 6143717376 - INFO - Successfully inserted [('Roulette', 2412)] into table [transactions]
+2023-12-03 18:18:50,569 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:18:50,617 - 10905661440 - INFO - Customer [60] kicked out
+2023-12-03 18:18:50,953 - 10922487808 - INFO - Customer [59] kicked out
+2023-12-03 18:18:51,275 - 10939314176 - INFO - Bouncer [3] allowed customer [58] to enter
+2023-12-03 18:18:51,724 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1083)] into table [transactions]
+2023-12-03 18:18:51,731 - 11898417152 - INFO - Successfully inserted [(58, 'Michael Simpson', 58, 'male')] into table [customers]
+2023-12-03 18:18:51,787 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:18:52,443 - 6160543744 - INFO - Successfully inserted [('Roulette', 1803)] into table [transactions]
+2023-12-03 18:18:52,493 - 10888835072 - INFO - Bouncer [0] allowed customer [57] to enter
+2023-12-03 18:18:52,506 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:18:52,655 - 10905661440 - INFO - Customer [56] kicked out
+2023-12-03 18:18:53,067 - 10922487808 - INFO - Customer [55] kicked out
+2023-12-03 18:18:53,310 - 10939314176 - INFO - Bouncer [3] allowed customer [54] to enter
+2023-12-03 18:18:53,466 - 11831111680 - INFO - Successfully inserted [(54, 'Arnold Lopez', 74, 'male')] into table [customers]
+2023-12-03 18:18:53,671 - 11881590784 - INFO - Successfully inserted [(57, 'Andrea Moore', 47, 'female')] into table [customers]
+2023-12-03 18:18:53,696 - 6358691840 - INFO - Successfully inserted [('Poker', 4.200000000000003)] into table [transactions]
+2023-12-03 18:18:54,552 - 10888835072 - INFO - Bouncer [0] allowed customer [53] to enter
+2023-12-03 18:18:54,680 - 10905661440 - INFO - Customer [52] kicked out
+2023-12-03 18:18:55,106 - 10922487808 - INFO - Bouncer [2] allowed customer [50] to enter
+2023-12-03 18:18:55,375 - 10939314176 - INFO - Bouncer [3] allowed customer [49] to enter
+2023-12-03 18:18:55,482 - 11763806208 - INFO - Successfully inserted [(50, 'Nancy Fowler', 23, 'female')] into table [customers]
+2023-12-03 18:18:55,525 - 10855182336 - INFO - Bartender selected customer [50]
+2023-12-03 18:18:55,564 - 11814285312 - INFO - Successfully inserted [(53, 'Nicholas Ray', 45, 'male')] into table [customers]
+2023-12-03 18:18:55,569 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:18:55,588 - 10855182336 - DEBUG - Bartender released customer [50]
+2023-12-03 18:18:55,848 - 6358691840 - INFO - Successfully inserted [('Poker', 1.7000000000000028)] into table [transactions]
+2023-12-03 18:18:56,325 - 11746979840 - INFO - Successfully inserted [(49, 'Robert Manganaro', 38, 'male')] into table [customers]
+2023-12-03 18:18:56,405 - 10855182336 - INFO - Bartender selected customer [49]
+2023-12-03 18:18:56,453 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:18:56,465 - 10855182336 - DEBUG - Bartender released customer [49]
+2023-12-03 18:18:56,597 - 10888835072 - INFO - Customer [48] kicked out
+2023-12-03 18:18:56,703 - 10905661440 - INFO - Customer [47] kicked out
+2023-12-03 18:18:56,970 - 6325039104 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.LowRoller object at 0x118344b50>]]
+2023-12-03 18:18:57,195 - 10922487808 - INFO - Customer [45] kicked out
+2023-12-03 18:18:57,439 - 10939314176 - INFO - Customer [44] kicked out
+2023-12-03 18:18:57,644 - 12049854464 - DEBUG - Customer [67]: ordered drink
+2023-12-03 18:18:58,032 - 12033028096 - DEBUG - Customer [66]: ordered drink
+2023-12-03 18:18:58,194 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1194)] into table [transactions]
+2023-12-03 18:18:58,262 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:18:58,654 - 10888835072 - INFO - Bouncer [0] allowed customer [43] to enter
+2023-12-03 18:18:58,760 - 10905661440 - INFO - Customer [41] kicked out
+2023-12-03 18:18:58,805 - 11662848000 - INFO - Successfully inserted [(43, 'Eric Calderon', 52, 'male')] into table [customers]
+2023-12-03 18:18:58,954 - 6160543744 - INFO - Successfully inserted [('Roulette', 2763)] into table [transactions]
+2023-12-03 18:18:59,022 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:18:59,040 - 6375518208 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x118345290>]]
+2023-12-03 18:18:59,264 - 10922487808 - INFO - Customer [39] kicked out
+2023-12-03 18:18:59,489 - 10939314176 - INFO - Customer [38] kicked out
+2023-12-03 18:19:00,238 - 6358691840 - INFO - Successfully inserted [('Poker', 1.1000000000000014)] into table [transactions]
+2023-12-03 18:19:00,681 - 10888835072 - INFO - Customer [37] kicked out
+2023-12-03 18:19:00,793 - 10905661440 - INFO - Customer [36] kicked out
+2023-12-03 18:19:01,304 - 10922487808 - INFO - Customer [35] kicked out
+2023-12-03 18:19:01,516 - 10939314176 - INFO - Bouncer [3] allowed customer [34] to enter
+2023-12-03 18:19:02,132 - 11646021632 - DEBUG - Customer [42]: went to bathroom
+2023-12-03 18:19:02,502 - 6325039104 - INFO - Successfully inserted [('BlackJack', 1557)] into table [transactions]
+2023-12-03 18:19:02,559 - 11511410688 - INFO - Successfully inserted [(34, 'Jackie Moore', 79, 'female')] into table [customers]
+2023-12-03 18:19:02,559 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:02,707 - 10872008704 - INFO - Bartender selected customer [34]
+2023-12-03 18:19:02,726 - 10888835072 - INFO - Customer [33] kicked out
+2023-12-03 18:19:02,753 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:02,772 - 10872008704 - DEBUG - Bartender released customer [34]
+2023-12-03 18:19:02,823 - 10905661440 - INFO - Bouncer [1] allowed customer [32] to enter
+2023-12-03 18:19:03,340 - 10922487808 - INFO - Customer [31] kicked out
+2023-12-03 18:19:03,441 - 11477757952 - INFO - Successfully inserted [(32, 'Vera Diaz', 28, 'female')] into table [customers]
+2023-12-03 18:19:03,546 - 10939314176 - INFO - Bouncer [3] allowed customer [30] to enter
+2023-12-03 18:19:03,722 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1746)] into table [transactions]
+2023-12-03 18:19:03,759 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:04,109 - 11444105216 - INFO - Successfully inserted [(30, 'Diana Taylor', 18, 'female')] into table [customers]
+2023-12-03 18:19:04,361 - 6160543744 - INFO - Successfully inserted [('Roulette', 2460)] into table [transactions]
+2023-12-03 18:19:04,433 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:04,739 - 10888835072 - INFO - Customer [29] kicked out
+2023-12-03 18:19:04,863 - 10905661440 - INFO - Customer [28] kicked out
+2023-12-03 18:19:05,375 - 10922487808 - INFO - Bouncer [2] allowed customer [27] to enter
+2023-12-03 18:19:05,568 - 11763806208 - DEBUG - Customer [50]: ordered drink
+2023-12-03 18:19:05,618 - 10939314176 - INFO - Bouncer [3] allowed customer [26] to enter
+2023-12-03 18:19:05,638 - 6375518208 - INFO - Successfully inserted [('Poker', 1.6000000000000014)] into table [transactions]
+2023-12-03 18:19:05,788 - 11393626112 - INFO - Successfully inserted [(27, 'Eddy Simms', 42, 'male')] into table [customers]
+2023-12-03 18:19:06,411 - 11746979840 - DEBUG - Customer [49]: ordered drink
+2023-12-03 18:19:06,649 - 11376799744 - INFO - Successfully inserted [(26, 'Marva Baldwin', 41, 'female')] into table [customers]
+2023-12-03 18:19:06,811 - 10888835072 - INFO - Customer [25] kicked out
+2023-12-03 18:19:06,905 - 10905661440 - INFO - Customer [24] kicked out
+2023-12-03 18:19:07,391 - 6143717376 - INFO - Successfully inserted [('Roulette', 2133)] into table [transactions]
+2023-12-03 18:19:07,410 - 10922487808 - INFO - Bouncer [2] allowed customer [23] to enter
+2023-12-03 18:19:07,448 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:19:07,637 - 10939314176 - INFO - Customer [22] kicked out
+2023-12-03 18:19:08,319 - 11326320640 - INFO - Successfully inserted [(23, 'Karen Mitchell', 64, 'female')] into table [customers]
+2023-12-03 18:19:08,587 - 6358691840 - INFO - Successfully inserted [('Poker', 2.3000000000000043)] into table [transactions]
+2023-12-03 18:19:08,829 - 10888835072 - INFO - Bouncer [0] allowed customer [21] to enter
+2023-12-03 18:19:08,931 - 10905661440 - INFO - Bouncer [1] allowed customer [20] to enter
+2023-12-03 18:19:09,062 - 11275841536 - INFO - Successfully inserted [(20, 'Robert Lee', 40, 'male')] into table [customers]
+2023-12-03 18:19:09,267 - 11292667904 - INFO - Successfully inserted [(21, 'James Waddell', 36, 'male')] into table [customers]
+2023-12-03 18:19:09,348 - 10855182336 - INFO - Bartender selected customer [21]
+2023-12-03 18:19:09,409 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:09,421 - 10855182336 - DEBUG - Bartender released customer [21]
+2023-12-03 18:19:09,495 - 10922487808 - INFO - Bouncer [2] allowed customer [19] to enter
+2023-12-03 18:19:09,697 - 10939314176 - INFO - Customer [18] kicked out
+2023-12-03 18:19:10,059 - 11259015168 - INFO - Successfully inserted [(19, 'Francis Palmer', 38, 'male')] into table [customers]
+2023-12-03 18:19:10,666 - 6325039104 - INFO - Player [Sarah Bowman] has won
+2023-12-03 18:19:10,805 - 6325039104 - INFO - Successfully inserted [('BlackJack', -1116)] into table [transactions]
+2023-12-03 18:19:10,859 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:10,866 - 10888835072 - INFO - Customer [17] kicked out
+2023-12-03 18:19:10,978 - 10905661440 - INFO - Bouncer [1] allowed customer [16] to enter
+2023-12-03 18:19:11,170 - 11275841536 - DEBUG - Customer [20]: went to bathroom
+2023-12-03 18:19:11,544 - 10922487808 - INFO - Bouncer [2] allowed customer [15] to enter
+2023-12-03 18:19:11,745 - 10939314176 - INFO - Customer [14] kicked out
+2023-12-03 18:19:11,789 - 11191709696 - INFO - Successfully inserted [(15, 'Leta Woodham', 66, 'female')] into table [customers]
+2023-12-03 18:19:11,883 - 6341865472 - INFO - Player [Rachelle Lourentzos] has won
+2023-12-03 18:19:11,920 - 11208536064 - INFO - Successfully inserted [(16, 'Donna Houchins', 45, 'female')] into table [customers]
+2023-12-03 18:19:12,101 - 6341865472 - INFO - Successfully inserted [('BlackJack', -1470)] into table [transactions]
+2023-12-03 18:19:12,125 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:12,717 - 11511410688 - DEBUG - Customer [34]: ordered drink
+2023-12-03 18:19:12,768 - 6160543744 - INFO - Successfully inserted [('Roulette', 2505)] into table [transactions]
+2023-12-03 18:19:12,786 - 10855182336 - INFO - Bartender selected customer [34]
+2023-12-03 18:19:12,792 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:12,850 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:12,862 - 10855182336 - DEBUG - Bartender released customer [34]
+2023-12-03 18:19:12,944 - 10888835072 - INFO - Bouncer [0] allowed customer [13] to enter
+2023-12-03 18:19:13,018 - 10905661440 - INFO - Bouncer [1] allowed customer [12] to enter
+2023-12-03 18:19:13,589 - 10922487808 - INFO - Bouncer [2] allowed customer [11] to enter
+2023-12-03 18:19:13,740 - 11141230592 - INFO - Successfully inserted [(12, 'Harold Shelton', 29, 'male')] into table [customers]
+2023-12-03 18:19:13,777 - 10939314176 - INFO - Bouncer [3] allowed customer [10] to enter
+2023-12-03 18:19:13,990 - 11158056960 - INFO - Successfully inserted [(13, 'Nola Smeltzer', 27, 'female')] into table [customers]
+2023-12-03 18:19:13,996 - 6375518208 - INFO - Successfully inserted [('Poker', 4.150000000000006)] into table [transactions]
+2023-12-03 18:19:14,603 - 11090751488 - INFO - Successfully inserted [(10, 'Elmer Green', 75, 'male')] into table [customers]
+2023-12-03 18:19:14,647 - 10872008704 - INFO - Bartender selected customer [10]
+2023-12-03 18:19:14,705 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:14,712 - 11124404224 - INFO - Successfully inserted [(11, 'Scott Barker', 73, 'male')] into table [customers]
+2023-12-03 18:19:14,725 - 10872008704 - DEBUG - Bartender released customer [10]
+2023-12-03 18:19:15,010 - 10888835072 - INFO - Customer [9] kicked out
+2023-12-03 18:19:15,109 - 10905661440 - INFO - Customer [8] kicked out
+2023-12-03 18:19:15,661 - 6143717376 - INFO - Successfully inserted [('Roulette', 2334)] into table [transactions]
+2023-12-03 18:19:15,703 - 10922487808 - INFO - Bouncer [2] allowed customer [7] to enter
+2023-12-03 18:19:15,772 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:19:15,835 - 10939314176 - INFO - Customer [6] kicked out
+2023-12-03 18:19:16,529 - 11073925120 - INFO - Successfully inserted [(7, 'Darrell Duron', 46, 'male')] into table [customers]
+2023-12-03 18:19:16,925 - 6358691840 - INFO - Successfully inserted [('Poker', 4.549999999999997)] into table [transactions]
+2023-12-03 18:19:17,056 - 10888835072 - INFO - Customer [5] kicked out
+2023-12-03 18:19:17,137 - 10905661440 - INFO - Customer [4] kicked out
+2023-12-03 18:19:17,745 - 10922487808 - INFO - Bouncer [2] allowed customer [3] to enter
+2023-12-03 18:19:18,359 - 11006619648 - INFO - Successfully inserted [(3, 'Norman Gill', 74, 'male')] into table [customers]
+2023-12-03 18:19:19,085 - 6358691840 - INFO - Successfully inserted [('Poker', 4.049999999999997)] into table [transactions]
+2023-12-03 18:19:19,353 - 11292667904 - DEBUG - Customer [21]: ordered drink
+2023-12-03 18:19:19,378 - 10855182336 - INFO - Bartender selected customer [21]
+2023-12-03 18:19:19,439 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:19,450 - 10855182336 - DEBUG - Bartender released customer [21]
+2023-12-03 18:19:21,256 - 6358691840 - INFO - Successfully inserted [('Poker', 1.5500000000000007)] into table [transactions]
+2023-12-03 18:19:22,782 - 11511410688 - DEBUG - Customer [34]: ordered drink
+2023-12-03 18:19:23,405 - 6358691840 - INFO - Successfully inserted [('Poker', 3.25)] into table [transactions]
+2023-12-03 18:19:24,660 - 11090751488 - DEBUG - Customer [10]: ordered drink
+2023-12-03 18:19:25,517 - 6341865472 - INFO - Player [Rachelle Lourentzos] has won
+2023-12-03 18:19:25,618 - 6341865472 - INFO - Successfully inserted [('BlackJack', -1293)] into table [transactions]
+2023-12-03 18:19:25,668 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:26,266 - 6160543744 - INFO - Successfully inserted [('Roulette', 1311)] into table [transactions]
+2023-12-03 18:19:26,314 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:27,465 - 6375518208 - INFO - Successfully inserted [('Poker', 4.75)] into table [transactions]
+2023-12-03 18:19:29,167 - 6143717376 - INFO - Successfully inserted [('Roulette', 2349)] into table [transactions]
+2023-12-03 18:19:29,228 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:19:29,389 - 11292667904 - DEBUG - Customer [21]: ordered drink
+2023-12-03 18:19:30,369 - 6325039104 - INFO - Successfully inserted [('BlackJack', 1869)] into table [transactions]
+2023-12-03 18:19:30,431 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:31,631 - 6358691840 - INFO - Successfully inserted [('Poker', 1.4500000000000028)] into table [transactions]
+2023-12-03 18:19:33,719 - 6341865472 - INFO - Player [Rachelle Lourentzos] has won
+2023-12-03 18:19:33,844 - 6341865472 - INFO - Successfully inserted [('BlackJack', -2850)] into table [transactions]
+2023-12-03 18:19:33,905 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:34,527 - 6160543744 - INFO - Successfully inserted [('Roulette', 2196)] into table [transactions]
+2023-12-03 18:19:34,570 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:35,708 - 6375518208 - INFO - Successfully inserted [('Poker', 2.3000000000000043)] into table [transactions]
+2023-12-03 18:19:37,852 - 6375518208 - INFO - Successfully inserted [('Poker', 3.9000000000000057)] into table [transactions]
+2023-12-03 18:19:39,969 - 6325039104 - INFO - Player [Sarah Bowman] has won
+2023-12-03 18:19:40,088 - 6325039104 - INFO - Successfully inserted [('BlackJack', -2481)] into table [transactions]
+2023-12-03 18:19:40,151 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:41,254 - 6358691840 - INFO - Successfully inserted [('Poker', 2.700000000000003)] into table [transactions]
+2023-12-03 18:19:43,375 - 6341865472 - INFO - Player [Rachelle Lourentzos] has won
+2023-12-03 18:19:43,512 - 6341865472 - INFO - Successfully inserted [('BlackJack', -1200)] into table [transactions]
+2023-12-03 18:19:43,574 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:44,209 - 6160543744 - INFO - Successfully inserted [('Roulette', 2775)] into table [transactions]
+2023-12-03 18:19:44,264 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:44,863 - 6143717376 - INFO - Successfully inserted [('Roulette', 1539)] into table [transactions]
+2023-12-03 18:19:44,919 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:19:46,125 - 6375518208 - INFO - Successfully inserted [('Poker', 1.2000000000000028)] into table [transactions]
+2023-12-03 18:19:48,266 - 6375518208 - INFO - Successfully inserted [('Poker', 1.25)] into table [transactions]
+2023-12-03 18:19:50,473 - 6358691840 - INFO - Successfully inserted [('Poker', 3.25)] into table [transactions]
+2023-12-03 18:19:51,535 - 10956140544 - DEBUG - Customer [0]: left table
+2023-12-03 18:19:52,563 - 6341865472 - INFO - Player [Rachelle Lourentzos] has won
+2023-12-03 18:19:52,741 - 6341865472 - INFO - Successfully inserted [('BlackJack', -1926)] into table [transactions]
+2023-12-03 18:19:52,797 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:53,379 - 6160543744 - INFO - Successfully inserted [('Roulette', 1506)] into table [transactions]
+2023-12-03 18:19:53,442 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:53,454 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:19:53,473 - 11612368896 - DEBUG - Customer [40]: left table
+2023-12-03 18:19:54,508 - 6325039104 - INFO - Player [Sarah Bowman] has won
+2023-12-03 18:19:54,585 - 6325039104 - INFO - Successfully inserted [('BlackJack', -2688)] into table [transactions]
+2023-12-03 18:19:54,642 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:54,679 - 12066680832 - DEBUG - Customer [68]: left table
+2023-12-03 18:19:55,806 - 6375518208 - INFO - Successfully inserted [('Poker', 3.950000000000003)] into table [transactions]
+2023-12-03 18:19:56,913 - 12016201728 - DEBUG - Customer [65]: left table
+2023-12-03 18:19:56,944 - 10855182336 - INFO - Bartender selected customer [65]
+2023-12-03 18:19:56,982 - 12083507200 - DEBUG - Customer [69]: left table
+2023-12-03 18:19:56,988 - 11982548992 - DEBUG - Customer [63]: left table
+2023-12-03 18:19:56,988 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:57,007 - 6160543744 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.LowRoller object at 0x118340d50>]]
+2023-12-03 18:19:57,014 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:19:57,028 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:19:57,044 - 6375518208 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.LowRoller object at 0x118345250>]]
+2023-12-03 18:19:57,063 - 6341865472 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.LowRoller object at 0x118344b50>]]
+2023-12-03 18:19:57,076 - 6143717376 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.LowRoller object at 0x118343d90>]]
+2023-12-03 18:19:57,094 - 6325039104 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.MediumRoller object at 0x118342790>]]
+2023-12-03 18:19:57,107 - 10855182336 - DEBUG - Bartender released customer [65]
+2023-12-03 18:19:57,693 - 6160543744 - INFO - Successfully inserted [('Roulette', 1344)] into table [transactions]
+2023-12-03 18:19:57,762 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:19:57,775 - 6358691840 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x118343850>]]
+2023-12-03 18:19:58,901 - 6341865472 - INFO - Successfully inserted [('BlackJack', 2619)] into table [transactions]
+2023-12-03 18:19:58,951 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:19:59,581 - 6143717376 - INFO - Successfully inserted [('Roulette', 1533)] into table [transactions]
+2023-12-03 18:19:59,649 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:00,737 - 6325039104 - INFO - Successfully inserted [('BlackJack', 28512)] into table [transactions]
+2023-12-03 18:20:00,781 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:01,876 - 6375518208 - INFO - Successfully inserted [('Poker', 1.6000000000000014)] into table [transactions]
+2023-12-03 18:20:03,563 - 6160543744 - INFO - Successfully inserted [('Roulette', 1767)] into table [transactions]
+2023-12-03 18:20:03,620 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:20:04,773 - 6358691840 - INFO - Successfully inserted [('Poker', 1.25)] into table [transactions]
+2023-12-03 18:20:06,941 - 12016201728 - DEBUG - Customer [65]: ordered drink
+2023-12-03 18:20:07,010 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1632)] into table [transactions]
+2023-12-03 18:20:07,064 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:07,082 - 11831111680 - DEBUG - Customer [54]: left table
+2023-12-03 18:20:07,094 - 11881590784 - DEBUG - Customer [57]: left table
+2023-12-03 18:20:07,124 - 11814285312 - DEBUG - Customer [53]: left table
+2023-12-03 18:20:07,137 - 10872008704 - INFO - Bartender selected customer [54]
+2023-12-03 18:20:07,241 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:20:07,253 - 10872008704 - DEBUG - Bartender released customer [54]
+2023-12-03 18:20:07,716 - 6143717376 - INFO - Successfully inserted [('Roulette', 2799)] into table [transactions]
+2023-12-03 18:20:07,765 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:08,796 - 6325039104 - INFO - Player [James Waddell] has won
+2023-12-03 18:20:08,897 - 6325039104 - INFO - Successfully inserted [('BlackJack', -23112)] into table [transactions]
+2023-12-03 18:20:08,934 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:08,940 - 11898417152 - DEBUG - Customer [58]: left table
+2023-12-03 18:20:08,959 - 12049854464 - DEBUG - Customer [67]: left table
+2023-12-03 18:20:08,977 - 12033028096 - DEBUG - Customer [66]: left table
+2023-12-03 18:20:10,130 - 6375518208 - INFO - Successfully inserted [('Poker', 3.25)] into table [transactions]
+2023-12-03 18:20:12,260 - 6375518208 - INFO - Successfully inserted [('Poker', 3.75)] into table [transactions]
+2023-12-03 18:20:13,341 - 11662848000 - DEBUG - Customer [43]: left table
+2023-12-03 18:20:14,491 - 6358691840 - INFO - Successfully inserted [('Poker', 4.800000000000011)] into table [transactions]
+2023-12-03 18:20:16,732 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1176)] into table [transactions]
+2023-12-03 18:20:16,806 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:17,149 - 11831111680 - DEBUG - Customer [54]: ordered drink
+2023-12-03 18:20:17,471 - 6143717376 - INFO - Successfully inserted [('Roulette', 1233)] into table [transactions]
+2023-12-03 18:20:17,515 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:18,570 - 6325039104 - INFO - Player [James Waddell] has won
+2023-12-03 18:20:18,721 - 6325039104 - INFO - Successfully inserted [('BlackJack', -13230)] into table [transactions]
+2023-12-03 18:20:18,753 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:18,772 - 11646021632 - DEBUG - Customer [42]: left table
+2023-12-03 18:20:18,796 - 11477757952 - DEBUG - Customer [32]: left table
+2023-12-03 18:20:19,411 - 6160543744 - INFO - Successfully inserted [('Roulette', 2160)] into table [transactions]
+2023-12-03 18:20:19,473 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:20:19,485 - 11444105216 - DEBUG - Customer [30]: left table
+2023-12-03 18:20:19,517 - 11376799744 - DEBUG - Customer [26]: left table
+2023-12-03 18:20:19,535 - 11763806208 - DEBUG - Customer [50]: left table
+2023-12-03 18:20:19,572 - 11393626112 - DEBUG - Customer [27]: left table
+2023-12-03 18:20:19,597 - 11746979840 - DEBUG - Customer [49]: left table
+2023-12-03 18:20:19,732 - 10855182336 - INFO - Bartender selected customer [27]
+2023-12-03 18:20:19,843 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:20:19,855 - 10855182336 - DEBUG - Bartender released customer [27]
+2023-12-03 18:20:20,709 - 6375518208 - INFO - Successfully inserted [('Poker', 4.450000000000003)] into table [transactions]
+2023-12-03 18:20:22,898 - 6375518208 - INFO - Successfully inserted [('Poker', 2.9000000000000057)] into table [transactions]
+2023-12-03 18:20:25,109 - 6358691840 - INFO - Successfully inserted [('Poker', 3.8500000000000085)] into table [transactions]
+2023-12-03 18:20:27,299 - 6358691840 - INFO - Successfully inserted [('Poker', 1.6000000000000014)] into table [transactions]
+2023-12-03 18:20:29,439 - 6358691840 - INFO - Successfully inserted [('Poker', 1.0)] into table [transactions]
+2023-12-03 18:20:29,752 - 11393626112 - DEBUG - Customer [27]: ordered drink
+2023-12-03 18:20:31,092 - 6143717376 - INFO - Successfully inserted [('Roulette', 2124)] into table [transactions]
+2023-12-03 18:20:31,136 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:32,186 - 6325039104 - INFO - Player [James Waddell] has won
+2023-12-03 18:20:32,300 - 6325039104 - INFO - Successfully inserted [('BlackJack', -16254)] into table [transactions]
+2023-12-03 18:20:32,355 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:33,009 - 6160543744 - INFO - Successfully inserted [('Roulette', -44064)] into table [transactions]
+2023-12-03 18:20:33,065 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:20:34,203 - 6375518208 - INFO - Successfully inserted [('Poker', 2.950000000000003)] into table [transactions]
+2023-12-03 18:20:36,430 - 6375518208 - INFO - Successfully inserted [('Poker', 1.0)] into table [transactions]
+2023-12-03 18:20:37,513 - 11208536064 - DEBUG - Customer [16]: left table
+2023-12-03 18:20:37,520 - 11326320640 - DEBUG - Customer [23]: left table
+2023-12-03 18:20:37,538 - 11124404224 - DEBUG - Customer [11]: left table
+2023-12-03 18:20:37,551 - 11158056960 - DEBUG - Customer [13]: left table
+2023-12-03 18:20:37,570 - 11141230592 - DEBUG - Customer [12]: left table
+2023-12-03 18:20:38,731 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1989)] into table [transactions]
+2023-12-03 18:20:38,775 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:38,793 - 11073925120 - DEBUG - Customer [7]: left table
+2023-12-03 18:20:38,823 - 11259015168 - DEBUG - Customer [19]: left table
+2023-12-03 18:20:38,848 - 11006619648 - DEBUG - Customer [3]: left table
+2023-12-03 18:20:38,885 - 11275841536 - DEBUG - Customer [20]: left table
+2023-12-03 18:20:40,004 - 6358691840 - INFO - Successfully inserted [('Poker', 4.8500000000000085)] into table [transactions]
+2023-12-03 18:20:41,739 - 6143717376 - INFO - Successfully inserted [('Roulette', 2016)] into table [transactions]
+2023-12-03 18:20:41,807 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:42,870 - 6325039104 - INFO - Player [James Waddell] has won
+2023-12-03 18:20:43,008 - 6325039104 - INFO - Successfully inserted [('BlackJack', -19926)] into table [transactions]
+2023-12-03 18:20:43,064 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:43,077 - 11090751488 - DEBUG - Customer [10]: left table
+2023-12-03 18:20:43,711 - 6160543744 - INFO - Successfully inserted [('Roulette', 2031)] into table [transactions]
+2023-12-03 18:20:43,762 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:20:43,799 - 11511410688 - DEBUG - Customer [34]: left table
+2023-12-03 18:20:43,805 - 11191709696 - DEBUG - Customer [15]: left table
+2023-12-03 18:20:44,957 - 6375518208 - INFO - Successfully inserted [('Poker', 4.75)] into table [transactions]
+2023-12-03 18:20:47,108 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1788)] into table [transactions]
+2023-12-03 18:20:47,139 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:47,220 - 11292667904 - DEBUG - Customer [21]: left table
+2023-12-03 18:20:47,245 - 10872008704 - INFO - Bartender selected customer [21]
+2023-12-03 18:20:47,258 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:20:47,297 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:20:47,309 - 10872008704 - DEBUG - Bartender released customer [21]
+2023-12-03 18:20:47,873 - 6160543744 - INFO - Successfully inserted [('Roulette', 1323)] into table [transactions]
+2023-12-03 18:20:47,930 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:20:49,090 - 6375518208 - INFO - Successfully inserted [('Poker', 3.6000000000000085)] into table [transactions]
+2023-12-03 18:20:49,651 - 11326320640 - DEBUG - Customer [23]: went to bathroom
+2023-12-03 18:20:49,775 - 11141230592 - DEBUG - Customer [12]: went to bathroom
+2023-12-03 18:20:51,327 - 6341865472 - INFO - Successfully inserted [('BlackJack', 1356)] into table [transactions]
+2023-12-03 18:20:51,370 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:51,376 - 6358691840 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.MediumRoller object at 0x118341c50>]]
+2023-12-03 18:20:51,984 - 6143717376 - INFO - Successfully inserted [('Roulette', 1449)] into table [transactions]
+2023-12-03 18:20:52,053 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:52,096 - 6325039104 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.MediumRoller object at 0x118343850>]]
+2023-12-03 18:20:53,242 - 6375518208 - INFO - Successfully inserted [('Poker', 1.6500000000000021)] into table [transactions]
+2023-12-03 18:20:55,467 - 6341865472 - INFO - Successfully inserted [('BlackJack', 2634)] into table [transactions]
+2023-12-03 18:20:55,542 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:20:56,645 - 6358691840 - INFO - Successfully inserted [('Poker', 2.1499999999999986)] into table [transactions]
+2023-12-03 18:20:57,262 - 11292667904 - DEBUG - Customer [21]: ordered drink
+2023-12-03 18:20:58,339 - 6143717376 - INFO - Successfully inserted [('Roulette', 2721)] into table [transactions]
+2023-12-03 18:20:58,388 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:20:59,039 - 6160543744 - INFO - Successfully inserted [('Roulette', 1707)] into table [transactions]
+2023-12-03 18:20:59,095 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:21:00,236 - 6325039104 - INFO - Successfully inserted [('BlackJack', 12960)] into table [transactions]
+2023-12-03 18:21:00,316 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:21:01,476 - 6375518208 - INFO - Successfully inserted [('Poker', 2.6500000000000057)] into table [transactions]
+2023-12-03 18:21:03,574 - 6341865472 - INFO - Player [Sarah Bowman] has won
+2023-12-03 18:21:03,650 - 6341865472 - INFO - Successfully inserted [('BlackJack', -2286)] into table [transactions]
+2023-12-03 18:21:03,694 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:21:03,743 - 10956140544 - DEBUG - Customer [0]: left table
+2023-12-03 18:21:03,756 - 11612368896 - DEBUG - Customer [40]: left table
+2023-12-03 18:21:03,774 - 12066680832 - DEBUG - Customer [68]: left table
+2023-12-03 18:21:03,787 - 10872008704 - INFO - Bartender selected customer [0]
+2023-12-03 18:21:03,799 - 11982548992 - DEBUG - Customer [63]: left table
+2023-12-03 18:21:03,812 - 10855182336 - INFO - Bartender selected customer [40]
+2023-12-03 18:21:03,877 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:21:03,889 - 10872008704 - DEBUG - Bartender released customer [0]
+2023-12-03 18:21:03,927 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:21:03,940 - 10855182336 - DEBUG - Bartender released customer [40]
+2023-12-03 18:21:04,919 - 6358691840 - INFO - Successfully inserted [('Poker', 3.700000000000003)] into table [transactions]
+2023-12-03 18:21:06,005 - 12083507200 - DEBUG - Customer [69]: left table
+2023-12-03 18:21:06,030 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:21:06,054 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:21:06,846 - 10855182336 - INFO - Bartender selected customer [68]
+2023-12-03 18:21:06,908 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:21:06,921 - 10855182336 - DEBUG - Bartender released customer [68]
+2023-12-03 18:21:07,229 - 6325039104 - INFO - Successfully inserted [('BlackJack', 20979)] into table [transactions]
+2023-12-03 18:21:07,278 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:21:07,316 - 6375518208 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x118342790>]]
+2023-12-03 18:21:07,359 - 6143717376 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.LowRoller object at 0x118345290>]]
+2023-12-03 18:21:07,383 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:21:08,508 - 6325039104 - INFO - Successfully inserted [('BlackJack', 20196)] into table [transactions]
+2023-12-03 18:21:08,576 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:21:08,607 - 6160543744 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.LowRoller object at 0x118344b50>]]
+2023-12-03 18:21:09,710 - 6358691840 - INFO - Successfully inserted [('Poker', 1.4500000000000028)] into table [transactions]
+2023-12-03 18:21:11,381 - 6143717376 - INFO - Successfully inserted [('Roulette', 1851)] into table [transactions]
+2023-12-03 18:21:11,419 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:21:11,437 - 6341865472 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.MediumRoller object at 0x118341c10>]]
+2023-12-03 18:21:12,566 - 6375518208 - INFO - Successfully inserted [('Poker', 4.700000000000003)] into table [transactions]
+2023-12-03 18:21:13,790 - 10956140544 - DEBUG - Customer [0]: ordered drink
+2023-12-03 18:21:13,815 - 11612368896 - DEBUG - Customer [40]: ordered drink
+2023-12-03 18:21:14,743 - 6375518208 - INFO - Successfully inserted [('Poker', 4.75)] into table [transactions]
+2023-12-03 18:21:16,864 - 12066680832 - DEBUG - Customer [68]: ordered drink
+2023-12-03 18:21:16,910 - 6375518208 - INFO - Successfully inserted [('Poker', 3.4000000000000057)] into table [transactions]
+2023-12-03 18:21:19,092 - 6375518208 - INFO - Successfully inserted [('Poker', 4.150000000000006)] into table [transactions]
+2023-12-03 18:21:21,240 - 6375518208 - INFO - Successfully inserted [('Poker', 3.1500000000000057)] into table [transactions]
+2023-12-03 18:21:23,404 - 6375518208 - INFO - Successfully inserted [('Poker', 3.25)] into table [transactions]
+2023-12-03 18:21:25,537 - 6375518208 - INFO - Successfully inserted [('Poker', 2.8000000000000043)] into table [transactions]
+2023-12-03 18:21:27,686 - 6375518208 - INFO - Successfully inserted [('Poker', 3.3500000000000014)] into table [transactions]
+2023-12-03 18:21:28,767 - 12016201728 - DEBUG - Customer [65]: left table
+2023-12-03 18:21:29,911 - 6358691840 - INFO - Successfully inserted [('Poker', 1.8500000000000014)] into table [transactions]
+2023-12-03 18:21:32,097 - 6358691840 - INFO - Successfully inserted [('Poker', 2.200000000000003)] into table [transactions]
+2023-12-03 18:21:34,287 - 6358691840 - INFO - Successfully inserted [('Poker', 4.200000000000003)] into table [transactions]
+2023-12-03 18:21:36,461 - 6358691840 - INFO - Successfully inserted [('Poker', 1.4500000000000028)] into table [transactions]
+2023-12-03 18:21:38,625 - 6358691840 - INFO - Successfully inserted [('Poker', 3.450000000000003)] into table [transactions]
+2023-12-03 18:21:40,845 - 6358691840 - INFO - Successfully inserted [('Poker', 1.3500000000000014)] into table [transactions]
+2023-12-03 18:21:43,090 - 6358691840 - INFO - Successfully inserted [('Poker', 3.5)] into table [transactions]
+2023-12-03 18:21:44,152 - 12049854464 - DEBUG - Customer [67]: left table
+2023-12-03 18:21:44,771 - 6143717376 - INFO - Successfully inserted [('Roulette', 2115)] into table [transactions]
+2023-12-03 18:21:44,814 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:21:45,967 - 6341865472 - INFO - Successfully inserted [('BlackJack', 24354)] into table [transactions]
+2023-12-03 18:21:46,036 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:21:46,665 - 6160543744 - INFO - Successfully inserted [('Roulette', 1944)] into table [transactions]
+2023-12-03 18:21:46,734 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:21:47,877 - 6375518208 - INFO - Successfully inserted [('Poker', 1.9500000000000028)] into table [transactions]
+2023-12-03 18:21:50,050 - 6375518208 - INFO - Successfully inserted [('Poker', 4.950000000000003)] into table [transactions]
+2023-12-03 18:21:52,186 - 6375518208 - INFO - Successfully inserted [('Poker', 2.9000000000000057)] into table [transactions]
+2023-12-03 18:21:54,355 - 6375518208 - INFO - Successfully inserted [('Poker', 3.75)] into table [transactions]
+2023-12-03 18:21:56,538 - 6375518208 - INFO - Successfully inserted [('Poker', 4.150000000000006)] into table [transactions]
+2023-12-03 18:21:58,749 - 6375518208 - INFO - Successfully inserted [('Poker', 4.1000000000000085)] into table [transactions]
+2023-12-03 18:22:00,878 - 6375518208 - INFO - Successfully inserted [('Poker', 1.5)] into table [transactions]
+2023-12-03 18:22:03,017 - 6375518208 - INFO - Successfully inserted [('Poker', 2.950000000000003)] into table [transactions]
+2023-12-03 18:22:05,157 - 6375518208 - INFO - Successfully inserted [('Poker', 4.200000000000003)] into table [transactions]
+2023-12-03 18:22:07,355 - 6375518208 - INFO - Successfully inserted [('Poker', 3.700000000000003)] into table [transactions]
+2023-12-03 18:22:09,505 - 6375518208 - INFO - Successfully inserted [('Poker', 3.3000000000000043)] into table [transactions]
+2023-12-03 18:22:11,663 - 6375518208 - INFO - Successfully inserted [('Poker', 2.9000000000000057)] into table [transactions]
+2023-12-03 18:22:13,820 - 6375518208 - INFO - Successfully inserted [('Poker', 1.4500000000000028)] into table [transactions]
+2023-12-03 18:22:16,016 - 6375518208 - INFO - Successfully inserted [('Poker', 3.549999999999997)] into table [transactions]
+2023-12-03 18:22:18,195 - 6375518208 - INFO - Successfully inserted [('Poker', 3.8500000000000085)] into table [transactions]
+2023-12-03 18:22:20,350 - 6375518208 - INFO - Successfully inserted [('Poker', 3.9000000000000057)] into table [transactions]
+2023-12-03 18:22:22,523 - 6375518208 - INFO - Successfully inserted [('Poker', 3.1500000000000057)] into table [transactions]
+2023-12-03 18:22:24,718 - 6375518208 - INFO - Successfully inserted [('Poker', 2.950000000000003)] into table [transactions]
+2023-12-03 18:22:26,885 - 6375518208 - INFO - Successfully inserted [('Poker', 3.1500000000000057)] into table [transactions]
+2023-12-03 18:22:29,047 - 6375518208 - INFO - Successfully inserted [('Poker', 1.2000000000000028)] into table [transactions]
+2023-12-03 18:22:31,243 - 6375518208 - INFO - Successfully inserted [('Poker', 2.8500000000000014)] into table [transactions]
+2023-12-03 18:22:33,414 - 6375518208 - INFO - Successfully inserted [('Poker', 1.0)] into table [transactions]
+2023-12-03 18:22:35,505 - 6341865472 - INFO - Player [Harold Shelton] has won
+2023-12-03 18:22:35,662 - 6341865472 - INFO - Successfully inserted [('BlackJack', -23517)] into table [transactions]
+2023-12-03 18:22:35,693 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:22:35,712 - 11158056960 - DEBUG - Customer [13]: left table
+2023-12-03 18:22:35,755 - 10855182336 - INFO - Bartender selected customer [13]
+2023-12-03 18:22:35,813 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:35,832 - 10855182336 - DEBUG - Bartender released customer [13]
+2023-12-03 18:22:36,328 - 6160543744 - INFO - Successfully inserted [('Roulette', 2541)] into table [transactions]
+2023-12-03 18:22:36,403 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:22:36,440 - 11073925120 - DEBUG - Customer [7]: left table
+2023-12-03 18:22:36,447 - 11259015168 - DEBUG - Customer [19]: left table
+2023-12-03 18:22:36,464 - 11006619648 - DEBUG - Customer [3]: left table
+2023-12-03 18:22:36,471 - 11275841536 - DEBUG - Customer [20]: left table
+2023-12-03 18:22:36,519 - 11090751488 - DEBUG - Customer [10]: left table
+2023-12-03 18:22:36,526 - 11511410688 - DEBUG - Customer [34]: left table
+2023-12-03 18:22:36,543 - 11191709696 - DEBUG - Customer [15]: left table
+2023-12-03 18:22:36,599 - 11831111680 - DEBUG - Customer [54]: left table
+2023-12-03 18:22:36,636 - 11326320640 - DEBUG - Customer [23]: left table
+2023-12-03 18:22:36,661 - 11141230592 - DEBUG - Customer [12]: left table
+2023-12-03 18:22:36,673 - 11881590784 - DEBUG - Customer [57]: left table
+2023-12-03 18:22:36,680 - 11646021632 - DEBUG - Customer [42]: left table
+2023-12-03 18:22:36,699 - 11477757952 - DEBUG - Customer [32]: left table
+2023-12-03 18:22:36,711 - 11763806208 - DEBUG - Customer [50]: left table
+2023-12-03 18:22:36,736 - 11376799744 - DEBUG - Customer [26]: left table
+2023-12-03 18:22:36,755 - 11292667904 - DEBUG - Customer [21]: left table
+2023-12-03 18:22:36,799 - 11444105216 - DEBUG - Customer [30]: left table
+2023-12-03 18:22:36,824 - 11662848000 - DEBUG - Customer [43]: left table
+2023-12-03 18:22:36,854 - 12083507200 - DEBUG - Customer [69]: left table
+2023-12-03 18:22:36,879 - 11982548992 - DEBUG - Customer [63]: left table
+2023-12-03 18:22:36,892 - 11746979840 - DEBUG - Customer [49]: left table
+2023-12-03 18:22:36,916 - 11814285312 - DEBUG - Customer [53]: left table
+2023-12-03 18:22:36,965 - 6325039104 - INFO - Created Blackjack Table [1] thread
+2023-12-03 18:22:37,001 - 11393626112 - DEBUG - Customer [27]: left table
+2023-12-03 18:22:37,020 - 11898417152 - DEBUG - Customer [58]: left table
+2023-12-03 18:22:37,039 - 12033028096 - DEBUG - Customer [66]: left table
+2023-12-03 18:22:37,052 - 6358691840 - DEBUG - Customers in Poker table [2]: [[<classes.customer_classes.LowRoller object at 0x118345250>]]
+2023-12-03 18:22:37,095 - 11124404224 - DEBUG - Customer [11]: left table
+2023-12-03 18:22:37,102 - 11208536064 - DEBUG - Customer [16]: left table
+2023-12-03 18:22:37,163 - 6341865472 - INFO - Created Blackjack Table [4] thread
+2023-12-03 18:22:37,163 - 10855182336 - INFO - Bartender selected customer [21]
+2023-12-03 18:22:37,213 - 11612368896 - DEBUG - Customer [40]: left table
+2023-12-03 18:22:37,220 - 6143717376 - INFO - Created Roulette Table [0] thread
+2023-12-03 18:22:37,238 - 6375518208 - DEBUG - Customers in Poker table [5]: [[<classes.customer_classes.MediumRoller object at 0x118342c90>]]
+2023-12-03 18:22:37,251 - 6160543744 - INFO - Created Roulette Table [3] thread
+2023-12-03 18:22:37,263 - 10872008704 - INFO - Bartender selected customer [63]
+2023-12-03 18:22:37,307 - 6325039104 - DEBUG - Customers in Blackjack table [1]: [[<classes.customer_classes.HighRoller object at 0x118344750>]]
+2023-12-03 18:22:37,417 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:37,429 - 10855182336 - DEBUG - Bartender released customer [21]
+2023-12-03 18:22:37,490 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:37,508 - 10872008704 - DEBUG - Bartender released customer [63]
+2023-12-03 18:22:37,514 - 10855182336 - INFO - Bartender selected customer [40]
+2023-12-03 18:22:37,520 - 10872008704 - INFO - Bartender selected customer [11]
+2023-12-03 18:22:37,580 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:37,593 - 10855182336 - DEBUG - Bartender released customer [40]
+2023-12-03 18:22:37,634 - 10872008704 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:37,647 - 10872008704 - DEBUG - Bartender released customer [11]
+2023-12-03 18:22:37,653 - 10855182336 - INFO - Bartender selected customer [58]
+2023-12-03 18:22:37,707 - 10855182336 - INFO - Successfully inserted [('Bartender', 5)] into table [transactions]
+2023-12-03 18:22:37,719 - 10855182336 - DEBUG - Bartender released customer [58]
+2023-12-03 18:22:38,438 - 6358691840 - INFO - Successfully inserted [('Poker', 1.0500000000000007)] into table [transactions]
+2023-12-03 18:22:40,623 - 6358691840 - INFO - Successfully inserted [('Poker', 2.3500000000000014)] into table [transactions]
+2023-12-03 18:22:42,791 - 6358691840 - INFO - Successfully inserted [('Poker', 3.6000000000000085)] into table [transactions]
+2023-12-03 18:22:43,858 - 6143717376 - DEBUG - Customers in Roulette table [0]: [[<classes.customer_classes.LowRoller object at 0x118345110>]]
+2023-12-03 18:22:43,858 - 6160543744 - DEBUG - Customers in Roulette table [3]: [[<classes.customer_classes.HighRoller object at 0x118342e90>]]
+2023-12-03 18:22:43,859 - 6341865472 - DEBUG - Customers in Blackjack table [4]: [[<classes.customer_classes.HighRoller object at 0x118344310>]]
+2023-12-03 18:22:44,460 - 6425997312 - INFO - Dealer [2]: Thread finished
+2023-12-03 18:22:44,882 - 6375518208 - INFO - Successfully inserted [('Poker', 4.299999999999997)] into table [transactions]
+2023-12-03 18:22:45,638 - 10787876864 - INFO - Dealer [5]: Thread finished
+2023-12-03 18:22:45,748 - 11158056960 - DEBUG - Customer [13]: ordered drink
+2023-12-03 18:22:45,748 - 11158056960 - INFO - Customer [13]: Thread finished
+2023-12-03 18:22:46,841 - 11831111680 - DEBUG - Customer [54]: went to bathroom
+2023-12-03 18:22:46,842 - 11831111680 - INFO - Customer [54]: Thread finished
+2023-12-03 18:22:46,893 - 6325039104 - INFO - Player [Nicholas Ray] has won
+2023-12-03 18:22:46,905 - 6325039104 - INFO - Successfully inserted [('BlackJack', -204120)] into table [transactions]
+2023-12-03 18:22:47,168 - 11292667904 - DEBUG - Customer [21]: ordered drink
+2023-12-03 18:22:47,168 - 11292667904 - INFO - Customer [21]: Thread finished
+2023-12-03 18:22:47,256 - 11982548992 - DEBUG - Customer [63]: ordered drink
+2023-12-03 18:22:47,257 - 11982548992 - INFO - Customer [63]: Thread finished
+2023-12-03 18:22:47,338 - 11898417152 - DEBUG - Customer [58]: ordered drink
+2023-12-03 18:22:47,338 - 11898417152 - INFO - Customer [58]: Thread finished
+2023-12-03 18:22:47,350 - 11124404224 - DEBUG - Customer [11]: ordered drink
+2023-12-03 18:22:47,351 - 11124404224 - INFO - Customer [11]: Thread finished
+2023-12-03 18:22:47,424 - 6143717376 - INFO - Successfully inserted [('Roulette', 2943)] into table [transactions]
+2023-12-03 18:22:47,441 - 11612368896 - DEBUG - Customer [40]: ordered drink
+2023-12-03 18:22:47,441 - 11612368896 - INFO - Customer [40]: Thread finished
+2023-12-03 18:22:47,949 - 6160543744 - INFO - Successfully inserted [('Roulette', 293058)] into table [transactions]
+2023-12-03 18:22:48,972 - 6341865472 - INFO - Successfully inserted [('BlackJack', 189054)] into table [transactions]
+2023-12-03 18:22:48,972 - 10956140544 - DEBUG - Customer [0]: left table
+2023-12-03 18:22:48,972 - 10956140544 - INFO - Customer [0]: Thread finished
+2023-12-03 18:22:55,804 - 11191709696 - DEBUG - Customer [15]: went to bathroom
+2023-12-03 18:22:55,804 - 11191709696 - INFO - Customer [15]: Thread finished
+2023-12-03 18:22:56,486 - 6392344576 - INFO - Dealer [0]: Thread finished
+2023-12-03 18:22:59,965 - 10771050496 - INFO - Dealer [4]: Thread finished
+2023-12-03 18:23:05,868 - 6409170944 - INFO - Dealer [1]: Thread finished
+2023-12-03 18:23:06,866 - 10821529600 - INFO - Dealer [7]: Thread finished
+2023-12-03 18:23:07,868 - 10838355968 - INFO - Dealer [8]: Thread finished
+2023-12-03 18:23:07,868 - 10754224128 - INFO - Dealer [3]: Thread finished
+2023-12-03 18:23:07,868 - 10804703232 - INFO - Dealer [6]: Thread finished
+2023-12-03 18:23:36,592 - 12016201728 - DEBUG - Customer [65]: left table
+2023-12-03 18:23:36,593 - 12016201728 - INFO - Customer [65]: Thread finished
+2023-12-03 18:23:36,915 - 12066680832 - DEBUG - Customer [68]: left table
+2023-12-03 18:23:36,915 - 12066680832 - INFO - Customer [68]: Thread finished
+2023-12-03 18:23:37,088 - 12049854464 - DEBUG - Customer [67]: left table
+2023-12-03 18:23:37,089 - 12049854464 - INFO - Customer [67]: Thread finished
+2023-12-03 18:23:37,181 - 11073925120 - DEBUG - Customer [7]: left table
+2023-12-03 18:23:37,181 - 11073925120 - INFO - Customer [7]: Thread finished
+2023-12-03 18:23:37,193 - 11259015168 - DEBUG - Customer [19]: left table
+2023-12-03 18:23:37,193 - 11662848000 - DEBUG - Customer [43]: left table
+2023-12-03 18:23:37,193 - 11006619648 - DEBUG - Customer [3]: left table
+2023-12-03 18:23:37,193 - 11259015168 - INFO - Customer [19]: Thread finished
+2023-12-03 18:23:37,194 - 11662848000 - INFO - Customer [43]: Thread finished
+2023-12-03 18:23:37,194 - 11006619648 - INFO - Customer [3]: Thread finished
+2023-12-03 18:23:37,206 - 11090751488 - DEBUG - Customer [10]: left table
+2023-12-03 18:23:37,206 - 11141230592 - DEBUG - Customer [12]: left table
+2023-12-03 18:23:37,206 - 11511410688 - DEBUG - Customer [34]: left table
+2023-12-03 18:23:37,206 - 11326320640 - DEBUG - Customer [23]: left table
+2023-12-03 18:23:37,206 - 11090751488 - INFO - Customer [10]: Thread finished
+2023-12-03 18:23:37,206 - 11141230592 - INFO - Customer [12]: Thread finished
+2023-12-03 18:23:37,207 - 11511410688 - INFO - Customer [34]: Thread finished
+2023-12-03 18:23:37,207 - 11326320640 - INFO - Customer [23]: Thread finished
+2023-12-03 18:23:37,218 - 11881590784 - DEBUG - Customer [57]: left table
+2023-12-03 18:23:37,218 - 11646021632 - DEBUG - Customer [42]: left table
+2023-12-03 18:23:37,219 - 11881590784 - INFO - Customer [57]: Thread finished
+2023-12-03 18:23:37,219 - 11646021632 - INFO - Customer [42]: Thread finished
+2023-12-03 18:23:37,243 - 11376799744 - DEBUG - Customer [26]: left table
+2023-12-03 18:23:37,244 - 11376799744 - INFO - Customer [26]: Thread finished
+2023-12-03 18:23:37,281 - 11444105216 - DEBUG - Customer [30]: left table
+2023-12-03 18:23:37,281 - 11444105216 - INFO - Customer [30]: Thread finished
+2023-12-03 18:23:37,287 - 11275841536 - DEBUG - Customer [20]: left table
+2023-12-03 18:23:37,288 - 11275841536 - INFO - Customer [20]: Thread finished
+2023-12-03 18:23:37,306 - 12083507200 - DEBUG - Customer [69]: left table
+2023-12-03 18:23:37,306 - 11814285312 - DEBUG - Customer [53]: left table
+2023-12-03 18:23:37,306 - 12083507200 - INFO - Customer [69]: Thread finished
+2023-12-03 18:23:37,307 - 11814285312 - INFO - Customer [53]: Thread finished
+2023-12-03 18:23:37,319 - 11393626112 - DEBUG - Customer [27]: left table
+2023-12-03 18:23:37,319 - 11393626112 - INFO - Customer [27]: Thread finished
+2023-12-03 18:23:37,350 - 12033028096 - DEBUG - Customer [66]: left table
+2023-12-03 18:23:37,350 - 12033028096 - INFO - Customer [66]: Thread finished
+2023-12-03 18:23:43,859 - 11477757952 - DEBUG - Customer [32]: left table
+2023-12-03 18:23:43,860 - 11477757952 - INFO - Customer [32]: Thread finished
+2023-12-03 18:23:43,860 - 11763806208 - DEBUG - Customer [50]: left table
+2023-12-03 18:23:43,860 - 11746979840 - DEBUG - Customer [49]: left table
+2023-12-03 18:23:43,861 - 11763806208 - INFO - Customer [50]: Thread finished
+2023-12-03 18:23:43,861 - 11746979840 - INFO - Customer [49]: Thread finished
+2023-12-03 18:23:43,864 - 11208536064 - DEBUG - Customer [16]: left table
+2023-12-03 18:23:43,864 - 11208536064 - INFO - Customer [16]: Thread finished
+2023-12-03 18:23:43,864 - 8393022976 - INFO - The Casino is now closed.

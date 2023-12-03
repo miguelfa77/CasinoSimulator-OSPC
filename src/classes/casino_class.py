@@ -131,7 +131,7 @@ class Casino:
         amount = []
         timestamp = []
         for entry in data:
-            amount.append(entry[0])
+            amount.append(entry[0] )
             timestamp.append(entry[1])
         amount = np.cumsum(amount)
 
@@ -140,6 +140,7 @@ class Casino:
         plt.ylabel('cumulative amount ($)')
         plt.suptitle('Casino Profit and Loss (PnL)', fontsize=15)
         plt.title(f'Sim Params - [Duration: {self._SIM_DURATION}, Starting Balance: {self.starting_balance}]', fontsize=10)
+        plt.xticks(rotation=70)
         plt.savefig('CasinoPerformance.png')
         plt.show()
         

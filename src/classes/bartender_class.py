@@ -19,13 +19,13 @@ class Bartender():
             if self.casino.queues['bartender']:
                 self.current_customer = self.casino.queues['bartender'].pop()
                 return self.current_customer
-            return None
 
     def take_order(self, drink_options: list):
-        self.current_drink = self.current_customer.order_drink(drink_options)
-        self.casino.update_balance(5, executor=Bartender.__name__)
-        self.current_customer.served = True
-        return self.current_drink      
+        with self.casino.locks['bartender']:
+            self.current_drink = self.current_customer.order_drink(drink_options)
+            self.casino.update_balance(5, executor=Bartender.__name__)
+            self.current_customer.served = True
+            return self.current_drink      
     
     def run(self):
         self.casino.LOG.info(f"Running bartender [{self.bartender_id}] thread")

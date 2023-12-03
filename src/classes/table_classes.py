@@ -47,25 +47,26 @@ class Roulette(Table):
 
     def get_bets(self):
         for customer in self.current_customers:
-            bet = random.randrange(10,100)
-            self.current_bets[customer] = bet
-            customer.bet(bet) 
+            bet = random.randint(100,1000)
+            bet = customer.bet(bet)
+            self.current_bets[customer] = bet 
             time.sleep(0.5)
             self.nums_chosen[customer] = random.randrange(0, 36)
-        self.current_bets[self] = random.randrange(10,100)
 
     def clear_hands(self):
-        self.current_bets.clear()
+        self.current_bets = {}
+        self.nums_chosen = {}
 
     def play(self):
         outcome = random.randrange(0, 36)
         for customer in self.current_customers:
             bet_amount = self.current_bets[customer]
             if self.nums_chosen[customer] == outcome:
-                customer.update_bankroll(outcome * 36)
-                self.casino.update_balance(amount=-(outcome * 36), executor=Roulette.__name__) 
+                payoff = bet_amount * 36
+                customer.update_bankroll(payoff)
+                self.casino.update_balance(amount=-payoff, executor=Roulette.__name__) 
             else:
-                self.casino.update_balance(amount=bet_amount, executor=Roulette.__name__)
+                self.casino.update_balance(amount=sum(self.current_bets.values()), executor=Roulette.__name__)
         self.clear_hands()
 
     def run(self):
@@ -104,27 +105,24 @@ class BlackJack(Table):
         self._hands = {}
 
     def clear_hands(self):
-        self._hands.clear()
-        self.current_bets.clear()
+        self._hands = {}
+        self.current_bets = {}
     
     def get_bets(self):
         for customer in self.current_customers:
             bet = random.randint(100,1000)
-            self.current_bets[customer] = bet
-            customer.bet(bet) 
+            bet = customer.bet(bet)
+            self.current_bets[customer] = bet 
             time.sleep(1)
-        self.current_bets[self] = random.randrange(10,100)
 
     def payoff_bets(self):
         for player in self.current_customers:
-            if sum(self._hands[player]) == 21:
-                self.casino.LOG.info(f"Player [{player.name}] has won.")
-                player.update_bankroll(sum(self.current_bets.values()))
-            elif (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21):
+            if (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21) and sum(self._hands[player]) <= 21:
                 self.casino.LOG.info(f"Player [{player.name}] has won")
-                player.update_bankroll(sum(self.current_bets.values()))
+                player.update_bankroll(amount=(self.current_bets[player] * 2))
+                self.casino.update_balance(amount=-(self.current_bets[player]), executor=BlackJack.__name__)
             else:
-                 self.casino.update_balance(amount=-(sum(self.current_bets.values())), executor=BlackJack.__name__)
+                 self.casino.update_balance(amount=(self.current_bets[player]), executor=BlackJack.__name__)
 
 
     def play(self):
@@ -162,23 +160,18 @@ class BlackJack(Table):
             
 
 class Poker(Table):
-    """
-    :methods: get_bets, play, payoff_bets, run
-    :params: id
-
-    """
     def __init__(self, id, casino):
         super().__init__(self)
         self.table_id = id
         self.max_players = 6
-        self.min_bet_amount = 20
+        self.min_bet = 20
         self.casino = casino
     
     def get_bets(self):
         for customer in self.current_customers:
-            bet = random.randrange(10,50)
-            self.current_bets[customer] = bet
-            customer.bet(bet) 
+            bet = random.randrange(self.min_bet, 100)
+            customer.update_bankroll(-bet)
+            self.current_bets[customer] = bet 
         time.sleep(1)
 
     def play(self):
@@ -201,7 +194,7 @@ class Poker(Table):
         self.casino.update_balance(amount=rake, executor=Poker.__name__)          # RAKE aka what the casino keeps
         winner.update_bankroll(payoff)
 
-        self.current_bets = {}                                                     # EMPTY POT
+        self.current_bets = {}                                                    # EMPTY POT
         time.sleep(1)
         
     def run(self):

@@ -7,11 +7,10 @@ class Customer():
         self.id = id
         self.in_casino = False
         self.bankroll = None
-        self.start_bankroll = self.bankroll
         self.gender = random.choice(['male', 'female'])
         self.name = names.get_full_name(gender=self.gender)
         self.age = random.randint(18,80)
-        self.current_table = False
+        self.current_table = None
         self.served = False
         self.customer_type = "normal"
         self.entry_atts_ = {"drunkness":random.randint(0,8),
@@ -63,6 +62,7 @@ class Customer():
             if amount < self.min_bet_amount:
                 amount *= 3
         self.update_bankroll(amount)
+        return amount
     
     def isBankrupt(self):
         return True if self.bankroll <= 0 else False
@@ -101,10 +101,10 @@ class Customer():
             self.casino.queues['table']['customer'].append(self)
 
     def leave_table(self):
-        if self.current_table:
-            with self.casino.locks['table']['customer']:
+        with self.casino.locks['table']['customer']:
+            if self.current_table:
                 self.current_table.current_customers.remove(self)
-                self.current_table = False
+                self.current_table = None
             
 
     def run(self):
@@ -145,6 +145,7 @@ class HighRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
         self.bankroll = random.randint(5000000, 9999999)
+        self.start_bankroll = self.bankroll
         self.min_bet_amount = 100000
         self.customer_type = "high_roller"
 
@@ -158,6 +159,7 @@ class MediumRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
         self.bankroll = random.randint(100000,999999)
+        self.start_bankroll = self.bankroll
         self.min_bet_amount = 10000
         self.customer_type = "medium_roller"
 
@@ -166,6 +168,7 @@ class LowRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
         self.bankroll = random.randint(10000,99999)
+        self.start_bankroll = self.bankroll
         self.min_bet_amount = 1000
         self.customer_type = "low_roller"
 

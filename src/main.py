@@ -8,10 +8,10 @@ if __name__ == "__main__":
     """
 
     starting_balance = 100000000
-    SIM_DURATION = 500
+    SIM_DURATION = 250
     NUM_OF_TABLES = 6                  # MUST BE MULTIPLE OF 3
-    NUM_OF_CUSTOMERS = 50
-    NUM_OF_DEALERS = 10
+    NUM_OF_CUSTOMERS = 100
+    NUM_OF_DEALERS = 9
     NUM_OF_BARTENDERS = 2
     NUM_OF_BOUNCERS = 4
 
@@ -25,8 +25,6 @@ if __name__ == "__main__":
                     NUM_OF_BOUNCERS=NUM_OF_BOUNCERS)
     
     casino.run()
-
-    sys.exit()
 
 
 
