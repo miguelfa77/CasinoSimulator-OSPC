@@ -1,8 +1,5 @@
 import random
 
-# ARREGLAR DECK CLASS!!!!!!
-
-
 class Deck:
     deck = []
 

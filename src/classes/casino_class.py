@@ -38,7 +38,6 @@ class Casino:
         f'Tables: {self._NUM_OF_TABLES} | Dealers: {self._NUM_OF_DEALERS} | Bouncers: {self._NUM_OF_BOUNCERS} | Bartenders: {self._NUM_OF_BARTENDERS} | Customers: {self._NUM_OF_CUSTOMERS}\n\n'
 
         self.LOG = myLogger()
-        self.database = casinoDB(self)
         self.customers = []
         self.customers_denied_entry = []
         self.tables = []
@@ -64,7 +63,8 @@ class Casino:
         self.opening_time = 0
         self.closing_time = 1000
         self.is_open = True
-        self.initialize_internal()   
+        self.initialize_internal()
+        self.database = casinoDB(self)   
 
     
     def initialize_internal(self):
@@ -154,7 +154,7 @@ class Casino:
     def run(self):
         self.LOG.info(self.sim_params)
         self.LOG.info('Starting Main Thread')
-        self.update_balance(amount=0, executor=Casino)
+        self.update_balance(amount=0, executor=Casino.__name__)
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES+self._NUM_OF_CUSTOMERS)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]

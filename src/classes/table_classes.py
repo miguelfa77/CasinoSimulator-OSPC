@@ -50,7 +50,6 @@ class Roulette(Table):
             bet = random.randint(100,1000)
             bet = customer.bet(bet)
             self.current_bets[customer] = bet 
-            time.sleep(0.5)
             self.nums_chosen[customer] = random.randrange(0, 36)
 
     def clear_hands(self):
@@ -59,33 +58,38 @@ class Roulette(Table):
 
     def play(self):
         outcome = random.randrange(0, 36)
+        total_casino_payoff = 0
         for customer in self.current_customers:
-            bet_amount = self.current_bets[customer]
             if self.nums_chosen[customer] == outcome:
-                payoff = bet_amount * 36
-                customer.update_bankroll(payoff)
-                self.casino.update_balance(amount=-payoff, executor=Roulette.__name__) 
+                customer_payoff = self.current_bets[customer] * 35
+                customer.update_bankroll(customer_payoff)
+                total_casino_payoff -= customer_payoff
             else:
-                self.casino.update_balance(amount=self.current_bets[customer], executor=Roulette.__name__)
+                customer.update_bankroll(amount=-self.current_bets[customer])
+                total_casino_payoff += self.current_bets[customer]
+        self.casino.update_balance(amount=total_casino_payoff, executor=Roulette.__name__)
         self.clear_hands()
 
     def run(self):
+        self.casino.LOG.info(f"Running Roulette Table [{self.table_id}] thread")
         while self.casino.is_open:
             try:
-                self.casino.LOG.info(f"Created Roulette Table [{self.table_id}] thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
                     while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Roulette table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                         continue
                     else:
                         time.sleep(1)
                 
                 with self.casino.locks['table']['customer'], self.casino.locks['table']['dealer']:
+                    self.casino.LOG.info(f"Dealer in Roulette table [{self.table_id}]: [{self.current_dealer.dealer_id}]")
+                    self.casino.LOG.info(f"Customers in Roulette table [{self.table_id}]: [{[customer.id for customer in self.current_customers]}]")
                     self.get_bets()
+                    time.sleep(1)
                     self.play()
+                    time.sleep(1)
 
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
@@ -113,46 +117,51 @@ class BlackJack(Table):
             bet = random.randint(100,1000)
             bet = customer.bet(bet)
             self.current_bets[customer] = bet 
-            time.sleep(1)
 
     def payoff_bets(self):
-        for player in self.current_customers:
-            if (sum(self._hands[player]) - 21) > (sum(self._hands[self]) - 21) and sum(self._hands[player]) <= 21:
-                self.casino.LOG.info(f"Player [{player.name}] has won")
-                player.update_bankroll(amount=(self.current_bets[player] * 2))
-                self.casino.update_balance(amount=-(self.current_bets[player]), executor=BlackJack.__name__)
+        total_casino_payoff = 0
+        for customer in self.current_customers:
+            if (sum(self._hands[customer]) - 21) > (sum(self._hands[self]) - 21) and sum(self._hands[customer]) <= 21:
+                customer_payoff = self.current_bets[customer]
+                customer.update_bankroll(amount=customer_payoff)
+                total_casino_payoff -= customer_payoff
             else:
-                 self.casino.update_balance(amount=(self.current_bets[player]), executor=BlackJack.__name__)
+                 total_casino_payoff += self.current_bets[customer]
+                 customer.update_bankroll(amount=-self.current_bets[customer])
+        
+        self.casino.update_balance(amount=total_casino_payoff, executor=BlackJack.__name__)
 
 
     def play(self):
         self.deck = deck_type('blackjack')
         self.deck.shuffle_deck()
-        for _ in range(2):
-            for player in self.current_customers:
-                self._hands[player] = (self.deck.deck.pop(), self.deck.deck.pop()) 
-            self._hands[self] = (self.deck.deck.pop(), self.deck.deck.pop()) 
+        for player in self.current_customers:
+            self._hands[player] = (self.deck.deck.pop(), self.deck.deck.pop()) 
+        self._hands[self] = (self.deck.deck.pop(), self.deck.deck.pop()) 
         self.payoff_bets()
         self.clear_hands()
 
 
     def run(self):
+        self.casino.LOG.info(f"Running Blackjack Table [{self.table_id}] thread")
         while self.casino.is_open:
             try:
-                self.casino.LOG.info(f"Created Blackjack Table [{self.table_id}] thread")
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
                     while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Blackjack table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                         continue
                     else:
                         time.sleep(1)
 
                 with self.casino.locks['table']['customer'], self.casino.locks['table']['dealer']:
+                    self.casino.LOG.info(f"Dealer in Blackjack table [{self.table_id}]: [{self.current_dealer.dealer_id}]")
+                    self.casino.LOG.info(f"Customers in Blackjack table [{self.table_id}]: [{[customer.id for customer in self.current_customers]}]")
                     self.get_bets()
+                    time.sleep(1)
                     self.play()
+                    time.sleep(1)
                 
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
@@ -164,15 +173,14 @@ class Poker(Table):
         super().__init__(self)
         self.table_id = id
         self.max_players = 6
-        self.min_bet = 20
+        self.min_bet = 100
         self.casino = casino
     
     def get_bets(self):
         for customer in self.current_customers:
-            bet = random.randrange(self.min_bet, 100)
+            bet = random.randrange(self.min_bet, self.min_bet * 5)
             customer.update_bankroll(-bet)
             self.current_bets[customer] = bet 
-        time.sleep(1)
 
     def play(self):
         self.deck = deck_type('normal')  
@@ -195,10 +203,9 @@ class Poker(Table):
         winner.update_bankroll(payoff)
 
         self.current_bets = {}                                                   
-        time.sleep(1)
         
     def run(self):
-        self.casino.LOG.info(f"Created Poker Table [{self.table_id}] thread")
+        self.casino.LOG.info(f"Running Poker Table [{self.table_id}] thread")
         while self.casino.is_open:
             try:
                 while not self.current_dealer or len(self.current_customers) < 1:
@@ -206,15 +213,19 @@ class Poker(Table):
                         self.select_dealer()
                     while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Poker table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                     else:
                         time.sleep(1)
 
                 with self.casino.locks['table']['customer'], self.casino.locks['table']['dealer']:
                     if self.current_customers and self.current_dealer:
+                        self.casino.LOG.info(f"Dealer in Poker table [{self.table_id}]: [{self.current_dealer.dealer_id}]")
+                        self.casino.LOG.info(f"Customers in Poker table [{self.table_id}]: [{[customer.id for customer in self.current_customers]}]")
                         self.get_bets()
+                        time.sleep(1)
                         self.play()
+                        time.sleep(1)
                         self.payoff_bets()
+                        time.sleep(1)
                     else:
                         pass
                 

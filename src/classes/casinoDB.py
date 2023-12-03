@@ -33,8 +33,9 @@ class casinoDB():
                 cursor.execute(query)
                 self.conn.commit()
 
-        finally:
-            self.kill_conn()
+        except mysql.connector.Error as err:
+            self.casino.LOG.error(f"Failed dropping database: {err}")
+            exit(1)
  
     def auth(self):
         """
@@ -66,7 +67,7 @@ class casinoDB():
         
     def create_db(self, db=None):
         try:
-            with self.auth():
+            with self.auth(), self.casino.locks['db']:
                 self.db = db
                 cursor = self.conn.cursor()
                 query =  f"""CREATE DATABASE IF NOT EXISTS {self.db} DEFAULT CHARACTER SET 'utf8'"""
@@ -99,7 +100,7 @@ class casinoDB():
         }   
         if table.lower() in ['transactions', 'customers']:
             try:
-                with self.auth():
+                with self.auth(), self.casino.locks['db']:
                     cursor = self.conn.cursor()
                     cursor.execute(query[table])
                     self.conn.commit()
@@ -123,7 +124,7 @@ class casinoDB():
             'customers': """INSERT INTO customers(customer_id, name, age, gender) VALUES (%s, %s, %s, %s);"""
         }
         try:
-            with self.auth():
+            with self.auth(), self.casino.locks['db']:
                 cursor = self.conn.cursor()
                 cursor.execute(query[table], values)
                 self.conn.commit()

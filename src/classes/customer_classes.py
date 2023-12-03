@@ -41,9 +41,10 @@ class Customer():
              
     @staticmethod
     def player_info(func):
-        def print_id(self, amount):
+        def print_bankroll(self, amount):
+            self.casino.LOG.info(f"Customer [{self.id}] updated bankroll: [{self.bankroll}]")
             return func(self, amount)
-        return print_id
+        return print_bankroll
     
     @player_info 
     def update_bankroll(self, amount) -> float:        
@@ -59,8 +60,7 @@ class Customer():
 
     def bet(self, amount): 
         while amount < self.min_bet_amount:
-            if amount < self.min_bet_amount:
-                amount *= 3
+                amount *= 1.5
         self.update_bankroll(amount)
         return amount
     
@@ -82,8 +82,7 @@ class Customer():
             pass
 
     def update_customers(self, values:tuple, table='customers'):
-        with self.casino.locks['db']:
-            self.casino.database.insert_table(table, values)
+        self.casino.database.insert_table(table, values)
     
     def enter_bartender_queue(self):
         with self.casino.locks['bartender']:
@@ -108,7 +107,7 @@ class Customer():
             
 
     def run(self):
-        self.casino.LOG.info(f"Running customer [{self.id}] thread")
+        self.casino.LOG.info(f"Running Customer [{self.id}] thread")
         try:
             self.enter_bouncer_queue()
             self.casino.LOG.info(f"Customer [{self.id}]: Entered bouncer queue")
@@ -121,19 +120,21 @@ class Customer():
 
                     if activity.lower() == 'play':
                         self.enter_table_queue()
-                        time.sleep(60)
+                        self.casino.LOG.info(f"Customer [{self.id}]: Entered table queue")
+                        time.sleep(10)
                         self.leave_table()
-                        self.casino.LOG.debug(f"Customer [{self.id}]: left table")
+                        self.casino.LOG.info(f"Customer [{self.id}]: Left table")
 
                     elif activity.lower() == 'drink':
                         self.enter_bartender_queue()
+                        self.casino.LOG.info(f"Customer [{self.id}]: Entered bartender queue")
                         time.sleep(10)
                         self.leave_bartender()
-                        self.casino.LOG.debug(f"Customer [{self.id}]: ordered drink")
+                        self.casino.LOG.info(f"Customer [{self.id}]: Ordered drink")
 
                     elif activity.lower() == 'bathroom':
                         self.goBathroom()
-                        self.casino.LOG.debug(f"Customer [{self.id}]: went to bathroom")
+                        self.casino.LOG.info(f"Customer [{self.id}]: Went to bathroom")
                     else:
                         time.sleep(random.randrange(2,5))
                 self.casino.LOG.info(f"Customer [{self.id}]: Thread finished")
@@ -146,13 +147,13 @@ class HighRoller(Customer):
         super().__init__(id, casino)
         self.bankroll = random.randint(100000, 1000000)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 10000
+        self.min_bet_amount = 1000
         self.customer_type = "high_roller"
 
     def enterVIP(self):
-        print(f"Customer {self.name} has entered the VIP.")
+        self.casino.LOG.info(f"Customer [{self.id}]: Has entered the VIP.")
         time.sleep(random.randint(5,20))
-        print(f"Customer {self.name} has left the VIP.")
+        self.casino.LOG.info(f"Customer [{self.id}]: Has left the VIP.")
 
 
 class MediumRoller(Customer):
@@ -160,7 +161,7 @@ class MediumRoller(Customer):
         super().__init__(id, casino)
         self.bankroll = random.randint(10000,999999)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 5000
+        self.min_bet_amount = 500
         self.customer_type = "medium_roller"
 
 
@@ -169,7 +170,7 @@ class LowRoller(Customer):
         super().__init__(id, casino)
         self.bankroll = random.randint(1000,1000)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 500
+        self.min_bet_amount = 100
         self.customer_type = "low_roller"
 
 def customer_type(id, casino:object, type=None):

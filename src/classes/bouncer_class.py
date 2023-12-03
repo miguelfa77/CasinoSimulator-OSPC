@@ -53,7 +53,7 @@ class Bouncer:
             return False
             
     def run(self):
-        self.casino.LOG.info(f"Running bouncer [{self.bouncer_id}] thread")
+        self.casino.LOG.info(f"Running Bouncer [{self.bouncer_id}] thread")
         while self.casino.is_open:
             time.sleep(2)
             try:
