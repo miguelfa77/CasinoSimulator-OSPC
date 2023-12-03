@@ -6,7 +6,6 @@ import time
 """
 - Bouncers share the same queue
 - Add customer attr. to the customer class
-- Possibility: Initilize only the Bouncer instances with customers as constructors and append to 
 """
 
 class Bouncer:
@@ -49,7 +48,6 @@ class Bouncer:
         return False
 
     def kick_out(self, customer:Customer, reason=None):
-        self.casino.LOG.info(f'Customer [{customer.id}] kicked out')
         self.casino.customers_denied_entry.append(customer)
 
     def allow_entry(self, customer:Customer):
@@ -63,15 +61,16 @@ class Bouncer:
         while self.casino.is_open:
             time.sleep(2)
             try:
-                if self.casino.queues['bouncer']:
-                    with self.casino.locks['bouncer']:
+                with self.casino.locks['bouncer']:
+                    if self.casino.queues['bouncer']:
                         self.current_customer = self.casino.queues['bouncer'].pop()
                         if self.allow_entry(self.current_customer):
-                            self.casino.LOG.debug(f"Bouncer [{self.bouncer_id}] allowed customer [{self.current_customer.id}] to enter")
+                            self.casino.LOG.info(f"Bouncer [{self.bouncer_id}] allowed customer [{self.current_customer.id}] to enter")
                             with self.casino.locks['customer']:
                                 self.casino.customers.append(self.current_customer)
                         else:
-                            self.kick_out(self.current_customer) 
+                            self.kick_out(self.current_customer)
+                            self.casino.LOG.info(f'Customer [{self.current_customer.id}] kicked out') 
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
 

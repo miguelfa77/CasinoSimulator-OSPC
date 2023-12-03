@@ -1,7 +1,5 @@
 import os
 import mysql.connector
-from typing import Literal
-import traceback
 
 class casinoDB():
     def __init__(self, casino):

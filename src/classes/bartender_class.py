@@ -14,33 +14,32 @@ class Bartender():
         self.current_drink = None
         self.casino: object = casino
 
-    def select_customer(self):
-        if self.casino.queues['bartender']:
-            with self.casino.locks['bartender']:
+    def select_customer(self):       
+        with self.casino.locks['bartender']:
+            if self.casino.queues['bartender']:
                 self.current_customer = self.casino.queues['bartender'].pop()
-            self.current_customer.current_bartender = self
-            return self.current_customer
-        return None
+                return self.current_customer
+            return None
 
     def take_order(self, drink_options: list):
         self.current_drink = self.current_customer.order_drink(drink_options)
-        self.current_customer.current_drink = self.current_drink
+        self.casino.update_balance(5, executor=Bartender.__name__)
+        self.current_customer.served = True
         return self.current_drink      
     
     def run(self):
+        self.casino.LOG.info(f"Running bartender [{self.bartender_id}] thread")
         try:
-            self.casino.LOG.info(f"Running bartender [{self.bartender_id}] thread")
             while self.casino.is_open:
                 self.current_customer = self.select_customer()
                 if self.current_customer:
                     self.casino.LOG.info(f"Bartender selected customer [{self.current_customer.id}]")
                     self.current_drink = self.take_order(drink_options=self.drinks)
-                    self.make_drink(self.current_drink)
-                    self.casino.update_balance(5, executor=Bartender.__name__)
                     self.casino.LOG.debug(f"Bartender released customer [{self.current_customer.id}]")
 
-                    self.current_customer = None
-                    self.current_drink = None
+                    if self.current_customer and self.current_drink:
+                        self.current_customer = False
+                        self.current_drink = False
                 else:
                     continue
         except Exception as e:
