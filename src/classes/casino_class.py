@@ -4,6 +4,7 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+import datetime
 import sys
 from classes.classes_file import Roulette, BlackJack, Poker, Dealer, Bartender, Bouncer, customer_type, casinoDB, myLogger
 
@@ -29,10 +30,12 @@ class Casino:
         self.starting_balance = STARTING_BALANCE
         self._balance = STARTING_BALANCE
         self._NUM_OF_TABLES = NUM_OF_TABLES
-        self._NUM_OF_CUSTOMERS = NUM_OF_CUSTOMERS     # accessed by bouncer class
+        self._NUM_OF_CUSTOMERS = NUM_OF_CUSTOMERS  
         self._NUM_OF_DEALERS = NUM_OF_DEALERS
         self._NUM_OF_BARTENDERS = NUM_OF_BARTENDERS
         self._NUM_OF_BOUNCERS = NUM_OF_BOUNCERS
+        self.sim_params = f'\n\n{"*" * 10} Duration: {self._SIM_DURATION} | Starting Balance: {self.starting_balance} {"*" * 10}\n ' + \
+        f'Tables: {self._NUM_OF_TABLES} | Dealers: {self._NUM_OF_DEALERS} | Bouncers: {self._NUM_OF_BOUNCERS} | Bartenders: {self._NUM_OF_BARTENDERS} | Customers: {self._NUM_OF_CUSTOMERS}\n\n'
 
         self.LOG = myLogger()
         self.database = casinoDB(self)
@@ -66,7 +69,7 @@ class Casino:
     
     def initialize_internal(self):
         """
-        Initialize and append to shared class variables: tables, dealer, bartenders, bounces
+        Initialize and append to shared class variables: tables, dealers, bartenders, bouncers
         """
     
         tables = [Roulette(table_id, self) for table_id in range(0, self._NUM_OF_TABLES, 3)] + \
@@ -118,7 +121,7 @@ class Casino:
 
     def get_balance(self):
         """
-        :returns: casino balance in case it wants to be printed or smth
+        :returns: casino balance in case it wants to be printed or displayed
         """
         return self._balance
     
@@ -128,6 +131,7 @@ class Casino:
             amount = entry[0]
             timestamp = entry[1]
         
+
         amount = []
         timestamp = []
         for entry in data:
@@ -138,14 +142,19 @@ class Casino:
         plt.plot(timestamp, amount)
         plt.xlabel('timestamp')
         plt.ylabel('cumulative amount ($)')
-        plt.suptitle('Casino Profit and Loss (PnL)', fontsize=15)
-        plt.title(f'Sim Params - [Duration: {self._SIM_DURATION}, Starting Balance: {self.starting_balance}]', fontsize=10)
-        plt.xticks(rotation=70)
+        plt.suptitle('Casino Profit and Loss (PnL)', fontsize=15, fontweight='bold', color='black',horizontalalignment='center')
+        plt.title(f'Sim Params - [Duration: {self._SIM_DURATION}, Starting Balance: {self.starting_balance}]', fontsize=10, fontweight='demibold')
+        plt.xticks(rotation=300)
+        plt.axhline(y=0, color='red', linestyle='--')
+        plt.tight_layout()
         plt.savefig('CasinoPerformance.png')
         plt.show()
         
+    
     def run(self):
+        self.LOG.info(self.sim_params)
         self.LOG.info('Starting Main Thread')
+        self.update_balance(amount=0, executor=Casino)
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES+self._NUM_OF_CUSTOMERS)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]
@@ -162,7 +171,6 @@ class Casino:
             self.LOG.info("The Casino is now open.")
 
             customers = self.initialize_external()
-            self.LOG.info(f"Initialized customers: {customers}")
             customer_threads = [exe.submit(customer.run) for customer in customers]
             self.LOG.info(f"Initialized customer threads: {customer_threads}")
 

@@ -5,7 +5,7 @@ from classes.deck_class import deck_type
 class Table():
     def __init__(self, casino:object):
         self.current_bets = {}
-        self.deck = None           # dict holding total table bet amounts. specifies per player id.
+        self.deck = None      
         self.current_dealer = None
         self.current_customers = []
         self.max_players = None
@@ -19,7 +19,7 @@ class Table():
 
     def select_dealer(self):
         with self.casino.locks['table']['dealer']:
-            self.current_dealer = self.casino.queues['table']['dealer'].pop()
+            self.current_dealer = self.casino.queues['table']['dealer'].pop(0)
             return self.current_dealer
     
     def customer_waiting(self):
@@ -31,7 +31,7 @@ class Table():
     def select_customer(self):
         with self.casino.locks['table']['customer']:
             if self.casino.queues['table']['customer']:
-                customer = self.casino.queues['table']['customer'].pop() 
+                customer = self.casino.queues['table']['customer'].pop(0) 
                 self.current_customers.append(customer)
                 customer.current_table = self
                 return self.current_customers
@@ -66,7 +66,7 @@ class Roulette(Table):
                 customer.update_bankroll(payoff)
                 self.casino.update_balance(amount=-payoff, executor=Roulette.__name__) 
             else:
-                self.casino.update_balance(amount=sum(self.current_bets.values()), executor=Roulette.__name__)
+                self.casino.update_balance(amount=self.current_bets[customer], executor=Roulette.__name__)
         self.clear_hands()
 
     def run(self):
@@ -76,9 +76,9 @@ class Roulette(Table):
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
-                    if len(self.current_customers) < 1 and self.customer_waiting():
+                    while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Roulette table [{self.table_id}]: [{self.current_customers}]")
+                        self.casino.LOG.debug(f"Customers in Roulette table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                         continue
                     else:
                         time.sleep(1)
@@ -143,9 +143,9 @@ class BlackJack(Table):
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
-                    if len(self.current_customers) < 1 and self.customer_waiting():
+                    while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Blackjack table [{self.table_id}]: [{self.current_customers}]")
+                        self.casino.LOG.debug(f"Customers in Blackjack table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                         continue
                     else:
                         time.sleep(1)
@@ -181,9 +181,9 @@ class Poker(Table):
         hands = {customer:[self.deck.draw_card(), self.deck.draw_card()] for customer in self.current_customers}
 
         board = []
-        board.extend(self.deck.draw_card() for _ in range(3)) # FLOP
-        board.append(self.deck.draw_card())                   # TURN
-        board.append(self.deck.draw_card())                   # RIVER
+        board.extend(self.deck.draw_card() for _ in range(3)) 
+        board.append(self.deck.draw_card())                   
+        board.append(self.deck.draw_card())                   
     
     def payoff_bets(self):
         pot = sum(self.current_bets.values())
@@ -191,10 +191,10 @@ class Poker(Table):
         rake = pot - payoff
         winner = random.choice(self.current_customers)
 
-        self.casino.update_balance(amount=rake, executor=Poker.__name__)          # RAKE aka what the casino keeps
+        self.casino.update_balance(amount=rake, executor=Poker.__name__)   
         winner.update_bankroll(payoff)
 
-        self.current_bets = {}                                                    # EMPTY POT
+        self.current_bets = {}                                                   
         time.sleep(1)
         
     def run(self):
@@ -204,10 +204,9 @@ class Poker(Table):
                 while not self.current_dealer or len(self.current_customers) < 1:
                     if not self.current_dealer and self.dealer_waiting():
                         self.select_dealer()
-                    if len(self.current_customers) < 1 and self.customer_waiting():
+                    while len(self.current_customers) < self.max_players and self.customer_waiting():
                         self.select_customer()
-                        self.casino.LOG.debug(f"Customers in Poker table [{self.table_id}]: [{self.current_customers}]")
-                        continue
+                        self.casino.LOG.debug(f"Customers in Poker table [{self.table_id}]: [{[customer_id for customer_id in self.current_customers]}]")
                     else:
                         time.sleep(1)
 

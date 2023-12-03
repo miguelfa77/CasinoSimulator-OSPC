@@ -90,10 +90,10 @@ class Customer():
             self.casino.queues['bartender'].append(self)
 
     def leave_bartender(self):
-        while not self.served and self.casino.is_open:
+        while self.served == False and self.casino.is_open:
             pass
-        if self.served:
-            with self.casino.locks['bartender']:
+        with self.casino.locks['bartender']:
+            if self.served == True:
                 self.served = False
 
     def enter_table_queue(self):
@@ -111,7 +111,7 @@ class Customer():
         self.casino.LOG.info(f"Running customer [{self.id}] thread")
         try:
             self.enter_bouncer_queue()
-            self.casino.LOG.info(f"Customer [{self.id}] entered bouncer queue")
+            self.casino.LOG.info(f"Customer [{self.id}]: Entered bouncer queue")
             while self not in self.casino.customers_denied_entry and self not in self.casino.customers and self.casino.is_open:
                 time.sleep(1)
             if self.check_status() is True:
@@ -144,9 +144,9 @@ class Customer():
 class HighRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
-        self.bankroll = random.randint(5000000, 9999999)
+        self.bankroll = random.randint(100000, 1000000)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 100000
+        self.min_bet_amount = 10000
         self.customer_type = "high_roller"
 
     def enterVIP(self):
@@ -158,18 +158,18 @@ class HighRoller(Customer):
 class MediumRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
-        self.bankroll = random.randint(100000,999999)
+        self.bankroll = random.randint(10000,999999)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 10000
+        self.min_bet_amount = 5000
         self.customer_type = "medium_roller"
 
 
 class LowRoller(Customer):
     def __init__(self, id, casino):
         super().__init__(id, casino)
-        self.bankroll = random.randint(10000,99999)
+        self.bankroll = random.randint(1000,1000)
         self.start_bankroll = self.bankroll
-        self.min_bet_amount = 1000
+        self.min_bet_amount = 500
         self.customer_type = "low_roller"
 
 def customer_type(id, casino:object, type=None):

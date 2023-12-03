@@ -3,13 +3,10 @@ import random
 import names
 import time
 
-"""
-- Bouncers share the same queue
-- Add customer attr. to the customer class
-"""
-
 class Bouncer:
-
+    """
+    Bouncers share the same queue
+    """
     def __init__(self, id, casino: object):
         self.bouncer_id = id
         self.name = names.get_first_name()
@@ -43,7 +40,6 @@ class Bouncer:
         if not need_to_check:
             return True
         if customer.entry_atts_['is_vip']:
-            print(f"Welcome back, VIP {customer.name}! Please enjoy your stay.")
             return True
         return False
 
@@ -63,14 +59,14 @@ class Bouncer:
             try:
                 with self.casino.locks['bouncer']:
                     if self.casino.queues['bouncer']:
-                        self.current_customer = self.casino.queues['bouncer'].pop()
+                        self.current_customer = self.casino.queues['bouncer'].pop(0)
                         if self.allow_entry(self.current_customer):
-                            self.casino.LOG.info(f"Bouncer [{self.bouncer_id}] allowed customer [{self.current_customer.id}] to enter")
+                            self.casino.LOG.info(f"Bouncer [{self.bouncer_id}]: Allowed customer [{self.current_customer.id}] to enter")
                             with self.casino.locks['customer']:
                                 self.casino.customers.append(self.current_customer)
                         else:
                             self.kick_out(self.current_customer)
-                            self.casino.LOG.info(f'Customer [{self.current_customer.id}] kicked out') 
+                            self.casino.LOG.info(f'Bouncer [{self.bouncer_id}]: Kicked out customer [{self.current_customer.id}]') 
             except Exception as e:
                 self.casino.LOG.error(f"Error: {e}", exc_info=True)
 

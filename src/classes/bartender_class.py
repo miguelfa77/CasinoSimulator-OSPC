@@ -17,29 +17,24 @@ class Bartender():
     def select_customer(self):       
         with self.casino.locks['bartender']:
             if self.casino.queues['bartender']:
-                self.current_customer = self.casino.queues['bartender'].pop()
-                return self.current_customer
+                self.current_customer = self.casino.queues['bartender'].pop(0)
 
-    def take_order(self, drink_options: list):
+    def take_order(self, drink_options):
         with self.casino.locks['bartender']:
-            self.current_drink = self.current_customer.order_drink(drink_options)
+            self.current_drink = self.current_customer.order_drink(self, drink_options)
             self.casino.update_balance(5, executor=Bartender.__name__)
-            self.current_customer.served = True
-            return self.current_drink      
+            self.current_customer.served = True     
     
     def run(self):
         self.casino.LOG.info(f"Running bartender [{self.bartender_id}] thread")
         try:
             while self.casino.is_open:
-                self.current_customer = self.select_customer()
+                self.select_customer(self)
                 if self.current_customer:
-                    self.casino.LOG.info(f"Bartender selected customer [{self.current_customer.id}]")
-                    self.current_drink = self.take_order(drink_options=self.drinks)
-                    self.casino.LOG.debug(f"Bartender released customer [{self.current_customer.id}]")
-
+                    self.take_order(self, drink_options=self.drinks)
                     if self.current_customer and self.current_drink:
-                        self.current_customer = False
-                        self.current_drink = False
+                        self.current_customer = None
+                        self.current_drink = None
                 else:
                     continue
         except Exception as e:
