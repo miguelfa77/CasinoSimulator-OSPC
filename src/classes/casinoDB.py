@@ -6,7 +6,7 @@ class casinoDB():
         self.db = None
         self.tables = []
         self.config = {'user':'root',
-                       'password':"your-password",
+                       'password':os.environ.get("MYSQL_PASSWORD"),
                        'host':'localhost',
                        'port':'3306'}
         self.conn = None

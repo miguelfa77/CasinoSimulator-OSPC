@@ -154,7 +154,6 @@ class Casino:
     def run(self):
         self.LOG.info(self.sim_params)
         self.LOG.info('Starting Main Thread')
-        self.update_balance(amount=0, executor=Casino.__name__)
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=(self._NUM_OF_BARTENDERS+self._NUM_OF_BOUNCERS+self._NUM_OF_DEALERS+self._NUM_OF_TABLES+self._NUM_OF_CUSTOMERS)) as exe:
             table_threads = [exe.submit(table.run) for table in self.tables]
@@ -171,6 +170,7 @@ class Casino:
             self.LOG.info("The Casino is now open.")
 
             customers = self.initialize_external()
+            self.update_balance(amount=0, executor=Casino.__name__)
             customer_threads = [exe.submit(customer.run) for customer in customers]
             self.LOG.info(f"Initialized customer threads: {customer_threads}")
 

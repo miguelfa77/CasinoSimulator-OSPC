@@ -7,12 +7,12 @@ if __name__ == "__main__":
     """
 
     starting_balance = 100000000
-    SIM_DURATION = 1000
+    SIM_DURATION = 150
     NUM_OF_TABLES = 3                  # MUST BE MULTIPLE OF 3
     NUM_OF_CUSTOMERS = 60
-    NUM_OF_DEALERS = 8
+    NUM_OF_DEALERS = 10
     NUM_OF_BARTENDERS = 2
-    NUM_OF_BOUNCERS = 3
+    NUM_OF_BOUNCERS = 4
 
     casino = Casino.__new__(cls=Casino)
     casino.__init__(STARTING_BALANCE=starting_balance,
