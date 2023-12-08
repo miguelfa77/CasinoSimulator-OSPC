@@ -8,5 +8,4 @@
 3. Go inside the file ```src/classes/casinoDB.py``` and change the password for your own mysql password
 4. Run ```python3 src/main.py```
 
-https://github.com/miguelfa77/CasinoSimulator-OSPC/blob/main/CasinoPerformance.png?raw=true![image]
 
